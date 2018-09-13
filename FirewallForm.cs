@@ -12,12 +12,13 @@ namespace WinformsExample
 {
     public partial class FirewallForm : Form
     {
+        TabPage tab1 = new TabPage();
+        TabPage tab2 = new TabPage();
         public FirewallForm()
         {
             InitializeComponent();
         }
-        TabPage tab1 = new TabPage();
-        TabPage tab2 = new TabPage();
+        
         private void Remove()
         {
             tabControl1.TabPages.Remove(tab1);
