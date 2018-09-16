@@ -38,6 +38,10 @@
     <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="SharpPcap, Version=4.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -57,6 +61,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddRuleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddRuleForm.Designer.cs">
+      <DependentUpon>AddRuleForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CaptureForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,7 +98,46 @@
       <DependentUpon>OutboundForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="RulePortForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RulePortForm.Designer.cs">
+      <DependentUpon>RulePortForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RuleProfileForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RuleProfileForm.Designer.cs">
+      <DependentUpon>RuleProfileForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RulePropertiesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RulePropertiesForm.Designer.cs">
+      <DependentUpon>RulePropertiesForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RuleIPForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RuleIPForm.Designer.cs">
+      <DependentUpon>RuleIPForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RuleProgramForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RuleProgramForm.Designer.cs">
+      <DependentUpon>RuleProgramForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RuleTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RuleTypeForm.Designer.cs">
+      <DependentUpon>RuleTypeForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddRuleForm.resx">
+      <DependentUpon>AddRuleForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CaptureForm.resx">
       <DependentUpon>CaptureForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -105,6 +154,18 @@
     <EmbeddedResource Include="OutboundForm.resx">
       <DependentUpon>OutboundForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RulePortForm.resx">
+      <DependentUpon>RulePortForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RuleProfileForm.resx">
+      <DependentUpon>RuleProfileForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RuleProgramForm.resx">
+      <DependentUpon>RuleProgramForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RulePropertiesForm.resx">
+      <DependentUpon>RulePropertiesForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -115,7 +176,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RuleIPForm.resx">
+      <DependentUpon>RuleIPForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RuleTypeForm.resx">
+      <DependentUpon>RuleTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
