@@ -12,31 +12,83 @@ namespace WinformsExample
 {
     public partial class OutboundForm : Form
     {
+        private static int _User;
+        public static int User
+        {
+            get { return _User; }
+            set { _User = value; }
+        }
         BindingList<Customer> dataSource;
-        int t = 0;
-        public OutboundForm(int i)
+        public OutboundForm()
         {
             InitializeComponent();
-            t = i;
             dataSource = GetDataSource();
             dataGridView1.DataSource = dataSource;
             dataGridView1.Columns["Statebool"].HeaderText = "";
-            dataGridView1.Columns["Statebool"].Width = 20;
-            dataGridView1.Columns["NameRule"].Width = 220;
             dataGridView1.Columns["NameRule"].HeaderText = "Name Rules";
-            dataGridView1.Columns["Application"].Width = 155;
             dataGridView1.Columns["Application"].HeaderText = "Application Package";
-            dataGridView1.Columns["State"].Width = 50;
-            dataGridView1.Columns["Action"].Width = 50;
             dataGridView1.Columns["LocalAddress"].HeaderText = "Local Address";
-            dataGridView1.Columns["LocalAddress"].Width = 110;
             dataGridView1.Columns["RemoteAddress"].HeaderText = "Remote Address";
-            dataGridView1.Columns["RemoteAddress"].Width = 110;
             dataGridView1.Columns["LocalPort"].HeaderText = "Local Port";
-            dataGridView1.Columns["LocalPort"].Width = 110;
             dataGridView1.Columns["RemotePort"].HeaderText = "Remote Port";
-            dataGridView1.Columns["RemotePort"].Width = 110;
-            dataGridView1.Columns["Profile"].Width = 120;
+            dataGridView1.Columns["Statebool"].Width = 20;
+        }
+        public void Header(int i)
+        {
+            if(dataSource.Count()>=25)
+            {
+                if (i == 0)
+                {
+                    dataGridView1.Columns["NameRule"].Width = 220;
+                    dataGridView1.Columns["Application"].Width = 138;
+                    dataGridView1.Columns["State"].Width = 50;
+                    dataGridView1.Columns["Action"].Width = 50;
+                    dataGridView1.Columns["LocalAddress"].Width = 110;
+                    dataGridView1.Columns["RemoteAddress"].Width = 110;
+                    dataGridView1.Columns["LocalPort"].Width = 110;
+                    dataGridView1.Columns["RemotePort"].Width = 110;
+                    dataGridView1.Columns["Profile"].Width = 120;
+                }
+                else
+                {
+                    dataGridView1.Columns["NameRule"].Width = 265;
+                    dataGridView1.Columns["Application"].Width = 220;
+                    dataGridView1.Columns["State"].Width = 60;
+                    dataGridView1.Columns["Action"].Width = 60;
+                    dataGridView1.Columns["LocalAddress"].Width = 120;
+                    dataGridView1.Columns["RemoteAddress"].Width = 120;
+                    dataGridView1.Columns["LocalPort"].Width = 120;
+                    dataGridView1.Columns["RemotePort"].Width = 120;
+                    dataGridView1.Columns["Profile"].Width = 120;
+                }
+            }
+            else
+            {
+                if (i == 0)
+                {
+                    dataGridView1.Columns["NameRule"].Width = 220;
+                    dataGridView1.Columns["Application"].Width = 155;
+                    dataGridView1.Columns["State"].Width = 50;
+                    dataGridView1.Columns["Action"].Width = 50;
+                    dataGridView1.Columns["LocalAddress"].Width = 110;
+                    dataGridView1.Columns["RemoteAddress"].Width = 110;
+                    dataGridView1.Columns["LocalPort"].Width = 110;
+                    dataGridView1.Columns["RemotePort"].Width = 110;
+                    dataGridView1.Columns["Profile"].Width = 120;
+                }
+                else
+                {
+                    dataGridView1.Columns["NameRule"].Width = 263;
+                    dataGridView1.Columns["Application"].Width = 230;
+                    dataGridView1.Columns["State"].Width = 60;
+                    dataGridView1.Columns["Action"].Width = 60;
+                    dataGridView1.Columns["LocalAddress"].Width = 120;
+                    dataGridView1.Columns["RemoteAddress"].Width = 120;
+                    dataGridView1.Columns["LocalPort"].Width = 120;
+                    dataGridView1.Columns["RemotePort"].Width = 120;
+                    dataGridView1.Columns["Profile"].Width = 130;
+                }
+            }
         }
         public BindingList<Customer> GetDataSource()
         {
@@ -46,7 +98,7 @@ namespace WinformsExample
             foreach (INetFwRule rule in firewallRule.Rules)
             {
                 string state = "", action = "", app = "", protocol = "", localAddress = "", remoteAddress = "", localport = "", remoteport = "", profile = "";
-                if (t == 0)
+                if (_User == 0)
                 {
                     if (rule.Direction.ToString() == "NET_FW_RULE_DIR_OUT")
                     {

@@ -29,33 +29,33 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Inbound Rules");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Outbound Rules");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("User Created Firewall Rules", new System.Windows.Forms.TreeNode[] {
-            treeNode13,
-            treeNode14});
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Inbound Rules");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Outbound Rules");
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("The Default Rule Of The Firewall", new System.Windows.Forms.TreeNode[] {
-            treeNode16,
-            treeNode17});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Inbound Rules");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Outbound Rules");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("User Created Firewall Rules", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2});
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Inbound Rules");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Outbound Rules");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("The Default Rule Of The Firewall", new System.Windows.Forms.TreeNode[] {
+            treeNode4,
+            treeNode5});
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tab = new System.Windows.Forms.TabPage();
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnDel = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnReload = new System.Windows.Forms.Button();
             this.btnTree = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.treeView1 = new System.Windows.Forms.TreeView();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.tab = new System.Windows.Forms.TabPage();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -114,11 +114,66 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.tabControl1);
+            this.groupBox2.Controls.Add(this.treeView1);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(0, 65);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(860, 393);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tab);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(191, 16);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(666, 374);
+            this.tabControl1.TabIndex = 1;
+            // 
+            // tab
+            // 
+            this.tab.Location = new System.Drawing.Point(4, 22);
+            this.tab.Name = "tab";
+            this.tab.Padding = new System.Windows.Forms.Padding(3);
+            this.tab.Size = new System.Drawing.Size(658, 348);
+            this.tab.TabIndex = 0;
+            this.tab.UseVisualStyleBackColor = true;
+            // 
+            // treeView1
+            // 
+            this.treeView1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.treeView1.Location = new System.Drawing.Point(3, 16);
+            this.treeView1.Name = "treeView1";
+            treeNode1.Name = "InboundUser";
+            treeNode1.Text = "Inbound Rules";
+            treeNode2.Name = "OutboundUser";
+            treeNode2.Text = "Outbound Rules";
+            treeNode3.Name = "User";
+            treeNode3.Text = "User Created Firewall Rules";
+            treeNode4.Name = "InboundDefault";
+            treeNode4.Text = "Inbound Rules";
+            treeNode5.Name = "OutboundDefault";
+            treeNode5.Text = "Outbound Rules";
+            treeNode6.Name = "Default";
+            treeNode6.Text = "The Default Rule Of The Firewall";
+            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode3,
+            treeNode6});
+            this.treeView1.Size = new System.Drawing.Size(188, 374);
+            this.treeView1.TabIndex = 0;
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            // 
             // btnDel
             // 
             this.btnDel.BackgroundImage = global::WinformsExample.Properties.Resources.delete;
             this.btnDel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnDel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnDel.Enabled = false;
             this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDel.ForeColor = System.Drawing.SystemColors.Control;
             this.btnDel.Location = new System.Drawing.Point(128, 16);
@@ -132,6 +187,7 @@
             this.btnAdd.BackgroundImage = global::WinformsExample.Properties.Resources.add;
             this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnAdd.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnAdd.Enabled = false;
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.ForeColor = System.Drawing.SystemColors.Control;
             this.btnAdd.Location = new System.Drawing.Point(103, 16);
@@ -143,9 +199,10 @@
             // 
             // btnReload
             // 
-            this.btnReload.BackgroundImage = global::WinformsExample.Properties.Resources.reload__1_;
+            this.btnReload.BackgroundImage = global::WinformsExample.Properties.Resources.reload;
             this.btnReload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnReload.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnReload.Enabled = false;
             this.btnReload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReload.ForeColor = System.Drawing.SystemColors.Control;
             this.btnReload.Location = new System.Drawing.Point(78, 16);
@@ -174,6 +231,7 @@
             this.btnNext.BackgroundImage = global::WinformsExample.Properties.Resources.next;
             this.btnNext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnNext.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnNext.Enabled = false;
             this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNext.ForeColor = System.Drawing.SystemColors.Control;
             this.btnNext.Location = new System.Drawing.Point(28, 16);
@@ -190,6 +248,7 @@
             this.btnBack.BackgroundImage = global::WinformsExample.Properties.Resources.back;
             this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnBack.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnBack.Enabled = false;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.ForeColor = System.Drawing.SystemColors.Control;
             this.btnBack.Location = new System.Drawing.Point(3, 16);
@@ -198,60 +257,6 @@
             this.btnBack.TabIndex = 2;
             this.btnBack.Tag = "";
             this.btnBack.UseVisualStyleBackColor = false;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.tabControl1);
-            this.groupBox2.Controls.Add(this.treeView1);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(0, 65);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(860, 393);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tab);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(180, 16);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(677, 374);
-            this.tabControl1.TabIndex = 1;
-            // 
-            // treeView1
-            // 
-            this.treeView1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.treeView1.Location = new System.Drawing.Point(3, 16);
-            this.treeView1.Name = "treeView1";
-            treeNode13.Name = "InboundUser";
-            treeNode13.Text = "Inbound Rules";
-            treeNode14.Name = "OutboundUser";
-            treeNode14.Text = "Outbound Rules";
-            treeNode15.Name = "User";
-            treeNode15.Text = "User Created Firewall Rules";
-            treeNode16.Name = "InboundDefault";
-            treeNode16.Text = "Inbound Rules";
-            treeNode17.Name = "OutboundDefault";
-            treeNode17.Text = "Outbound Rules";
-            treeNode18.Name = "Default";
-            treeNode18.Text = "The Default Rule Of The Firewall";
-            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode15,
-            treeNode18});
-            this.treeView1.Size = new System.Drawing.Size(177, 374);
-            this.treeView1.TabIndex = 0;
-            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
-            // 
-            // tab
-            // 
-            this.tab.Location = new System.Drawing.Point(4, 22);
-            this.tab.Name = "tab";
-            this.tab.Padding = new System.Windows.Forms.Padding(3);
-            this.tab.Size = new System.Drawing.Size(669, 348);
-            this.tab.TabIndex = 0;
-            this.tab.UseVisualStyleBackColor = true;
             // 
             // FirewallForm
             // 

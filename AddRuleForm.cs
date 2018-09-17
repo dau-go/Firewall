@@ -12,11 +12,11 @@ namespace WinformsExample
 {
     public partial class AddRuleForm : Form
     {
-        private static int _Next1;
-        public static int Next1
+        private static int _kt;
+        public static int kt
         {
-            get { return _Next1; }
-            set { _Next1 = value; }
+            get { return _kt; }
+            set { _kt = value; }
         }
         private static string _Name;
         public static string NameRule
@@ -127,18 +127,56 @@ namespace WinformsExample
         {
             if (_Name != null)
             {
-                groupBox1.Controls.Clear();
-                groupBox1.Text = "Profile";
-                RuleProfileForm f = new RuleProfileForm();
-                f.TopLevel = false;
-                f.FormBorderStyle = FormBorderStyle.None;
-                f.Dock = DockStyle.Fill;
-                groupBox1.Controls.Add(f);
-                f.Visible = true;
-                btnBack.Visible = false;
-                btnBack1.Visible = true;
-                btnNext1.Visible = false;
-                btnfis.Visible = true;
+                switch (k)
+                {
+                    case 1:
+                        {
+                            if (_Program != null)
+                            {
+                                groupBox1.Controls.Clear();
+                                groupBox1.Text = "Profile";
+                                RuleProfileForm f = new RuleProfileForm();
+                                f.TopLevel = false;
+                                f.FormBorderStyle = FormBorderStyle.None;
+                                f.Dock = DockStyle.Fill;
+                                groupBox1.Controls.Add(f);
+                                f.Visible = true;
+                                btnBack.Visible = false;
+                                btnBack1.Visible = true;
+                                btnNext1.Visible = false;
+                                btnfis.Visible = true;
+                            }
+                            else
+                            {
+                                MessageBox.Show("You must specify a program path", "Firewall");
+                            }
+                            break;
+                        }
+                    case 2:
+                        {
+                            if (_LocalPort != null)
+                            {
+                                
+                                groupBox1.Controls.Clear();
+                                groupBox1.Text = "Profile";
+                                RuleProfileForm f = new RuleProfileForm();
+                                f.TopLevel = false;
+                                f.FormBorderStyle = FormBorderStyle.None;
+                                f.Dock = DockStyle.Fill;
+                                groupBox1.Controls.Add(f);
+                                f.Visible = true;
+                                btnBack.Visible = false;
+                                btnBack1.Visible = true;
+                                btnNext1.Visible = false;
+                                btnfis.Visible = true;
+                            }
+                            else
+                            {
+                                MessageBox.Show("You must specify the port you want to add to the rule", "Firewall");
+                            }
+                            break;
+                        }
+                }
             }
             else
             {
@@ -190,7 +228,7 @@ namespace WinformsExample
                 groupBox1.Controls.Add(groupBox2);
                 groupBox1.Controls.Add(groupBox3);
                 groupBox2.Text = "Properties";
-                groupBox3.Text = "Program";
+                groupBox3.Text = "Program And Port";
                 groupBox2.Visible = true;
                 groupBox3.Visible = true;
                 //
@@ -286,6 +324,10 @@ namespace WinformsExample
                     {
                         break;
                     }
+            }
+            if(_kt==1)
+            {
+                inboundRule.Direction= NET_FW_RULE_DIRECTION_.NET_FW_RULE_DIR_OUT;
             }
             INetFwPolicy2 firewallPolicy = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
             firewallPolicy.Rules.Add(inboundRule);

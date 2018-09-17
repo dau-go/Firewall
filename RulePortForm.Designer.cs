@@ -55,9 +55,9 @@
             this.rbAllPort.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbAllPort.Location = new System.Drawing.Point(34, 121);
             this.rbAllPort.Name = "rbAllPort";
-            this.rbAllPort.Size = new System.Drawing.Size(113, 17);
+            this.rbAllPort.Size = new System.Drawing.Size(102, 17);
             this.rbAllPort.TabIndex = 1;
-            this.rbAllPort.Text = "All remote ports";
+            this.rbAllPort.Text = "All local ports";
             this.rbAllPort.UseVisualStyleBackColor = true;
             this.rbAllPort.CheckedChanged += new System.EventHandler(this.rbAllPort_CheckedChanged);
             // 

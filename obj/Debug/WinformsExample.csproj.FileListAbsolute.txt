@@ -114,3 +114,4 @@ C:\Users\daugo\Documents\GitHub\Firewall\bin\Debug\Interop.Shell32.dll
 C:\Users\daugo\Documents\GitHub\Firewall\bin\Debug\AxInterop.Shell32.dll
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\Interop.Shell32.dll
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\AxInterop.Shell32.dll
+C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.DefaultForm.resources
