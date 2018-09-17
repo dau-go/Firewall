@@ -56,7 +56,7 @@
             // startStopToolStripButton
             // 
             this.startStopToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.startStopToolStripButton.Image = global::WinformsExample.Properties.Resources.stop_icon_disabled;
+            this.startStopToolStripButton.Image = global::WindowsDefenderFirewall.Properties.Resources.stop_icon_disabled;
             this.startStopToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.startStopToolStripButton.Name = "startStopToolStripButton";
             this.startStopToolStripButton.Size = new System.Drawing.Size(23, 22);

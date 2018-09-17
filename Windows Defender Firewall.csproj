@@ -8,8 +8,8 @@
     <ProjectGuid>{697E9825-B33B-40EB-B335-738E8D113A14}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WinformsExample</RootNamespace>
-    <AssemblyName>WinformsExample</AssemblyName>
+    <RootNamespace>WindowsDefenderFirewall</RootNamespace>
+    <AssemblyName>Windows Defender Firewall</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -204,6 +204,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Untitled.png" />
     <None Include="Resources\view-list-details.png" />
     <None Include="Resources\play_icon_enabled.png" />
     <None Include="Resources\back.png" />

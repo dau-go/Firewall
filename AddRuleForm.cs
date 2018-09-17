@@ -154,21 +154,29 @@ namespace WinformsExample
                         }
                     case 2:
                         {
-                            if (_LocalPort != null)
+                            if (_LocalPort != "")
                             {
-                                
-                                groupBox1.Controls.Clear();
-                                groupBox1.Text = "Profile";
-                                RuleProfileForm f = new RuleProfileForm();
-                                f.TopLevel = false;
-                                f.FormBorderStyle = FormBorderStyle.None;
-                                f.Dock = DockStyle.Fill;
-                                groupBox1.Controls.Add(f);
-                                f.Visible = true;
-                                btnBack.Visible = false;
-                                btnBack1.Visible = true;
-                                btnNext1.Visible = false;
-                                btnfis.Visible = true;
+                                try
+                                {
+                                    int str = int.Parse(_LocalPort.Replace(",", ""));
+                                    groupBox1.Controls.Clear();
+                                    groupBox1.Text = "Profile";
+                                    RuleProfileForm f = new RuleProfileForm();
+                                    f.TopLevel = false;
+                                    f.FormBorderStyle = FormBorderStyle.None;
+                                    f.Dock = DockStyle.Fill;
+                                    groupBox1.Controls.Add(f);
+                                    f.Visible = true;
+                                    btnBack.Visible = false;
+                                    btnBack1.Visible = true;
+                                    btnNext1.Visible = false;
+                                    btnfis.Visible = true;
+                                }
+                                catch
+                                {
+                                    MessageBox.Show("The port value is incorrect", "Firewall");
+                                }
+                                    
                             }
                             else
                             {
@@ -325,9 +333,9 @@ namespace WinformsExample
                         break;
                     }
             }
-            if(_kt==1)
+            if (_kt == 1)
             {
-                inboundRule.Direction= NET_FW_RULE_DIRECTION_.NET_FW_RULE_DIR_OUT;
+                inboundRule.Direction = NET_FW_RULE_DIRECTION_.NET_FW_RULE_DIR_OUT;
             }
             INetFwPolicy2 firewallPolicy = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
             firewallPolicy.Rules.Add(inboundRule);

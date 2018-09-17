@@ -25,11 +25,11 @@ namespace WinformsExample
             toolTip1.SetToolTip(btnReload, "Refresh Rule");
             toolTip1.SetToolTip(btnAdd, "Add New Rule");
             toolTip1.SetToolTip(btnDel, "Delete Rule");
-            btnBack.BackgroundImage = global::WinformsExample.Properties.Resources.go_next_rtl;
-            btnNext.BackgroundImage = global::WinformsExample.Properties.Resources.go_previous_rtl;
-            btnReload.BackgroundImage = global::WinformsExample.Properties.Resources.reload__3_;
-            btnAdd.BackgroundImage = global::WinformsExample.Properties.Resources.add__1_;
-            btnDel.BackgroundImage = global::WinformsExample.Properties.Resources.delete__1_;
+            btnBack.BackgroundImage = global::WindowsDefenderFirewall.Properties.Resources.go_next_rtl;
+            btnNext.BackgroundImage = global::WindowsDefenderFirewall.Properties.Resources.go_previous_rtl;
+            btnReload.BackgroundImage = global::WindowsDefenderFirewall.Properties.Resources.reload__3_;
+            btnAdd.BackgroundImage = global::WindowsDefenderFirewall.Properties.Resources.add__1_;
+            btnDel.BackgroundImage = global::WindowsDefenderFirewall.Properties.Resources.delete__1_;
         }
         public void ShowUser()
         {
@@ -165,7 +165,7 @@ namespace WinformsExample
         }
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            btnBack.BackgroundImage = global::WinformsExample.Properties.Resources.go_next_rtl;
+            btnBack.BackgroundImage = global::WindowsDefenderFirewall.Properties.Resources.go_next_rtl;
             LoadData();
         }
 
