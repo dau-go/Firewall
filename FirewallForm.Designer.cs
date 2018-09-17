@@ -170,7 +170,7 @@
             // 
             // btnDel
             // 
-            this.btnDel.BackgroundImage = global::WindowsDefenderFirewall.Properties.Resources.delete;
+            this.btnDel.BackgroundImage = global::WinformsExample.Properties.Resources.delete;
             this.btnDel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnDel.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnDel.Enabled = false;
@@ -184,7 +184,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.BackgroundImage = global::WindowsDefenderFirewall.Properties.Resources.add;
+            this.btnAdd.BackgroundImage = global::WinformsExample.Properties.Resources.add;
             this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnAdd.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnAdd.Enabled = false;
@@ -199,7 +199,7 @@
             // 
             // btnReload
             // 
-            this.btnReload.BackgroundImage = global::WindowsDefenderFirewall.Properties.Resources.reload;
+            this.btnReload.BackgroundImage = global::WinformsExample.Properties.Resources.reload;
             this.btnReload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnReload.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnReload.Enabled = false;
@@ -214,7 +214,7 @@
             // 
             // btnTree
             // 
-            this.btnTree.BackgroundImage = global::WindowsDefenderFirewall.Properties.Resources.view_list_details;
+            this.btnTree.BackgroundImage = global::WinformsExample.Properties.Resources.view_list_details;
             this.btnTree.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnTree.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnTree.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -228,7 +228,7 @@
             // 
             // btnNext
             // 
-            this.btnNext.BackgroundImage = global::WindowsDefenderFirewall.Properties.Resources.next;
+            this.btnNext.BackgroundImage = global::WinformsExample.Properties.Resources.next;
             this.btnNext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnNext.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnNext.Enabled = false;
@@ -245,7 +245,7 @@
             this.btnBack.AccessibleDescription = "Navigate Backward";
             this.btnBack.AccessibleName = "";
             this.btnBack.BackColor = System.Drawing.SystemColors.Control;
-            this.btnBack.BackgroundImage = global::WindowsDefenderFirewall.Properties.Resources.back;
+            this.btnBack.BackgroundImage = global::WinformsExample.Properties.Resources.back;
             this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnBack.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnBack.Enabled = false;

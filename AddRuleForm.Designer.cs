@@ -32,12 +32,17 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btNext = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnNext1 = new System.Windows.Forms.Button();
             this.btnBack1 = new System.Windows.Forms.Button();
             this.btnfis = new System.Windows.Forms.Button();
+            this.btnNext2 = new System.Windows.Forms.Button();
+            this.btnBack2 = new System.Windows.Forms.Button();
+            this.btnBack3 = new System.Windows.Forms.Button();
+            this.btnNext3 = new System.Windows.Forms.Button();
+            this.btnBack4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -76,15 +81,15 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Add New Rule";
             // 
-            // btNext
+            // btnNext
             // 
-            this.btNext.Location = new System.Drawing.Point(307, 454);
-            this.btNext.Name = "btNext";
-            this.btNext.Size = new System.Drawing.Size(75, 23);
-            this.btNext.TabIndex = 3;
-            this.btNext.Text = "Next >";
-            this.btNext.UseVisualStyleBackColor = true;
-            this.btNext.Click += new System.EventHandler(this.btNext_Click);
+            this.btnNext.Location = new System.Drawing.Point(307, 454);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 23);
+            this.btnNext.TabIndex = 3;
+            this.btnNext.Text = "Next >";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btNext_Click);
             // 
             // btnCancel
             // 
@@ -140,6 +145,59 @@
             this.btnfis.Visible = false;
             this.btnfis.Click += new System.EventHandler(this.btnfis_Click);
             // 
+            // btnNext2
+            // 
+            this.btnNext2.Location = new System.Drawing.Point(307, 454);
+            this.btnNext2.Name = "btnNext2";
+            this.btnNext2.Size = new System.Drawing.Size(75, 23);
+            this.btnNext2.TabIndex = 7;
+            this.btnNext2.Text = "Next >";
+            this.btnNext2.UseVisualStyleBackColor = true;
+            this.btnNext2.Visible = false;
+            this.btnNext2.Click += new System.EventHandler(this.btnnext2_Click);
+            // 
+            // btnBack2
+            // 
+            this.btnBack2.Location = new System.Drawing.Point(226, 454);
+            this.btnBack2.Name = "btnBack2";
+            this.btnBack2.Size = new System.Drawing.Size(75, 23);
+            this.btnBack2.TabIndex = 8;
+            this.btnBack2.Text = "< Back";
+            this.btnBack2.UseVisualStyleBackColor = true;
+            this.btnBack2.Visible = false;
+            this.btnBack2.Click += new System.EventHandler(this.btnback2_Click);
+            // 
+            // btnBack3
+            // 
+            this.btnBack3.Location = new System.Drawing.Point(226, 454);
+            this.btnBack3.Name = "btnBack3";
+            this.btnBack3.Size = new System.Drawing.Size(75, 23);
+            this.btnBack3.TabIndex = 9;
+            this.btnBack3.Text = "< Back";
+            this.btnBack3.UseVisualStyleBackColor = true;
+            this.btnBack3.Visible = false;
+            this.btnBack3.Click += new System.EventHandler(this.btnBack3_Click);
+            // 
+            // btnNext3
+            // 
+            this.btnNext3.Location = new System.Drawing.Point(307, 454);
+            this.btnNext3.Name = "btnNext3";
+            this.btnNext3.Size = new System.Drawing.Size(75, 23);
+            this.btnNext3.TabIndex = 10;
+            this.btnNext3.Text = "Next >";
+            this.btnNext3.UseVisualStyleBackColor = true;
+            this.btnNext3.Visible = false;
+            // 
+            // btnBack4
+            // 
+            this.btnBack4.Location = new System.Drawing.Point(226, 454);
+            this.btnBack4.Name = "btnBack4";
+            this.btnBack4.Size = new System.Drawing.Size(75, 23);
+            this.btnBack4.TabIndex = 11;
+            this.btnBack4.Text = "< Back";
+            this.btnBack4.UseVisualStyleBackColor = true;
+            this.btnBack4.Visible = false;
+            // 
             // AddRuleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -147,10 +205,15 @@
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(473, 489);
             this.Controls.Add(this.btnfis);
+            this.Controls.Add(this.btnBack4);
+            this.Controls.Add(this.btnNext3);
+            this.Controls.Add(this.btnBack3);
+            this.Controls.Add(this.btnBack2);
+            this.Controls.Add(this.btnNext2);
             this.Controls.Add(this.btnBack1);
             this.Controls.Add(this.btnNext1);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.btNext);
+            this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
@@ -168,7 +231,7 @@
         
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btNext;
+        private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -176,5 +239,10 @@
         private System.Windows.Forms.Button btnNext1;
         private System.Windows.Forms.Button btnBack1;
         private System.Windows.Forms.Button btnfis;
+        private System.Windows.Forms.Button btnNext2;
+        private System.Windows.Forms.Button btnBack2;
+        private System.Windows.Forms.Button btnBack3;
+        private System.Windows.Forms.Button btnNext3;
+        private System.Windows.Forms.Button btnBack4;
     }
 }

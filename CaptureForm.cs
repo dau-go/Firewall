@@ -125,7 +125,7 @@ namespace WinformsExample
                 backgroundThread.Join();
 
                 // switch the icon back to the play icon
-                startStopToolStripButton.Image = global::WindowsDefenderFirewall.Properties.Resources.play_icon_enabled;
+                startStopToolStripButton.Image = global::WinformsExample.Properties.Resources.play_icon_enabled;
                 startStopToolStripButton.ToolTipText = "Select device to capture from";
             }
         }
@@ -159,7 +159,7 @@ namespace WinformsExample
             device.StartCapture();
 
             // disable the stop icon since the capture has stopped
-            startStopToolStripButton.Image = global::WindowsDefenderFirewall.Properties.Resources.stop_icon_enabled;
+            startStopToolStripButton.Image = global::WinformsExample.Properties.Resources.stop_icon_enabled;
             startStopToolStripButton.ToolTipText = "Stop capture";
         }
 

@@ -77,9 +77,9 @@
             this.rbIP.AutoSize = true;
             this.rbIP.Location = new System.Drawing.Point(46, 181);
             this.rbIP.Name = "rbIP";
-            this.rbIP.Size = new System.Drawing.Size(35, 17);
+            this.rbIP.Size = new System.Drawing.Size(48, 17);
             this.rbIP.TabIndex = 1;
-            this.rbIP.Text = "IP";
+            this.rbIP.Text = "DNS";
             this.rbIP.UseVisualStyleBackColor = true;
             this.rbIP.CheckedChanged += new System.EventHandler(this.rbIP_CheckedChanged);
             // 
@@ -117,9 +117,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(64, 201);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(177, 26);
+            this.label4.Size = new System.Drawing.Size(190, 26);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Rule that controls connection for  IP\r\n\r\n";
+            this.label4.Text = "Rule that controls connection for  DNS\r\n\r\n";
             // 
             // label5
             // 

@@ -135,6 +135,11 @@ namespace WinformsExample
                                         protocol = "Any";
                                         break;
                                     }
+                                case 0:
+                                    {
+                                        profile = "HOPOPT";
+                                        break;
+                                    }
                                 case 1:
                                     {
                                         protocol = "ICMPv4";

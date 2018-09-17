@@ -26,3 +26,4 @@ C:\Users\daugo\Documents\GitHub\Firewall\bin\Debug\Windows Defender Firewall.exe
 C:\Users\daugo\Documents\GitHub\Firewall\bin\Debug\Windows Defender Firewall.pdb
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\Windows Defender Firewall.exe
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\Windows Defender Firewall.pdb
+C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WindowsDefenderFirewall.RuleProtocolForm.resources

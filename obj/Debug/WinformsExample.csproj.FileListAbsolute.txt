@@ -91,9 +91,6 @@ C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.exe
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.pdb
 C:\Users\daugo\Documents\GitHub\Firewall\bin\Debug\WinformsExample.exe
 C:\Users\daugo\Documents\GitHub\Firewall\bin\Debug\WinformsExample.pdb
-C:\Users\daugo\Documents\GitHub\Firewall\bin\Debug\SharpPcap.pdb
-C:\Users\daugo\Documents\GitHub\Firewall\bin\Debug\SharpPcap.xml
-C:\Users\daugo\Documents\GitHub\Firewall\bin\Debug\PacketDotNet.xml
 C:\Users\daugo\Documents\GitHub\Firewall\bin\Debug\Interop.NetFwTypeLib.dll
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.csprojResolveAssemblyReference.cache
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.CaptureForm.resources
@@ -115,3 +112,4 @@ C:\Users\daugo\Documents\GitHub\Firewall\bin\Debug\AxInterop.Shell32.dll
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\Interop.Shell32.dll
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\AxInterop.Shell32.dll
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.DefaultForm.resources
+C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.RuleProtocolForm.resources
