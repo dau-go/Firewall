@@ -12,48 +12,97 @@ namespace WinformsExample
 {
     public partial class FirewallForm : Form
     {
-        TabPage tab1 = new TabPage();
-        TabPage tab2 = new TabPage();
         public FirewallForm()
         {
             InitializeComponent();
+            toolTip1.SetToolTip(btnBack, "Navigate Backward");
+            toolTip1.SetToolTip(btnNext, "Navigate Forward");
+            toolTip1.SetToolTip(btnTree, "Show/Hide Console Tree");
+            toolTip1.SetToolTip(btnReload, "Refresh Rule");
+            toolTip1.SetToolTip(btnAdd, "Add New Rule");
+            toolTip1.SetToolTip(btnDel, "Delete Rule");
         }
-        
-        private void Remove()
-        {
-            tabControl1.TabPages.Remove(tab1);
-            tabControl1.TabPages.Remove(tab2);
-        }
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        public void LoadData()
         {
             switch (treeView1.SelectedNode.Name)
             {
-                case "Inbound":
+                case "InboundUser":
                     {
-                        Remove();
-                        tab1.Text = "Inbound Rules";
-                        InboundForm f = new InboundForm();
+                        tab.Controls.Clear();
+                        tab.Text = "Inbound Rules User";
+                        InboundForm f = new InboundForm(0);
+                        //f.Loaddata(1);
                         f.TopLevel = false;
                         f.FormBorderStyle = FormBorderStyle.None;
                         f.Dock = DockStyle.Fill;
-                        tab1.Controls.Add(f);
+                        tab.Controls.Add(f);
                         f.Visible = true;
-                        tabControl1.TabPages.Add(tab1);
                         break;
                     }
-                case "Outbound":
+                case "OutboundUser":
                     {
-                        Remove();
-                        tab2.Text = "Outbound Rules";
-                        OutboundForm f = new OutboundForm();
+                        tab.Controls.Clear();
+                        tab.Text = "Outbound Rules User";
+                        OutboundForm f = new OutboundForm(0);
                         f.TopLevel = false;
                         f.FormBorderStyle = FormBorderStyle.None;
                         f.Dock = DockStyle.Fill;
-                        tab2.Controls.Add(f);
+                        tab.Controls.Add(f);
                         f.Visible = true;
-                        tabControl1.TabPages.Add(tab2);
                         break;
                     }
+                case "InboundDefault":
+                    {
+                        tab.Controls.Clear();
+                        tab.Text = "Inbound Rules Default";
+                        InboundForm f = new InboundForm(1);
+                        f.TopLevel = false;
+                        f.FormBorderStyle = FormBorderStyle.None;
+                        f.Dock = DockStyle.Fill;
+                        tab.Controls.Add(f);
+                        f.Visible = true;
+                        break;
+                    }
+                case "OutboundDefault":
+                    {
+                        tab.Controls.Clear();
+                        tab.Text = "Outbound Rules Default";
+                        OutboundForm f = new OutboundForm(1);
+                        f.TopLevel = false;
+                        f.FormBorderStyle = FormBorderStyle.None;
+                        f.Dock = DockStyle.Fill;
+                        tab.Controls.Add(f);
+                        f.Visible = true;
+                        break;
+                    }
+            }
+        }
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            LoadData();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            LoadData();
+        }
+
+        private void btnTree_Click(object sender, EventArgs e)
+        {
+            if(treeView1.Visible==true)
+            {
+                treeView1.Visible = false;
+                InboundForm
+                
+            }
+            else
+            {
+                treeView1.Visible = true;
             }
         }
     }

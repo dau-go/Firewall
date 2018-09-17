@@ -14,7 +14,11 @@ namespace WinformsExample
         public RulePortForm()
         {
             InitializeComponent();
-            if(rbTCP.Checked==true)
+            GetPort();
+        }
+        public void GetPort()
+        {
+            if (rbTCP.Checked == true)
             {
                 AddRuleForm.Protocol = 6;
             }
@@ -22,7 +26,7 @@ namespace WinformsExample
             {
                 AddRuleForm.Protocol = 17;
             }
-            if(rbAllPort.Checked==true)
+            if (rbAllPort.Checked == true)
             {
                 AddRuleForm.LocalPort = "Any";
             }
@@ -30,16 +34,28 @@ namespace WinformsExample
             {
                 AddRuleForm.LocalPort = txtPort.Text;
             }
+
         }
 
         private void rbAllPort_CheckedChanged(object sender, EventArgs e)
         {
             txtPort.Enabled = false;
+            GetPort();
         }
 
         private void rbSpecPort_CheckedChanged(object sender, EventArgs e)
         {
             txtPort.Enabled = true;
+        }
+
+        private void rbTCP_CheckedChanged(object sender, EventArgs e)
+        {
+            GetPort();
+        }
+
+        private void txtPort_TextChanged(object sender, EventArgs e)
+        {
+            GetPort();
         }
     }
 }

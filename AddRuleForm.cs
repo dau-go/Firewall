@@ -30,8 +30,8 @@ namespace WinformsExample
             get { return _Description; }
             set { _Description = value; }
         }
-        private static string _Action;
-        public static string Action
+        private static int _Action;
+        public static int Action
         {
             get { return _Action; }
             set { _Action = value; }
@@ -83,7 +83,7 @@ namespace WinformsExample
         RuleProgramForm f2 = new RuleProgramForm();
         RulePortForm f3 = new RulePortForm();
         RuleIPForm f4 = new RuleIPForm();
-        int k=1;
+        int k = 1;
         public AddRuleForm()
         {
             InitializeComponent();
@@ -107,7 +107,7 @@ namespace WinformsExample
         {
             k = i;
         }
-        
+
         private void btNext_Click(object sender, EventArgs e)
         {
             ShowPro();
@@ -125,8 +125,7 @@ namespace WinformsExample
         }
         private void btnNext1_Click(object sender, EventArgs e)
         {
-            f1.LoadNext();
-            if(_Name != "")
+            if (_Name != null)
             {
                 groupBox1.Controls.Clear();
                 groupBox1.Text = "Profile";
@@ -139,7 +138,7 @@ namespace WinformsExample
                 btnBack.Visible = false;
                 btnBack1.Visible = true;
                 btnNext1.Visible = false;
-                btnfis.Visible = true; 
+                btnfis.Visible = true;
             }
             else
             {
@@ -249,18 +248,45 @@ namespace WinformsExample
             // Let's create a new rule
             INetFwRule2 inboundRule = (INetFwRule2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FWRule"));
             inboundRule.Enabled = true;
-            //Allow through firewall
-            inboundRule.Action = NET_FW_ACTION_.NET_FW_ACTION_ALLOW;
-            //Using protocol TCP
-            inboundRule.Protocol = _Protocol; // TCP
-                                      //Port 81
-            inboundRule.LocalPorts = "81";
-            //Name of rule
-            inboundRule.Name = "a";
-            // ...//
-            inboundRule.Profiles = 2;
-            
-            // Now add the rule
+            inboundRule.Name = _Name;
+            inboundRule.Description = _Description;
+            switch (k)
+            {
+                case 1:
+                    {
+                        if (_Action == 0)
+                        {
+                            inboundRule.Action = 0;
+                        }
+                        if (_Program != "Any")
+                        {
+                            inboundRule.ApplicationName = _Program;
+                        }
+                        inboundRule.Profiles = _Profile;
+                        break;
+                    }
+                case 2:
+                    {
+                        if (_Action == 0)
+                        {
+                            inboundRule.Action = 0;
+                        }
+                        inboundRule.Protocol = _Protocol;
+                        if (_LocalPort != "Any")
+                        {
+                            inboundRule.LocalPorts = _LocalPort;
+                        }
+                        break;
+                    }
+                case 3:
+                    {
+                        break;
+                    }
+                case 4:
+                    {
+                        break;
+                    }
+            }
             INetFwPolicy2 firewallPolicy = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
             firewallPolicy.Rules.Add(inboundRule);
             this.Close();

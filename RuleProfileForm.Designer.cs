@@ -28,49 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.cbDomain = new System.Windows.Forms.CheckBox();
+            this.cbPrivate = new System.Windows.Forms.CheckBox();
+            this.cbPublic = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // checkBox1
+            // cbDomain
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(30, 12);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(62, 17);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Domain";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cbDomain.AutoSize = true;
+            this.cbDomain.Checked = true;
+            this.cbDomain.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbDomain.Location = new System.Drawing.Point(30, 12);
+            this.cbDomain.Name = "cbDomain";
+            this.cbDomain.Size = new System.Drawing.Size(62, 17);
+            this.cbDomain.TabIndex = 0;
+            this.cbDomain.Text = "Domain";
+            this.cbDomain.UseVisualStyleBackColor = true;
+            this.cbDomain.CheckedChanged += new System.EventHandler(this.cbPrivate_CheckedChanged);
             // 
-            // checkBox2
+            // cbPrivate
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Checked = true;
-            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox2.Location = new System.Drawing.Point(30, 60);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(59, 17);
-            this.checkBox2.TabIndex = 0;
-            this.checkBox2.Text = "Private";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.cbPrivate.AutoSize = true;
+            this.cbPrivate.Checked = true;
+            this.cbPrivate.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbPrivate.Location = new System.Drawing.Point(30, 60);
+            this.cbPrivate.Name = "cbPrivate";
+            this.cbPrivate.Size = new System.Drawing.Size(59, 17);
+            this.cbPrivate.TabIndex = 0;
+            this.cbPrivate.Text = "Private";
+            this.cbPrivate.UseVisualStyleBackColor = true;
+            this.cbPrivate.CheckedChanged += new System.EventHandler(this.cbPrivate_CheckedChanged);
             // 
-            // checkBox3
+            // cbPublic
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Checked = true;
-            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox3.Location = new System.Drawing.Point(30, 119);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(55, 17);
-            this.checkBox3.TabIndex = 0;
-            this.checkBox3.Text = "Public";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.cbPublic.AutoSize = true;
+            this.cbPublic.Checked = true;
+            this.cbPublic.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbPublic.Location = new System.Drawing.Point(30, 119);
+            this.cbPublic.Name = "cbPublic";
+            this.cbPublic.Size = new System.Drawing.Size(55, 17);
+            this.cbPublic.TabIndex = 0;
+            this.cbPublic.Text = "Public";
+            this.cbPublic.UseVisualStyleBackColor = true;
+            this.cbPublic.CheckedChanged += new System.EventHandler(this.cbPrivate_CheckedChanged);
             // 
             // label1
             // 
@@ -108,9 +111,9 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.cbPublic);
+            this.Controls.Add(this.cbPrivate);
+            this.Controls.Add(this.cbDomain);
             this.Name = "RuleProfileForm";
             this.Text = "RuleProfileForm";
             this.ResumeLayout(false);
@@ -120,9 +123,9 @@
 
         #endregion
 
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox cbDomain;
+        private System.Windows.Forms.CheckBox cbPrivate;
+        private System.Windows.Forms.CheckBox cbPublic;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

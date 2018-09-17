@@ -22,12 +22,22 @@ namespace WinformsExample
             AddRuleForm.Description = txtDescription.Text;
             if (rbAllow.Checked == true)
             {
-                AddRuleForm.Action = "NET_FW_ACTION_.NET_FW_ACTION_ALLOW";
+                AddRuleForm.Action = 1;
             }
             else
             {
-                AddRuleForm.Action = "NET_FW_ACTION_.NET_FW_ACTION_BLOCK";
+                AddRuleForm.Action = 0;
             }
+        }
+
+        private void rbAllow_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadNext();
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            LoadNext();
         }
     }
 }

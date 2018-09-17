@@ -85,19 +85,24 @@
     <Compile Include="FirewallForm.Designer.cs">
       <DependentUpon>FirewallForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="InboundForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="InboundForm.Designer.cs">
-      <DependentUpon>InboundForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="OutboundForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="OutboundForm.Designer.cs">
       <DependentUpon>OutboundForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="InboundForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InboundForm.Designer.cs">
+      <DependentUpon>InboundForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="RulePortForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,11 +153,11 @@
     <EmbeddedResource Include="FirewallForm.resx">
       <DependentUpon>FirewallForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="InboundForm.resx">
-      <DependentUpon>InboundForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="OutboundForm.resx">
       <DependentUpon>OutboundForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InboundForm.resx">
+      <DependentUpon>InboundForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RulePortForm.resx">
       <DependentUpon>RulePortForm.cs</DependentUpon>
@@ -168,14 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="RuleIPForm.resx">
       <DependentUpon>RuleIPForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -195,15 +195,38 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\view-list-details.png" />
     <None Include="Resources\play_icon_enabled.png" />
+    <None Include="Resources\back.png" />
+    <None Include="Resources\next.png" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\reload %281%29.png" />
+    <None Include="Resources\delete.png" />
     <Content Include="Resources\stop_icon_disabled.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\stop_icon_enabled.png" />
   </ItemGroup>
   <ItemGroup>
+    <COMReference Include="AxShell32">
+      <Guid>{50A7E9B0-70EF-11D1-B75A-00A0C90564FE}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
     <COMReference Include="NetFwTypeLib">
       <Guid>{58FBCF7C-E7A9-467C-80B3-FC65E8FCCA08}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Shell32">
+      <Guid>{50A7E9B0-70EF-11D1-B75A-00A0C90564FE}</Guid>
       <VersionMajor>1</VersionMajor>
       <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>

@@ -52,6 +52,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(265, 20);
             this.txtName.TabIndex = 5;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // label4
             // 
@@ -69,6 +70,7 @@
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(265, 73);
             this.txtDescription.TabIndex = 6;
+            this.txtDescription.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // rbAllow
             // 
@@ -81,6 +83,7 @@
             this.rbAllow.TabStop = true;
             this.rbAllow.Text = "Allow the connection";
             this.rbAllow.UseVisualStyleBackColor = true;
+            this.rbAllow.CheckedChanged += new System.EventHandler(this.rbAllow_CheckedChanged);
             // 
             // rbBlock
             // 
@@ -91,6 +94,7 @@
             this.rbBlock.TabIndex = 7;
             this.rbBlock.Text = "Block the connection";
             this.rbBlock.UseVisualStyleBackColor = true;
+            this.rbBlock.CheckedChanged += new System.EventHandler(this.rbAllow_CheckedChanged);
             // 
             // label5
             // 

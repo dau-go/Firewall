@@ -28,51 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.btnBrowes = new System.Windows.Forms.Button();
+            this.txtProgram = new System.Windows.Forms.TextBox();
+            this.rbThisProgram = new System.Windows.Forms.RadioButton();
+            this.rbAllProgram = new System.Windows.Forms.RadioButton();
             this.label3 = new System.Windows.Forms.Label();
+            this.Open = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
-            // button1
+            // btnBrowes
             // 
-            this.button1.Location = new System.Drawing.Point(364, 102);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Browse...";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnBrowes.Location = new System.Drawing.Point(351, 102);
+            this.btnBrowes.Name = "btnBrowes";
+            this.btnBrowes.Size = new System.Drawing.Size(75, 23);
+            this.btnBrowes.TabIndex = 10;
+            this.btnBrowes.Text = "Browse...";
+            this.btnBrowes.UseVisualStyleBackColor = true;
+            this.btnBrowes.Click += new System.EventHandler(this.btnBrowes_Click);
             // 
-            // textBox1
+            // txtProgram
             // 
-            this.textBox1.Location = new System.Drawing.Point(59, 104);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(286, 20);
-            this.textBox1.TabIndex = 9;
+            this.txtProgram.Location = new System.Drawing.Point(59, 104);
+            this.txtProgram.Name = "txtProgram";
+            this.txtProgram.Size = new System.Drawing.Size(286, 20);
+            this.txtProgram.TabIndex = 9;
+            this.txtProgram.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // radioButton2
+            // rbThisProgram
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Checked = true;
-            this.radioButton2.Location = new System.Drawing.Point(41, 81);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(113, 17);
-            this.radioButton2.TabIndex = 7;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "This program path:\r\n";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbThisProgram.AutoSize = true;
+            this.rbThisProgram.Checked = true;
+            this.rbThisProgram.Location = new System.Drawing.Point(41, 81);
+            this.rbThisProgram.Name = "rbThisProgram";
+            this.rbThisProgram.Size = new System.Drawing.Size(113, 17);
+            this.rbThisProgram.TabIndex = 7;
+            this.rbThisProgram.TabStop = true;
+            this.rbThisProgram.Text = "This program path:\r\n";
+            this.rbThisProgram.UseVisualStyleBackColor = true;
+            this.rbThisProgram.CheckedChanged += new System.EventHandler(this.rbThisProgram_CheckedChanged);
             // 
-            // radioButton1
+            // rbAllProgram
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(41, 33);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(77, 17);
-            this.radioButton1.TabIndex = 8;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "All program";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbAllProgram.AutoSize = true;
+            this.rbAllProgram.Location = new System.Drawing.Point(41, 33);
+            this.rbAllProgram.Name = "rbAllProgram";
+            this.rbAllProgram.Size = new System.Drawing.Size(77, 17);
+            this.rbAllProgram.TabIndex = 8;
+            this.rbAllProgram.TabStop = true;
+            this.rbAllProgram.Text = "All program";
+            this.rbAllProgram.UseVisualStyleBackColor = true;
+            this.rbAllProgram.CheckedChanged += new System.EventHandler(this.rbAllProgram_CheckedChanged);
             // 
             // label3
             // 
@@ -84,15 +89,19 @@
             this.label3.Text = "Rule applies to all connections on the computer that match orther rule properties" +
     "";
             // 
+            // Open
+            // 
+            this.Open.FileName = "openFileDialog1";
+            // 
             // RuleProgramForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(456, 168);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.btnBrowes);
+            this.Controls.Add(this.txtProgram);
+            this.Controls.Add(this.rbThisProgram);
+            this.Controls.Add(this.rbAllProgram);
             this.Controls.Add(this.label3);
             this.Name = "RuleProgramForm";
             this.Text = "RuleProgramForm";
@@ -103,10 +112,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Button btnBrowes;
+        private System.Windows.Forms.TextBox txtProgram;
+        private System.Windows.Forms.RadioButton rbThisProgram;
+        private System.Windows.Forms.RadioButton rbAllProgram;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.OpenFileDialog Open;
     }
 }

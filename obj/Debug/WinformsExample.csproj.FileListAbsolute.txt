@@ -110,3 +110,7 @@ C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.RulePropertie
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.RuleProgramForm.resources
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.RulePortForm.resources
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.RuleProfileForm.resources
+C:\Users\daugo\Documents\GitHub\Firewall\bin\Debug\Interop.Shell32.dll
+C:\Users\daugo\Documents\GitHub\Firewall\bin\Debug\AxInterop.Shell32.dll
+C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\Interop.Shell32.dll
+C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\AxInterop.Shell32.dll

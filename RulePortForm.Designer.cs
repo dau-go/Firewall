@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.rbAllPort = new System.Windows.Forms.RadioButton();
             this.rbSpecPort = new System.Windows.Forms.RadioButton();
@@ -41,19 +40,10 @@
             this.splitter1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(31, 96);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(173, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Does this rule apply to TCP or UDP";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(31, 96);
+            this.label3.Location = new System.Drawing.Point(31, 89);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(283, 13);
             this.label3.TabIndex = 0;
@@ -91,6 +81,7 @@
             this.txtPort.Name = "txtPort";
             this.txtPort.Size = new System.Drawing.Size(189, 20);
             this.txtPort.TabIndex = 2;
+            this.txtPort.TextChanged += new System.EventHandler(this.txtPort_TextChanged);
             // 
             // label4
             // 
@@ -108,7 +99,7 @@
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Top;
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(415, 93);
+            this.splitter1.Size = new System.Drawing.Size(415, 86);
             this.splitter1.TabIndex = 3;
             this.splitter1.TabStop = false;
             // 
@@ -124,6 +115,7 @@
             this.rbTCP.TabStop = true;
             this.rbTCP.Text = "TCP";
             this.rbTCP.UseVisualStyleBackColor = true;
+            this.rbTCP.CheckedChanged += new System.EventHandler(this.rbTCP_CheckedChanged);
             // 
             // rbUDP
             // 
@@ -135,6 +127,7 @@
             this.rbUDP.TabIndex = 6;
             this.rbUDP.Text = "UDP";
             this.rbUDP.UseVisualStyleBackColor = true;
+            this.rbUDP.CheckedChanged += new System.EventHandler(this.rbTCP_CheckedChanged);
             // 
             // label1
             // 
@@ -157,7 +150,6 @@
             this.Controls.Add(this.rbAllPort);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Name = "RulePortForm";
             this.Text = "RulePortForm";
             this.splitter1.ResumeLayout(false);
@@ -168,7 +160,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RadioButton rbAllPort;
         private System.Windows.Forms.RadioButton rbSpecPort;

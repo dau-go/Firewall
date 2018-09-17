@@ -14,7 +14,43 @@ namespace WinformsExample
         public RuleProfileForm()
         {
             InitializeComponent();
-            AddRuleForm.Profile = 7;
+            GetProfile();
+        }
+        public void GetProfile()
+        {
+            if (cbDomain.Checked == true && cbPrivate.Checked == true && cbPublic.Checked == true)
+            {
+                AddRuleForm.Profile = 7;
+            }
+            if (cbDomain.Checked == false && cbPrivate.Checked == true && cbPublic.Checked == true)
+            {
+                AddRuleForm.Profile = 6;
+            }
+            if (cbDomain.Checked == true && cbPrivate.Checked == false && cbPublic.Checked == true)
+            {
+                AddRuleForm.Profile = 5;
+            }
+            if (cbDomain.Checked == true && cbPrivate.Checked == true && cbPublic.Checked == false)
+            {
+                AddRuleForm.Profile = 3;
+            }
+            if (cbDomain.Checked == false && cbPrivate.Checked == false && cbPublic.Checked == true)
+            {
+                AddRuleForm.Profile = 4;
+            }
+            if (cbDomain.Checked == false && cbPrivate.Checked == true && cbPublic.Checked == false)
+            {
+                AddRuleForm.Profile = 2;
+            }
+            if (cbDomain.Checked == true && cbPrivate.Checked == false && cbPublic.Checked == false)
+            {
+                AddRuleForm.Profile = 1;
+            }
+        }
+
+        private void cbPrivate_CheckedChanged(object sender, EventArgs e)
+        {
+            GetProfile();
         }
     }
 }
