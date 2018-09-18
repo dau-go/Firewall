@@ -37,6 +37,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -86,7 +87,7 @@
             // rbCustom
             // 
             this.rbCustom.AutoSize = true;
-            this.rbCustom.Location = new System.Drawing.Point(45, 230);
+            this.rbCustom.Location = new System.Drawing.Point(46, 252);
             this.rbCustom.Name = "rbCustom";
             this.rbCustom.Size = new System.Drawing.Size(60, 17);
             this.rbCustom.TabIndex = 1;
@@ -124,17 +125,25 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(64, 250);
+            this.label5.Location = new System.Drawing.Point(65, 272);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 13);
             this.label5.TabIndex = 0;
             this.label5.Text = "Custom rule";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(67, 226);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(250, 20);
+            this.textBox1.TabIndex = 2;
             // 
             // RuleTypeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(456, 430);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.rbCustom);
             this.Controls.Add(this.rbIP);
             this.Controls.Add(this.rbPort);
@@ -162,5 +171,6 @@
         private System.Windows.Forms.RadioButton rbProgram;
         private System.Windows.Forms.RadioButton rbIP;
         private System.Windows.Forms.RadioButton rbCustom;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

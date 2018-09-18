@@ -79,9 +79,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(45, 99);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(135, 26);
+            this.label2.Size = new System.Drawing.Size(124, 26);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Examples:  192.168.0.12\r\n                  192.168.1.0/24\r\n";
+            this.label2.Text = "Examples:  192.168.0.12\r\n                  192.168.0.0\r\n";
             // 
             // txtSubnet
             // 

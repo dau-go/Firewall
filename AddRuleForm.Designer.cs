@@ -187,6 +187,7 @@
             this.btnNext3.Text = "Next >";
             this.btnNext3.UseVisualStyleBackColor = true;
             this.btnNext3.Visible = false;
+            this.btnNext3.Click += new System.EventHandler(this.btnNext3_Click);
             // 
             // btnBack4
             // 
@@ -197,6 +198,7 @@
             this.btnBack4.Text = "< Back";
             this.btnBack4.UseVisualStyleBackColor = true;
             this.btnBack4.Visible = false;
+            this.btnBack4.Click += new System.EventHandler(this.btnBack4_Click);
             // 
             // AddRuleForm
             // 

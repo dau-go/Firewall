@@ -107,6 +107,7 @@
             // cbLocalport
             // 
             this.cbLocalport.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbLocalport.Enabled = false;
             this.cbLocalport.FormattingEnabled = true;
             this.cbLocalport.Items.AddRange(new object[] {
             "All Ports",
@@ -120,6 +121,7 @@
             // cbRemoteport
             // 
             this.cbRemoteport.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRemoteport.Enabled = false;
             this.cbRemoteport.FormattingEnabled = true;
             this.cbRemoteport.Items.AddRange(new object[] {
             "All Ports",

@@ -123,6 +123,9 @@ namespace WinformsExample
             btnBack4.Visible = false;
             btnfis.Visible = false;
             ShowPro();
+            if (k == 3)
+            {
+            }
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -143,6 +146,111 @@ namespace WinformsExample
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        public bool ValidatePort(string s)
+        {
+            string[] str = s.Split(',');
+            try
+            {
+                for (int i = 0; i < str.Length; i++)
+                {
+                    int j = int.Parse(str[i]);
+                    if (j < 0 || j > 65535)
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
+        public void ShowPro()
+        {
+            if (k == 1)
+            {
+                btnBack.Visible = true;
+                groupBox1.Controls.Clear();
+                groupBox2.Controls.Clear();
+                groupBox3.Controls.Clear();
+                groupBox1.Text = "";
+                groupBox1.Controls.Add(groupBox2);
+                groupBox1.Controls.Add(groupBox3);
+                groupBox2.Text = "Properties";
+                groupBox3.Text = "Program";
+                groupBox2.Visible = true;
+                groupBox3.Visible = true;
+                //
+                f5.TopLevel = false;
+                f5.FormBorderStyle = FormBorderStyle.None;
+                f5.Dock = DockStyle.Fill;
+                groupBox2.Controls.Add(f5);
+                f5.Visible = true;
+                //
+                f4.TopLevel = false;
+                f4.FormBorderStyle = FormBorderStyle.None;
+                f4.Dock = DockStyle.Fill;
+                groupBox3.Controls.Add(f4);
+                f4.Visible = true;
+            }
+            if (k == 2)
+            {
+                btnBack.Visible = true;
+                groupBox1.Controls.Clear();
+                groupBox2.Controls.Clear();
+                groupBox3.Controls.Clear();
+                groupBox1.Text = "";
+                groupBox1.Controls.Add(groupBox2);
+                groupBox1.Controls.Add(groupBox3);
+                groupBox2.Text = "Properties";
+                groupBox3.Text = "Program And Port";
+                groupBox2.Visible = true;
+                groupBox3.Visible = true;
+                //
+                f5.TopLevel = false;
+                f5.FormBorderStyle = FormBorderStyle.None;
+                f5.Dock = DockStyle.Fill;
+                groupBox2.Controls.Add(f5);
+                f5.Visible = true;
+                //
+                f2.TopLevel = false;
+                f2.FormBorderStyle = FormBorderStyle.None;
+                f2.Dock = DockStyle.Fill;
+                groupBox3.Controls.Add(f2);
+                f2.Visible = true;
+            }
+            if (k == 3)
+            {
+
+            }
+            if (k == 4)
+            {
+                btnBack.Visible = true;
+                groupBox1.Controls.Clear();
+                groupBox2.Controls.Clear();
+                groupBox3.Controls.Clear();
+                groupBox1.Text = "";
+                groupBox1.Controls.Add(groupBox2);
+                groupBox1.Controls.Add(groupBox3);
+                groupBox2.Text = "Properties";
+                groupBox3.Text = "Program";
+                groupBox2.Visible = true;
+                groupBox3.Visible = true;
+                //
+                f5.TopLevel = false;
+                f5.FormBorderStyle = FormBorderStyle.None;
+                f5.Dock = DockStyle.Fill;
+                groupBox2.Controls.Add(f5);
+                f5.Visible = true;
+                //
+                f4.TopLevel = false;
+                f4.FormBorderStyle = FormBorderStyle.None;
+                f4.Dock = DockStyle.Fill;
+                groupBox3.Controls.Add(f4);
+                f4.Visible = true;
+            }
         }
         private void btnNext1_Click(object sender, EventArgs e)
         {
@@ -182,35 +290,31 @@ namespace WinformsExample
                         {
                             if (_LocalPort != "")
                             {
-                                try
+                                if (_LocalPort != "Any")
                                 {
-                                    if (_LocalPort != "Any")
+                                    if (ValidatePort(_LocalPort) == false)
                                     {
-                                        int str = int.Parse(_LocalPort.Replace(",", ""));
+                                        MessageBox.Show("The port value is incorrect", "Firewall");
+                                        break;
                                     }
-                                    groupBox1.Controls.Clear();
-                                    groupBox1.Text = "Profile";
-                                    f3.TopLevel = false;
-                                    f3.FormBorderStyle = FormBorderStyle.None;
-                                    f3.Dock = DockStyle.Fill;
-                                    groupBox1.Controls.Add(f3);
-                                    f3.Visible = true;
-                                    btnNext.Visible = false;
-                                    btnNext1.Visible = false;
-                                    btnNext2.Visible = false;
-                                    btnNext3.Visible = false;
-                                    btnBack.Visible = false;
-                                    btnBack1.Visible = true;
-                                    btnBack2.Visible = false;
-                                    btnBack3.Visible = false;
-                                    btnBack4.Visible = false;
-                                    btnfis.Visible = true;
                                 }
-                                catch
-                                {
-                                    MessageBox.Show("The port value is incorrect", "Firewall");
-                                }
-
+                                groupBox1.Controls.Clear();
+                                groupBox1.Text = "Profile";
+                                f3.TopLevel = false;
+                                f3.FormBorderStyle = FormBorderStyle.None;
+                                f3.Dock = DockStyle.Fill;
+                                groupBox1.Controls.Add(f3);
+                                f3.Visible = true;
+                                btnNext.Visible = false;
+                                btnNext1.Visible = false;
+                                btnNext2.Visible = false;
+                                btnNext3.Visible = false;
+                                btnBack.Visible = false;
+                                btnBack1.Visible = true;
+                                btnBack2.Visible = false;
+                                btnBack3.Visible = false;
+                                btnBack4.Visible = false;
+                                btnfis.Visible = true;
                             }
                             else
                             {
@@ -302,90 +406,134 @@ namespace WinformsExample
             btnBack4.Visible = false;
             btnfis.Visible = false;
         }
-        public void ShowPro()
-        {
-            if (k == 1)
-            {
-                btnBack.Visible = true;
-                groupBox1.Controls.Clear();
-                groupBox2.Controls.Clear();
-                groupBox3.Controls.Clear();
-                groupBox1.Text = "";
-                groupBox1.Controls.Add(groupBox2);
-                groupBox1.Controls.Add(groupBox3);
-                groupBox2.Text = "Properties";
-                groupBox3.Text = "Program";
-                groupBox2.Visible = true;
-                groupBox3.Visible = true;
-                //
-                f5.TopLevel = false;
-                f5.FormBorderStyle = FormBorderStyle.None;
-                f5.Dock = DockStyle.Fill;
-                groupBox2.Controls.Add(f5);
-                f5.Visible = true;
-                //
-                f4.TopLevel = false;
-                f4.FormBorderStyle = FormBorderStyle.None;
-                f4.Dock = DockStyle.Fill;
-                groupBox3.Controls.Add(f4);
-                f4.Visible = true;
-            }
-            if (k == 2)
-            {
-                btnBack.Visible = true;
-                groupBox1.Controls.Clear();
-                groupBox2.Controls.Clear();
-                groupBox3.Controls.Clear();
-                groupBox1.Text = "";
-                groupBox1.Controls.Add(groupBox2);
-                groupBox1.Controls.Add(groupBox3);
-                groupBox2.Text = "Properties";
-                groupBox3.Text = "Program And Port";
-                groupBox2.Visible = true;
-                groupBox3.Visible = true;
-                //
-                f5.TopLevel = false;
-                f5.FormBorderStyle = FormBorderStyle.None;
-                f5.Dock = DockStyle.Fill;
-                groupBox2.Controls.Add(f5);
-                f5.Visible = true;
-                //
-                f2.TopLevel = false;
-                f2.FormBorderStyle = FormBorderStyle.None;
-                f2.Dock = DockStyle.Fill;
-                groupBox3.Controls.Add(f2);
-                f2.Visible = true;
-            }
-            if (k == 3)
-            {
 
-            }
-            if (k == 4)
+
+        private void btnback2_Click(object sender, EventArgs e)
+        {
+            groupBox1.Controls.Clear();
+            groupBox1.Text = "Protocol and Port";
+            f6.TopLevel = false;
+            f6.FormBorderStyle = FormBorderStyle.None;
+            f6.Dock = DockStyle.Fill;
+            groupBox1.Controls.Add(f6);
+            f6.Visible = true;
+            btnNext.Visible = false;
+            btnNext1.Visible = false;
+            btnNext2.Visible = true;
+            btnNext3.Visible = false;
+            btnBack.Visible = false;
+            btnBack1.Visible = true;
+            btnBack2.Visible = false;
+            btnBack3.Visible = false;
+            btnBack4.Visible = false;
+            btnfis.Visible = false;
+        }
+
+        private void btnnext2_Click(object sender, EventArgs e)
+        {
+            if (_LocalPort != "" || _RemotePort != "")
             {
-                btnBack.Visible = true;
+                if (_LocalPort != "Any")
+                {
+                    if (ValidatePort(_LocalPort) == false)
+                    {
+                        MessageBox.Show("The port value is incorrect", "Firewall");
+                        return;
+                    }
+                }
+                if (_RemotePort != "Any")
+                {
+                    if (ValidatePort(_RemotePort) == false)
+                    {
+                        MessageBox.Show("The port value is incorrect", "Firewall");
+                        return;
+                    }
+                }
                 groupBox1.Controls.Clear();
-                groupBox2.Controls.Clear();
-                groupBox3.Controls.Clear();
-                groupBox1.Text = "";
-                groupBox1.Controls.Add(groupBox2);
-                groupBox1.Controls.Add(groupBox3);
-                groupBox2.Text = "Properties";
-                groupBox3.Text = "Program";
-                groupBox2.Visible = true;
-                groupBox3.Visible = true;
-                //
-                f5.TopLevel = false;
-                f5.FormBorderStyle = FormBorderStyle.None;
-                f5.Dock = DockStyle.Fill;
-                groupBox2.Controls.Add(f5);
-                f5.Visible = true;
-                //
-                f4.TopLevel = false;
-                f4.FormBorderStyle = FormBorderStyle.None;
-                f4.Dock = DockStyle.Fill;
-                groupBox3.Controls.Add(f4);
-                f4.Visible = true;
+                groupBox1.Text = "Scope";
+                f1.TopLevel = false;
+                f1.FormBorderStyle = FormBorderStyle.None;
+                f1.Dock = DockStyle.Fill;
+                groupBox1.Controls.Add(f1);
+                f1.Visible = true;
+                btnNext.Visible = false;
+                btnNext1.Visible = false;
+                btnNext2.Visible = false;
+                btnNext3.Visible = true;
+                btnBack.Visible = false;
+                btnBack1.Visible = false;
+                btnBack2.Visible = true;
+                btnBack3.Visible = false;
+                btnBack4.Visible = false;
+                btnfis.Visible = false;
             }
+            else
+            {
+                MessageBox.Show("You must specify the port you want to add to the rule", "Firewall");
+            }
+        }
+
+        private void btnBack3_Click(object sender, EventArgs e)
+        {
+            groupBox1.Controls.Clear();
+            groupBox1.Text = "Protocol and Port";
+            f6.TopLevel = false;
+            f6.FormBorderStyle = FormBorderStyle.None;
+            f6.Dock = DockStyle.Fill;
+            groupBox1.Controls.Add(f6);
+            f6.Visible = true;
+            btnNext.Visible = false;
+            btnNext1.Visible = false;
+            btnNext2.Visible = true;
+            btnNext3.Visible = false;
+            btnBack.Visible = false;
+            btnBack1.Visible = true;
+            btnBack2.Visible = false;
+            btnBack3.Visible = false;
+            btnBack4.Visible = false;
+            btnfis.Visible = false;
+        }
+
+        private void btnNext3_Click(object sender, EventArgs e)
+        {
+            groupBox1.Controls.Clear();
+            groupBox1.Text = "Profile";
+            f3.TopLevel = false;
+            f3.FormBorderStyle = FormBorderStyle.None;
+            f3.Dock = DockStyle.Fill;
+            groupBox1.Controls.Add(f3);
+            f3.Visible = true;
+            btnNext.Visible = false;
+            btnNext1.Visible = false;
+            btnNext2.Visible = false;
+            btnNext3.Visible = false;
+            btnBack.Visible = false;
+            btnBack1.Visible = false;
+            btnBack2.Visible = false;
+            btnBack3.Visible = false;
+            btnBack4.Visible = true;
+            btnfis.Visible = true;
+        }
+
+        private void btnBack4_Click(object sender, EventArgs e)
+        {
+            groupBox1.Controls.Clear();
+            groupBox1.Text = "Scope";
+            f1.TopLevel = false;
+            f1.FormBorderStyle = FormBorderStyle.None;
+            f1.Dock = DockStyle.Fill;
+            groupBox1.Controls.Add(f1);
+            f1.Visible = true;
+            btnNext.Visible = false;
+            btnNext1.Visible = false;
+            btnNext2.Visible = false;
+            btnNext3.Visible = true;
+            btnBack.Visible = false;
+            btnBack1.Visible = false;
+            btnBack2.Visible = true;
+            btnBack3.Visible = false;
+            btnBack4.Visible = false;
+            btnfis.Visible = false;
         }
 
         private void btnfis_Click(object sender, EventArgs e)
@@ -422,8 +570,16 @@ namespace WinformsExample
                         inboundRule.Protocol = _Protocol;
                         if (_LocalPort != "Any")
                         {
-                            inboundRule.LocalPorts = _LocalPort;
+                            if (_kt == 1)
+                            {
+                                inboundRule.RemotePorts = _LocalPort;
+                            }
+                            else
+                            {
+                                inboundRule.LocalPorts = _LocalPort;
+                            }
                         }
+                        inboundRule.Profiles = _Profile;
                         break;
                     }
                 case 3:
@@ -432,7 +588,32 @@ namespace WinformsExample
                     }
                 case 4:
                     {
-
+                        if (_Action == 0)
+                        {
+                            inboundRule.Action = 0;
+                        }
+                        if (_Program != "Any")
+                        {
+                            inboundRule.ApplicationName = _Program;
+                        }
+                        inboundRule.Protocol = _Protocol;
+                        inboundRule.Profiles = _Profile;
+                        if (_LocalPort != "Any")
+                        {
+                            inboundRule.LocalPorts = _LocalPort;
+                        }
+                        if (_RemotePort != "Any")
+                        {
+                            inboundRule.RemotePorts = _RemotePort;
+                        }
+                        if (_LocalIP != "Any")
+                        {
+                            inboundRule.LocalAddresses = _LocalIP;
+                        }
+                        if (_RemoteIP != "Any")
+                        {
+                            inboundRule.RemoteAddresses = _RemoteIP;
+                        }
                         break;
                     }
             }
@@ -443,76 +624,6 @@ namespace WinformsExample
             INetFwPolicy2 firewallPolicy = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
             firewallPolicy.Rules.Add(inboundRule);
             this.Close();
-        }
-
-        private void btnback2_Click(object sender, EventArgs e)
-        {
-            groupBox1.Controls.Clear();
-            groupBox1.Text = "Protocol and Port";
-            f6.TopLevel = false;
-            f6.FormBorderStyle = FormBorderStyle.None;
-            f6.Dock = DockStyle.Fill;
-            groupBox1.Controls.Add(f6);
-            f6.Visible = true;
-            btnNext.Visible = false;
-            btnNext1.Visible = false;
-            btnNext2.Visible = true;
-            btnNext3.Visible = false;
-            btnBack.Visible = false;
-            btnBack1.Visible = true;
-            btnBack2.Visible = false;
-            btnBack3.Visible = false;
-            btnBack4.Visible = false;
-            btnfis.Visible = false;
-        }
-
-        private void btnnext2_Click(object sender, EventArgs e)
-        {
-            if (_LocalPort != "" || _RemotePort != "")
-            {
-                try
-                {
-                    if (_LocalPort != "Any")
-                    {
-                        int str = int.Parse(_LocalPort.Replace(",", ""));
-                    }
-                    if (_RemotePort != "Any")
-                    {
-                        int str = int.Parse(_RemotePort.Replace(",", ""));
-                    }
-                    groupBox1.Controls.Clear();
-                    groupBox1.Text = "Scope";
-                    f1.TopLevel = false;
-                    f1.FormBorderStyle = FormBorderStyle.None;
-                    f1.Dock = DockStyle.Fill;
-                    groupBox1.Controls.Add(f1);
-                    f1.Visible = true;
-                    btnNext.Visible = false;
-                    btnNext1.Visible = false;
-                    btnNext2.Visible = false;
-                    btnNext3.Visible = true;
-                    btnBack.Visible = false;
-                    btnBack1.Visible = false;
-                    btnBack2.Visible = true;
-                    btnBack3.Visible = false;
-                    btnBack4.Visible = false;
-                    btnfis.Visible = false;
-                }
-                catch
-                {
-                    MessageBox.Show("The port value is incorrect", "Firewall");
-                }
-
-            }
-            else
-            {
-                MessageBox.Show("You must specify the port you want to add to the rule", "Firewall");
-            }
-        }
-
-        private void btnBack3_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

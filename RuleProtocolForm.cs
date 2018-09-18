@@ -123,6 +123,16 @@ namespace WinformsExample
         }
         private void cbProtocol_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(cbProtocol.Text=="TCP"||cbProtocol.Text=="UDP")
+            {
+                cbLocalport.Enabled = true;
+                cbRemoteport.Enabled = true;
+            }
+            else
+            {
+                cbLocalport.Enabled = false;
+                cbRemoteport.Enabled = false;
+            }
             Getdata();
         }
 
