@@ -76,6 +76,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddIPForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddIPForm.Designer.cs">
+      <DependentUpon>AddIPForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddRuleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +173,9 @@
     <Compile Include="RuleTypeForm.Designer.cs">
       <DependentUpon>RuleTypeForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddIPForm.resx">
+      <DependentUpon>AddIPForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddRuleForm.resx">
       <DependentUpon>AddRuleForm.cs</DependentUpon>
     </EmbeddedResource>

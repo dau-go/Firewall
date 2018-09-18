@@ -11,6 +11,18 @@ namespace WinformsExample
 {
     public partial class RuleIPForm : Form
     {
+        private static string _LocalIP;
+        public static string LocalIP
+        {
+            get { return _LocalIP; }
+            set { _LocalIP = value; }
+        }
+        private static string _RemoteIP;
+        public static string RemoteIP
+        {
+            get { return _RemoteIP; }
+            set { _RemoteIP = value; }
+        }
         public RuleIPForm()
         {
             InitializeComponent();
@@ -28,6 +40,12 @@ namespace WinformsExample
         {
             txtLocal.Enabled = true;
             btnAddLocal.Enabled = true;
+        }
+
+        private void btnAddLocal_Click(object sender, EventArgs e)
+        {
+            AddIPForm f = new AddIPForm();
+            f.ShowDialog();
         }
     }
 }

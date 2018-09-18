@@ -64,6 +64,7 @@
             this.splitter1.Controls.Add(this.btnAddLocal);
             this.splitter1.Controls.Add(this.btnEditLocal);
             this.splitter1.Controls.Add(this.btnDelLocal);
+            this.splitter1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Top;
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Name = "splitter1";
@@ -106,10 +107,12 @@
             // 
             // txtLocal
             // 
+            this.txtLocal.BackColor = System.Drawing.SystemColors.Window;
             this.txtLocal.Enabled = false;
             this.txtLocal.Location = new System.Drawing.Point(58, 97);
             this.txtLocal.Multiline = true;
             this.txtLocal.Name = "txtLocal";
+            this.txtLocal.ReadOnly = true;
             this.txtLocal.Size = new System.Drawing.Size(282, 81);
             this.txtLocal.TabIndex = 4;
             // 
@@ -122,6 +125,7 @@
             this.btnAddLocal.TabIndex = 5;
             this.btnAddLocal.Text = "Add...";
             this.btnAddLocal.UseVisualStyleBackColor = true;
+            this.btnAddLocal.Click += new System.EventHandler(this.btnAddLocal_Click);
             // 
             // btnEditLocal
             // 
@@ -167,10 +171,12 @@
             // 
             // txtRemote
             // 
+            this.txtRemote.BackColor = System.Drawing.SystemColors.Window;
             this.txtRemote.Enabled = false;
             this.txtRemote.Location = new System.Drawing.Point(58, 282);
             this.txtRemote.Multiline = true;
             this.txtRemote.Name = "txtRemote";
+            this.txtRemote.ReadOnly = true;
             this.txtRemote.Size = new System.Drawing.Size(282, 81);
             this.txtRemote.TabIndex = 4;
             // 

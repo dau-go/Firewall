@@ -96,6 +96,7 @@
             // 
             this.splitter1.Controls.Add(this.rbTCP);
             this.splitter1.Controls.Add(this.rbUDP);
+            this.splitter1.Cursor = System.Windows.Forms.Cursors.Default;
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Top;
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Name = "splitter1";

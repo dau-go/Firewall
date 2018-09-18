@@ -1,6 +1,6 @@
 ﻿namespace WinformsExample
 {
-    partial class OutboundForm
+    partial class InboundForm
     {
         /// <summary>
         /// Required designer variable.
@@ -44,14 +44,14 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(712, 413);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.Size = new System.Drawing.Size(649, 413);
+            this.dataGridView1.TabIndex = 1;
             // 
             // InboundForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(712, 413);
+            this.ClientSize = new System.Drawing.Size(649, 413);
             this.Controls.Add(this.dataGridView1);
             this.Name = "InboundForm";
             this.Text = "InboundForm";

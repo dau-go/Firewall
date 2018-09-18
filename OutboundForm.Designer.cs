@@ -47,14 +47,14 @@
             this.dataGridView1.Size = new System.Drawing.Size(712, 413);
             this.dataGridView1.TabIndex = 0;
             // 
-            // InboundForm
+            // OutboundForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(712, 413);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "InboundForm";
-            this.Text = "InboundForm";
+            this.Name = "OutboundForm";
+            this.Text = "OutboundForm";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
