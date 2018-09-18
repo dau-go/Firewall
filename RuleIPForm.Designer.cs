@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             this.label2 = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.label1 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.rbAllLocal = new System.Windows.Forms.RadioButton();
+            this.rbIPLocal = new System.Windows.Forms.RadioButton();
+            this.txtLocal = new System.Windows.Forms.TextBox();
+            this.btnAddLocal = new System.Windows.Forms.Button();
+            this.btnEditLocal = new System.Windows.Forms.Button();
+            this.btnDelLocal = new System.Windows.Forms.Button();
+            this.rbAllRemote = new System.Windows.Forms.RadioButton();
+            this.rbIPRemote = new System.Windows.Forms.RadioButton();
+            this.txtRemote = new System.Windows.Forms.TextBox();
+            this.btnAddRemote = new System.Windows.Forms.Button();
+            this.btnEditRemote = new System.Windows.Forms.Button();
+            this.btnDelRemote = new System.Windows.Forms.Button();
+            this.splitter1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(41, 237);
+            this.label2.Location = new System.Drawing.Point(20, 220);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(248, 13);
             this.label2.TabIndex = 0;
@@ -57,179 +57,190 @@
             // 
             // splitter1
             // 
+            this.splitter1.Controls.Add(this.label1);
+            this.splitter1.Controls.Add(this.rbAllLocal);
+            this.splitter1.Controls.Add(this.rbIPLocal);
+            this.splitter1.Controls.Add(this.txtLocal);
+            this.splitter1.Controls.Add(this.btnAddLocal);
+            this.splitter1.Controls.Add(this.btnEditLocal);
+            this.splitter1.Controls.Add(this.btnDelLocal);
             this.splitter1.Dock = System.Windows.Forms.DockStyle.Top;
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(492, 211);
+            this.splitter1.Size = new System.Drawing.Size(456, 202);
             this.splitter1.TabIndex = 1;
             this.splitter1.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(41, 32);
+            this.label1.Location = new System.Drawing.Point(20, 32);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(238, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Which local IP addresses does this rule apply to?";
             // 
-            // radioButton1
+            // rbAllLocal
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(62, 51);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(85, 17);
-            this.radioButton1.TabIndex = 3;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbAllLocal.AutoSize = true;
+            this.rbAllLocal.Checked = true;
+            this.rbAllLocal.Location = new System.Drawing.Point(41, 51);
+            this.rbAllLocal.Name = "rbAllLocal";
+            this.rbAllLocal.Size = new System.Drawing.Size(96, 17);
+            this.rbAllLocal.TabIndex = 3;
+            this.rbAllLocal.TabStop = true;
+            this.rbAllLocal.Text = "Any IP address";
+            this.rbAllLocal.UseVisualStyleBackColor = true;
+            this.rbAllLocal.CheckedChanged += new System.EventHandler(this.rbAllLocal_CheckedChanged);
             // 
-            // radioButton2
+            // rbIPLocal
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(62, 74);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(85, 17);
-            this.radioButton2.TabIndex = 3;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "radioButton1";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbIPLocal.AutoSize = true;
+            this.rbIPLocal.Location = new System.Drawing.Point(41, 74);
+            this.rbIPLocal.Name = "rbIPLocal";
+            this.rbIPLocal.Size = new System.Drawing.Size(111, 17);
+            this.rbIPLocal.TabIndex = 3;
+            this.rbIPLocal.Text = "These IP address:";
+            this.rbIPLocal.UseVisualStyleBackColor = true;
+            this.rbIPLocal.CheckedChanged += new System.EventHandler(this.rbIPLocal_CheckedChanged);
             // 
-            // radioButton3
+            // txtLocal
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(62, 253);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(85, 17);
-            this.radioButton3.TabIndex = 3;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "radioButton1";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.txtLocal.Enabled = false;
+            this.txtLocal.Location = new System.Drawing.Point(58, 97);
+            this.txtLocal.Multiline = true;
+            this.txtLocal.Name = "txtLocal";
+            this.txtLocal.Size = new System.Drawing.Size(282, 81);
+            this.txtLocal.TabIndex = 4;
             // 
-            // radioButton4
+            // btnAddLocal
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(62, 276);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(85, 17);
-            this.radioButton4.TabIndex = 3;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "radioButton1";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.btnAddLocal.Enabled = false;
+            this.btnAddLocal.Location = new System.Drawing.Point(346, 97);
+            this.btnAddLocal.Name = "btnAddLocal";
+            this.btnAddLocal.Size = new System.Drawing.Size(75, 23);
+            this.btnAddLocal.TabIndex = 5;
+            this.btnAddLocal.Text = "Add...";
+            this.btnAddLocal.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // btnEditLocal
             // 
-            this.textBox1.Location = new System.Drawing.Point(79, 97);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(282, 78);
-            this.textBox1.TabIndex = 4;
+            this.btnEditLocal.Enabled = false;
+            this.btnEditLocal.Location = new System.Drawing.Point(346, 126);
+            this.btnEditLocal.Name = "btnEditLocal";
+            this.btnEditLocal.Size = new System.Drawing.Size(75, 23);
+            this.btnEditLocal.TabIndex = 5;
+            this.btnEditLocal.Text = "Edit...";
+            this.btnEditLocal.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // btnDelLocal
             // 
-            this.textBox2.Location = new System.Drawing.Point(79, 299);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(282, 78);
-            this.textBox2.TabIndex = 4;
+            this.btnDelLocal.Enabled = false;
+            this.btnDelLocal.Location = new System.Drawing.Point(346, 155);
+            this.btnDelLocal.Name = "btnDelLocal";
+            this.btnDelLocal.Size = new System.Drawing.Size(75, 23);
+            this.btnDelLocal.TabIndex = 5;
+            this.btnDelLocal.Text = "Remove";
+            this.btnDelLocal.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // rbAllRemote
             // 
-            this.button1.Location = new System.Drawing.Point(367, 97);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.rbAllRemote.AutoSize = true;
+            this.rbAllRemote.Checked = true;
+            this.rbAllRemote.Location = new System.Drawing.Point(41, 236);
+            this.rbAllRemote.Name = "rbAllRemote";
+            this.rbAllRemote.Size = new System.Drawing.Size(96, 17);
+            this.rbAllRemote.TabIndex = 3;
+            this.rbAllRemote.TabStop = true;
+            this.rbAllRemote.Text = "Any IP address";
+            this.rbAllRemote.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // rbIPRemote
             // 
-            this.button2.Location = new System.Drawing.Point(367, 126);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "button1";
-            this.button2.UseVisualStyleBackColor = true;
+            this.rbIPRemote.AutoSize = true;
+            this.rbIPRemote.Location = new System.Drawing.Point(41, 259);
+            this.rbIPRemote.Name = "rbIPRemote";
+            this.rbIPRemote.Size = new System.Drawing.Size(111, 17);
+            this.rbIPRemote.TabIndex = 3;
+            this.rbIPRemote.Text = "These IP address:";
+            this.rbIPRemote.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // txtRemote
             // 
-            this.button3.Location = new System.Drawing.Point(367, 152);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "button1";
-            this.button3.UseVisualStyleBackColor = true;
+            this.txtRemote.Enabled = false;
+            this.txtRemote.Location = new System.Drawing.Point(58, 282);
+            this.txtRemote.Multiline = true;
+            this.txtRemote.Name = "txtRemote";
+            this.txtRemote.Size = new System.Drawing.Size(282, 81);
+            this.txtRemote.TabIndex = 4;
             // 
-            // button4
+            // btnAddRemote
             // 
-            this.button4.Location = new System.Drawing.Point(367, 299);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "button1";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnAddRemote.Enabled = false;
+            this.btnAddRemote.Location = new System.Drawing.Point(346, 282);
+            this.btnAddRemote.Name = "btnAddRemote";
+            this.btnAddRemote.Size = new System.Drawing.Size(75, 23);
+            this.btnAddRemote.TabIndex = 5;
+            this.btnAddRemote.Text = "Add...";
+            this.btnAddRemote.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btnEditRemote
             // 
-            this.button5.Location = new System.Drawing.Point(367, 328);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "button1";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnEditRemote.Enabled = false;
+            this.btnEditRemote.Location = new System.Drawing.Point(346, 311);
+            this.btnEditRemote.Name = "btnEditRemote";
+            this.btnEditRemote.Size = new System.Drawing.Size(75, 23);
+            this.btnEditRemote.TabIndex = 5;
+            this.btnEditRemote.Text = "Edit...";
+            this.btnEditRemote.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnDelRemote
             // 
-            this.button6.Location = new System.Drawing.Point(367, 354);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 5;
-            this.button6.Text = "button1";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnDelRemote.Enabled = false;
+            this.btnDelRemote.Location = new System.Drawing.Point(346, 340);
+            this.btnDelRemote.Name = "btnDelRemote";
+            this.btnDelRemote.Size = new System.Drawing.Size(75, 23);
+            this.btnDelRemote.TabIndex = 5;
+            this.btnDelRemote.Text = "Remove";
+            this.btnDelRemote.UseVisualStyleBackColor = true;
             // 
             // RuleIPForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(492, 427);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.radioButton4);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(456, 427);
+            this.Controls.Add(this.btnDelRemote);
+            this.Controls.Add(this.btnEditRemote);
+            this.Controls.Add(this.btnAddRemote);
+            this.Controls.Add(this.txtRemote);
+            this.Controls.Add(this.rbIPRemote);
+            this.Controls.Add(this.rbAllRemote);
             this.Controls.Add(this.splitter1);
             this.Controls.Add(this.label2);
             this.Name = "RuleIPForm";
             this.Text = "RuleIPForm";
+            this.splitter1.ResumeLayout(false);
+            this.splitter1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.RadioButton rbAllLocal;
+        private System.Windows.Forms.RadioButton rbIPLocal;
+        private System.Windows.Forms.RadioButton rbAllRemote;
+        private System.Windows.Forms.RadioButton rbIPRemote;
+        private System.Windows.Forms.TextBox txtLocal;
+        private System.Windows.Forms.TextBox txtRemote;
+        private System.Windows.Forms.Button btnAddLocal;
+        private System.Windows.Forms.Button btnEditLocal;
+        private System.Windows.Forms.Button btnDelLocal;
+        private System.Windows.Forms.Button btnAddRemote;
+        private System.Windows.Forms.Button btnEditRemote;
+        private System.Windows.Forms.Button btnDelRemote;
     }
 }

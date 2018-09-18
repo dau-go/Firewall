@@ -15,5 +15,19 @@ namespace WinformsExample
         {
             InitializeComponent();
         }
+        //Local IP
+        private void rbAllLocal_CheckedChanged(object sender, EventArgs e)
+        {
+            txtLocal.Enabled = false;
+            btnAddLocal.Enabled = false;
+            btnEditLocal.Enabled = false;
+            btnDelLocal.Enabled = false;
+        }
+
+        private void rbIPLocal_CheckedChanged(object sender, EventArgs e)
+        {
+            txtLocal.Enabled = true;
+            btnAddLocal.Enabled = true;
+        }
     }
 }
