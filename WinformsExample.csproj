@@ -76,6 +76,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddDomainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddDomainForm.Designer.cs">
+      <DependentUpon>AddDomainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddIPForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +179,15 @@
     <Compile Include="RuleTypeForm.Designer.cs">
       <DependentUpon>RuleTypeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="WebsiteRuleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WebsiteRuleForm.Designer.cs">
+      <DependentUpon>WebsiteRuleForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddDomainForm.resx">
+      <DependentUpon>AddDomainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddIPForm.resx">
       <DependentUpon>AddIPForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RuleTypeForm.resx">
       <DependentUpon>RuleTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WebsiteRuleForm.resx">
+      <DependentUpon>WebsiteRuleForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="app.manifest" />

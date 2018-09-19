@@ -302,7 +302,7 @@ namespace WinformsExample
                 {
                     if (rule.Direction.ToString() == "NET_FW_RULE_DIR_OUT")
                     {
-                        if (rule.Grouping != null)
+                        if (rule.Grouping != null && rule.Grouping != "Domain")
                         {
                             if (rule.Enabled == true)
                             {

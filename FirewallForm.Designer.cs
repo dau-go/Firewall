@@ -39,23 +39,24 @@
             System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("The Default Rule Of The Firewall", new System.Windows.Forms.TreeNode[] {
             treeNode4,
             treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Website blocking rules");
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tab = new System.Windows.Forms.TabPage();
-            this.treeView1 = new System.Windows.Forms.TreeView();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnDel = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnReload = new System.Windows.Forms.Button();
             this.btnTree = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tab = new System.Windows.Forms.TabPage();
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -113,60 +114,6 @@
             this.groupBox1.Size = new System.Drawing.Size(860, 41);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.tabControl1);
-            this.groupBox2.Controls.Add(this.treeView1);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(0, 65);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(860, 393);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tab);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(191, 16);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(666, 374);
-            this.tabControl1.TabIndex = 1;
-            // 
-            // tab
-            // 
-            this.tab.Location = new System.Drawing.Point(4, 22);
-            this.tab.Name = "tab";
-            this.tab.Padding = new System.Windows.Forms.Padding(3);
-            this.tab.Size = new System.Drawing.Size(658, 348);
-            this.tab.TabIndex = 0;
-            this.tab.UseVisualStyleBackColor = true;
-            // 
-            // treeView1
-            // 
-            this.treeView1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.treeView1.Location = new System.Drawing.Point(3, 16);
-            this.treeView1.Name = "treeView1";
-            treeNode1.Name = "InboundUser";
-            treeNode1.Text = "Inbound Rules";
-            treeNode2.Name = "OutboundUser";
-            treeNode2.Text = "Outbound Rules";
-            treeNode3.Name = "User";
-            treeNode3.Text = "User Created Firewall Rules";
-            treeNode4.Name = "InboundDefault";
-            treeNode4.Text = "Inbound Rules";
-            treeNode5.Name = "OutboundDefault";
-            treeNode5.Text = "Outbound Rules";
-            treeNode6.Name = "Default";
-            treeNode6.Text = "The Default Rule Of The Firewall";
-            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3,
-            treeNode6});
-            this.treeView1.Size = new System.Drawing.Size(188, 374);
-            this.treeView1.TabIndex = 0;
-            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // btnDel
             // 
@@ -257,6 +204,63 @@
             this.btnBack.TabIndex = 2;
             this.btnBack.Tag = "";
             this.btnBack.UseVisualStyleBackColor = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.tabControl1);
+            this.groupBox2.Controls.Add(this.treeView1);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(0, 65);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(860, 393);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tab);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(191, 16);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(666, 374);
+            this.tabControl1.TabIndex = 1;
+            // 
+            // tab
+            // 
+            this.tab.Location = new System.Drawing.Point(4, 22);
+            this.tab.Name = "tab";
+            this.tab.Padding = new System.Windows.Forms.Padding(3);
+            this.tab.Size = new System.Drawing.Size(658, 348);
+            this.tab.TabIndex = 0;
+            this.tab.UseVisualStyleBackColor = true;
+            // 
+            // treeView1
+            // 
+            this.treeView1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.treeView1.Location = new System.Drawing.Point(3, 16);
+            this.treeView1.Name = "treeView1";
+            treeNode1.Name = "InboundUser";
+            treeNode1.Text = "Inbound Rules";
+            treeNode2.Name = "OutboundUser";
+            treeNode2.Text = "Outbound Rules";
+            treeNode3.Name = "User";
+            treeNode3.Text = "User Created Firewall Rules";
+            treeNode4.Name = "InboundDefault";
+            treeNode4.Text = "Inbound Rules";
+            treeNode5.Name = "OutboundDefault";
+            treeNode5.Text = "Outbound Rules";
+            treeNode6.Name = "Default";
+            treeNode6.Text = "The Default Rule Of The Firewall";
+            treeNode7.Name = "Web";
+            treeNode7.Text = "Website blocking rules";
+            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode3,
+            treeNode6,
+            treeNode7});
+            this.treeView1.Size = new System.Drawing.Size(188, 374);
+            this.treeView1.TabIndex = 0;
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // FirewallForm
             // 

@@ -42,7 +42,6 @@
             this.btnBack2 = new System.Windows.Forms.Button();
             this.btnBack3 = new System.Windows.Forms.Button();
             this.btnNext3 = new System.Windows.Forms.Button();
-            this.btnBack4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -189,17 +188,6 @@
             this.btnNext3.Visible = false;
             this.btnNext3.Click += new System.EventHandler(this.btnNext3_Click);
             // 
-            // btnBack4
-            // 
-            this.btnBack4.Location = new System.Drawing.Point(226, 454);
-            this.btnBack4.Name = "btnBack4";
-            this.btnBack4.Size = new System.Drawing.Size(75, 23);
-            this.btnBack4.TabIndex = 11;
-            this.btnBack4.Text = "< Back";
-            this.btnBack4.UseVisualStyleBackColor = true;
-            this.btnBack4.Visible = false;
-            this.btnBack4.Click += new System.EventHandler(this.btnBack4_Click);
-            // 
             // AddRuleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -207,7 +195,6 @@
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(473, 489);
             this.Controls.Add(this.btnfis);
-            this.Controls.Add(this.btnBack4);
             this.Controls.Add(this.btnNext3);
             this.Controls.Add(this.btnBack3);
             this.Controls.Add(this.btnBack2);
@@ -223,7 +210,6 @@
             this.MinimizeBox = false;
             this.Name = "AddRuleForm";
             this.Text = "AddRuleForm";
-            this.Load += new System.EventHandler(this.AddRuleForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -245,6 +231,5 @@
         private System.Windows.Forms.Button btnBack2;
         private System.Windows.Forms.Button btnBack3;
         private System.Windows.Forms.Button btnNext3;
-        private System.Windows.Forms.Button btnBack4;
     }
 }

@@ -86,13 +86,29 @@ namespace WinformsExample
         RuleProtocolForm f6 = new RuleProtocolForm();
         RuleTypeForm f7 = new RuleTypeForm();
         int k = 1;
-        public AddRuleForm()
+        public AddRuleForm(int i)
         {
             InitializeComponent();
+            if (i == 0)
+            {
+                ShowRuleTypeForm();
+            }
+            else
+            {
+                ShowAddWebRule();
+            }
+
         }
-        private void AddRuleForm_Load(object sender, EventArgs e)
+        public void ShowAddWebRule()
         {
-            ShowRuleTypeForm();
+            groupBox1.Controls.Clear();
+            groupBox1.Text = "Website blocking rules";
+            AddDomainForm f = new AddDomainForm();
+            f.TopLevel = false;
+            f.FormBorderStyle = FormBorderStyle.None;
+            f.Dock = DockStyle.Fill;
+            groupBox1.Controls.Add(f);
+            f.Visible = true;
         }
         private void ShowRuleTypeForm()
         {
@@ -120,12 +136,8 @@ namespace WinformsExample
             btnBack1.Visible = false;
             btnBack2.Visible = false;
             btnBack3.Visible = false;
-            btnBack4.Visible = false;
             btnfis.Visible = false;
             ShowPro();
-            if (k == 3)
-            {
-            }
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -139,7 +151,6 @@ namespace WinformsExample
             btnBack1.Visible = false;
             btnBack2.Visible = false;
             btnBack3.Visible = false;
-            btnBack4.Visible = false;
             btnfis.Visible = false;
         }
 
@@ -223,10 +234,6 @@ namespace WinformsExample
             }
             if (k == 3)
             {
-
-            }
-            if (k == 4)
-            {
                 btnBack.Visible = true;
                 groupBox1.Controls.Clear();
                 groupBox2.Controls.Clear();
@@ -277,7 +284,6 @@ namespace WinformsExample
                                 btnBack1.Visible = true;
                                 btnBack2.Visible = false;
                                 btnBack3.Visible = false;
-                                btnBack4.Visible = false;
                                 btnfis.Visible = true;
                             }
                             else
@@ -313,7 +319,6 @@ namespace WinformsExample
                                 btnBack1.Visible = true;
                                 btnBack2.Visible = false;
                                 btnBack3.Visible = false;
-                                btnBack4.Visible = false;
                                 btnfis.Visible = true;
                             }
                             else
@@ -323,10 +328,6 @@ namespace WinformsExample
                             break;
                         }
                     case 3:
-                        {
-                            break;
-                        }
-                    case 4:
                         {
                             if (_Program != null)
                             {
@@ -345,7 +346,6 @@ namespace WinformsExample
                                 btnBack1.Visible = true;
                                 btnBack2.Visible = false;
                                 btnBack3.Visible = false;
-                                btnBack4.Visible = false;
                                 btnfis.Visible = false;
                             }
                             else
@@ -364,7 +364,7 @@ namespace WinformsExample
 
         private void btnBack1_Click(object sender, EventArgs e)
         {
-            if (k == 1 || k == 2 || k == 3)
+            if (k == 1 || k == 2)
             {
                 ShowPro();
             }
@@ -394,7 +394,6 @@ namespace WinformsExample
                 groupBox3.Controls.Add(f4);
                 f4.Visible = true;
             }
-
             btnNext.Visible = false;
             btnNext1.Visible = true;
             btnNext2.Visible = false;
@@ -403,7 +402,6 @@ namespace WinformsExample
             btnBack1.Visible = false;
             btnBack2.Visible = false;
             btnBack3.Visible = false;
-            btnBack4.Visible = false;
             btnfis.Visible = false;
         }
 
@@ -425,7 +423,6 @@ namespace WinformsExample
             btnBack1.Visible = true;
             btnBack2.Visible = false;
             btnBack3.Visible = false;
-            btnBack4.Visible = false;
             btnfis.Visible = false;
         }
 
@@ -464,7 +461,6 @@ namespace WinformsExample
                 btnBack1.Visible = false;
                 btnBack2.Visible = true;
                 btnBack3.Visible = false;
-                btnBack4.Visible = false;
                 btnfis.Visible = false;
             }
             else
@@ -476,21 +472,20 @@ namespace WinformsExample
         private void btnBack3_Click(object sender, EventArgs e)
         {
             groupBox1.Controls.Clear();
-            groupBox1.Text = "Protocol and Port";
-            f6.TopLevel = false;
-            f6.FormBorderStyle = FormBorderStyle.None;
-            f6.Dock = DockStyle.Fill;
-            groupBox1.Controls.Add(f6);
-            f6.Visible = true;
+            groupBox1.Text = "Scope";
+            f1.TopLevel = false;
+            f1.FormBorderStyle = FormBorderStyle.None;
+            f1.Dock = DockStyle.Fill;
+            groupBox1.Controls.Add(f1);
+            f1.Visible = true;
             btnNext.Visible = false;
             btnNext1.Visible = false;
-            btnNext2.Visible = true;
-            btnNext3.Visible = false;
+            btnNext2.Visible = false;
+            btnNext3.Visible = true;
             btnBack.Visible = false;
-            btnBack1.Visible = true;
-            btnBack2.Visible = false;
+            btnBack1.Visible = false;
+            btnBack2.Visible = true;
             btnBack3.Visible = false;
-            btnBack4.Visible = false;
             btnfis.Visible = false;
         }
 
@@ -510,30 +505,8 @@ namespace WinformsExample
             btnBack.Visible = false;
             btnBack1.Visible = false;
             btnBack2.Visible = false;
-            btnBack3.Visible = false;
-            btnBack4.Visible = true;
+            btnBack3.Visible = true;
             btnfis.Visible = true;
-        }
-
-        private void btnBack4_Click(object sender, EventArgs e)
-        {
-            groupBox1.Controls.Clear();
-            groupBox1.Text = "Scope";
-            f1.TopLevel = false;
-            f1.FormBorderStyle = FormBorderStyle.None;
-            f1.Dock = DockStyle.Fill;
-            groupBox1.Controls.Add(f1);
-            f1.Visible = true;
-            btnNext.Visible = false;
-            btnNext1.Visible = false;
-            btnNext2.Visible = false;
-            btnNext3.Visible = true;
-            btnBack.Visible = false;
-            btnBack1.Visible = false;
-            btnBack2.Visible = true;
-            btnBack3.Visible = false;
-            btnBack4.Visible = false;
-            btnfis.Visible = false;
         }
 
         private void btnfis_Click(object sender, EventArgs e)
@@ -583,10 +556,6 @@ namespace WinformsExample
                         break;
                     }
                 case 3:
-                    {
-                        break;
-                    }
-                case 4:
                     {
                         if (_Action == 0)
                         {

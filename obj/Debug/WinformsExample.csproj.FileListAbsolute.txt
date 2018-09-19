@@ -114,3 +114,5 @@ C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.RuleTypeForm.
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.csproj.GenerateResource.Cache
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.exe
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.pdb
+C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.AddDomainForm.resources
+C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.WebsiteRuleForm.resources

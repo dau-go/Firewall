@@ -28,14 +28,9 @@ namespace WinformsExample
             send(2);
         }
 
-        private void rbIP_CheckedChanged(object sender, EventArgs e)
-        {
-            send(3);
-        }
-
         private void rbCustom_CheckedChanged(object sender, EventArgs e)
         {
-            send(4);
+            send(3);
         }
     }
 }

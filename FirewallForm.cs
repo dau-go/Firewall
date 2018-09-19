@@ -14,7 +14,7 @@ namespace WinformsExample
     {
         int Header = 0;
         int kt = 0;
-        List<int> Next = new List<int>(), Back=new List<int>();
+        List<int> Next = new List<int>(), Back = new List<int>();
         int demnext = 0, demback = 0;
         public FirewallForm()
         {
@@ -107,12 +107,34 @@ namespace WinformsExample
             btnAdd.Enabled = true;
             btnDel.Enabled = true;
         }
+        public void ShowWebsiteRule()
+        {
+            kt = 2;
+            tab.Controls.Clear();
+            tab.Text = "Website blocking rules";
+            WebsiteRuleForm f = new WebsiteRuleForm();
+            f.Header(Header);
+            f.TopLevel = false;
+            f.FormBorderStyle = FormBorderStyle.None;
+            f.Dock = DockStyle.Fill;
+            tab.Controls.Add(f);
+            f.Visible = true;
+            btnAdd.Enabled = true;
+            btnDel.Enabled = true;
+        }
         public void LoadData()
         {
             try
             {
                 switch (treeView1.SelectedNode.Name)
                 {
+                    case "Web":
+                        {
+                            Next.Add(0);
+                            demnext++;
+                            ShowWebsiteRule();
+                            break;
+                        }
                     case "User":
                         {
                             Next.Add(0);
@@ -172,8 +194,16 @@ namespace WinformsExample
         private void btnAdd_Click(object sender, EventArgs e)
         {
             AddRuleForm.kt = kt;
-            AddRuleForm f = new AddRuleForm();
-            f.ShowDialog();
+            if (kt != 2)
+            {
+                AddRuleForm f = new AddRuleForm(0);
+                f.ShowDialog();
+            }
+            else
+            {
+                AddRuleForm f = new AddRuleForm(1);
+                f.ShowDialog();
+            }
         }
 
         private void btnReload_Click(object sender, EventArgs e)
