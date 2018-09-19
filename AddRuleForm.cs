@@ -78,6 +78,7 @@ namespace WinformsExample
             get { return _Profile; }
             set { _Profile = value; }
         }
+        AddDomainForm f = new AddDomainForm();
         RuleIPForm f1 = new RuleIPForm();
         RulePortForm f2 = new RulePortForm();
         RuleProfileForm f3 = new RuleProfileForm();
@@ -86,10 +87,10 @@ namespace WinformsExample
         RuleProtocolForm f6 = new RuleProtocolForm();
         RuleTypeForm f7 = new RuleTypeForm();
         int k = 1;
-        public AddRuleForm(int i)
+        public AddRuleForm()
         {
             InitializeComponent();
-            if (i == 0)
+            if (_kt!=2)
             {
                 ShowRuleTypeForm();
             }
@@ -103,12 +104,13 @@ namespace WinformsExample
         {
             groupBox1.Controls.Clear();
             groupBox1.Text = "Website blocking rules";
-            AddDomainForm f = new AddDomainForm();
             f.TopLevel = false;
             f.FormBorderStyle = FormBorderStyle.None;
             f.Dock = DockStyle.Fill;
             groupBox1.Controls.Add(f);
             f.Visible = true;
+            btnNext.Visible = false;
+            btnfis.Visible = true;
         }
         private void ShowRuleTypeForm()
         {
@@ -511,88 +513,103 @@ namespace WinformsExample
 
         private void btnfis_Click(object sender, EventArgs e)
         {
-            Type tNetFwPolicy2 = Type.GetTypeFromProgID("HNetCfg.FwPolicy2");
-            INetFwPolicy2 fwPolicy2 = (INetFwPolicy2)Activator.CreateInstance(tNetFwPolicy2);
-
-            // Let's create a new rule
-            INetFwRule2 inboundRule = (INetFwRule2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FWRule"));
-            inboundRule.Enabled = true;
-            inboundRule.Name = _Name;
-            inboundRule.Description = _Description;
-            switch (k)
+            if(_kt!=2)
             {
-                case 1:
-                    {
-                        if (_Action == 0)
+                Type tNetFwPolicy2 = Type.GetTypeFromProgID("HNetCfg.FwPolicy2");
+                INetFwPolicy2 fwPolicy2 = (INetFwPolicy2)Activator.CreateInstance(tNetFwPolicy2);
+
+                // Let's create a new rule
+                INetFwRule2 inboundRule = (INetFwRule2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FWRule"));
+                inboundRule.Enabled = true;
+                inboundRule.Name = _Name;
+                inboundRule.Description = _Description;
+                switch (k)
+                {
+                    case 1:
                         {
-                            inboundRule.Action = 0;
-                        }
-                        if (_Program != "Any")
-                        {
-                            inboundRule.ApplicationName = _Program;
-                        }
-                        inboundRule.Profiles = _Profile;
-                        break;
-                    }
-                case 2:
-                    {
-                        if (_Action == 0)
-                        {
-                            inboundRule.Action = 0;
-                        }
-                        inboundRule.Protocol = _Protocol;
-                        if (_LocalPort != "Any")
-                        {
-                            if (_kt == 1)
+                            if (_Action == 0)
                             {
-                                inboundRule.RemotePorts = _LocalPort;
+                                inboundRule.Action = 0;
                             }
-                            else
+                            if (_Program != "Any")
+                            {
+                                inboundRule.ApplicationName = _Program;
+                            }
+                            inboundRule.Profiles = _Profile;
+                            break;
+                        }
+                    case 2:
+                        {
+                            if (_Action == 0)
+                            {
+                                inboundRule.Action = 0;
+                            }
+                            inboundRule.Protocol = _Protocol;
+                            if (_LocalPort != "Any")
+                            {
+                                if (_kt == 1)
+                                {
+                                    inboundRule.RemotePorts = _LocalPort;
+                                }
+                                else
+                                {
+                                    inboundRule.LocalPorts = _LocalPort;
+                                }
+                            }
+                            inboundRule.Profiles = _Profile;
+                            break;
+                        }
+                    case 3:
+                        {
+                            if (_Action == 0)
+                            {
+                                inboundRule.Action = 0;
+                            }
+                            if (_Program != "Any")
+                            {
+                                inboundRule.ApplicationName = _Program;
+                            }
+                            inboundRule.Protocol = _Protocol;
+                            inboundRule.Profiles = _Profile;
+                            if (_LocalPort != "Any")
                             {
                                 inboundRule.LocalPorts = _LocalPort;
                             }
+                            if (_RemotePort != "Any")
+                            {
+                                inboundRule.RemotePorts = _RemotePort;
+                            }
+                            if (_LocalIP != "Any")
+                            {
+                                inboundRule.LocalAddresses = _LocalIP;
+                            }
+                            if (_RemoteIP != "Any")
+                            {
+                                inboundRule.RemoteAddresses = _RemoteIP;
+                            }
+                            break;
                         }
-                        inboundRule.Profiles = _Profile;
-                        break;
-                    }
-                case 3:
-                    {
-                        if (_Action == 0)
-                        {
-                            inboundRule.Action = 0;
-                        }
-                        if (_Program != "Any")
-                        {
-                            inboundRule.ApplicationName = _Program;
-                        }
-                        inboundRule.Protocol = _Protocol;
-                        inboundRule.Profiles = _Profile;
-                        if (_LocalPort != "Any")
-                        {
-                            inboundRule.LocalPorts = _LocalPort;
-                        }
-                        if (_RemotePort != "Any")
-                        {
-                            inboundRule.RemotePorts = _RemotePort;
-                        }
-                        if (_LocalIP != "Any")
-                        {
-                            inboundRule.LocalAddresses = _LocalIP;
-                        }
-                        if (_RemoteIP != "Any")
-                        {
-                            inboundRule.RemoteAddresses = _RemoteIP;
-                        }
-                        break;
-                    }
+                }
+                if (_kt == 1)
+                {
+                    inboundRule.Direction = NET_FW_RULE_DIRECTION_.NET_FW_RULE_DIR_OUT;
+                }
+                INetFwPolicy2 firewallPolicy = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
+                firewallPolicy.Rules.Add(inboundRule);
+                this.Close();
             }
-            if (_kt == 1)
+            else
             {
-                inboundRule.Direction = NET_FW_RULE_DIRECTION_.NET_FW_RULE_DIR_OUT;
+                try
+                {
+                    f.Finish();
+                    this.Close();
+                }
+                catch
+                {
+                    MessageBox.Show("Website name is not valid","Firewall");
+                }
             }
-            INetFwPolicy2 firewallPolicy = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
-            firewallPolicy.Rules.Add(inboundRule);
-            this.Close();
         }
     }
 }

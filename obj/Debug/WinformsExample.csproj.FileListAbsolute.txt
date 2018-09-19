@@ -90,7 +90,6 @@ C:\Users\daugo\Documents\GitHub\Firewall\bin\Debug\WinformsExample.pdb
 C:\Users\daugo\Documents\GitHub\Firewall\bin\Debug\Interop.NetFwTypeLib.dll
 C:\Users\daugo\Documents\GitHub\Firewall\bin\Debug\Interop.Shell32.dll
 C:\Users\daugo\Documents\GitHub\Firewall\bin\Debug\AxInterop.Shell32.dll
-C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.csprojResolveAssemblyReference.cache
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\Interop.NetFwTypeLib.dll
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\Interop.Shell32.dll
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\AxInterop.Shell32.dll
@@ -116,3 +115,4 @@ C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.exe
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.pdb
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.AddDomainForm.resources
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.WebsiteRuleForm.resources
+C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.csprojResolveAssemblyReference.cache

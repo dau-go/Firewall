@@ -196,12 +196,12 @@ namespace WinformsExample
             AddRuleForm.kt = kt;
             if (kt != 2)
             {
-                AddRuleForm f = new AddRuleForm(0);
+                AddRuleForm f = new AddRuleForm();
                 f.ShowDialog();
             }
             else
             {
-                AddRuleForm f = new AddRuleForm(1);
+                AddRuleForm f = new AddRuleForm();
                 f.ShowDialog();
             }
         }
