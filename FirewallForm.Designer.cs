@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Inbound Rules");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Outbound Rules");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("User Created Firewall Rules", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2});
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Inbound Rules");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Outbound Rules");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("The Default Rule Of The Firewall", new System.Windows.Forms.TreeNode[] {
-            treeNode4,
-            treeNode5});
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Website blocking rules");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Inbound Rules");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Outbound Rules");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("User Created Firewall Rules", new System.Windows.Forms.TreeNode[] {
+            treeNode8,
+            treeNode9});
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Inbound Rules");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Outbound Rules");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("The Default Rule Of The Firewall", new System.Windows.Forms.TreeNode[] {
+            treeNode11,
+            treeNode12});
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Website blocking rules");
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,10 +57,14 @@
             this.tab = new System.Windows.Forms.TabPage();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.gridView = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.tab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -228,6 +232,7 @@
             // 
             // tab
             // 
+            this.tab.Controls.Add(this.gridView);
             this.tab.Location = new System.Drawing.Point(4, 22);
             this.tab.Name = "tab";
             this.tab.Padding = new System.Windows.Forms.Padding(3);
@@ -240,27 +245,41 @@
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Left;
             this.treeView1.Location = new System.Drawing.Point(3, 16);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "InboundUser";
-            treeNode1.Text = "Inbound Rules";
-            treeNode2.Name = "OutboundUser";
-            treeNode2.Text = "Outbound Rules";
-            treeNode3.Name = "User";
-            treeNode3.Text = "User Created Firewall Rules";
-            treeNode4.Name = "InboundDefault";
-            treeNode4.Text = "Inbound Rules";
-            treeNode5.Name = "OutboundDefault";
-            treeNode5.Text = "Outbound Rules";
-            treeNode6.Name = "Default";
-            treeNode6.Text = "The Default Rule Of The Firewall";
-            treeNode7.Name = "Web";
-            treeNode7.Text = "Website blocking rules";
+            treeNode8.Name = "InboundUser";
+            treeNode8.Text = "Inbound Rules";
+            treeNode9.Name = "OutboundUser";
+            treeNode9.Text = "Outbound Rules";
+            treeNode10.Name = "User";
+            treeNode10.Text = "User Created Firewall Rules";
+            treeNode11.Name = "InboundDefault";
+            treeNode11.Text = "Inbound Rules";
+            treeNode12.Name = "OutboundDefault";
+            treeNode12.Text = "Outbound Rules";
+            treeNode13.Name = "Default";
+            treeNode13.Text = "The Default Rule Of The Firewall";
+            treeNode14.Name = "Web";
+            treeNode14.Text = "Website blocking rules";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3,
-            treeNode6,
-            treeNode7});
+            treeNode10,
+            treeNode13,
+            treeNode14});
             this.treeView1.Size = new System.Drawing.Size(188, 374);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 60000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // gridView
+            // 
+            this.gridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridView.Location = new System.Drawing.Point(466, 28);
+            this.gridView.Name = "gridView";
+            this.gridView.Size = new System.Drawing.Size(71, 150);
+            this.gridView.TabIndex = 0;
+            this.gridView.Visible = false;
             // 
             // FirewallForm
             // 
@@ -279,6 +298,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
+            this.tab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,5 +324,7 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.TabPage tab;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.DataGridView gridView;
     }
 }

@@ -13,47 +13,46 @@ namespace WinformsExample
 {
     public partial class AddDomainForm : Form
     {
+        string IP;
         public AddDomainForm()
         {
             InitializeComponent();
-            int Hour = DateTime.Now.Hour;
-            int HourTo = Hour + 1;
-            int Minute = DateTime.Now.Minute;
-            if (Hour <= 12)
+            cbHourFrom.Text = DateTime.Now.Hour.ToString();
+            cbHourTo.Text = (DateTime.Now.Hour + 1).ToString();
+            cbMinuteFrom.Text = "00";
+            cbMinuteTo.Text = "00";
+        }
+        public bool Time()
+        {
+            int giofrom = int.Parse(cbHourFrom.Text);
+            int phutfrom = int.Parse(cbMinuteFrom.Text);
+            int gioto = int.Parse(cbHourTo.Text);
+            int phutto = int.Parse(cbMinuteTo.Text);
+            if(giofrom>gioto)
             {
-                cbHourFrom.Text = Hour.ToString();
-                cbAPFrom.Text = "AM";
+                return false;
+            }
+            else if(giofrom==gioto && phutfrom>gioto)
+            {
+                return false;
             }
             else
             {
-                cbHourFrom.Text = (Hour - 12).ToString();
-                cbAPFrom.Text = "PM";
+                return true; 
             }
-            if (HourTo <= 12)
-            {
-                cbHourTo.Text = HourTo.ToString();
-                cbAPTo.Text = "AM";
-            }
-            else
-            {
-                cbHourTo.Text = (HourTo - 12).ToString();
-                cbAPTo.Text = "PM";
-            }
-            cbMinuteFrom.Text = Minute.ToString();
-            cbMinuteTo.Text = Minute.ToString();
         }
         public string Description()
         {
-            string s = cbHourFrom.Text + "/" + cbMinuteFrom.Text + " " + cbAPFrom.Text;
-            string s1 = cbHourTo.Text + "/" + cbMinuteTo.Text + " " + cbAPTo.Text;
+            string s = cbHourFrom.Text + ":" + cbMinuteFrom.Text;
+            string s1 = cbHourTo.Text + ":" + cbMinuteTo.Text;
             return s + "-" + s1;
         }
-        public string IP()
+        public bool CheckIP()
         {
             string host = txtName.Text;
 
             IPHostEntry e = Dns.GetHostEntry(host);
-
+            if (e.AddressList == null) return false;
             // Danh sách điạ chỉ IP
             int j = 0;
             string s = "";
@@ -69,7 +68,8 @@ namespace WinformsExample
                     s = s + "," + i.ToString();
                 }
             }
-            return s;
+            IP = s;
+            return true;
         }
         public void Finish()
         {
@@ -79,9 +79,33 @@ namespace WinformsExample
             // Let's create a new rule
             INetFwRule2 inboundRule = (INetFwRule2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FWRule"));
             inboundRule.Enabled = true;
+            int gio = DateTime.Now.Hour;
+            int phut = DateTime.Now.Minute;
+            int giofrom = int.Parse(cbHourFrom.Text);
+            int phutfrom = int.Parse(cbMinuteFrom.Text);
+            int gioto = int.Parse(cbHourTo.Text);
+            int phutto = int.Parse(cbMinuteTo.Text);
+            if ((gio > giofrom && gio < gioto) || (gio == giofrom && phut >= phutfrom && (gio < gioto || (gio == gioto && phut < phutto))))
+            {
+                inboundRule.Action = 0;
+            }
             inboundRule.Name = txtName.Text;
-            inboundRule.Description = Description();
-            inboundRule.RemoteAddresses = IP();
+            if(Time() ==true)
+            {
+                inboundRule.Description = Description();
+            }
+            else
+            {
+                MessageBox.Show("Invalid time", "Firewall");
+                inboundRule.RemoteAddresses = "g";
+            }
+            if(CheckIP()==true)
+            inboundRule.RemoteAddresses = IP;
+            else
+            {
+                MessageBox.Show("Website name is not valid", "Firewall");
+            }
+            inboundRule.Grouping = "Domain";
             inboundRule.Direction = NET_FW_RULE_DIRECTION_.NET_FW_RULE_DIR_OUT;
             INetFwPolicy2 firewallPolicy = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
             firewallPolicy.Rules.Add(inboundRule);

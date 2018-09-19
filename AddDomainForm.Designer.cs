@@ -36,8 +36,10 @@
             this.cbHourTo = new System.Windows.Forms.ComboBox();
             this.cbMinuteFrom = new System.Windows.Forms.ComboBox();
             this.cbMinuteTo = new System.Windows.Forms.ComboBox();
-            this.cbAPFrom = new System.Windows.Forms.ComboBox();
-            this.cbAPTo = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtName
@@ -81,7 +83,7 @@
             this.cbHourFrom.FormattingEnabled = true;
             this.cbHourFrom.IntegralHeight = false;
             this.cbHourFrom.Items.AddRange(new object[] {
-            "12",
+            "0",
             "1",
             "2",
             "3",
@@ -92,7 +94,19 @@
             "8",
             "9",
             "10",
-            "11"});
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23"});
             this.cbHourFrom.Location = new System.Drawing.Point(97, 100);
             this.cbHourFrom.Name = "cbHourFrom";
             this.cbHourFrom.Size = new System.Drawing.Size(96, 21);
@@ -105,7 +119,7 @@
             this.cbHourTo.FormattingEnabled = true;
             this.cbHourTo.IntegralHeight = false;
             this.cbHourTo.Items.AddRange(new object[] {
-            "12",
+            "0",
             "1",
             "2",
             "3",
@@ -116,7 +130,19 @@
             "8",
             "9",
             "10",
-            "11"});
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23"});
             this.cbHourTo.Location = new System.Drawing.Point(98, 150);
             this.cbHourTo.Name = "cbHourTo";
             this.cbHourTo.Size = new System.Drawing.Size(96, 21);
@@ -189,7 +215,7 @@
             "57",
             "58",
             "59"});
-            this.cbMinuteFrom.Location = new System.Drawing.Point(199, 100);
+            this.cbMinuteFrom.Location = new System.Drawing.Point(251, 100);
             this.cbMinuteFrom.Name = "cbMinuteFrom";
             this.cbMinuteFrom.Size = new System.Drawing.Size(96, 21);
             this.cbMinuteFrom.TabIndex = 6;
@@ -261,48 +287,62 @@
             "57",
             "58",
             "59"});
-            this.cbMinuteTo.Location = new System.Drawing.Point(200, 150);
+            this.cbMinuteTo.Location = new System.Drawing.Point(252, 150);
             this.cbMinuteTo.Name = "cbMinuteTo";
             this.cbMinuteTo.Size = new System.Drawing.Size(96, 21);
             this.cbMinuteTo.TabIndex = 6;
             // 
-            // cbAPFrom
+            // label4
             // 
-            this.cbAPFrom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbAPFrom.FormattingEnabled = true;
-            this.cbAPFrom.Items.AddRange(new object[] {
-            "AM",
-            "PM"});
-            this.cbAPFrom.Location = new System.Drawing.Point(301, 100);
-            this.cbAPFrom.Name = "cbAPFrom";
-            this.cbAPFrom.Size = new System.Drawing.Size(96, 21);
-            this.cbAPFrom.TabIndex = 6;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(199, 103);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(30, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Hour";
             // 
-            // cbAPTo
+            // label5
             // 
-            this.cbAPTo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbAPTo.FormattingEnabled = true;
-            this.cbAPTo.Items.AddRange(new object[] {
-            "AM",
-            "PM"});
-            this.cbAPTo.Location = new System.Drawing.Point(302, 150);
-            this.cbAPTo.Name = "cbAPTo";
-            this.cbAPTo.Size = new System.Drawing.Size(96, 21);
-            this.cbAPTo.TabIndex = 6;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(199, 153);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(30, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Hour";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(353, 103);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(39, 13);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Minute";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(353, 153);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(39, 13);
+            this.label7.TabIndex = 4;
+            this.label7.Text = "Minute";
             // 
             // AddDomainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(442, 423);
-            this.Controls.Add(this.cbAPTo);
             this.Controls.Add(this.cbMinuteTo);
             this.Controls.Add(this.cbHourTo);
-            this.Controls.Add(this.cbAPFrom);
             this.Controls.Add(this.cbMinuteFrom);
             this.Controls.Add(this.cbHourFrom);
             this.Controls.Add(this.txtName);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "AddDomainForm";
@@ -322,7 +362,9 @@
         private System.Windows.Forms.ComboBox cbHourTo;
         private System.Windows.Forms.ComboBox cbMinuteFrom;
         private System.Windows.Forms.ComboBox cbMinuteTo;
-        private System.Windows.Forms.ComboBox cbAPFrom;
-        private System.Windows.Forms.ComboBox cbAPTo;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }

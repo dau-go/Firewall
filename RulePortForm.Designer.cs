@@ -88,9 +88,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(175, 164);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 13);
+            this.label4.Size = new System.Drawing.Size(140, 13);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Example: 80,443,....";
+            this.label4.Text = "Example: 80,443,5000-5010\r\n";
             // 
             // splitter1
             // 

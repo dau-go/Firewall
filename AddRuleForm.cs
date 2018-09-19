@@ -90,7 +90,7 @@ namespace WinformsExample
         public AddRuleForm()
         {
             InitializeComponent();
-            if (_kt!=2)
+            if (_kt != 2)
             {
                 ShowRuleTypeForm();
             }
@@ -162,7 +162,7 @@ namespace WinformsExample
         }
         public bool ValidatePort(string s)
         {
-            string[] str = s.Split(',');
+            string[] str = s.Split(',', '-');
             try
             {
                 for (int i = 0; i < str.Length; i++)
@@ -171,6 +171,19 @@ namespace WinformsExample
                     if (j < 0 || j > 65535)
                     {
                         return false;
+                    }
+                    if (s.Contains('-') == true)
+                    {
+                        string[] str1 = s.Split('-');
+                        for (int m = 0; m < str1.Length - 1; m++)
+                        {
+                            string[] str2 = str1[m].Split(',');
+                            string[] str3 = str1[m + 1].Split(',');
+                            if (int.Parse(str2[str2.Length - 1]) >= int.Parse(str3[0]))
+                            {
+                                return false;
+                            }
+                        }
                     }
                 }
             }
@@ -513,7 +526,7 @@ namespace WinformsExample
 
         private void btnfis_Click(object sender, EventArgs e)
         {
-            if(_kt!=2)
+            if (_kt != 2)
             {
                 Type tNetFwPolicy2 = Type.GetTypeFromProgID("HNetCfg.FwPolicy2");
                 INetFwPolicy2 fwPolicy2 = (INetFwPolicy2)Activator.CreateInstance(tNetFwPolicy2);
@@ -600,15 +613,17 @@ namespace WinformsExample
             }
             else
             {
+                int m = 0;
                 try
                 {
                     f.Finish();
-                    this.Close();
+                    m++;
                 }
                 catch
                 {
-                    MessageBox.Show("Website name is not valid","Firewall");
+                    
                 }
+                if (m == 1) this.Close();
             }
         }
     }
