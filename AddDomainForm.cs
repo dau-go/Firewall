@@ -32,7 +32,7 @@ namespace WinformsExample
             {
                 return false;
             }
-            else if(giofrom==gioto && phutfrom>gioto)
+            else if(giofrom==gioto && phutfrom>phutto)
             {
                 return false;
             }

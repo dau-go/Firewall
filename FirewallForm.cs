@@ -19,6 +19,7 @@ namespace WinformsExample
         public FirewallForm()
         {
             InitializeComponent();
+            timer1.Start();
             toolTip1.SetToolTip(btnBack, "Navigate Backward");
             toolTip1.SetToolTip(btnNext, "Navigate Forward");
             toolTip1.SetToolTip(btnTree, "Show/Hide Console Tree");
@@ -236,14 +237,16 @@ namespace WinformsExample
                 {
                     if(Action=="Allow")
                     {
-                        //Block
+                        INetFwPolicy2 firewallPolicy = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
+                        firewallPolicy.Rules.Item(NameRule).Action = 0;
                     }
                 }
                 else
                 {
                     if(Action=="Block")
                     {
-                        //Allow
+                        INetFwPolicy2 firewallPolicy = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
+                        firewallPolicy.Rules.Item(NameRule).Action = NET_FW_ACTION_.NET_FW_ACTION_ALLOW;
                     }
                 }
             }
