@@ -528,9 +528,6 @@ namespace WinformsExample
         {
             if (_kt != 2)
             {
-                Type tNetFwPolicy2 = Type.GetTypeFromProgID("HNetCfg.FwPolicy2");
-                INetFwPolicy2 fwPolicy2 = (INetFwPolicy2)Activator.CreateInstance(tNetFwPolicy2);
-
                 // Let's create a new rule
                 INetFwRule2 inboundRule = (INetFwRule2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FWRule"));
                 inboundRule.Enabled = true;

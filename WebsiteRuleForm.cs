@@ -63,37 +63,34 @@ namespace WinformsExample
             foreach (INetFwRule rule in firewallRule.Rules)
             {
                 string state = "", action = "";
-                if (rule.Direction.ToString() == "NET_FW_RULE_DIR_OUT")
+                if (rule.Grouping == "Domain")
                 {
-                    if (rule.Grouping == "Domain")
+                    if (rule.Enabled == true)
                     {
-                        if (rule.Enabled == true)
-                        {
-                            state = "Yes";
-                        }
-                        else
-                        {
-                            state = "No";
-                        }
-                        if (rule.Action.ToString() == "NET_FW_ACTION_ALLOW")
-                        {
-                            action = "Allow";
-                        }
-                        else
-                        {
-                            action = "Block";
-                        }
-                        string[] s = rule.Description.Split('-');
-                        result.Add(new Customer()
-                        {
-                            Statebool = rule.Enabled,
-                            NameRule = rule.Name,
-                            State = state,
-                            Action = action,
-                            TimeFrom = s[0],
-                            TimeTo=s[1]
-                        });
+                        state = "Yes";
                     }
+                    else
+                    {
+                        state = "No";
+                    }
+                    if (rule.Action.ToString() == "NET_FW_ACTION_ALLOW")
+                    {
+                        action = "Allow";
+                    }
+                    else
+                    {
+                        action = "Block";
+                    }
+                    string[] s = rule.Description.Split('-');
+                    result.Add(new Customer()
+                    {
+                        Statebool = rule.Enabled,
+                        NameRule = rule.Name,
+                        State = state,
+                        Action = action,
+                        TimeFrom = s[0],
+                        TimeTo = s[1]
+                    });
                 }
             }
             return result;

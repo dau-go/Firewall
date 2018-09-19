@@ -115,3 +115,4 @@ C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.exe
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.pdb
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.AddDomainForm.resources
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.WebsiteRuleForm.resources
+C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.csprojResolveAssemblyReference.cache
