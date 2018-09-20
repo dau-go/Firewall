@@ -54,7 +54,7 @@ namespace WinformsExample
             IPHostEntry e;
             try
             {
-                e = Dns.Resolve(host);
+                e = Dns.GetHostEntry(host);
             }
             catch
             {
