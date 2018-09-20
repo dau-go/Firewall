@@ -16,11 +16,12 @@ namespace WinformsExample
         int kt = 0;
         List<int> Next = new List<int>(), Back = new List<int>();
         int demnext = 0, demback = 0;
-        InboundForm f1 = new InboundForm();
-        OutboundForm f2 = new OutboundForm();
-        InboundForm f3 = new InboundForm();
-        OutboundForm f4 = new OutboundForm();
-        WebsiteRuleForm f5 = new WebsiteRuleForm();
+        DefaultForm f;
+        InboundForm f1;
+        OutboundForm f2;
+        InboundForm f3;
+        OutboundForm f4;
+        WebsiteRuleForm f5;
         public FirewallForm()
         {
             InitializeComponent();
@@ -39,14 +40,26 @@ namespace WinformsExample
         }
         public void ShowUser()
         {
+            kt = 0;
             tab.Controls.Clear();
+            tab.Text = "Inbound Rules User";
+            InboundForm.User = 0;
+            f = new DefaultForm();
+            f.TopLevel = false;
+            f.FormBorderStyle = FormBorderStyle.None;
+            f.Dock = DockStyle.Fill;
+            tab.Controls.Add(f);
+            f.Visible = true;
             btnAdd.Enabled = false;
+            btnReload.Enabled = false;
             btnDel.Enabled = false;
+
         }
         public void ShowDefault()
         {
             tab.Controls.Clear();
             btnAdd.Enabled = false;
+            btnReload.Enabled = false;
             btnDel.Enabled = false;
         }
         public void ShowInboundUser()
@@ -63,6 +76,7 @@ namespace WinformsExample
             tab.Controls.Add(f1);
             f1.Visible = true;
             btnAdd.Enabled = true;
+            btnReload.Enabled = true;
             btnDel.Enabled = true;
         }
         public void ShowOutboundUser()
@@ -79,6 +93,7 @@ namespace WinformsExample
             tab.Controls.Add(f2);
             f2.Visible = true;
             btnAdd.Enabled = true;
+            btnReload.Enabled = true;
             btnDel.Enabled = true;
         }
         public void ShowInboundDefault()
@@ -95,6 +110,7 @@ namespace WinformsExample
             tab.Controls.Add(f3);
             f3.Visible = true;
             btnAdd.Enabled = true;
+            btnReload.Enabled = true;
             btnDel.Enabled = true;
         }
         public void ShowOutboundDefault()
@@ -111,6 +127,7 @@ namespace WinformsExample
             tab.Controls.Add(f4);
             f4.Visible = true;
             btnAdd.Enabled = true;
+            btnReload.Enabled = true;
             btnDel.Enabled = true;
         }
         public void ShowWebsiteRule()
@@ -126,6 +143,7 @@ namespace WinformsExample
             tab.Controls.Add(f5);
             f5.Visible = true;
             btnAdd.Enabled = true;
+            btnReload.Enabled = true;
             btnDel.Enabled = true;
         }
         public void LoadData()
@@ -314,7 +332,8 @@ namespace WinformsExample
             {
                 case "Web":
                     {
-
+                        f5.Delete();
+                        ShowWebsiteRule();
                         break;
                     }
                 case "InboundUser":
@@ -325,14 +344,20 @@ namespace WinformsExample
                     }
                 case "OutboundUser":
                     {
+                        f2.Delete();
+                        ShowOutboundUser();
                         break;
                     }
                 case "InboundDefault":
                     {
+                        f3.Delete();
+                        ShowInboundDefault();
                         break;
                     }
                 case "OutboundDefault":
                     {
+                        f4.Delete();
+                        ShowOutboundDefault();
                         break;
                     }
             }
@@ -340,7 +365,34 @@ namespace WinformsExample
 
         private void btnReload_Click(object sender, EventArgs e)
         {
-            LoadData();
+            switch (treeView1.SelectedNode.Name)
+            {
+                case "Web":
+                    {
+                        ShowWebsiteRule();
+                        break;
+                    }
+                case "InboundUser":
+                    {
+                        ShowInboundUser();
+                        break;
+                    }
+                case "OutboundUser":
+                    {
+                        ShowOutboundUser();
+                        break;
+                    }
+                case "InboundDefault":
+                    {
+                        ShowInboundDefault();
+                        break;
+                    }
+                case "OutboundDefault":
+                    {
+                        ShowOutboundDefault();
+                        break;
+                    }
+            }
         }
 
         private void btnTree_Click(object sender, EventArgs e)

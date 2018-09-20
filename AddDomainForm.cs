@@ -54,7 +54,7 @@ namespace WinformsExample
             IPHostEntry e;
             try
             {
-                e = Dns.GetHostEntry(host);
+                e = Dns.Resolve(host);
             }
             catch
             {
@@ -113,6 +113,21 @@ namespace WinformsExample
             else
             {
                 MessageBox.Show("Website name is not valid", "Firewall");
+                inboundRule.RemoteAddresses = "Eror";
+            }
+            int ktname = 0;
+            var firewallRule = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
+            foreach (INetFwRule rule in firewallRule.Rules)
+            {
+                if (inboundRule.Name == rule.Name)
+                {
+                    ktname = 1;
+                    break;
+                }
+            }
+            if (ktname == 1)
+            {
+                MessageBox.Show("Rule name already exists", "Firewall");
                 inboundRule.RemoteAddresses = "Eror";
             }
             inboundRule.Grouping = "Domain";

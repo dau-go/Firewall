@@ -95,7 +95,6 @@ namespace WinformsExample
         {
             BindingList<Customer> result = new BindingList<Customer>();
             var firewallRule = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
-
             foreach (INetFwRule rule in firewallRule.Rules)
             {
                 string state = "", action = "", app = "", protocol = "", localAddress = "", remoteAddress = "", localport = "", remoteport = "", profile = "";
@@ -558,10 +557,6 @@ namespace WinformsExample
         {
             Detail = GetDataDel();
         }
-        private void GetDataDetail()
-        {
-            Detail = GetDataDel();
-        }
         private BindingList<Customer> GetDataDel()
         {
             BindingList<Customer> result = new BindingList<Customer>();
@@ -586,69 +581,76 @@ namespace WinformsExample
         }
         public void Delete()
         {
-            //Detail = GetDataDetail();
             for (int i = 0; i < Detail.Count; i++)
             {
-                ProcessStartInfo run = new ProcessStartInfo();
-                run.FileName = "cmd.exe";
-                run.Verb = "runas";
-                string s;
-                if (Detail[i].Application == "Any")
-                {
-                    if (Detail[i].Protocol == "TCP" || Detail[i].Protocol == "UDP")
-                    {
-                        if (Detail[i].Profile == "Domain,Private,Public")
-                        {
-                            s = string.Format("/C netsh advfirewall firewall delete rule name=\'{0}\' dir=in localip={1} remoteip={2} localport={3} remoteport={4} protocol={5}", Detail[i].NameRule, Detail[i].LocalAddress, Detail[i].RemoteAddress, Detail[i].LocalPort, Detail[i].RemotePort, Detail[i].Protocol);
-                        }
-                        else
-                        {
-                            s = string.Format("/C netsh advfirewall firewall delete rule name=\'{0}\' dir=in profile={1} localip={2} remoteip={3} localport={4} remoteport={5} protocol={6}", Detail[i].NameRule, Detail[i].Profile, Detail[i].LocalAddress, Detail[i].RemoteAddress, Detail[i].LocalPort, Detail[i].RemotePort, Detail[i].Protocol);
-                        }
-                    }
-                    else
-                    {
-                        if (Detail[i].Profile == "Domain,Private,Public")
-                        {
-                            s = string.Format("/C netsh advfirewall firewall delete rule name=\'{0}\' dir=in localip={1} remoteip={2}", Detail[i].NameRule, Detail[i].LocalAddress, Detail[i].RemoteAddress);
-                        }
-                        else
-                        {
-                            s = string.Format("/C netsh advfirewall firewall delete rule name=\'{0}\' dir=in profile={1} localip={2} remoteip={3}", Detail[i].NameRule, Detail[i].Profile, Detail[i].LocalAddress, Detail[i].RemoteAddress);
-                        }
-                        
-                    }
-                }
-                else
-                {
-                    if (Detail[i].Protocol == "TCP" || Detail[i].Protocol == "UDP")
-                    {
-                        if (Detail[i].Profile == "Domain,Private,Public")
-                        {
-                            s = string.Format("/C netsh advfirewall firewall delete rule name=\'{0}\' dir=in program={1} localip={2} remoteip={3} localport={4} remoteport={5} protocol={6}", Detail[i].NameRule,Detail[i].Application, Detail[i].LocalAddress, Detail[i].RemoteAddress, Detail[i].LocalPort, Detail[i].RemotePort, Detail[i].Protocol);
-                        }
-                        else
-                        {
-                            s = string.Format("/C netsh advfirewall firewall delete rule name=\'{0}\' dir=in program={1} profile={2} localip={3} remoteip={4} localport={5} remoteport={6} protocol={7}", Detail[i].NameRule, Detail[i].Application, Detail[i].Profile, Detail[i].LocalAddress, Detail[i].RemoteAddress, Detail[i].LocalPort, Detail[i].RemotePort, Detail[i].Protocol);
-                        }
-                    }
-                    else
-                    {
-                        if (Detail[i].Profile == "Domain,Private,Public")
-                        {
-                            s = string.Format("/C netsh advfirewall firewall delete rule name=\'{0}\' dir=in program={1} localip={2} remoteip={3}", Detail[i].NameRule, Detail[i].Application, Detail[i].LocalAddress, Detail[i].RemoteAddress);
-                        }
-                        else
-                        {
-                            s = string.Format("/C netsh advfirewall firewall delete rule name=\'{0}\' dir=in program={1} profile={2} localip={3} remoteip={4}", Detail[i].NameRule, Detail[i].Application, Detail[i].Profile, Detail[i].LocalAddress, Detail[i].RemoteAddress);
-                        }
-
-                    }
-                }
-                run.Arguments = s;
-                run.WindowStyle = ProcessWindowStyle.Hidden;
-                Process.Start(run);
+                INetFwPolicy2 firewallPolicy = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
+                firewallPolicy.Rules.Remove(Detail[i].NameRule);
             }
+            //Detail = GetDataDetail();
+            //for (int i = 0; i < Detail.Count; i++)
+            //{
+            //ProcessStartInfo run = new ProcessStartInfo();
+            //run.FileName = "cmd.exe";
+            //run.Verb = "runas";
+            //string s;
+            //string s1 = "/C netsh advfirewall firewall delete rule name=" + "\"" + Detail[i].NameRule + "\"";
+            //if (Detail[i].Application == "Any")
+            //{
+            //    if (Detail[i].Protocol == "TCP" || Detail[i].Protocol == "UDP")
+            //    {
+            //        if (Detail[i].Profile == "Domain,Private,Public")
+            //        {
+
+            //            s = string.Format(s1 + " dir=in localip={0} remoteip={1} localport={2} remoteport={3} protocol={4}", Detail[i].LocalAddress, Detail[i].RemoteAddress, Detail[i].LocalPort, Detail[i].RemotePort, Detail[i].Protocol);
+            //        }
+            //        else
+            //        {
+            //            s = string.Format(s1 + " dir=in profile={0} localip={1} remoteip={2} localport={3} remoteport={4} protocol={5}", Detail[i].Profile, Detail[i].LocalAddress, Detail[i].RemoteAddress, Detail[i].LocalPort, Detail[i].RemotePort, Detail[i].Protocol);
+            //        }
+            //    }
+            //    else
+            //    {
+            //        if (Detail[i].Profile == "Domain,Private,Public")
+            //        {
+            //            s = string.Format(s1 + " dir=in localip={0} remoteip={1}", Detail[i].LocalAddress, Detail[i].RemoteAddress);
+            //        }
+            //        else
+            //        {
+            //            s = string.Format(s1 + " dir=in profile={0} localip={1} remoteip={2}", Detail[i].Profile, Detail[i].LocalAddress, Detail[i].RemoteAddress);
+            //        }
+
+            //    }
+            //}
+            //else
+            //{
+            //    if (Detail[i].Protocol == "TCP" || Detail[i].Protocol == "UDP")
+            //    {
+            //        if (Detail[i].Profile == "Domain,Private,Public")
+            //        {
+            //            s = string.Format(s1 + " dir=in program={0} localip={1} remoteip={3} localport={3} remoteport={4} protocol={5}", Detail[i].Application, Detail[i].LocalAddress, Detail[i].RemoteAddress, Detail[i].LocalPort, Detail[i].RemotePort, Detail[i].Protocol);
+            //        }
+            //        else
+            //        {
+            //            s = string.Format(s1 + " dir=in program={0} profile={1} localip={2} remoteip={3} localport={4} remoteport={5} protocol={6}", Detail[i].Application, Detail[i].Profile, Detail[i].LocalAddress, Detail[i].RemoteAddress, Detail[i].LocalPort, Detail[i].RemotePort, Detail[i].Protocol);
+            //        }
+            //    }
+            //    else
+            //    {
+            //        if (Detail[i].Profile == "Domain,Private,Public")
+            //        {
+            //            s = string.Format(s1 + " dir=in program={0} localip={1} remoteip={2}", Detail[i].Application, Detail[i].LocalAddress, Detail[i].RemoteAddress);
+            //        }
+            //        else
+            //        {
+            //            s = string.Format(s1 + " dir=in program={0} profile={1} localip={2} remoteip={3}", Detail[i].Application, Detail[i].Profile, Detail[i].LocalAddress, Detail[i].RemoteAddress);
+            //        }
+
+            //    }
+            //}
+            //run.Arguments = s;
+            //run.WindowStyle = ProcessWindowStyle.Hidden;
+            //Process.Start(run);
+            //}
         }
     }
 }

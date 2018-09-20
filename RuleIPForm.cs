@@ -73,6 +73,7 @@ namespace WinformsExample
 
         private void rbIPLocal_CheckedChanged(object sender, EventArgs e)
         {
+            AddRuleForm.LocalIP = "";
             listView1.Enabled = true;
             btnAddLocal.Enabled = true;
         }
@@ -81,7 +82,10 @@ namespace WinformsExample
         {
             AddIPForm f = new AddIPForm(0);
             f.ShowDialog();
-            listView1.Items.Add(_LocalIP);
+            if (_LocalIP != "" || _LocalIP == null)
+            {
+                listView1.Items.Add(_LocalIP);
+            }
             GetIPLocal();
         }
         private void listView1_MouseClick(object sender, MouseEventArgs e)
@@ -115,6 +119,7 @@ namespace WinformsExample
         }
         private void rbIPRemote_CheckedChanged(object sender, EventArgs e)
         {
+            AddRuleForm.RemoteIP = "";
             listView2.Enabled = true;
             btnAddRemote.Enabled = true;
         }
@@ -123,7 +128,10 @@ namespace WinformsExample
         {
             AddIPForm f = new AddIPForm(1);
             f.ShowDialog();
-            listView2.Items.Add(_RemoteIP);
+            if (_RemoteIP != "" || _RemoteIP == null)
+            {
+                listView2.Items.Add(_RemoteIP);
+            }
             GetIPRemote();
         }
 

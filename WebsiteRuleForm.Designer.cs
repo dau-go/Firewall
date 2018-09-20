@@ -48,6 +48,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(637, 333);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
             // 
             // WebsiteRuleForm
             // 

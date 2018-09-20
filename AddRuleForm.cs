@@ -90,6 +90,16 @@ namespace WinformsExample
         public AddRuleForm()
         {
             InitializeComponent();
+            NameRule = null;
+            Description = null;
+            Action = 1;
+            Program = null;
+            Protocol = 256;
+            LocalIP = "Any";
+            RemoteIP = "Any";
+            LocalPort = "Any";
+            RemotePort = "Any";
+            Profile = 7;
             if (_kt != 2)
             {
                 ShowRuleTypeForm();
@@ -278,6 +288,21 @@ namespace WinformsExample
         {
             if (_Name != null)
             {
+                int ktname = 0;
+                var firewallRule = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
+                foreach (INetFwRule rule in firewallRule.Rules)
+                {
+                    if (_Name == rule.Name)
+                    {
+                        ktname = 1;
+                        break;
+                    }
+                }
+                if (ktname == 1)
+                {
+                    MessageBox.Show("Rule name already exists", "Firewall");
+                    return;
+                }
                 switch (k)
                 {
                     case 1:
@@ -506,22 +531,36 @@ namespace WinformsExample
 
         private void btnNext3_Click(object sender, EventArgs e)
         {
-            groupBox1.Controls.Clear();
-            groupBox1.Text = "Profile";
-            f3.TopLevel = false;
-            f3.FormBorderStyle = FormBorderStyle.None;
-            f3.Dock = DockStyle.Fill;
-            groupBox1.Controls.Add(f3);
-            f3.Visible = true;
-            btnNext.Visible = false;
-            btnNext1.Visible = false;
-            btnNext2.Visible = false;
-            btnNext3.Visible = false;
-            btnBack.Visible = false;
-            btnBack1.Visible = false;
-            btnBack2.Visible = false;
-            btnBack3.Visible = true;
-            btnfis.Visible = true;
+            if (_LocalIP != "" && _RemoteIP != "")
+            {
+                groupBox1.Controls.Clear();
+                groupBox1.Text = "Profile";
+                f3.TopLevel = false;
+                f3.FormBorderStyle = FormBorderStyle.None;
+                f3.Dock = DockStyle.Fill;
+                groupBox1.Controls.Add(f3);
+                f3.Visible = true;
+                btnNext.Visible = false;
+                btnNext1.Visible = false;
+                btnNext2.Visible = false;
+                btnNext3.Visible = false;
+                btnBack.Visible = false;
+                btnBack1.Visible = false;
+                btnBack2.Visible = false;
+                btnBack3.Visible = true;
+                btnfis.Visible = true;
+            }
+            else
+            {
+                if (_LocalIP == "")
+                {
+                    MessageBox.Show("You must specify the local IP you want to add to the rule", "Firewall");
+                }
+                if (_RemoteIP == "")
+                {
+                    MessageBox.Show("You must specify the remote IP you want to add to the rule", "Firewall");
+                }
+            }
         }
 
         private void btnfis_Click(object sender, EventArgs e)

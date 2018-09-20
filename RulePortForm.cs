@@ -14,7 +14,7 @@ namespace WinformsExample
         public RulePortForm()
         {
             InitializeComponent();
-            if(AddRuleForm.kt==1)
+            if (AddRuleForm.kt == 1)
             {
                 rbAllPort.Text = "All remote ports";
                 rbSpecPort.Text = "Specific remote ports:";

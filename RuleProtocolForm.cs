@@ -104,7 +104,7 @@ namespace WinformsExample
                         break;
                     }
             }
-            if(cbLocalport.Text=="All Ports")
+            if (cbLocalport.Text == "All Ports")
             {
                 AddRuleForm.LocalPort = "Any";
             }
@@ -123,7 +123,7 @@ namespace WinformsExample
         }
         private void cbProtocol_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cbProtocol.Text=="TCP"||cbProtocol.Text=="UDP")
+            if (cbProtocol.Text == "TCP" || cbProtocol.Text == "UDP")
             {
                 cbLocalport.Enabled = true;
                 cbRemoteport.Enabled = true;

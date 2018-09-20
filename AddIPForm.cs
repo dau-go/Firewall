@@ -22,7 +22,7 @@ namespace WinformsExample
                 ShowIP();
                 k = 0;
             }
-            if(k==3)
+            if (k == 3)
             {
                 ShowIP();
                 k = 1;

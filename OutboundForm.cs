@@ -35,7 +35,7 @@ namespace WinformsExample
         }
         public void Header(int i)
         {
-            if(dataSource.Count()>=25)
+            if (dataSource.Count() >= 25)
             {
                 if (i == 0)
                 {
@@ -532,6 +532,41 @@ namespace WinformsExample
                 }
             }
             return result;
+        }
+        BindingList<Customer> Detail;
+        private void dataGridView1_Click(object sender, EventArgs e)
+        {
+            Detail = GetDataDel();
+        }
+        private BindingList<Customer> GetDataDel()
+        {
+            BindingList<Customer> result = new BindingList<Customer>();
+            for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
+            {
+                DataGridViewRow dr = dataGridView1.SelectedRows[i];
+                result.Add(new Customer()
+                {
+                    NameRule = dr.Cells["NameRule"].Value.ToString(),
+                    Application = dr.Cells["Application"].Value.ToString(),
+                    State = dr.Cells["State"].Value.ToString(),
+                    Action = dr.Cells["Action"].Value.ToString(),
+                    Protocol = dr.Cells["Protocol"].Value.ToString(),
+                    LocalAddress = dr.Cells["LocalAddress"].Value.ToString(),
+                    RemoteAddress = dr.Cells["RemoteAddress"].Value.ToString(),
+                    LocalPort = dr.Cells["LocalPort"].Value.ToString(),
+                    RemotePort = dr.Cells["RemotePort"].Value.ToString(),
+                    Profile = dr.Cells["Profile"].Value.ToString(),
+                });
+            }
+            return result;
+        }
+        public void Delete()
+        {
+            for (int i = 0; i < Detail.Count; i++)
+            {
+                INetFwPolicy2 firewallPolicy = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
+                firewallPolicy.Rules.Remove(Detail[i].NameRule);
+            }
         }
         public class Customer
         {

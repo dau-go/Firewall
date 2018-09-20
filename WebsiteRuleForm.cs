@@ -98,10 +98,10 @@ namespace WinformsExample
                     }
                     string[] s = rule.Description.Split('-');
                     string[] s1 = rule.RemoteAddresses.Split('/', ',');
-                    string s2="";
-                    for(int i=0;i<s1.Length;i=i+2)
+                    string s2 = "";
+                    for (int i = 0; i < s1.Length; i = i + 2)
                     {
-                        if(s2=="")
+                        if (s2 == "")
                         {
                             s2 = s1[i];
                         }
@@ -123,6 +123,37 @@ namespace WinformsExample
                 }
             }
             return result;
+        }
+        BindingList<Customer> Detail;
+        private void dataGridView1_Click(object sender, EventArgs e)
+        {
+            Detail = GetDataDel();
+        }
+        private BindingList<Customer> GetDataDel()
+        {
+            BindingList<Customer> result = new BindingList<Customer>();
+            for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
+            {
+                DataGridViewRow dr = dataGridView1.SelectedRows[i];
+                result.Add(new Customer()
+                {
+                    NameRule = dr.Cells["NameRule"].Value.ToString(),
+                    State = dr.Cells["State"].Value.ToString(),
+                    Action = dr.Cells["Action"].Value.ToString(),
+                    RemoteIP = dr.Cells["RemoteIP"].Value.ToString(),
+                    TimeFrom = dr.Cells["TimeFrom"].Value.ToString(),
+                    TimeTo = dr.Cells["TimeTo"].Value.ToString()
+                });
+            }
+            return result;
+        }
+        public void Delete()
+        {
+            for (int i = 0; i < Detail.Count; i++)
+            {
+                INetFwPolicy2 firewallPolicy = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
+                firewallPolicy.Rules.Remove(Detail[i].NameRule);
+            }
         }
         public class Customer
         {
