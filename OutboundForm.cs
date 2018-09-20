@@ -212,7 +212,15 @@ namespace WinformsExample
                             }
                             else
                             {
-                                localAddress = rule.LocalAddresses;
+                                if (rule.LocalAddresses.Contains("/255.255.255.255") == true)
+                                {
+                                    string[] s = rule.LocalAddresses.Split('/');
+                                    localAddress = s[0];
+                                }
+                                else
+                                {
+                                    localAddress = rule.LocalAddresses;
+                                }
                             }
                             if (rule.RemoteAddresses == "*")
                             {
@@ -220,7 +228,15 @@ namespace WinformsExample
                             }
                             else
                             {
-                                remoteAddress = rule.RemoteAddresses;
+                                if (rule.RemoteAddresses.Contains("/255.255.255.255") == true)
+                                {
+                                    string[] s = rule.RemoteAddresses.Split('/');
+                                    remoteAddress = s[0];
+                                }
+                                else
+                                {
+                                    remoteAddress = rule.RemoteAddresses;
+                                }
                             }
                             if (rule.LocalPorts == "*" || rule.LocalPorts == null)
                             {
@@ -412,7 +428,15 @@ namespace WinformsExample
                             }
                             else
                             {
-                                localAddress = rule.LocalAddresses;
+                                if (rule.LocalAddresses.Contains("/255.255.255.255") == true)
+                                {
+                                    string[] s = rule.LocalAddresses.Split('/');
+                                    localAddress = s[0];
+                                }
+                                else
+                                {
+                                    localAddress = rule.LocalAddresses;
+                                }
                             }
                             if (rule.RemoteAddresses == "*")
                             {
@@ -420,7 +444,15 @@ namespace WinformsExample
                             }
                             else
                             {
-                                remoteAddress = rule.RemoteAddresses;
+                                if (rule.RemoteAddresses.Contains("/255.255.255.255") == true)
+                                {
+                                    string[] s = rule.RemoteAddresses.Split('/');
+                                    remoteAddress = s[0];
+                                }
+                                else
+                                {
+                                    remoteAddress = rule.RemoteAddresses;
+                                }
                             }
                             if (rule.LocalPorts == "*" || rule.LocalPorts == null)
                             {

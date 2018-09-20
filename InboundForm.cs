@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace WinformsExample
             get { return _User; }
             set { _User = value; }
         }
-        BindingList<Customer> dataSource;
+        BindingList<Customer> dataSource = new BindingList<Customer>();
         public InboundForm()
         {
             InitializeComponent();
@@ -217,7 +218,15 @@ namespace WinformsExample
                             }
                             else
                             {
-                                localAddress = rule.LocalAddresses;
+                                if (rule.LocalAddresses.Contains("/255.255.255.255") == true)
+                                {
+                                    string[] s = rule.LocalAddresses.Split('/');
+                                    localAddress = s[0];
+                                }
+                                else
+                                {
+                                    localAddress = rule.LocalAddresses;
+                                }
                             }
                             if (rule.RemoteAddresses == "*")
                             {
@@ -225,7 +234,15 @@ namespace WinformsExample
                             }
                             else
                             {
-                                remoteAddress = rule.RemoteAddresses;
+                                if (rule.RemoteAddresses.Contains("/255.255.255.255") == true)
+                                {
+                                    string[] s = rule.RemoteAddresses.Split('/');
+                                    remoteAddress = s[0];
+                                }
+                                else
+                                {
+                                    remoteAddress = rule.RemoteAddresses;
+                                }
                             }
                             if (rule.LocalPorts == "*" || rule.LocalPorts == null)
                             {
@@ -417,7 +434,15 @@ namespace WinformsExample
                             }
                             else
                             {
-                                localAddress = rule.LocalAddresses;
+                                if (rule.LocalAddresses.Contains("/255.255.255.255") == true)
+                                {
+                                    string[] s = rule.LocalAddresses.Split('/');
+                                    localAddress = s[0];
+                                }
+                                else
+                                {
+                                    localAddress = rule.LocalAddresses;
+                                }
                             }
                             if (rule.RemoteAddresses == "*")
                             {
@@ -425,7 +450,15 @@ namespace WinformsExample
                             }
                             else
                             {
-                                remoteAddress = rule.RemoteAddresses;
+                                if (rule.RemoteAddresses.Contains("/255.255.255.255") == true)
+                                {
+                                    string[] s = rule.RemoteAddresses.Split('/');
+                                    remoteAddress = s[0];
+                                }
+                                else
+                                {
+                                    remoteAddress = rule.RemoteAddresses;
+                                }
                             }
                             if (rule.LocalPorts == "*" || rule.LocalPorts == null)
                             {
@@ -519,6 +552,103 @@ namespace WinformsExample
             public string LocalPort { get; set; }
             public string RemotePort { get; set; }
             public string Profile { get; set; }
+        }
+        BindingList<Customer> Detail;
+        private void dataGridView1_Click(object sender, EventArgs e)
+        {
+            Detail = GetDataDel();
+        }
+        private void GetDataDetail()
+        {
+            Detail = GetDataDel();
+        }
+        private BindingList<Customer> GetDataDel()
+        {
+            BindingList<Customer> result = new BindingList<Customer>();
+            for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
+            {
+                DataGridViewRow dr = dataGridView1.SelectedRows[i];
+                result.Add(new Customer()
+                {
+                    NameRule = dr.Cells["NameRule"].Value.ToString(),
+                    Application = dr.Cells["Application"].Value.ToString(),
+                    State = dr.Cells["State"].Value.ToString(),
+                    Action = dr.Cells["Action"].Value.ToString(),
+                    Protocol = dr.Cells["Protocol"].Value.ToString(),
+                    LocalAddress = dr.Cells["LocalAddress"].Value.ToString(),
+                    RemoteAddress = dr.Cells["RemoteAddress"].Value.ToString(),
+                    LocalPort = dr.Cells["LocalPort"].Value.ToString(),
+                    RemotePort = dr.Cells["RemotePort"].Value.ToString(),
+                    Profile = dr.Cells["Profile"].Value.ToString(),
+                });
+            }
+            return result;
+        }
+        public void Delete()
+        {
+            //Detail = GetDataDetail();
+            for (int i = 0; i < Detail.Count; i++)
+            {
+                ProcessStartInfo run = new ProcessStartInfo();
+                run.FileName = "cmd.exe";
+                run.Verb = "runas";
+                string s;
+                if (Detail[i].Application == "Any")
+                {
+                    if (Detail[i].Protocol == "TCP" || Detail[i].Protocol == "UDP")
+                    {
+                        if (Detail[i].Profile == "Domain,Private,Public")
+                        {
+                            s = string.Format("/C netsh advfirewall firewall delete rule name=\'{0}\' dir=in localip={1} remoteip={2} localport={3} remoteport={4} protocol={5}", Detail[i].NameRule, Detail[i].LocalAddress, Detail[i].RemoteAddress, Detail[i].LocalPort, Detail[i].RemotePort, Detail[i].Protocol);
+                        }
+                        else
+                        {
+                            s = string.Format("/C netsh advfirewall firewall delete rule name=\'{0}\' dir=in profile={1} localip={2} remoteip={3} localport={4} remoteport={5} protocol={6}", Detail[i].NameRule, Detail[i].Profile, Detail[i].LocalAddress, Detail[i].RemoteAddress, Detail[i].LocalPort, Detail[i].RemotePort, Detail[i].Protocol);
+                        }
+                    }
+                    else
+                    {
+                        if (Detail[i].Profile == "Domain,Private,Public")
+                        {
+                            s = string.Format("/C netsh advfirewall firewall delete rule name=\'{0}\' dir=in localip={1} remoteip={2}", Detail[i].NameRule, Detail[i].LocalAddress, Detail[i].RemoteAddress);
+                        }
+                        else
+                        {
+                            s = string.Format("/C netsh advfirewall firewall delete rule name=\'{0}\' dir=in profile={1} localip={2} remoteip={3}", Detail[i].NameRule, Detail[i].Profile, Detail[i].LocalAddress, Detail[i].RemoteAddress);
+                        }
+                        
+                    }
+                }
+                else
+                {
+                    if (Detail[i].Protocol == "TCP" || Detail[i].Protocol == "UDP")
+                    {
+                        if (Detail[i].Profile == "Domain,Private,Public")
+                        {
+                            s = string.Format("/C netsh advfirewall firewall delete rule name=\'{0}\' dir=in program={1} localip={2} remoteip={3} localport={4} remoteport={5} protocol={6}", Detail[i].NameRule,Detail[i].Application, Detail[i].LocalAddress, Detail[i].RemoteAddress, Detail[i].LocalPort, Detail[i].RemotePort, Detail[i].Protocol);
+                        }
+                        else
+                        {
+                            s = string.Format("/C netsh advfirewall firewall delete rule name=\'{0}\' dir=in program={1} profile={2} localip={3} remoteip={4} localport={5} remoteport={6} protocol={7}", Detail[i].NameRule, Detail[i].Application, Detail[i].Profile, Detail[i].LocalAddress, Detail[i].RemoteAddress, Detail[i].LocalPort, Detail[i].RemotePort, Detail[i].Protocol);
+                        }
+                    }
+                    else
+                    {
+                        if (Detail[i].Profile == "Domain,Private,Public")
+                        {
+                            s = string.Format("/C netsh advfirewall firewall delete rule name=\'{0}\' dir=in program={1} localip={2} remoteip={3}", Detail[i].NameRule, Detail[i].Application, Detail[i].LocalAddress, Detail[i].RemoteAddress);
+                        }
+                        else
+                        {
+                            s = string.Format("/C netsh advfirewall firewall delete rule name=\'{0}\' dir=in program={1} profile={2} localip={3} remoteip={4}", Detail[i].NameRule, Detail[i].Application, Detail[i].Profile, Detail[i].LocalAddress, Detail[i].RemoteAddress);
+                        }
+
+                    }
+                }
+                run.Arguments = s;
+                run.WindowStyle = ProcessWindowStyle.Hidden;
+                Process.Start(run);
+            }
         }
     }
 }

@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using NetFwTypeLib;
-using System.Diagnostics;
 
 namespace WinformsExample
 {
@@ -17,6 +16,11 @@ namespace WinformsExample
         int kt = 0;
         List<int> Next = new List<int>(), Back = new List<int>();
         int demnext = 0, demback = 0;
+        InboundForm f1 = new InboundForm();
+        OutboundForm f2 = new OutboundForm();
+        InboundForm f3 = new InboundForm();
+        OutboundForm f4 = new OutboundForm();
+        WebsiteRuleForm f5 = new WebsiteRuleForm();
         public FirewallForm()
         {
             InitializeComponent();
@@ -51,13 +55,13 @@ namespace WinformsExample
             tab.Controls.Clear();
             tab.Text = "Inbound Rules User";
             InboundForm.User = 0;
-            InboundForm f = new InboundForm();
-            f.Header(Header);
-            f.TopLevel = false;
-            f.FormBorderStyle = FormBorderStyle.None;
-            f.Dock = DockStyle.Fill;
-            tab.Controls.Add(f);
-            f.Visible = true;
+            f1 = new InboundForm();
+            f1.Header(Header);
+            f1.TopLevel = false;
+            f1.FormBorderStyle = FormBorderStyle.None;
+            f1.Dock = DockStyle.Fill;
+            tab.Controls.Add(f1);
+            f1.Visible = true;
             btnAdd.Enabled = true;
             btnDel.Enabled = true;
         }
@@ -67,13 +71,13 @@ namespace WinformsExample
             tab.Controls.Clear();
             tab.Text = "Outbound Rules User";
             OutboundForm.User = 0;
-            OutboundForm f = new OutboundForm();
-            f.Header(Header);
-            f.TopLevel = false;
-            f.FormBorderStyle = FormBorderStyle.None;
-            f.Dock = DockStyle.Fill;
-            tab.Controls.Add(f);
-            f.Visible = true;
+            f2 = new OutboundForm();
+            f2.Header(Header);
+            f2.TopLevel = false;
+            f2.FormBorderStyle = FormBorderStyle.None;
+            f2.Dock = DockStyle.Fill;
+            tab.Controls.Add(f2);
+            f2.Visible = true;
             btnAdd.Enabled = true;
             btnDel.Enabled = true;
         }
@@ -83,13 +87,13 @@ namespace WinformsExample
             tab.Controls.Clear();
             tab.Text = "Inbound Rules Default";
             InboundForm.User = 1;
-            InboundForm f = new InboundForm();
-            f.Header(Header);
-            f.TopLevel = false;
-            f.FormBorderStyle = FormBorderStyle.None;
-            f.Dock = DockStyle.Fill;
-            tab.Controls.Add(f);
-            f.Visible = true;
+            f3 = new InboundForm();
+            f3.Header(Header);
+            f3.TopLevel = false;
+            f3.FormBorderStyle = FormBorderStyle.None;
+            f3.Dock = DockStyle.Fill;
+            tab.Controls.Add(f3);
+            f3.Visible = true;
             btnAdd.Enabled = true;
             btnDel.Enabled = true;
         }
@@ -99,13 +103,13 @@ namespace WinformsExample
             tab.Controls.Clear();
             tab.Text = "Outbound Rules Default";
             OutboundForm.User = 1;
-            OutboundForm f = new OutboundForm();
-            f.Header(Header);
-            f.TopLevel = false;
-            f.FormBorderStyle = FormBorderStyle.None;
-            f.Dock = DockStyle.Fill;
-            tab.Controls.Add(f);
-            f.Visible = true;
+            f4 = new OutboundForm();
+            f4.Header(Header);
+            f4.TopLevel = false;
+            f4.FormBorderStyle = FormBorderStyle.None;
+            f4.Dock = DockStyle.Fill;
+            tab.Controls.Add(f4);
+            f4.Visible = true;
             btnAdd.Enabled = true;
             btnDel.Enabled = true;
         }
@@ -114,13 +118,13 @@ namespace WinformsExample
             kt = 2;
             tab.Controls.Clear();
             tab.Text = "Website blocking rules";
-            WebsiteRuleForm f = new WebsiteRuleForm();
-            f.Header(Header);
-            f.TopLevel = false;
-            f.FormBorderStyle = FormBorderStyle.None;
-            f.Dock = DockStyle.Fill;
-            tab.Controls.Add(f);
-            f.Visible = true;
+            f5 = new WebsiteRuleForm();
+            f5.Header(Header);
+            f5.TopLevel = false;
+            f5.FormBorderStyle = FormBorderStyle.None;
+            f5.Dock = DockStyle.Fill;
+            tab.Controls.Add(f5);
+            f5.Visible = true;
             btnAdd.Enabled = true;
             btnDel.Enabled = true;
         }
@@ -210,7 +214,7 @@ namespace WinformsExample
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            BindingList<Customer> dataSource = GetDataSource();
+            BindingList<CustomerTimer> dataSource = GetDataSource();
             string TimeTodata, TimeFromdata, NameRule, Action, Description;
             int gio = DateTime.Now.Hour;
             int phut = DateTime.Now.Minute;
@@ -247,9 +251,9 @@ namespace WinformsExample
                 }
             }
         }
-        public BindingList<Customer> GetDataSource()
+        public BindingList<CustomerTimer> GetDataSource()
         {
-            BindingList<Customer> result = new BindingList<Customer>();
+            BindingList<CustomerTimer> result = new BindingList<CustomerTimer>();
             INetFwPolicy2 firewallRule = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
 
             foreach (INetFwRule rule in firewallRule.Rules)
@@ -268,7 +272,7 @@ namespace WinformsExample
                             action = "Block";
                         }
                         string[] s = rule.Description.Split('-');
-                        result.Add(new Customer()
+                        result.Add(new CustomerTimer()
                         {
                             NameRule = rule.Name,
                             Action = action,
@@ -281,7 +285,7 @@ namespace WinformsExample
             }
             return result;
         }
-        public class Customer
+        public class CustomerTimer
         {
             public string NameRule { get; set; }
             public string Action { get; set; }
@@ -289,6 +293,51 @@ namespace WinformsExample
             public string TimeFrom { get; set; }
             public string TimeTo { get; set; }
         }
+        public class Customer
+        {
+            public bool Statebool { get; set; }
+            public string NameRule { get; set; }
+            public string Application { get; set; }
+            public string State { get; set; }
+            public string Action { get; set; }
+            public string Protocol { get; set; }
+            public string LocalAddress { get; set; }
+            public string RemoteAddress { get; set; }
+            public string LocalPort { get; set; }
+            public string RemotePort { get; set; }
+            public string Profile { get; set; }
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            switch (treeView1.SelectedNode.Name)
+            {
+                case "Web":
+                    {
+
+                        break;
+                    }
+                case "InboundUser":
+                    {
+                        f1.Delete();
+                        ShowInboundUser();
+                        break;
+                    }
+                case "OutboundUser":
+                    {
+                        break;
+                    }
+                case "InboundDefault":
+                    {
+                        break;
+                    }
+                case "OutboundDefault":
+                    {
+                        break;
+                    }
+            }
+        }
+
         private void btnReload_Click(object sender, EventArgs e)
         {
             LoadData();

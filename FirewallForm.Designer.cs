@@ -129,6 +129,7 @@
             this.btnDel.Size = new System.Drawing.Size(25, 22);
             this.btnDel.TabIndex = 6;
             this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // btnAdd
             // 
