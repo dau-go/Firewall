@@ -28,17 +28,17 @@ namespace WinformsExample
             int phutfrom = int.Parse(cbMinuteFrom.Text);
             int gioto = int.Parse(cbHourTo.Text);
             int phutto = int.Parse(cbMinuteTo.Text);
-            if(giofrom>gioto)
+            if (giofrom > gioto)
             {
                 return false;
             }
-            else if(giofrom==gioto && phutfrom>phutto)
+            else if (giofrom == gioto && phutfrom > phutto)
             {
                 return false;
             }
             else
             {
-                return true; 
+                return true;
             }
         }
         public string Description()
@@ -50,9 +50,16 @@ namespace WinformsExample
         public bool CheckIP()
         {
             string host = txtName.Text;
-
-            IPHostEntry e = Dns.GetHostEntry(host);
-            if (e.AddressList == null) return false;
+            if (host == "") return false;
+            IPHostEntry e;
+            try
+            {
+                e = Dns.GetHostEntry(host);
+            }
+            catch
+            {
+                return false;
+            }
             // Danh sách điạ chỉ IP
             int j = 0;
             string s = "";
@@ -89,21 +96,24 @@ namespace WinformsExample
             {
                 inboundRule.Action = 0;
             }
-            inboundRule.Name = txtName.Text;
-            if(Time() ==true)
+            if (Time() == true)
             {
                 inboundRule.Description = Description();
+                inboundRule.Name = txtName.Text + "(" + inboundRule.Description + ")";
             }
             else
             {
                 MessageBox.Show("Invalid time", "Firewall");
-                inboundRule.RemoteAddresses = "g";
+                inboundRule.RemoteAddresses = "Eror";
             }
-            if(CheckIP()==true)
-            inboundRule.RemoteAddresses = IP;
+            if (CheckIP() == true)
+            {
+                inboundRule.RemoteAddresses = IP;
+            }
             else
             {
                 MessageBox.Show("Website name is not valid", "Firewall");
+                inboundRule.RemoteAddresses = "Eror";
             }
             inboundRule.Grouping = "Domain";
             inboundRule.Direction = NET_FW_RULE_DIRECTION_.NET_FW_RULE_DIR_OUT;

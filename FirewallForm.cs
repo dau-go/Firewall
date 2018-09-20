@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using NetFwTypeLib;
+using System.Diagnostics;
 
 namespace WinformsExample
 {
@@ -210,23 +211,16 @@ namespace WinformsExample
         private void timer1_Tick(object sender, EventArgs e)
         {
             BindingList<Customer> dataSource = GetDataSource();
-            string TimeTodata, TimeFromdata, NameRule, Action;
+            string TimeTodata, TimeFromdata, NameRule, Action, Description;
             int gio = DateTime.Now.Hour;
             int phut = DateTime.Now.Minute;
-            dataGridView1.DataSource = dataSource;
             for (int i = 0; i < dataSource.Count; i++)
             {
-                try
-                {
-                    NameRule = dataGridView1.Rows[i].Cells[0].Value.ToString();
-                    Action = dataGridView1.Rows[i].Cells[1].Value.ToString();
-                    TimeFromdata = dataGridView1.Rows[i].Cells[2].Value.ToString();
-                    TimeTodata = dataGridView1.Rows[i].Cells[3].Value.ToString();
-                }
-                catch
-                {
-                    continue;
-                }
+                NameRule = dataSource[i].NameRule;
+                Action = dataSource[i].Action;
+                Description = dataSource[i].Description;
+                TimeFromdata = dataSource[i].TimeFrom;
+                TimeTodata = dataSource[i].TimeTo;
                 string[] s = TimeFromdata.Split(':');
                 int giofrom = int.Parse(s[0]);
                 int phutfrom = int.Parse(s[1]);
@@ -235,16 +229,18 @@ namespace WinformsExample
                 int phutto = int.Parse(s[1]);
                 if ((gio > giofrom && gio < gioto) || (gio == giofrom && phut >= phutfrom && (gio < gioto || (gio == gioto && phut < phutto))))
                 {
-                    if(Action=="Allow")
+                    if (Action == "Allow")
                     {
+
                         INetFwPolicy2 firewallPolicy = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
-                        firewallPolicy.Rules.Item(NameRule).Action = 0;
+                        firewallPolicy.Rules.Item(NameRule).Action = NET_FW_ACTION_.NET_FW_ACTION_BLOCK;
                     }
                 }
                 else
                 {
-                    if(Action=="Block")
+                    if (Action == "Block")
                     {
+
                         INetFwPolicy2 firewallPolicy = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
                         firewallPolicy.Rules.Item(NameRule).Action = NET_FW_ACTION_.NET_FW_ACTION_ALLOW;
                     }
@@ -276,6 +272,7 @@ namespace WinformsExample
                         {
                             NameRule = rule.Name,
                             Action = action,
+                            Description = rule.Description,
                             TimeFrom = s[0],
                             TimeTo = s[1]
                         });
@@ -288,6 +285,7 @@ namespace WinformsExample
         {
             public string NameRule { get; set; }
             public string Action { get; set; }
+            public string Description { get; set; }
             public string TimeFrom { get; set; }
             public string TimeTo { get; set; }
         }
