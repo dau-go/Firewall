@@ -38,7 +38,6 @@
             this.menuAllow = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuAdd = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.menuDel = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.menuProperties = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,12 +79,11 @@
             this.menuAllow,
             this.toolStripSeparator2,
             this.menuAdd,
-            this.menuEdit,
             this.menuDel,
             this.toolStripSeparator3,
             this.menuProperties});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 220);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(150, 176);
             // 
             // menuDisable
             // 
@@ -128,20 +126,16 @@
             // menuAdd
             // 
             this.menuAdd.Name = "menuAdd";
-            this.menuAdd.Size = new System.Drawing.Size(149, 22);
+            this.menuAdd.Size = new System.Drawing.Size(152, 22);
             this.menuAdd.Text = "Add New Rule";
-            // 
-            // menuEdit
-            // 
-            this.menuEdit.Name = "menuEdit";
-            this.menuEdit.Size = new System.Drawing.Size(149, 22);
-            this.menuEdit.Text = "Edit Rule";
+            this.menuAdd.Click += new System.EventHandler(this.menuAdd_Click);
             // 
             // menuDel
             // 
             this.menuDel.Name = "menuDel";
-            this.menuDel.Size = new System.Drawing.Size(149, 22);
+            this.menuDel.Size = new System.Drawing.Size(152, 22);
             this.menuDel.Text = "Delete Rule";
+            this.menuDel.Click += new System.EventHandler(this.menuDel_Click);
             // 
             // toolStripSeparator3
             // 
@@ -151,8 +145,9 @@
             // menuProperties
             // 
             this.menuProperties.Name = "menuProperties";
-            this.menuProperties.Size = new System.Drawing.Size(149, 22);
+            this.menuProperties.Size = new System.Drawing.Size(152, 22);
             this.menuProperties.Text = "Properties";
+            this.menuProperties.Click += new System.EventHandler(this.menuProperties_Click);
             // 
             // InboundForm
             // 
@@ -177,7 +172,6 @@
         private System.Windows.Forms.ToolStripMenuItem menuBlock;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem menuAdd;
-        private System.Windows.Forms.ToolStripMenuItem menuEdit;
         private System.Windows.Forms.ToolStripMenuItem menuDel;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem menuProperties;

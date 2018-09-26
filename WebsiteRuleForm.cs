@@ -13,6 +13,7 @@ namespace WinformsExample
     public partial class WebsiteRuleForm : Form
     {
         BindingList<Customer> dataSource;
+        int stt = 0;
         public WebsiteRuleForm()
         {
             InitializeComponent();
@@ -24,6 +25,9 @@ namespace WinformsExample
             dataGridView1.Columns["RemoteIP"].HeaderText = "Remote Address";
             dataGridView1.Columns["TimeFrom"].HeaderText = "Time From";
             dataGridView1.Columns["TimeTo"].HeaderText = "Time To";
+            dataGridView1.Rows[0].Selected = true;
+            Detail = GetDataDel();
+            dataGridView1.Columns["STT"].Visible = false;
         }
         public void Header(int i)
         {
@@ -110,8 +114,10 @@ namespace WinformsExample
                             s2 = s2 + "," + s1[i];
                         }
                     }
+                    stt++;
                     result.Add(new Customer()
                     {
+                        STT = stt - 1,
                         Statebool = rule.Enabled,
                         NameRule = rule.Name,
                         State = state,
@@ -125,10 +131,6 @@ namespace WinformsExample
             return result;
         }
         BindingList<Customer> Detail;
-        private void dataGridView1_Click(object sender, EventArgs e)
-        {
-            Detail = GetDataDel();
-        }
         private BindingList<Customer> GetDataDel()
         {
             BindingList<Customer> result = new BindingList<Customer>();
@@ -157,6 +159,7 @@ namespace WinformsExample
         }
         public class Customer
         {
+            public int STT { get; set; }
             public bool Statebool { get; set; }
             public string NameRule { get; set; }
             public string State { get; set; }
@@ -164,6 +167,199 @@ namespace WinformsExample
             public string RemoteIP { get; set; }
             public string TimeFrom { get; set; }
             public string TimeTo { get; set; }
+        }
+        private void dataGridView1_Click(object sender, EventArgs e)
+        {
+            Detail = GetDataDel();
+        }
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Detail = GetDataDel();
+        }
+
+        private void dataGridView1_CellContextMenuStripNeeded(object sender, DataGridViewCellContextMenuStripNeededEventArgs e)
+        {
+            if (e.ColumnIndex == -1) return;
+            for (int i = 0; i < Detail.Count; i++)
+            {
+                if (Detail[i].STT == e.RowIndex)
+                {
+                    menuProperties.Visible = false;
+                    menuDisable.Visible = false;
+                    menuEnable.Visible = false;
+                    menuAllow.Visible = false;
+                    menuBlock.Visible = false;
+                    toolStripSeparator3.Visible = false;
+                    for (int j = 0; j < Detail.Count; j++)
+                    {
+                        if (Detail[j].State == "Yes")
+                        {
+                            menuDisable.Visible = true;
+                        }
+                        else
+                        {
+                            menuEnable.Visible = true;
+                        }
+                        if (Detail[j].Action == "Allow")
+                        {
+                            menuBlock.Visible = true;
+                        }
+                        else
+                        {
+                            menuAllow.Visible = true;
+                        }
+                    }
+                    e.ContextMenuStrip = contextMenuStrip1;
+                    return;
+                }
+            }
+
+            dataGridView1.ClearSelection();
+            int rowselected1 = e.RowIndex;
+            dataGridView1.Rows[rowselected1].Selected = true;
+            toolStripSeparator3.Visible = true;
+            e.ContextMenuStrip = contextMenuStrip1;
+            Detail = GetDataDel();
+            menuProperties.Visible = true;
+            if (Detail[0].State == "Yes")
+            {
+                menuDisable.Visible = true;
+                menuEnable.Visible = false;
+            }
+            else
+            {
+                menuDisable.Visible = false;
+                menuEnable.Visible = true;
+            }
+            if (Detail[0].Action == "Allow")
+            {
+                menuAllow.Visible = false;
+                menuBlock.Visible = true;
+            }
+            else
+            {
+                menuAllow.Visible = true;
+                menuBlock.Visible = false;
+            }
+        }
+
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            Detail = GetDataDel();
+        }
+
+        private void dataGridView1_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+            {
+                return;
+            }
+            dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(1, 226, 230);
+        }
+
+        private void dataGridView1_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex < 0 || e.ColumnIndex < 0)
+            {
+                return;
+            }
+            dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+        }
+
+        private void dataGridView1_MouseCaptureChanged(object sender, EventArgs e)
+        {
+            Detail = GetDataDel();
+        }
+
+        private void menuDisable_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < Detail.Count; i++)
+            {
+                INetFwPolicy2 firewallPolicy = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
+                var rule = firewallPolicy.Rules.Item(Detail[i].NameRule);
+                rule.Enabled = false;
+            }
+            stt = 0;
+            dataSource = GetDataSource();
+            dataGridView1.DataSource = dataSource;
+            dataGridView1.Rows[0].Selected = false;
+            for (int i = 0; i < Detail.Count; i++)
+            {
+                dataGridView1.Rows[Detail[i].STT].Selected = true;
+            }
+        }
+
+        private void menuEnable_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < Detail.Count; i++)
+            {
+                INetFwPolicy2 firewallPolicy = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
+                var rule = firewallPolicy.Rules.Item(Detail[i].NameRule);
+                rule.Enabled = true;
+            }
+            stt = 0;
+            dataSource = GetDataSource();
+            dataGridView1.DataSource = dataSource;
+            dataGridView1.Rows[0].Selected = false;
+            for (int i = 0; i < Detail.Count; i++)
+            {
+                dataGridView1.Rows[Detail[i].STT].Selected = true;
+            }
+        }
+
+        private void menuBlock_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < Detail.Count; i++)
+            {
+                INetFwPolicy2 firewallPolicy = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
+                var rule = firewallPolicy.Rules.Item(Detail[i].NameRule);
+                rule.Action = NET_FW_ACTION_.NET_FW_ACTION_BLOCK;
+            }
+            stt = 0;
+            dataSource = GetDataSource();
+            dataGridView1.DataSource = dataSource;
+            dataGridView1.Rows[0].Selected = false;
+            for (int i = 0; i < Detail.Count; i++)
+            {
+                dataGridView1.Rows[Detail[i].STT].Selected = true;
+            }
+        }
+
+        private void menuAllow_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < Detail.Count; i++)
+            {
+                INetFwPolicy2 firewallPolicy = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
+                var rule = firewallPolicy.Rules.Item(Detail[i].NameRule);
+                rule.Action = NET_FW_ACTION_.NET_FW_ACTION_ALLOW;
+            }
+            stt = 0;
+            dataSource = GetDataSource();
+            dataGridView1.DataSource = dataSource;
+            dataGridView1.Rows[0].Selected = false;
+            for (int i = 0; i < Detail.Count; i++)
+            {
+                dataGridView1.Rows[Detail[i].STT].Selected = true;
+            }
+        }
+
+        private void menuAdd_Click(object sender, EventArgs e)
+        {
+            AddRuleForm.kt = 2;
+            AddRuleForm f = new AddRuleForm();
+            f.ShowDialog();
+        }
+
+        private void menuDel_Click(object sender, EventArgs e)
+        {
+            Delete();
+            dataSource = GetDataSource();
+            dataGridView1.DataSource = dataSource;
+        }
+
+        private void menuProperties_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -31,15 +31,16 @@
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.disToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuDisable = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuEnable = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.Action = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuBlock = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuAllow = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.Add = new System.Windows.Forms.ToolStripMenuItem();
-            this.Edit = new System.Windows.Forms.ToolStripMenuItem();
-            this.Del = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuDel = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.Properties = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuProperties = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -52,7 +53,6 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.ContextMenuStrip = this.contextMenuStrip1;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
@@ -61,73 +61,93 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(637, 333);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellContextMenuStripNeeded += new System.Windows.Forms.DataGridViewCellContextMenuStripNeededEventHandler(this.dataGridView1_CellContextMenuStripNeeded);
+            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
+            this.dataGridView1.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellMouseLeave);
+            this.dataGridView1.CellMouseMove += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseMove);
             this.dataGridView1.Click += new System.EventHandler(this.dataGridView1_Click);
+            this.dataGridView1.MouseCaptureChanged += new System.EventHandler(this.dataGridView1_MouseCaptureChanged);
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.disToolStripMenuItem,
+            this.menuDisable,
+            this.menuEnable,
             this.toolStripSeparator1,
-            this.Action,
+            this.menuBlock,
+            this.menuAllow,
             this.toolStripSeparator2,
-            this.Add,
-            this.Edit,
-            this.Del,
+            this.menuAdd,
+            this.menuDel,
             this.toolStripSeparator3,
-            this.Properties});
+            this.menuProperties});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(150, 154);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 198);
             // 
-            // disToolStripMenuItem
+            // menuDisable
             // 
-            this.disToolStripMenuItem.Name = "disToolStripMenuItem";
-            this.disToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-            this.disToolStripMenuItem.Text = "Disable Rule";
+            this.menuDisable.Name = "menuDisable";
+            this.menuDisable.Size = new System.Drawing.Size(152, 22);
+            this.menuDisable.Text = "Disable";
+            this.menuDisable.Click += new System.EventHandler(this.menuDisable_Click);
+            // 
+            // menuEnable
+            // 
+            this.menuEnable.Name = "menuEnable";
+            this.menuEnable.Size = new System.Drawing.Size(152, 22);
+            this.menuEnable.Text = "Enable";
+            this.menuEnable.Click += new System.EventHandler(this.menuEnable_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(146, 6);
             // 
-            // Action
+            // menuBlock
             // 
-            this.Action.Name = "Action";
-            this.Action.Size = new System.Drawing.Size(149, 22);
-            this.Action.Text = "Block";
+            this.menuBlock.Name = "menuBlock";
+            this.menuBlock.Size = new System.Drawing.Size(152, 22);
+            this.menuBlock.Text = "Block";
+            this.menuBlock.Click += new System.EventHandler(this.menuBlock_Click);
+            // 
+            // menuAllow
+            // 
+            this.menuAllow.Name = "menuAllow";
+            this.menuAllow.Size = new System.Drawing.Size(152, 22);
+            this.menuAllow.Text = "Allow";
+            this.menuAllow.Click += new System.EventHandler(this.menuAllow_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(146, 6);
             // 
-            // Add
+            // menuAdd
             // 
-            this.Add.Name = "Add";
-            this.Add.Size = new System.Drawing.Size(149, 22);
-            this.Add.Text = "Add New Rule";
+            this.menuAdd.Name = "menuAdd";
+            this.menuAdd.Size = new System.Drawing.Size(152, 22);
+            this.menuAdd.Text = "Add New Rule";
+            this.menuAdd.Click += new System.EventHandler(this.menuAdd_Click);
             // 
-            // Edit
+            // menuDel
             // 
-            this.Edit.Name = "Edit";
-            this.Edit.Size = new System.Drawing.Size(149, 22);
-            this.Edit.Text = "Edit Rule";
-            // 
-            // Del
-            // 
-            this.Del.Name = "Del";
-            this.Del.Size = new System.Drawing.Size(149, 22);
-            this.Del.Text = "Delete Rule";
+            this.menuDel.Name = "menuDel";
+            this.menuDel.Size = new System.Drawing.Size(152, 22);
+            this.menuDel.Text = "Delete Rule";
+            this.menuDel.Click += new System.EventHandler(this.menuDel_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(146, 6);
             // 
-            // Properties
+            // menuProperties
             // 
-            this.Properties.Name = "Properties";
-            this.Properties.Size = new System.Drawing.Size(149, 22);
-            this.Properties.Text = "Properties";
+            this.menuProperties.Name = "menuProperties";
+            this.menuProperties.Size = new System.Drawing.Size(152, 22);
+            this.menuProperties.Text = "Properties";
+            this.menuProperties.Click += new System.EventHandler(this.menuProperties_Click);
             // 
             // WebsiteRuleForm
             // 
@@ -147,14 +167,15 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem disToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuDisable;
+        private System.Windows.Forms.ToolStripMenuItem menuEnable;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem Action;
+        private System.Windows.Forms.ToolStripMenuItem menuBlock;
+        private System.Windows.Forms.ToolStripMenuItem menuAllow;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem Add;
-        private System.Windows.Forms.ToolStripMenuItem Edit;
-        private System.Windows.Forms.ToolStripMenuItem Del;
+        private System.Windows.Forms.ToolStripMenuItem menuAdd;
+        private System.Windows.Forms.ToolStripMenuItem menuDel;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripMenuItem Properties;
+        private System.Windows.Forms.ToolStripMenuItem menuProperties;
     }
 }

@@ -36,7 +36,7 @@ namespace WinformsExample
             dataGridView1.Columns["Statebool"].Width = 20;
             dataGridView1.Rows[0].Selected = true;
             Detail = GetDataDel();
-            //dataGridView1.Columns["STT"].Visible = false;
+            dataGridView1.Columns["STT"].Visible = false;
         }
         public void Header(int i)
         {
@@ -755,7 +755,6 @@ namespace WinformsExample
                 menuAllow.Visible = true;
                 menuBlock.Visible = false;
             }
-
         }
 
         private void menuDisable_Click(object sender, EventArgs e)
@@ -828,6 +827,25 @@ namespace WinformsExample
             {
                 dataGridView1.Rows[Detail[i].STT].Selected = true;
             }
+        }
+
+        private void menuAdd_Click(object sender, EventArgs e)
+        {
+            AddRuleForm.kt = 0;
+            AddRuleForm f = new AddRuleForm();
+            f.ShowDialog();
+        }
+
+        private void menuDel_Click(object sender, EventArgs e)
+        {
+            Delete();
+            dataSource = GetDataSource();
+            dataGridView1.DataSource = dataSource;
+        }
+
+        private void menuProperties_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
