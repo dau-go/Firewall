@@ -124,12 +124,6 @@
     <Compile Include="FirewallForm.Designer.cs">
       <DependentUpon>FirewallForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GeneralForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GeneralForm.Designer.cs">
-      <DependentUpon>GeneralForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="OutboundForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,22 +137,10 @@
       <DependentUpon>InboundForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="ProgramAndProfileForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProgramAndProfileForm.Designer.cs">
-      <DependentUpon>ProgramAndProfileForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ProtocolAndPortForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ProtocolAndPortForm.Designer.cs">
-      <DependentUpon>ProtocolAndPortForm.cs</DependentUpon>
     </Compile>
     <Compile Include="RulePortForm.cs">
       <SubType>Form</SubType>
@@ -203,12 +185,6 @@
     <Compile Include="RuleTypeForm.Designer.cs">
       <DependentUpon>RuleTypeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ScopeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ScopeForm.Designer.cs">
-      <DependentUpon>ScopeForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="WebsiteRuleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,20 +216,11 @@
     <EmbeddedResource Include="FirewallForm.resx">
       <DependentUpon>FirewallForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GeneralForm.resx">
-      <DependentUpon>GeneralForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="OutboundForm.resx">
       <DependentUpon>OutboundForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InboundForm.resx">
       <DependentUpon>InboundForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProgramAndProfileForm.resx">
-      <DependentUpon>ProgramAndProfileForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProtocolAndPortForm.resx">
-      <DependentUpon>ProtocolAndPortForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RulePortForm.resx">
       <DependentUpon>RulePortForm.cs</DependentUpon>
@@ -280,9 +247,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RuleTypeForm.resx">
       <DependentUpon>RuleTypeForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ScopeForm.resx">
-      <DependentUpon>ScopeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WebsiteRuleForm.resx">
       <DependentUpon>WebsiteRuleForm.cs</DependentUpon>
