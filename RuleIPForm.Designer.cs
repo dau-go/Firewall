@@ -36,12 +36,12 @@
             this.btnAddLocal = new System.Windows.Forms.Button();
             this.btnEditLocal = new System.Windows.Forms.Button();
             this.btnDelLocal = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.rbAllRemote = new System.Windows.Forms.RadioButton();
             this.rbIPRemote = new System.Windows.Forms.RadioButton();
             this.btnAddRemote = new System.Windows.Forms.Button();
             this.btnEditRemote = new System.Windows.Forms.Button();
             this.btnDelRemote = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.listView2 = new System.Windows.Forms.ListView();
             this.splitter1.SuspendLayout();
             this.SuspendLayout();
@@ -137,6 +137,16 @@
             this.btnDelLocal.UseVisualStyleBackColor = true;
             this.btnDelLocal.Click += new System.EventHandler(this.btnDelLocal_Click);
             // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(54, 97);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(286, 81);
+            this.listView1.TabIndex = 6;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.List;
+            this.listView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseClick);
+            // 
             // rbAllRemote
             // 
             this.rbAllRemote.AutoSize = true;
@@ -194,16 +204,6 @@
             this.btnDelRemote.UseVisualStyleBackColor = true;
             this.btnDelRemote.Click += new System.EventHandler(this.btnDelRemote_Click);
             // 
-            // listView1
-            // 
-            this.listView1.Location = new System.Drawing.Point(54, 97);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(286, 81);
-            this.listView1.TabIndex = 6;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.List;
-            this.listView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseClick);
-            // 
             // listView2
             // 
             this.listView2.Location = new System.Drawing.Point(54, 282);
@@ -243,15 +243,15 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton rbAllLocal;
         private System.Windows.Forms.RadioButton rbIPLocal;
-        private System.Windows.Forms.RadioButton rbAllRemote;
-        private System.Windows.Forms.RadioButton rbIPRemote;
         private System.Windows.Forms.Button btnAddLocal;
         private System.Windows.Forms.Button btnEditLocal;
         private System.Windows.Forms.Button btnDelLocal;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.RadioButton rbAllRemote;
+        private System.Windows.Forms.RadioButton rbIPRemote;
         private System.Windows.Forms.Button btnAddRemote;
         private System.Windows.Forms.Button btnEditRemote;
         private System.Windows.Forms.Button btnDelRemote;
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ListView listView2;
     }
 }

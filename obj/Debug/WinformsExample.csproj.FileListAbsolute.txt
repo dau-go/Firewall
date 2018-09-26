@@ -117,3 +117,6 @@ C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.AddDomainForm
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.WebsiteRuleForm.resources
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.csprojResolveAssemblyReference.cache
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.EditForm.resources
+C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.GeneralForm.resources
+C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.ProgramAndProfileForm.resources
+C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.ScopeForm.resources
