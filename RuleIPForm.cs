@@ -80,7 +80,7 @@ namespace WinformsExample
 
         private void btnAddLocal_Click(object sender, EventArgs e)
         {
-            AddIPForm f = new AddIPForm(0);
+            AddIPForm f = new AddIPForm(0,0);
             f.ShowDialog();
             if (_LocalIP != "" || _LocalIP == null)
             {
@@ -97,7 +97,7 @@ namespace WinformsExample
 
         private void btnEditLocal_Click(object sender, EventArgs e)
         {
-            AddIPForm f = new AddIPForm(2);
+            AddIPForm f = new AddIPForm(2,0);
             f.ShowDialog();
             listView1.Items[listView1.FocusedItem.Index].Text = _LocalIP;
             GetIPLocal();
@@ -126,7 +126,7 @@ namespace WinformsExample
 
         private void btnAddRemote_Click(object sender, EventArgs e)
         {
-            AddIPForm f = new AddIPForm(1);
+            AddIPForm f = new AddIPForm(1,0);
             f.ShowDialog();
             if (_RemoteIP != "" || _RemoteIP == null)
             {
@@ -137,7 +137,7 @@ namespace WinformsExample
 
         private void btnEditRemote_Click(object sender, EventArgs e)
         {
-            AddIPForm f = new AddIPForm(3);
+            AddIPForm f = new AddIPForm(3,0);
             f.ShowDialog();
             listView2.Items[listView2.FocusedItem.Index].Text = _RemoteIP;
             GetIPRemote();

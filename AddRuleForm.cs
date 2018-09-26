@@ -286,7 +286,7 @@ namespace WinformsExample
         }
         private void btnNext1_Click(object sender, EventArgs e)
         {
-            if (_Name != null)
+            if (_Name != null && _Name != "")
             {
                 int ktname = 0;
                 var firewallRule = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
@@ -307,7 +307,7 @@ namespace WinformsExample
                 {
                     case 1:
                         {
-                            if (_Program != null)
+                            if (_Program != null && _Program != "")
                             {
                                 groupBox1.Controls.Clear();
                                 groupBox1.Text = "Profile";
@@ -369,7 +369,7 @@ namespace WinformsExample
                         }
                     case 3:
                         {
-                            if (_Program != null)
+                            if (_Program != null && _Program != "")
                             {
                                 groupBox1.Controls.Clear();
                                 groupBox1.Text = "Protocol and Port";

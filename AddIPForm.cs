@@ -12,32 +12,49 @@ namespace WinformsExample
 {
     public partial class AddIPForm : Form
     {
-        int k = 0;
-        public AddIPForm(int i)
+        int k = 0, k1 = 0;
+        //k la kiem tra local hay remote, add hay edit
+        //k1 la kiem tra form goi ham
+        public AddIPForm(int i,int j)
         {
             InitializeComponent();
-            k = i;
-            if (k == 2)
+            k = i;k1 = j;
+            if (k == 2)//edit Local IP
             {
                 ShowIP();
-                k = 0;
+                k = 0;//Add Local IP
             }
-            if (k == 3)
+            if (k == 3)//edit Remote IP
             {
                 ShowIP();
-                k = 1;
+                k = 1;//Add Remote IP
             }
         }
         public void ShowIP()
         {
             if (RuleIPForm.IPFocus.Contains("-") == false)
             {
-                txtSubnet.Text = RuleIPForm.IPFocus;
+                if (k1 == 0)
+                {
+                    txtSubnet.Text = RuleIPForm.IPFocus;
+                }
+                else
+                {
+                    txtSubnet.Text = EditForm.IPFocus;
+                }
             }
             else
             {
                 radioButton2.Checked = true;
-                string[] s = RuleIPForm.IPFocus.Split('-');
+                string[] s;
+                if (k1 == 0)
+                {
+                    s = RuleIPForm.IPFocus.Split('-');
+                }
+                else
+                {
+                    s = EditForm.IPFocus.Split('-');
+                }
                 txtFrom.Text = s[0];
                 txtTo.Text = s[1];
             }
@@ -117,11 +134,25 @@ namespace WinformsExample
                 {
                     if (k == 0)
                     {
-                        RuleIPForm.LocalIP = txtSubnet.Text;
+                        if (k1 == 0)
+                        {
+                            RuleIPForm.LocalIP = txtSubnet.Text;
+                        }
+                        else
+                        {
+                            EditForm.LocalIP = txtSubnet.Text;
+                        }
                     }
                     else
                     {
-                        RuleIPForm.RemoteIP = txtSubnet.Text;
+                        if (k1 == 0)
+                        {
+                            RuleIPForm.RemoteIP = txtSubnet.Text;
+                        }
+                        else
+                        {
+                            EditForm.RemoteIP = txtSubnet.Text;
+                        }
                     }
                     this.Close();
                 }
@@ -137,11 +168,25 @@ namespace WinformsExample
 
                     if (k == 0)
                     {
-                        RuleIPForm.LocalIP = txtFrom.Text + "-" + txtTo.Text;
+                        if (k1 == 0)
+                        {
+                            RuleIPForm.LocalIP = txtFrom.Text + "-" + txtTo.Text;
+                        }
+                        else
+                        {
+                            EditForm.LocalIP = txtFrom.Text + "-" + txtTo.Text;
+                        }
                     }
                     else
                     {
-                        RuleIPForm.RemoteIP = txtFrom.Text + "-" + txtTo.Text;
+                        if (k1 == 0)
+                        {
+                            RuleIPForm.RemoteIP = txtFrom.Text + "-" + txtTo.Text;
+                        }
+                        else
+                        {
+                            EditForm.RemoteIP = txtFrom.Text + "-" + txtTo.Text;
+                        }
                     }
                     this.Close();
                 }

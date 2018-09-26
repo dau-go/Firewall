@@ -51,24 +51,6 @@
             this.cbPrivate = new System.Windows.Forms.CheckBox();
             this.cbDomain = new System.Windows.Forms.CheckBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.btnApply = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnOK = new System.Windows.Forms.Button();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.rbAllLocal = new System.Windows.Forms.RadioButton();
-            this.rbIPLocal = new System.Windows.Forms.RadioButton();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.btnAddLocal = new System.Windows.Forms.Button();
-            this.btnEditLocal = new System.Windows.Forms.Button();
-            this.btnDelLocal = new System.Windows.Forms.Button();
-            this.listView2 = new System.Windows.Forms.ListView();
-            this.btnDelRemote = new System.Windows.Forms.Button();
-            this.btnEditRemote = new System.Windows.Forms.Button();
-            this.btnAddRemote = new System.Windows.Forms.Button();
-            this.rbIPRemote = new System.Windows.Forms.RadioButton();
-            this.rbAllRemote = new System.Windows.Forms.RadioButton();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.txtRemoteport = new System.Windows.Forms.TextBox();
             this.txtLocalport = new System.Windows.Forms.TextBox();
@@ -80,6 +62,21 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.rbAllLocal = new System.Windows.Forms.RadioButton();
+            this.rbIPLocal = new System.Windows.Forms.RadioButton();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.btnAddLocal = new System.Windows.Forms.Button();
+            this.btnEditLocal = new System.Windows.Forms.Button();
+            this.btnDelLocal = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.listView2 = new System.Windows.Forms.ListView();
+            this.btnDelRemote = new System.Windows.Forms.Button();
+            this.btnEditRemote = new System.Windows.Forms.Button();
+            this.btnAddRemote = new System.Windows.Forms.Button();
+            this.rbIPRemote = new System.Windows.Forms.RadioButton();
+            this.rbAllRemote = new System.Windows.Forms.RadioButton();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.cbMinuteTo = new System.Windows.Forms.ComboBox();
@@ -92,6 +89,10 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.btnApply = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnOK = new System.Windows.Forms.Button();
+            this.Open = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -100,10 +101,10 @@
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.tabPage4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.SuspendLayout();
@@ -260,6 +261,7 @@
             this.btnBrowes.TabIndex = 15;
             this.btnBrowes.Text = "Browse...";
             this.btnBrowes.UseVisualStyleBackColor = true;
+            this.btnBrowes.Click += new System.EventHandler(this.btnBrowes_Click);
             // 
             // txtProgram
             // 
@@ -279,6 +281,7 @@
             this.rbThisProgram.TabStop = true;
             this.rbThisProgram.Text = "This program path:\r\n";
             this.rbThisProgram.UseVisualStyleBackColor = true;
+            this.rbThisProgram.CheckedChanged += new System.EventHandler(this.rbThisProgram_CheckedChanged);
             // 
             // rbAllProgram
             // 
@@ -290,6 +293,7 @@
             this.rbAllProgram.TabStop = true;
             this.rbAllProgram.Text = "All program that meet the specified conditions";
             this.rbAllProgram.UseVisualStyleBackColor = true;
+            this.rbAllProgram.CheckedChanged += new System.EventHandler(this.rbAllProgram_CheckedChanged);
             // 
             // groupBox4
             // 
@@ -360,197 +364,6 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Protocol and Ports";
             // 
-            // tabPage4
-            // 
-            this.tabPage4.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage4.Controls.Add(this.groupBox6);
-            this.tabPage4.Controls.Add(this.groupBox5);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(368, 391);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Scope";
-            // 
-            // btnApply
-            // 
-            this.btnApply.Location = new System.Drawing.Point(293, 423);
-            this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(75, 23);
-            this.btnApply.TabIndex = 0;
-            this.btnApply.Text = "Apply";
-            this.btnApply.UseVisualStyleBackColor = true;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(212, 423);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 0;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            // 
-            // btnOK
-            // 
-            this.btnOK.Location = new System.Drawing.Point(131, 423);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 0;
-            this.btnOK.Text = "Ok";
-            this.btnOK.UseVisualStyleBackColor = true;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.listView2);
-            this.groupBox5.Controls.Add(this.btnDelRemote);
-            this.groupBox5.Controls.Add(this.btnEditRemote);
-            this.groupBox5.Controls.Add(this.btnAddRemote);
-            this.groupBox5.Controls.Add(this.rbIPRemote);
-            this.groupBox5.Controls.Add(this.rbAllRemote);
-            this.groupBox5.Location = new System.Drawing.Point(3, 166);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(356, 157);
-            this.groupBox5.TabIndex = 13;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Remote IP";
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.rbAllLocal);
-            this.groupBox6.Controls.Add(this.rbIPLocal);
-            this.groupBox6.Controls.Add(this.listView1);
-            this.groupBox6.Controls.Add(this.btnAddLocal);
-            this.groupBox6.Controls.Add(this.btnEditLocal);
-            this.groupBox6.Controls.Add(this.btnDelLocal);
-            this.groupBox6.Location = new System.Drawing.Point(3, 3);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(356, 157);
-            this.groupBox6.TabIndex = 13;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Local IP";
-            // 
-            // rbAllLocal
-            // 
-            this.rbAllLocal.AutoSize = true;
-            this.rbAllLocal.Checked = true;
-            this.rbAllLocal.Location = new System.Drawing.Point(57, 19);
-            this.rbAllLocal.Name = "rbAllLocal";
-            this.rbAllLocal.Size = new System.Drawing.Size(96, 17);
-            this.rbAllLocal.TabIndex = 7;
-            this.rbAllLocal.TabStop = true;
-            this.rbAllLocal.Text = "Any IP address";
-            this.rbAllLocal.UseVisualStyleBackColor = true;
-            // 
-            // rbIPLocal
-            // 
-            this.rbIPLocal.AutoSize = true;
-            this.rbIPLocal.Location = new System.Drawing.Point(57, 42);
-            this.rbIPLocal.Name = "rbIPLocal";
-            this.rbIPLocal.Size = new System.Drawing.Size(111, 17);
-            this.rbIPLocal.TabIndex = 8;
-            this.rbIPLocal.Text = "These IP address:";
-            this.rbIPLocal.UseVisualStyleBackColor = true;
-            // 
-            // listView1
-            // 
-            this.listView1.Location = new System.Drawing.Point(57, 61);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(202, 81);
-            this.listView1.TabIndex = 12;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.List;
-            // 
-            // btnAddLocal
-            // 
-            this.btnAddLocal.Enabled = false;
-            this.btnAddLocal.Location = new System.Drawing.Point(265, 61);
-            this.btnAddLocal.Name = "btnAddLocal";
-            this.btnAddLocal.Size = new System.Drawing.Size(75, 23);
-            this.btnAddLocal.TabIndex = 9;
-            this.btnAddLocal.Text = "Add...";
-            this.btnAddLocal.UseVisualStyleBackColor = true;
-            // 
-            // btnEditLocal
-            // 
-            this.btnEditLocal.Enabled = false;
-            this.btnEditLocal.Location = new System.Drawing.Point(265, 90);
-            this.btnEditLocal.Name = "btnEditLocal";
-            this.btnEditLocal.Size = new System.Drawing.Size(75, 23);
-            this.btnEditLocal.TabIndex = 10;
-            this.btnEditLocal.Text = "Edit...";
-            this.btnEditLocal.UseVisualStyleBackColor = true;
-            // 
-            // btnDelLocal
-            // 
-            this.btnDelLocal.Enabled = false;
-            this.btnDelLocal.Location = new System.Drawing.Point(265, 119);
-            this.btnDelLocal.Name = "btnDelLocal";
-            this.btnDelLocal.Size = new System.Drawing.Size(75, 23);
-            this.btnDelLocal.TabIndex = 11;
-            this.btnDelLocal.Text = "Remove";
-            this.btnDelLocal.UseVisualStyleBackColor = true;
-            // 
-            // listView2
-            // 
-            this.listView2.Location = new System.Drawing.Point(59, 61);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(202, 81);
-            this.listView2.TabIndex = 13;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.List;
-            // 
-            // btnDelRemote
-            // 
-            this.btnDelRemote.Enabled = false;
-            this.btnDelRemote.Location = new System.Drawing.Point(267, 120);
-            this.btnDelRemote.Name = "btnDelRemote";
-            this.btnDelRemote.Size = new System.Drawing.Size(75, 23);
-            this.btnDelRemote.TabIndex = 10;
-            this.btnDelRemote.Text = "Remove";
-            this.btnDelRemote.UseVisualStyleBackColor = true;
-            // 
-            // btnEditRemote
-            // 
-            this.btnEditRemote.Enabled = false;
-            this.btnEditRemote.Location = new System.Drawing.Point(267, 91);
-            this.btnEditRemote.Name = "btnEditRemote";
-            this.btnEditRemote.Size = new System.Drawing.Size(75, 23);
-            this.btnEditRemote.TabIndex = 11;
-            this.btnEditRemote.Text = "Edit...";
-            this.btnEditRemote.UseVisualStyleBackColor = true;
-            // 
-            // btnAddRemote
-            // 
-            this.btnAddRemote.Enabled = false;
-            this.btnAddRemote.Location = new System.Drawing.Point(267, 62);
-            this.btnAddRemote.Name = "btnAddRemote";
-            this.btnAddRemote.Size = new System.Drawing.Size(75, 23);
-            this.btnAddRemote.TabIndex = 12;
-            this.btnAddRemote.Text = "Add...";
-            this.btnAddRemote.UseVisualStyleBackColor = true;
-            // 
-            // rbIPRemote
-            // 
-            this.rbIPRemote.AutoSize = true;
-            this.rbIPRemote.Location = new System.Drawing.Point(59, 42);
-            this.rbIPRemote.Name = "rbIPRemote";
-            this.rbIPRemote.Size = new System.Drawing.Size(111, 17);
-            this.rbIPRemote.TabIndex = 8;
-            this.rbIPRemote.Text = "These IP address:";
-            this.rbIPRemote.UseVisualStyleBackColor = true;
-            // 
-            // rbAllRemote
-            // 
-            this.rbAllRemote.AutoSize = true;
-            this.rbAllRemote.Checked = true;
-            this.rbAllRemote.Location = new System.Drawing.Point(59, 19);
-            this.rbAllRemote.Name = "rbAllRemote";
-            this.rbAllRemote.Size = new System.Drawing.Size(96, 17);
-            this.rbAllRemote.TabIndex = 9;
-            this.rbAllRemote.TabStop = true;
-            this.rbAllRemote.Text = "Any IP address";
-            this.rbAllRemote.UseVisualStyleBackColor = true;
-            // 
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.txtRemoteport);
@@ -598,6 +411,7 @@
             this.cbRemoteport.Name = "cbRemoteport";
             this.cbRemoteport.Size = new System.Drawing.Size(121, 21);
             this.cbRemoteport.TabIndex = 8;
+            this.cbRemoteport.SelectedIndexChanged += new System.EventHandler(this.cbRemoteport_SelectedIndexChanged);
             // 
             // cbLocalport
             // 
@@ -611,6 +425,7 @@
             this.cbLocalport.Name = "cbLocalport";
             this.cbLocalport.Size = new System.Drawing.Size(121, 21);
             this.cbLocalport.TabIndex = 9;
+            this.cbLocalport.SelectedIndexChanged += new System.EventHandler(this.cbLocalport_SelectedIndexChanged);
             // 
             // cbProtocol
             // 
@@ -637,6 +452,7 @@
             this.cbProtocol.Name = "cbProtocol";
             this.cbProtocol.Size = new System.Drawing.Size(121, 21);
             this.cbProtocol.TabIndex = 10;
+            this.cbProtocol.SelectedIndexChanged += new System.EventHandler(this.cbProtocol_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -682,6 +498,182 @@
             this.label8.Size = new System.Drawing.Size(72, 13);
             this.label8.TabIndex = 7;
             this.label8.Text = "Protocol type:";
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage4.Controls.Add(this.groupBox6);
+            this.tabPage4.Controls.Add(this.groupBox5);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(368, 391);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Scope";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.rbAllLocal);
+            this.groupBox6.Controls.Add(this.rbIPLocal);
+            this.groupBox6.Controls.Add(this.listView1);
+            this.groupBox6.Controls.Add(this.btnAddLocal);
+            this.groupBox6.Controls.Add(this.btnEditLocal);
+            this.groupBox6.Controls.Add(this.btnDelLocal);
+            this.groupBox6.Location = new System.Drawing.Point(3, 3);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(356, 157);
+            this.groupBox6.TabIndex = 13;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Local IP";
+            // 
+            // rbAllLocal
+            // 
+            this.rbAllLocal.AutoSize = true;
+            this.rbAllLocal.Checked = true;
+            this.rbAllLocal.Location = new System.Drawing.Point(57, 19);
+            this.rbAllLocal.Name = "rbAllLocal";
+            this.rbAllLocal.Size = new System.Drawing.Size(96, 17);
+            this.rbAllLocal.TabIndex = 7;
+            this.rbAllLocal.TabStop = true;
+            this.rbAllLocal.Text = "Any IP address";
+            this.rbAllLocal.UseVisualStyleBackColor = true;
+            this.rbAllLocal.CheckedChanged += new System.EventHandler(this.rbAllLocal_CheckedChanged);
+            // 
+            // rbIPLocal
+            // 
+            this.rbIPLocal.AutoSize = true;
+            this.rbIPLocal.Location = new System.Drawing.Point(57, 42);
+            this.rbIPLocal.Name = "rbIPLocal";
+            this.rbIPLocal.Size = new System.Drawing.Size(111, 17);
+            this.rbIPLocal.TabIndex = 8;
+            this.rbIPLocal.Text = "These IP address:";
+            this.rbIPLocal.UseVisualStyleBackColor = true;
+            this.rbIPLocal.CheckedChanged += new System.EventHandler(this.rbIPLocal_CheckedChanged);
+            // 
+            // listView1
+            // 
+            this.listView1.Location = new System.Drawing.Point(57, 61);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(202, 81);
+            this.listView1.TabIndex = 12;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.List;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // btnAddLocal
+            // 
+            this.btnAddLocal.Enabled = false;
+            this.btnAddLocal.Location = new System.Drawing.Point(265, 61);
+            this.btnAddLocal.Name = "btnAddLocal";
+            this.btnAddLocal.Size = new System.Drawing.Size(75, 23);
+            this.btnAddLocal.TabIndex = 9;
+            this.btnAddLocal.Text = "Add...";
+            this.btnAddLocal.UseVisualStyleBackColor = true;
+            this.btnAddLocal.Click += new System.EventHandler(this.btnAddLocal_Click);
+            // 
+            // btnEditLocal
+            // 
+            this.btnEditLocal.Enabled = false;
+            this.btnEditLocal.Location = new System.Drawing.Point(265, 90);
+            this.btnEditLocal.Name = "btnEditLocal";
+            this.btnEditLocal.Size = new System.Drawing.Size(75, 23);
+            this.btnEditLocal.TabIndex = 10;
+            this.btnEditLocal.Text = "Edit...";
+            this.btnEditLocal.UseVisualStyleBackColor = true;
+            this.btnEditLocal.Click += new System.EventHandler(this.btnEditLocal_Click);
+            // 
+            // btnDelLocal
+            // 
+            this.btnDelLocal.Enabled = false;
+            this.btnDelLocal.Location = new System.Drawing.Point(265, 119);
+            this.btnDelLocal.Name = "btnDelLocal";
+            this.btnDelLocal.Size = new System.Drawing.Size(75, 23);
+            this.btnDelLocal.TabIndex = 11;
+            this.btnDelLocal.Text = "Remove";
+            this.btnDelLocal.UseVisualStyleBackColor = true;
+            this.btnDelLocal.Click += new System.EventHandler(this.btnDelLocal_Click);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.listView2);
+            this.groupBox5.Controls.Add(this.btnDelRemote);
+            this.groupBox5.Controls.Add(this.btnEditRemote);
+            this.groupBox5.Controls.Add(this.btnAddRemote);
+            this.groupBox5.Controls.Add(this.rbIPRemote);
+            this.groupBox5.Controls.Add(this.rbAllRemote);
+            this.groupBox5.Location = new System.Drawing.Point(3, 166);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(356, 157);
+            this.groupBox5.TabIndex = 13;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Remote IP";
+            // 
+            // listView2
+            // 
+            this.listView2.Location = new System.Drawing.Point(59, 61);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(202, 81);
+            this.listView2.TabIndex = 13;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.View = System.Windows.Forms.View.List;
+            this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
+            // 
+            // btnDelRemote
+            // 
+            this.btnDelRemote.Enabled = false;
+            this.btnDelRemote.Location = new System.Drawing.Point(267, 120);
+            this.btnDelRemote.Name = "btnDelRemote";
+            this.btnDelRemote.Size = new System.Drawing.Size(75, 23);
+            this.btnDelRemote.TabIndex = 10;
+            this.btnDelRemote.Text = "Remove";
+            this.btnDelRemote.UseVisualStyleBackColor = true;
+            this.btnDelRemote.Click += new System.EventHandler(this.btnDelRemote_Click);
+            // 
+            // btnEditRemote
+            // 
+            this.btnEditRemote.Enabled = false;
+            this.btnEditRemote.Location = new System.Drawing.Point(267, 91);
+            this.btnEditRemote.Name = "btnEditRemote";
+            this.btnEditRemote.Size = new System.Drawing.Size(75, 23);
+            this.btnEditRemote.TabIndex = 11;
+            this.btnEditRemote.Text = "Edit...";
+            this.btnEditRemote.UseVisualStyleBackColor = true;
+            this.btnEditRemote.Click += new System.EventHandler(this.btnEditRemote_Click);
+            // 
+            // btnAddRemote
+            // 
+            this.btnAddRemote.Enabled = false;
+            this.btnAddRemote.Location = new System.Drawing.Point(267, 62);
+            this.btnAddRemote.Name = "btnAddRemote";
+            this.btnAddRemote.Size = new System.Drawing.Size(75, 23);
+            this.btnAddRemote.TabIndex = 12;
+            this.btnAddRemote.Text = "Add...";
+            this.btnAddRemote.UseVisualStyleBackColor = true;
+            this.btnAddRemote.Click += new System.EventHandler(this.btnAddRemote_Click);
+            // 
+            // rbIPRemote
+            // 
+            this.rbIPRemote.AutoSize = true;
+            this.rbIPRemote.Location = new System.Drawing.Point(59, 42);
+            this.rbIPRemote.Name = "rbIPRemote";
+            this.rbIPRemote.Size = new System.Drawing.Size(111, 17);
+            this.rbIPRemote.TabIndex = 8;
+            this.rbIPRemote.Text = "These IP address:";
+            this.rbIPRemote.UseVisualStyleBackColor = true;
+            this.rbIPRemote.CheckedChanged += new System.EventHandler(this.rbIPRemote_CheckedChanged);
+            // 
+            // rbAllRemote
+            // 
+            this.rbAllRemote.AutoSize = true;
+            this.rbAllRemote.Checked = true;
+            this.rbAllRemote.Location = new System.Drawing.Point(59, 19);
+            this.rbAllRemote.Name = "rbAllRemote";
+            this.rbAllRemote.Size = new System.Drawing.Size(96, 17);
+            this.rbAllRemote.TabIndex = 9;
+            this.rbAllRemote.TabStop = true;
+            this.rbAllRemote.Text = "Any IP address";
+            this.rbAllRemote.UseVisualStyleBackColor = true;
+            this.rbAllRemote.CheckedChanged += new System.EventHandler(this.rbAllRemote_CheckedChanged);
             // 
             // tabPage5
             // 
@@ -983,6 +975,40 @@
             this.label14.TabIndex = 12;
             this.label14.Text = "Time From:";
             // 
+            // btnApply
+            // 
+            this.btnApply.Location = new System.Drawing.Point(293, 423);
+            this.btnApply.Name = "btnApply";
+            this.btnApply.Size = new System.Drawing.Size(75, 23);
+            this.btnApply.TabIndex = 0;
+            this.btnApply.Text = "Apply";
+            this.btnApply.UseVisualStyleBackColor = true;
+            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(212, 423);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 0;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnOK
+            // 
+            this.btnOK.Location = new System.Drawing.Point(131, 423);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.TabIndex = 0;
+            this.btnOK.Text = "Ok";
+            this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
+            // Open
+            // 
+            this.Open.FileName = "openFileDialog1";
+            // 
             // EditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1011,13 +1037,13 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.tabPage3.ResumeLayout(false);
-            this.tabPage4.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
@@ -1090,5 +1116,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.OpenFileDialog Open;
     }
 }

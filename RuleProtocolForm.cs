@@ -136,6 +136,8 @@ namespace WinformsExample
                 cbRemoteport.SelectedIndex = 0;
                 txtLocalport.Enabled = false;
                 txtRemoteport.Enabled = false;
+                txtLocalport.Text = "";
+                txtRemoteport.Text = "";
             }
             Getdata();
         }
@@ -146,6 +148,11 @@ namespace WinformsExample
             {
                 txtLocalport.Enabled = true;
             }
+            else
+            {
+                txtLocalport.Enabled = false;
+                txtLocalport.Text = "";
+            }
         }
 
         private void cbRemoteport_SelectedIndexChanged(object sender, EventArgs e)
@@ -153,6 +160,11 @@ namespace WinformsExample
             if (cbRemoteport.Text != "All Ports")
             {
                 txtRemoteport.Enabled = true;
+            }
+            else
+            {
+                txtRemoteport.Enabled = false;
+                txtRemoteport.Text = "";
             }
         }
 

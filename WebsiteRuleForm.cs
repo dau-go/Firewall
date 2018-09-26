@@ -359,7 +359,18 @@ namespace WinformsExample
 
         private void menuProperties_Click(object sender, EventArgs e)
         {
-
+            EditForm.NameRule = Detail[0].NameRule;
+            EditForm.State = Detail[0].State;
+            EditForm.Action = Detail[0].Action;
+            EditForm.Program = "Any";
+            EditForm.Profile = "Domain, Private, Public";
+            EditForm.Protocol = "Any";
+            EditForm.LocalIP = "Any";
+            EditForm.RemoteIP = Detail[0].RemoteIP;
+            EditForm.LocalPort = "Any";
+            EditForm.RemotePort = "Any";
+            EditForm f = new EditForm();
+            f.Show();
         }
     }
 }

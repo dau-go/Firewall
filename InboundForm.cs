@@ -856,7 +856,7 @@ namespace WinformsExample
             EditForm.LocalPort = Detail[0].LocalPort;
             EditForm.RemotePort = Detail[0].RemotePort;
             EditForm f = new EditForm();
-            f.ShowDialog();
+            f.Show();
         }
     }
 }
