@@ -662,20 +662,18 @@ namespace WinformsExample
 
         private void dataGridView1_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.RowIndex < 0 || e.ColumnIndex < 0)
-            {
-                return;
-            }
-            dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(1, 226, 230);
+            //if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            //{
+            //    dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(1, 226, 230);
+            //}
         }
 
         private void dataGridView1_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0 || e.ColumnIndex < 0)
-            {
-                return;
-            }
-            dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+            //if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            //{
+            //    dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+            //}
         }
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -694,40 +692,42 @@ namespace WinformsExample
         private void dataGridView1_CellContextMenuStripNeeded(object sender, DataGridViewCellContextMenuStripNeededEventArgs e)
         {
             if (e.ColumnIndex == -1) return;
-            for (int i = 0; i < Detail.Count; i++)
+            if (Detail.Count > 1)
             {
-                if (Detail[i].STT == e.RowIndex)
+                for (int i = 0; i < Detail.Count; i++)
                 {
-                    menuProperties.Visible = false;
-                    menuDisable.Visible = false;
-                    menuEnable.Visible = false;
-                    menuAllow.Visible = false;
-                    menuBlock.Visible = false;
-                    toolStripSeparator3.Visible = false;
-                    for (int j = 0; j < Detail.Count; j++)
+                    if (Detail[i].STT == e.RowIndex)
                     {
-                        if (Detail[j].State == "Yes")
+                        menuProperties.Visible = false;
+                        menuDisable.Visible = false;
+                        menuEnable.Visible = false;
+                        menuAllow.Visible = false;
+                        menuBlock.Visible = false;
+                        toolStripSeparator3.Visible = false;
+                        for (int j = 0; j < Detail.Count; j++)
                         {
-                            menuDisable.Visible = true;
+                            if (Detail[j].State == "Yes")
+                            {
+                                menuDisable.Visible = true;
+                            }
+                            else
+                            {
+                                menuEnable.Visible = true;
+                            }
+                            if (Detail[j].Action == "Allow")
+                            {
+                                menuBlock.Visible = true;
+                            }
+                            else
+                            {
+                                menuAllow.Visible = true;
+                            }
                         }
-                        else
-                        {
-                            menuEnable.Visible = true;
-                        }
-                        if (Detail[j].Action == "Allow")
-                        {
-                            menuBlock.Visible = true;
-                        }
-                        else
-                        {
-                            menuAllow.Visible = true;
-                        }
+                        e.ContextMenuStrip = contextMenuStrip1;
+                        return;
                     }
-                    e.ContextMenuStrip = contextMenuStrip1;
-                    return;
                 }
             }
-
             dataGridView1.ClearSelection();
             int rowselected1 = e.RowIndex;
             dataGridView1.Rows[rowselected1].Selected = true;
@@ -845,7 +845,18 @@ namespace WinformsExample
 
         private void menuProperties_Click(object sender, EventArgs e)
         {
-
+            EditForm.NameRule = Detail[0].NameRule;
+            EditForm.State = Detail[0].State;
+            EditForm.Action = Detail[0].Action;
+            EditForm.Program = Detail[0].Application;
+            EditForm.Profile = Detail[0].Profile;
+            EditForm.Protocol = Detail[0].Protocol;
+            EditForm.LocalIP = Detail[0].LocalAddress;
+            EditForm.RemoteIP = Detail[0].RemoteAddress;
+            EditForm.LocalPort = Detail[0].LocalPort;
+            EditForm.RemotePort = Detail[0].RemotePort;
+            EditForm f = new EditForm();
+            f.ShowDialog();
         }
     }
 }

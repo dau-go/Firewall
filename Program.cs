@@ -16,7 +16,7 @@ namespace WinformsExample
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new EditForm());
+            Application.Run(new FirewallForm());
             //var mainCaptureForm = new CaptureForm();
             //Application.Run(mainCaptureForm);
         }

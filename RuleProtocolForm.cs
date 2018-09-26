@@ -131,7 +131,11 @@ namespace WinformsExample
             else
             {
                 cbLocalport.Enabled = false;
+                cbLocalport.SelectedIndex = 0;
                 cbRemoteport.Enabled = false;
+                cbRemoteport.SelectedIndex = 0;
+                txtLocalport.Enabled = false;
+                txtRemoteport.Enabled = false;
             }
             Getdata();
         }

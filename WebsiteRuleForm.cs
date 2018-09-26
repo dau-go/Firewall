@@ -250,20 +250,20 @@ namespace WinformsExample
 
         private void dataGridView1_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0 || e.ColumnIndex < 0)
-            {
-                return;
-            }
-            dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(1, 226, 230);
+            //if (e.RowIndex < 0 || e.ColumnIndex < 0)
+            //{
+            //    return;
+            //}
+            //dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(1, 226, 230);
         }
 
         private void dataGridView1_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.RowIndex < 0 || e.ColumnIndex < 0)
-            {
-                return;
-            }
-            dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+            //if (e.RowIndex < 0 || e.ColumnIndex < 0)
+            //{
+            //    return;
+            //}
+            //dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
         }
 
         private void dataGridView1_MouseCaptureChanged(object sender, EventArgs e)
