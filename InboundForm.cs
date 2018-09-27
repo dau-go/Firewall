@@ -34,9 +34,9 @@ namespace WinformsExample
             dataGridView1.Columns["LocalPort"].HeaderText = "Local Port";
             dataGridView1.Columns["RemotePort"].HeaderText = "Remote Port";
             dataGridView1.Columns["Statebool"].Width = 20;
+            dataGridView1.Columns["STT"].Visible = false;
             dataGridView1.Rows[0].Selected = true;
             Detail = GetDataDel();
-            dataGridView1.Columns["STT"].Visible = false;
         }
         public void Header(int i)
         {
@@ -662,18 +662,18 @@ namespace WinformsExample
 
         private void dataGridView1_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
         {
-            //if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-            //{
-            //    dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(1, 226, 230);
-            //}
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.FromArgb(1, 226, 230);
+            }
         }
 
         private void dataGridView1_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
-            //if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-            //{
-            //    dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
-            //}
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+            }
         }
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -765,14 +765,7 @@ namespace WinformsExample
                 var rule = firewallPolicy.Rules.Item(Detail[i].NameRule);
                 rule.Enabled = false;
             }
-            stt = 0;
-            dataSource = GetDataSource();
-            dataGridView1.DataSource = dataSource;
-            dataGridView1.Rows[0].Selected = false;
-            for (int i = 0; i < Detail.Count; i++)
-            {
-                dataGridView1.Rows[Detail[i].STT].Selected = true;
-            }
+            Reload();
         }
 
         private void menuEnable_Click(object sender, EventArgs e)
@@ -783,14 +776,7 @@ namespace WinformsExample
                 var rule = firewallPolicy.Rules.Item(Detail[i].NameRule);
                 rule.Enabled = true;
             }
-            stt = 0;
-            dataSource = GetDataSource();
-            dataGridView1.DataSource = dataSource;
-            dataGridView1.Rows[0].Selected = false;
-            for (int i = 0; i < Detail.Count; i++)
-            {
-                dataGridView1.Rows[Detail[i].STT].Selected = true;
-            }
+            Reload();
         }
 
         private void menuBlock_Click(object sender, EventArgs e)
@@ -801,14 +787,7 @@ namespace WinformsExample
                 var rule = firewallPolicy.Rules.Item(Detail[i].NameRule);
                 rule.Action = NET_FW_ACTION_.NET_FW_ACTION_BLOCK;
             }
-            stt = 0;
-            dataSource = GetDataSource();
-            dataGridView1.DataSource = dataSource;
-            dataGridView1.Rows[0].Selected = false;
-            for (int i = 0; i < Detail.Count; i++)
-            {
-                dataGridView1.Rows[Detail[i].STT].Selected = true;
-            }
+            Reload();
         }
 
         private void menuAllow_Click(object sender, EventArgs e)
@@ -819,14 +798,7 @@ namespace WinformsExample
                 var rule = firewallPolicy.Rules.Item(Detail[i].NameRule);
                 rule.Action = NET_FW_ACTION_.NET_FW_ACTION_ALLOW;
             }
-            stt = 0;
-            dataSource = GetDataSource();
-            dataGridView1.DataSource = dataSource;
-            dataGridView1.Rows[0].Selected = false;
-            for (int i = 0; i < Detail.Count; i++)
-            {
-                dataGridView1.Rows[Detail[i].STT].Selected = true;
-            }
+            Reload();
         }
 
         private void menuAdd_Click(object sender, EventArgs e)
@@ -839,8 +811,20 @@ namespace WinformsExample
         private void menuDel_Click(object sender, EventArgs e)
         {
             Delete();
+            stt = 0;
             dataSource = GetDataSource();
             dataGridView1.DataSource = dataSource;
+        }
+        public void Reload()
+        {
+            stt = 0;
+            dataSource = GetDataSource();
+            dataGridView1.DataSource = dataSource;
+            dataGridView1.ClearSelection();
+            for (int i = 0; i < Detail.Count; i++)
+            {
+                dataGridView1.Rows[Detail[i].STT].Selected = true;
+            }
         }
 
         private void menuProperties_Click(object sender, EventArgs e)
@@ -857,6 +841,7 @@ namespace WinformsExample
             EditForm.RemotePort = Detail[0].RemotePort;
             EditForm f = new EditForm();
             f.Show();
+            f.send = new EditForm.SendMessage(Reload);
         }
     }
 }

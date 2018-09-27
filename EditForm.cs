@@ -12,6 +12,8 @@ namespace WinformsExample
 {
     public partial class EditForm : Form
     {
+        public delegate void SendMessage();
+        public SendMessage send;
         private static string _Name;
         public static string NameRule
         {
@@ -84,9 +86,32 @@ namespace WinformsExample
             get { return _IPFocus; }
             set { _IPFocus = value; }
         }
+        int k;
         public EditForm()
         {
             InitializeComponent();
+            tabControl1.Controls.Remove(tabPage5);
+            SetRule();
+            k = 0;
+        }
+        public void editform1()
+        {
+            var firewallRule = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
+            var rule = firewallRule.Rules.Item(NameRule);
+            tabControl1.Controls.Add(tabPage5);
+            string[] s = rule.Description.Split('-', ':');
+            Description = rule.Description;
+            cbHourFrom.Text = s[0];
+            cbMinuteFrom.Text = s[1];
+            cbHourTo.Text = s[2];
+            cbMinuteTo.Text = s[3];
+            rbAllow.Enabled = false;
+            rbBlock.Enabled = false;
+            txtName.Text = txtName.Text.Split('(')[0];
+            k = 1;
+        }
+        public void SetRule()
+        {
             txtName.Text = NameRule;
             txtDescription.Text = Description;
             if (State == "Yes")
@@ -230,10 +255,6 @@ namespace WinformsExample
                     listView2.Items.Add(s[i]);
                 }
             }
-            SetRule();
-        }
-        public void SetRule()
-        {
             var firewallRule = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
             foreach (INetFwRule rule in firewallRule.Rules)
             {
@@ -469,7 +490,7 @@ namespace WinformsExample
             var firewallRule = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
             var rule = firewallRule.Rules.Item(NameRule);
             //set data
-            string localport, remoteport, localIP, remoteIP, program, action, profile = "", state;
+            string localport, remoteport, localIP, remoteIP, program, action, profile = "", state, description;
             int intprofile = 0;
             if (ckState.Checked == true)
             {
@@ -616,16 +637,19 @@ namespace WinformsExample
             if (Description != txtDescription.Text)
             {
                 rule.Description = txtDescription.Text;
+                Description = txtDescription.Text;
             }
             if (State != state)
             {
                 if (state == "Yes")
                 {
                     rule.Enabled = true;
+                    State = "Yes";
                 }
                 else
                 {
                     rule.Enabled = false;
+                    State = "No";
                 }
             }
             if (Action != action)
@@ -633,10 +657,12 @@ namespace WinformsExample
                 if (action == "Allow")
                 {
                     rule.Action = NET_FW_ACTION_.NET_FW_ACTION_ALLOW;
+                    Action = action;
                 }
                 else
                 {
                     rule.Action = NET_FW_ACTION_.NET_FW_ACTION_BLOCK;
+                    Action = action;
                 }
             }
             if (Program != program)
@@ -644,15 +670,18 @@ namespace WinformsExample
                 if (program != "Any")
                 {
                     rule.ApplicationName = program;
+                    Program = program;
                 }
                 else
                 {
                     rule.ApplicationName = null;
+                    Program = program;
                 }
             }
             if (Profile != profile)
             {
                 rule.Profiles = intprofile;
+                Profile = profile;
             }
             if (Protocol != cbProtocol.Text)
             {
@@ -739,16 +768,19 @@ namespace WinformsExample
                             break;
                         }
                 }
+                Protocol = cbProtocol.Text;
             }
             if (LocalPort != localport)
             {
                 if (localport != "Any")
                 {
                     rule.LocalPorts = localport;
+                    LocalIP = localIP;
                 }
                 else
                 {
                     rule.LocalPorts = null;
+                    LocalIP = localIP;
                 }
             }
             if (RemotePort != remoteport)
@@ -756,10 +788,12 @@ namespace WinformsExample
                 if (remoteport != "Any")
                 {
                     rule.RemotePorts = remoteport;
+                    RemoteIP = remoteIP;
                 }
                 else
                 {
                     rule.RemotePorts = null;
+                    RemoteIP = remoteIP;
                 }
             }
             if (LocalIP != localIP)
@@ -767,10 +801,12 @@ namespace WinformsExample
                 if (localIP != "Any")
                 {
                     rule.LocalAddresses = localIP;
+                    LocalPort = LocalPort;
                 }
                 else
                 {
                     rule.LocalAddresses = null;
+                    LocalPort = LocalPort;
                 }
             }
             if (RemoteIP != remoteIP)
@@ -778,15 +814,55 @@ namespace WinformsExample
                 if (remoteIP != "Any")
                 {
                     rule.RemoteAddresses = remoteIP;
+                    RemotePort = remoteport;
                 }
                 else
                 {
                     rule.RemoteAddresses = null;
+                    RemotePort = remoteport;
                 }
             }
-            if (NameRule != txtName.Text)
+            if (k == 0)
             {
-                rule.Name = txtName.Text;
+                if (NameRule != txtName.Text)
+                {
+                    rule.Name = txtName.Text;
+                    NameRule = txtName.Text;
+                }
+            }
+            else
+            {
+                if (Time() == true)
+                {
+                    description = cbHourFrom.Text + ":" + cbMinuteFrom.Text + "-" + cbHourTo.Text + ":" + cbMinuteTo.Text;
+                    if (Description != description)
+                    {
+                        rule.Description = description;
+                        Description = description;
+                        rule.Name = txtName.Text + "(" + description + ")";
+                        NameRule = txtName.Text + "(" + description + ")";
+                    }
+                }
+            }
+            send();
+        }
+        public bool Time()
+        {
+            int giofrom = int.Parse(cbHourFrom.Text);
+            int phutfrom = int.Parse(cbMinuteFrom.Text);
+            int gioto = int.Parse(cbHourTo.Text);
+            int phutto = int.Parse(cbMinuteTo.Text);
+            if (giofrom > gioto)
+            {
+                return false;
+            }
+            else if (giofrom == gioto && phutfrom > phutto)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
         public bool ValidatePort(string s)
