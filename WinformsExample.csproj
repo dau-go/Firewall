@@ -264,7 +264,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Untitled.png" />
+    <None Include="Resources\t_ybir.jpg" />
     <None Include="Resources\view-list-details.png" />
     <None Include="Resources\play_icon_enabled.png" />
     <None Include="Resources\back.png" />

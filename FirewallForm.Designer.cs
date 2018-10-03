@@ -188,6 +188,7 @@
             this.btnNext.Size = new System.Drawing.Size(25, 22);
             this.btnNext.TabIndex = 2;
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnBack
             // 
@@ -206,6 +207,7 @@
             this.btnBack.TabIndex = 2;
             this.btnBack.Tag = "";
             this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // groupBox2
             // 
@@ -240,6 +242,7 @@
             // treeView1
             // 
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.treeView1.HideSelection = false;
             this.treeView1.Location = new System.Drawing.Point(3, 16);
             this.treeView1.Name = "treeView1";
             treeNode1.Name = "InboundUser";

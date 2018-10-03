@@ -48,7 +48,6 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
@@ -83,19 +82,19 @@
             this.toolStripSeparator3,
             this.menuProperties});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 198);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(150, 176);
             // 
             // menuDisable
             // 
             this.menuDisable.Name = "menuDisable";
-            this.menuDisable.Size = new System.Drawing.Size(152, 22);
+            this.menuDisable.Size = new System.Drawing.Size(149, 22);
             this.menuDisable.Text = "Disable";
             this.menuDisable.Click += new System.EventHandler(this.menuDisable_Click);
             // 
             // menuEnable
             // 
             this.menuEnable.Name = "menuEnable";
-            this.menuEnable.Size = new System.Drawing.Size(152, 22);
+            this.menuEnable.Size = new System.Drawing.Size(149, 22);
             this.menuEnable.Text = "Enable";
             this.menuEnable.Click += new System.EventHandler(this.menuEnable_Click);
             // 
@@ -107,14 +106,14 @@
             // menuBlock
             // 
             this.menuBlock.Name = "menuBlock";
-            this.menuBlock.Size = new System.Drawing.Size(152, 22);
+            this.menuBlock.Size = new System.Drawing.Size(149, 22);
             this.menuBlock.Text = "Block";
             this.menuBlock.Click += new System.EventHandler(this.menuBlock_Click);
             // 
             // menuAllow
             // 
             this.menuAllow.Name = "menuAllow";
-            this.menuAllow.Size = new System.Drawing.Size(152, 22);
+            this.menuAllow.Size = new System.Drawing.Size(149, 22);
             this.menuAllow.Text = "Allow";
             this.menuAllow.Click += new System.EventHandler(this.menuAllow_Click);
             // 
@@ -126,14 +125,14 @@
             // menuAdd
             // 
             this.menuAdd.Name = "menuAdd";
-            this.menuAdd.Size = new System.Drawing.Size(152, 22);
+            this.menuAdd.Size = new System.Drawing.Size(149, 22);
             this.menuAdd.Text = "Add New Rule";
             this.menuAdd.Click += new System.EventHandler(this.menuAdd_Click);
             // 
             // menuDel
             // 
             this.menuDel.Name = "menuDel";
-            this.menuDel.Size = new System.Drawing.Size(152, 22);
+            this.menuDel.Size = new System.Drawing.Size(149, 22);
             this.menuDel.Text = "Delete Rule";
             this.menuDel.Click += new System.EventHandler(this.menuDel_Click);
             // 
@@ -145,7 +144,7 @@
             // menuProperties
             // 
             this.menuProperties.Name = "menuProperties";
-            this.menuProperties.Size = new System.Drawing.Size(152, 22);
+            this.menuProperties.Size = new System.Drawing.Size(149, 22);
             this.menuProperties.Text = "Properties";
             this.menuProperties.Click += new System.EventHandler(this.menuProperties_Click);
             // 
