@@ -46,18 +46,18 @@
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnDel = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnReload = new System.Windows.Forms.Button();
-            this.btnTree = new System.Windows.Forms.Button();
-            this.btnNext = new System.Windows.Forms.Button();
-            this.btnBack = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab = new System.Windows.Forms.TabPage();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnDel = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.btnReload = new System.Windows.Forms.Button();
+            this.btnTree = new System.Windows.Forms.Button();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -115,99 +115,6 @@
             this.groupBox1.Size = new System.Drawing.Size(860, 41);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            // 
-            // btnDel
-            // 
-            this.btnDel.BackgroundImage = global::WinformsExample.Properties.Resources.delete;
-            this.btnDel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnDel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnDel.Enabled = false;
-            this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDel.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnDel.Location = new System.Drawing.Point(128, 16);
-            this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(25, 22);
-            this.btnDel.TabIndex = 6;
-            this.btnDel.UseVisualStyleBackColor = true;
-            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackgroundImage = global::WinformsExample.Properties.Resources.add;
-            this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnAdd.Enabled = false;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnAdd.Location = new System.Drawing.Point(103, 16);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(25, 22);
-            this.btnAdd.TabIndex = 5;
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // btnReload
-            // 
-            this.btnReload.BackgroundImage = global::WinformsExample.Properties.Resources.reload;
-            this.btnReload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnReload.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnReload.Enabled = false;
-            this.btnReload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReload.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnReload.Location = new System.Drawing.Point(78, 16);
-            this.btnReload.Name = "btnReload";
-            this.btnReload.Size = new System.Drawing.Size(25, 22);
-            this.btnReload.TabIndex = 4;
-            this.btnReload.UseVisualStyleBackColor = true;
-            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
-            // 
-            // btnTree
-            // 
-            this.btnTree.BackgroundImage = global::WinformsExample.Properties.Resources.view_list_details;
-            this.btnTree.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnTree.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnTree.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTree.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnTree.Location = new System.Drawing.Point(53, 16);
-            this.btnTree.Name = "btnTree";
-            this.btnTree.Size = new System.Drawing.Size(25, 22);
-            this.btnTree.TabIndex = 3;
-            this.btnTree.UseVisualStyleBackColor = true;
-            this.btnTree.Click += new System.EventHandler(this.btnTree_Click);
-            // 
-            // btnNext
-            // 
-            this.btnNext.BackgroundImage = global::WinformsExample.Properties.Resources.next;
-            this.btnNext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnNext.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnNext.Enabled = false;
-            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNext.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnNext.Location = new System.Drawing.Point(28, 16);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(25, 22);
-            this.btnNext.TabIndex = 2;
-            this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // btnBack
-            // 
-            this.btnBack.AccessibleDescription = "Navigate Backward";
-            this.btnBack.AccessibleName = "";
-            this.btnBack.BackColor = System.Drawing.SystemColors.Control;
-            this.btnBack.BackgroundImage = global::WinformsExample.Properties.Resources.back;
-            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnBack.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnBack.Enabled = false;
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnBack.Location = new System.Drawing.Point(3, 16);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(25, 22);
-            this.btnBack.TabIndex = 2;
-            this.btnBack.Tag = "";
-            this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // groupBox2
             // 
@@ -271,6 +178,99 @@
             // 
             this.timer1.Interval = 60000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // btnDel
+            // 
+            this.btnDel.BackgroundImage = global::WinformsExample.Properties.Resources.icons8_trash_24__1_;
+            this.btnDel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnDel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnDel.Enabled = false;
+            this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDel.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnDel.Location = new System.Drawing.Point(128, 16);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(25, 22);
+            this.btnDel.TabIndex = 6;
+            this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackgroundImage = global::WinformsExample.Properties.Resources.icons8_plus_24;
+            this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnAdd.Enabled = false;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnAdd.Location = new System.Drawing.Point(103, 16);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(25, 22);
+            this.btnAdd.TabIndex = 5;
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // btnReload
+            // 
+            this.btnReload.BackgroundImage = global::WinformsExample.Properties.Resources.icons8_refresh_32__1_;
+            this.btnReload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnReload.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnReload.Enabled = false;
+            this.btnReload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReload.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnReload.Location = new System.Drawing.Point(78, 16);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(25, 22);
+            this.btnReload.TabIndex = 4;
+            this.btnReload.UseVisualStyleBackColor = true;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
+            // 
+            // btnTree
+            // 
+            this.btnTree.BackgroundImage = global::WinformsExample.Properties.Resources.icons8_file_preview_50;
+            this.btnTree.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnTree.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnTree.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTree.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnTree.Location = new System.Drawing.Point(53, 16);
+            this.btnTree.Name = "btnTree";
+            this.btnTree.Size = new System.Drawing.Size(25, 22);
+            this.btnTree.TabIndex = 3;
+            this.btnTree.UseVisualStyleBackColor = true;
+            this.btnTree.Click += new System.EventHandler(this.btnTree_Click);
+            // 
+            // btnNext
+            // 
+            this.btnNext.BackgroundImage = global::WinformsExample.Properties.Resources.icons8_right_26__1_;
+            this.btnNext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnNext.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnNext.Enabled = false;
+            this.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNext.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnNext.Location = new System.Drawing.Point(28, 16);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(25, 22);
+            this.btnNext.TabIndex = 2;
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // btnBack
+            // 
+            this.btnBack.AccessibleDescription = "Navigate Backward";
+            this.btnBack.AccessibleName = "";
+            this.btnBack.BackColor = System.Drawing.SystemColors.Control;
+            this.btnBack.BackgroundImage = global::WinformsExample.Properties.Resources.icons8_left_26;
+            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBack.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnBack.Enabled = false;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnBack.Location = new System.Drawing.Point(3, 16);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(25, 22);
+            this.btnBack.TabIndex = 2;
+            this.btnBack.Tag = "";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // FirewallForm
             // 

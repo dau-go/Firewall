@@ -63,9 +63,9 @@ namespace WinformsExample.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap add {
+        internal static System.Drawing.Bitmap icons8_file_preview_50 {
             get {
-                object obj = ResourceManager.GetObject("add", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8_file_preview_50", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace WinformsExample.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap add__1_ {
+        internal static System.Drawing.Bitmap icons8_firewall_40 {
             get {
-                object obj = ResourceManager.GetObject("add (1)", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8_firewall_40", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace WinformsExample.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap back {
+        internal static System.Drawing.Bitmap icons8_left_26 {
             get {
-                object obj = ResourceManager.GetObject("back", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8_left_26", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace WinformsExample.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap delete {
+        internal static System.Drawing.Bitmap icons8_left_26__1_ {
             get {
-                object obj = ResourceManager.GetObject("delete", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8_left_26__1_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace WinformsExample.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap delete__1_ {
+        internal static System.Drawing.Bitmap icons8_plus_24 {
             get {
-                object obj = ResourceManager.GetObject("delete (1)", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8_plus_24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace WinformsExample.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap go_next_rtl {
+        internal static System.Drawing.Bitmap icons8_plus_24__1_ {
             get {
-                object obj = ResourceManager.GetObject("go_next_rtl", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8_plus_24__1_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +123,9 @@ namespace WinformsExample.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap go_previous_rtl {
+        internal static System.Drawing.Bitmap icons8_refresh_32 {
             get {
-                object obj = ResourceManager.GetObject("go_previous_rtl", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8_refresh_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +133,9 @@ namespace WinformsExample.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap next {
+        internal static System.Drawing.Bitmap icons8_refresh_32__1_ {
             get {
-                object obj = ResourceManager.GetObject("next", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8_refresh_32__1_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +143,9 @@ namespace WinformsExample.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap play_icon_enabled {
+        internal static System.Drawing.Bitmap icons8_right_26 {
             get {
-                object obj = ResourceManager.GetObject("play_icon_enabled", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8_right_26", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +153,9 @@ namespace WinformsExample.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap reload {
+        internal static System.Drawing.Bitmap icons8_right_26__1_ {
             get {
-                object obj = ResourceManager.GetObject("reload", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8_right_26__1_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -163,9 +163,9 @@ namespace WinformsExample.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap reload__3_ {
+        internal static System.Drawing.Bitmap icons8_trash_24 {
             get {
-                object obj = ResourceManager.GetObject("reload (3)", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8_trash_24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -173,9 +173,9 @@ namespace WinformsExample.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap stop_icon_disabled {
+        internal static System.Drawing.Bitmap icons8_trash_24__1_ {
             get {
-                object obj = ResourceManager.GetObject("stop_icon_disabled", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8_trash_24__1_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -183,9 +183,19 @@ namespace WinformsExample.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap stop_icon_enabled {
+        internal static System.Drawing.Bitmap icons8_zoom_in_40 {
             get {
-                object obj = ResourceManager.GetObject("stop_icon_enabled", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8_zoom_in_40", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_zoom_in_40__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8_zoom_in_40__1_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -196,16 +206,6 @@ namespace WinformsExample.Properties {
         internal static System.Drawing.Bitmap t_ybir {
             get {
                 object obj = ResourceManager.GetObject("t_ybir", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap view_list_details {
-            get {
-                object obj = ResourceManager.GetObject("view-list-details", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

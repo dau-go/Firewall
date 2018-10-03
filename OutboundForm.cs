@@ -666,6 +666,23 @@ namespace WinformsExample
             Detail = GetDataDel();
         }
 
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            EditForm.NameRule = Detail[0].NameRule;
+            EditForm.State = Detail[0].State;
+            EditForm.Action = Detail[0].Action;
+            EditForm.Program = Detail[0].Application;
+            EditForm.Profile = Detail[0].Profile;
+            EditForm.Protocol = Detail[0].Protocol;
+            EditForm.LocalIP = Detail[0].LocalAddress;
+            EditForm.RemoteIP = Detail[0].RemoteAddress;
+            EditForm.LocalPort = Detail[0].LocalPort;
+            EditForm.RemotePort = Detail[0].RemotePort;
+            EditForm f = new EditForm();
+            f.Show();
+            f.send = new EditForm.SendMessage(Reload);
+        }
+
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             Detail = GetDataDel();

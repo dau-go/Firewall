@@ -32,17 +32,21 @@ namespace WinformsExample
             toolTip1.SetToolTip(btnReload, "Refresh Rule");
             toolTip1.SetToolTip(btnAdd, "Add New Rule");
             toolTip1.SetToolTip(btnDel, "Delete Rule");
-            btnBack.BackgroundImage = global::WinformsExample.Properties.Resources.go_next_rtl;
-            btnNext.BackgroundImage = global::WinformsExample.Properties.Resources.go_previous_rtl;
-            btnReload.BackgroundImage = global::WinformsExample.Properties.Resources.reload__3_;
-            btnAdd.BackgroundImage = global::WinformsExample.Properties.Resources.add__1_;
-            btnDel.BackgroundImage = global::WinformsExample.Properties.Resources.delete__1_;
             treeView1.SelectedNode = treeView1.Nodes[0];
+        }
+        public void Showview()
+        {
+            btnAdd.Enabled = true;
+            btnAdd.BackgroundImage = Properties.Resources.icons8_plus_24__1_;
+            btnReload.Enabled = true;
+            btnReload.BackgroundImage = Properties.Resources.icons8_refresh_32;
+            btnDel.Enabled = true;
+            btnDel.BackgroundImage = Properties.Resources.icons8_trash_24;
         }
         public void ShowUser()
         {
             tab.Controls.Clear();
-            tab.Text = "1";
+            tab.Text = "";
             f = new DefaultForm();
             f.TopLevel = false;
             f.FormBorderStyle = FormBorderStyle.None;
@@ -50,14 +54,17 @@ namespace WinformsExample
             tab.Controls.Add(f);
             f.Visible = true;
             btnAdd.Enabled = false;
+            btnAdd.BackgroundImage = Properties.Resources.icons8_plus_24;
             btnReload.Enabled = false;
+            btnReload.BackgroundImage = Properties.Resources.icons8_refresh_32__1_;
             btnDel.Enabled = false;
+            btnDel.BackgroundImage = Properties.Resources.icons8_trash_24__1_;
 
         }
         public void ShowDefault()
         {
             tab.Controls.Clear();
-            tab.Text = "2";
+            tab.Text = "";
             f = new DefaultForm();
             f.TopLevel = false;
             f.FormBorderStyle = FormBorderStyle.None;
@@ -65,8 +72,11 @@ namespace WinformsExample
             tab.Controls.Add(f);
             f.Visible = true;
             btnAdd.Enabled = false;
+            btnAdd.BackgroundImage = Properties.Resources.icons8_plus_24;
             btnReload.Enabled = false;
+            btnReload.BackgroundImage = Properties.Resources.icons8_refresh_32__1_;
             btnDel.Enabled = false;
+            btnDel.BackgroundImage = Properties.Resources.icons8_trash_24__1_;
         }
         public void ShowInboundUser()
         {
@@ -81,9 +91,7 @@ namespace WinformsExample
             f1.Dock = DockStyle.Fill;
             tab.Controls.Add(f1);
             f1.Visible = true;
-            btnAdd.Enabled = true;
-            btnReload.Enabled = true;
-            btnDel.Enabled = true;
+            Showview();
         }
         public void ShowOutboundUser()
         {
@@ -98,9 +106,7 @@ namespace WinformsExample
             f2.Dock = DockStyle.Fill;
             tab.Controls.Add(f2);
             f2.Visible = true;
-            btnAdd.Enabled = true;
-            btnReload.Enabled = true;
-            btnDel.Enabled = true;
+            Showview();
         }
         public void ShowInboundDefault()
         {
@@ -115,9 +121,7 @@ namespace WinformsExample
             f3.Dock = DockStyle.Fill;
             tab.Controls.Add(f3);
             f3.Visible = true;
-            btnAdd.Enabled = true;
-            btnReload.Enabled = true;
-            btnDel.Enabled = true;
+            Showview();
         }
         public void ShowOutboundDefault()
         {
@@ -132,9 +136,7 @@ namespace WinformsExample
             f4.Dock = DockStyle.Fill;
             tab.Controls.Add(f4);
             f4.Visible = true;
-            btnAdd.Enabled = true;
-            btnReload.Enabled = true;
-            btnDel.Enabled = true;
+            Showview();
         }
         public void ShowWebsiteRule()
         {
@@ -148,158 +150,151 @@ namespace WinformsExample
             f5.Dock = DockStyle.Fill;
             tab.Controls.Add(f5);
             f5.Visible = true;
-            btnAdd.Enabled = true;
-            btnReload.Enabled = true;
-            btnDel.Enabled = true;
+            Showview();
         }
         public void ShowButon()
         {
             if (demback > 1)
             {
                 btnBack.Enabled = true;
+                btnBack.BackgroundImage = Properties.Resources.icons8_left_26__1_;
             }
             else
             {
                 btnBack.Enabled = false;
+                btnBack.BackgroundImage = Properties.Resources.icons8_left_26;
             }
             if (demnext > 0)
             {
                 btnNext.Enabled = true;
+                btnNext.BackgroundImage = Properties.Resources.icons8_right_26;
             }
             else
             {
                 btnNext.Enabled = false;
+                btnNext.BackgroundImage = Properties.Resources.icons8_right_26__1_;
             }
         }
         public void LoadData()
         {
-            try
+            switch (treeView1.SelectedNode.Name)
             {
-                switch (treeView1.SelectedNode.Name)
-                {
-                    case "Web":
+                case "Web":
+                    {
+                        if (demback >= Back.Count)
                         {
-                            if(demback>=Back.Count)
-                            {
-                                Back.Add(6);
-                                demback++;
-                            }
-                            else
-                            {
-                                Back[demback] = 6;
-                                demback++;
-                            }
-                            ShowWebsiteRule();
-                            ShowButon();
-                            break;
+                            Back.Add(6);
+                            demback++;
                         }
-                    case "User":
+                        else
                         {
-                            if (demback >= Back.Count)
-                            {
-                                Back.Add(0);
-                                demback++;
-                            }
-                            else
-                            {
-                                Back[demback] = 0;
-                                demback++;
-                            }
-                            ShowUser();
-                            ShowButon();
-                            break;
+                            Back[demback] = 6;
+                            demback++;
                         }
-                    case "Default":
+                        ShowWebsiteRule();
+                        ShowButon();
+                        break;
+                    }
+                case "User":
+                    {
+                        if (demback >= Back.Count)
                         {
-                            if (demback >= Back.Count)
-                            {
-                                Back.Add(3);
-                                demback++;
-                            }
-                            else
-                            {
-                                Back[demback] = 3;
-                                demback++;
-                            }
-                            ShowDefault();
-                            ShowButon();
-                            break;
+                            Back.Add(0);
+                            demback++;
                         }
-                    case "InboundUser":
+                        else
                         {
-                            if (demback >= Back.Count)
-                            {
-                                Back.Add(1);
-                                demback++;
-                            }
-                            else
-                            {
-                                Back[demback] = 1;
-                                demback++;
-                            }
-                            ShowInboundUser();
-                            ShowButon();
-                            break;
+                            Back[demback] = 0;
+                            demback++;
                         }
-                    case "OutboundUser":
+                        ShowUser();
+                        ShowButon();
+                        break;
+                    }
+                case "Default":
+                    {
+                        if (demback >= Back.Count)
                         {
-                            if (demback >= Back.Count)
-                            {
-                                Back.Add(2);
-                                demback++;
-                            }
-                            else
-                            {
-                                Back[demback] = 2;
-                                demback++;
-                            }
-                            ShowOutboundUser();
-                            ShowButon();
-                            break;
+                            Back.Add(3);
+                            demback++;
                         }
-                    case "InboundDefault":
+                        else
                         {
-                            if (demback >= Back.Count)
-                            {
-                                Back.Add(4);
-                                demback++;
-                            }
-                            else
-                            {
-                                Back[demback] = 4;
-                                demback++;
-                            }
-                            ShowInboundDefault();
-                            ShowButon();
-                            break;
+                            Back[demback] = 3;
+                            demback++;
                         }
-                    case "OutboundDefault":
+                        ShowDefault();
+                        ShowButon();
+                        break;
+                    }
+                case "InboundUser":
+                    {
+                        if (demback >= Back.Count)
                         {
-                            if (demback >= Back.Count)
-                            {
-                                Back.Add(5);
-                                demback++;
-                            }
-                            else
-                            {
-                                Back[demback] = 5;
-                                demback++;
-                            }
-                            ShowOutboundDefault();
-                            ShowButon();
-                            break;
+                            Back.Add(1);
+                            demback++;
                         }
-                }
+                        else
+                        {
+                            Back[demback] = 1;
+                            demback++;
+                        }
+                        ShowInboundUser();
+                        ShowButon();
+                        break;
+                    }
+                case "OutboundUser":
+                    {
+                        if (demback >= Back.Count)
+                        {
+                            Back.Add(2);
+                            demback++;
+                        }
+                        else
+                        {
+                            Back[demback] = 2;
+                            demback++;
+                        }
+                        ShowOutboundUser();
+                        ShowButon();
+                        break;
+                    }
+                case "InboundDefault":
+                    {
+                        if (demback >= Back.Count)
+                        {
+                            Back.Add(4);
+                            demback++;
+                        }
+                        else
+                        {
+                            Back[demback] = 4;
+                            demback++;
+                        }
+                        ShowInboundDefault();
+                        ShowButon();
+                        break;
+                    }
+                case "OutboundDefault":
+                    {
+                        if (demback >= Back.Count)
+                        {
+                            Back.Add(5);
+                            demback++;
+                        }
+                        else
+                        {
+                            Back[demback] = 5;
+                            demback++;
+                        }
+                        ShowOutboundDefault();
+                        ShowButon();
+                        break;
+                    }
             }
-            catch
-            {
-
-            }
-
         }
         private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            btnBack.BackgroundImage = global::WinformsExample.Properties.Resources.go_next_rtl;
             LoadData();
         }
 
@@ -454,7 +449,15 @@ namespace WinformsExample
         private void btnBack_Click(object sender, EventArgs e)
         {
             demback--;
-            if(Back[demback-1]==0|| Back[demback - 1] == 3 || Back[demback - 1] == 6)
+            if (demnext >= Next.Count)
+            {
+                Next.Add(Back[demback]);
+            }
+            else
+            {
+                Next[demnext] = Back[demback];
+            }
+            if (Back[demback - 1] == 0 || Back[demback - 1] == 3 || Back[demback - 1] == 6)
             {
                 if (Back[demback - 1] == 0)
                 {
@@ -469,51 +472,46 @@ namespace WinformsExample
                     treeView1.SelectedNode = treeView1.Nodes[2];
                 }
             }
-            else if(Back[demback-1]==1||Back[demback - 1] == 2)
+            else if (Back[demback - 1] == 1 || Back[demback - 1] == 2)
             {
-                treeView1.SelectedNode = treeView1.Nodes[0].Nodes[Back[demback-1]-1];
+                treeView1.SelectedNode = treeView1.Nodes[0].Nodes[Back[demback - 1] - 1];
             }
             else
             {
-                treeView1.SelectedNode = treeView1.Nodes[1].Nodes[Back[demback - 1]-4];
-            }
-            if(demnext>=Next.Count)
-            {
-                Next.Add(Back[demback - 1]);
-            }
-            else
-            {
-                Next[demnext] = Back[demback - 1];
+                treeView1.SelectedNode = treeView1.Nodes[1].Nodes[Back[demback - 1] - 4];
             }
             demnext++;
+            demback--;
+            ShowButon();
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
             demnext--;
-            if (Next[demnext - 1] == 0 || Next[demnext - 1] == 3 || Next[demnext - 1] == 6)
+            if (Next[demnext] == 0 || Next[demnext] == 3 || Next[demnext] == 6)
             {
-                if (Next[demnext - 1] == 0)
+                if (Next[demnext] == 0)
                 {
                     treeView1.SelectedNode = treeView1.Nodes[0];
                 }
-                if (Next[demnext - 1] == 3)
+                if (Next[demnext] == 3)
                 {
                     treeView1.SelectedNode = treeView1.Nodes[1];
                 }
-                if (Next[demnext - 1] == 6)
+                if (Next[demnext] == 6)
                 {
                     treeView1.SelectedNode = treeView1.Nodes[2];
                 }
             }
-            else if (Next[demnext - 1] == 1 || Next[demnext - 1] == 2)
+            else if (Next[demnext] == 1 || Next[demnext] == 2)
             {
-                treeView1.SelectedNode = treeView1.Nodes[0].Nodes[Next[demnext - 1] - 1];
+                treeView1.SelectedNode = treeView1.Nodes[0].Nodes[Next[demnext] - 1];
             }
             else
             {
-                treeView1.SelectedNode = treeView1.Nodes[1].Nodes[Next[demnext - 1] - 4];
+                treeView1.SelectedNode = treeView1.Nodes[1].Nodes[Next[demnext] - 4];
             }
+            ShowButon();
         }
 
         private void btnReload_Click(object sender, EventArgs e)
