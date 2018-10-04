@@ -301,22 +301,197 @@ namespace WinformsExample
                                         break;
                                     }
                             }
-                            stt++;
-                            result.Add(new Customer()
+                            if (FirewallForm.Action == "1")
                             {
-                                STT = stt - 1,
-                                Statebool = rule.Enabled,
-                                NameRule = rule.Name,
-                                Application = app,
-                                State = state,
-                                Action = action,
-                                Protocol = protocol,
-                                LocalAddress = localAddress,
-                                RemoteAddress = remoteAddress,
-                                LocalPort = localport,
-                                RemotePort = remoteport,
-                                Profile = profile,
-                            });
+                                if (FirewallForm.Profile == "1")
+                                {
+                                    if (FirewallForm.State == "1")
+                                    {
+                                        stt++;
+                                        result.Add(new Customer()
+                                        {
+                                            STT = stt - 1,
+                                            Statebool = rule.Enabled,
+                                            NameRule = rule.Name,
+                                            Application = app,
+                                            State = state,
+                                            Action = action,
+                                            Protocol = protocol,
+                                            LocalAddress = localAddress,
+                                            RemoteAddress = remoteAddress,
+                                            LocalPort = localport,
+                                            RemotePort = remoteport,
+                                            Profile = profile,
+                                        });
+                                    }
+                                    else
+                                    {
+                                        if (FirewallForm.State == state)
+                                        {
+                                            stt++;
+                                            result.Add(new Customer()
+                                            {
+                                                STT = stt - 1,
+                                                Statebool = rule.Enabled,
+                                                NameRule = rule.Name,
+                                                Application = app,
+                                                State = state,
+                                                Action = action,
+                                                Protocol = protocol,
+                                                LocalAddress = localAddress,
+                                                RemoteAddress = remoteAddress,
+                                                LocalPort = localport,
+                                                RemotePort = remoteport,
+                                                Profile = profile,
+                                            });
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    if (FirewallForm.Profile == profile || profile == "Domain,Private,Public")
+                                    {
+                                        if (FirewallForm.State == "1")
+                                        {
+                                            stt++;
+                                            result.Add(new Customer()
+                                            {
+                                                STT = stt - 1,
+                                                Statebool = rule.Enabled,
+                                                NameRule = rule.Name,
+                                                Application = app,
+                                                State = state,
+                                                Action = action,
+                                                Protocol = protocol,
+                                                LocalAddress = localAddress,
+                                                RemoteAddress = remoteAddress,
+                                                LocalPort = localport,
+                                                RemotePort = remoteport,
+                                                Profile = profile,
+                                            });
+                                        }
+                                        else
+                                        {
+                                            if (FirewallForm.State == state)
+                                            {
+                                                stt++;
+                                                result.Add(new Customer()
+                                                {
+                                                    STT = stt - 1,
+                                                    Statebool = rule.Enabled,
+                                                    NameRule = rule.Name,
+                                                    Application = app,
+                                                    State = state,
+                                                    Action = action,
+                                                    Protocol = protocol,
+                                                    LocalAddress = localAddress,
+                                                    RemoteAddress = remoteAddress,
+                                                    LocalPort = localport,
+                                                    RemotePort = remoteport,
+                                                    Profile = profile,
+                                                });
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (FirewallForm.Action == action)
+                                {
+                                    if (FirewallForm.Profile == "1")
+                                    {
+                                        if (FirewallForm.State == "1")
+                                        {
+                                            stt++;
+                                            result.Add(new Customer()
+                                            {
+                                                STT = stt - 1,
+                                                Statebool = rule.Enabled,
+                                                NameRule = rule.Name,
+                                                Application = app,
+                                                State = state,
+                                                Action = action,
+                                                Protocol = protocol,
+                                                LocalAddress = localAddress,
+                                                RemoteAddress = remoteAddress,
+                                                LocalPort = localport,
+                                                RemotePort = remoteport,
+                                                Profile = profile,
+                                            });
+                                        }
+                                        else
+                                        {
+                                            if (FirewallForm.State == state)
+                                            {
+                                                stt++;
+                                                result.Add(new Customer()
+                                                {
+                                                    STT = stt - 1,
+                                                    Statebool = rule.Enabled,
+                                                    NameRule = rule.Name,
+                                                    Application = app,
+                                                    State = state,
+                                                    Action = action,
+                                                    Protocol = protocol,
+                                                    LocalAddress = localAddress,
+                                                    RemoteAddress = remoteAddress,
+                                                    LocalPort = localport,
+                                                    RemotePort = remoteport,
+                                                    Profile = profile,
+                                                });
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (FirewallForm.Profile == profile || profile == "Domain,Private,Public")
+                                        {
+                                            if (FirewallForm.State == "1")
+                                            {
+                                                stt++;
+                                                result.Add(new Customer()
+                                                {
+                                                    STT = stt - 1,
+                                                    Statebool = rule.Enabled,
+                                                    NameRule = rule.Name,
+                                                    Application = app,
+                                                    State = state,
+                                                    Action = action,
+                                                    Protocol = protocol,
+                                                    LocalAddress = localAddress,
+                                                    RemoteAddress = remoteAddress,
+                                                    LocalPort = localport,
+                                                    RemotePort = remoteport,
+                                                    Profile = profile,
+                                                });
+                                            }
+                                            else
+                                            {
+                                                if (FirewallForm.State == state)
+                                                {
+                                                    stt++;
+                                                    result.Add(new Customer()
+                                                    {
+                                                        STT = stt - 1,
+                                                        Statebool = rule.Enabled,
+                                                        NameRule = rule.Name,
+                                                        Application = app,
+                                                        State = state,
+                                                        Action = action,
+                                                        Protocol = protocol,
+                                                        LocalAddress = localAddress,
+                                                        RemoteAddress = remoteAddress,
+                                                        LocalPort = localport,
+                                                        RemotePort = remoteport,
+                                                        Profile = profile,
+                                                    });
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -519,22 +694,197 @@ namespace WinformsExample
                                         break;
                                     }
                             }
-                            stt++;
-                            result.Add(new Customer()
+                            if (FirewallForm.Action == "1")
                             {
-                                STT = stt - 1,
-                                Statebool = rule.Enabled,
-                                NameRule = rule.Name,
-                                Application = app,
-                                State = state,
-                                Action = action,
-                                Protocol = protocol,
-                                LocalAddress = localAddress,
-                                RemoteAddress = remoteAddress,
-                                LocalPort = localport,
-                                RemotePort = remoteport,
-                                Profile = profile,
-                            });
+                                if (FirewallForm.Profile == "1")
+                                {
+                                    if (FirewallForm.State == "1")
+                                    {
+                                        stt++;
+                                        result.Add(new Customer()
+                                        {
+                                            STT = stt - 1,
+                                            Statebool = rule.Enabled,
+                                            NameRule = rule.Name,
+                                            Application = app,
+                                            State = state,
+                                            Action = action,
+                                            Protocol = protocol,
+                                            LocalAddress = localAddress,
+                                            RemoteAddress = remoteAddress,
+                                            LocalPort = localport,
+                                            RemotePort = remoteport,
+                                            Profile = profile,
+                                        });
+                                    }
+                                    else
+                                    {
+                                        if (FirewallForm.State == state)
+                                        {
+                                            stt++;
+                                            result.Add(new Customer()
+                                            {
+                                                STT = stt - 1,
+                                                Statebool = rule.Enabled,
+                                                NameRule = rule.Name,
+                                                Application = app,
+                                                State = state,
+                                                Action = action,
+                                                Protocol = protocol,
+                                                LocalAddress = localAddress,
+                                                RemoteAddress = remoteAddress,
+                                                LocalPort = localport,
+                                                RemotePort = remoteport,
+                                                Profile = profile,
+                                            });
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    if (FirewallForm.Profile == profile || profile == "Domain,Private,Public")
+                                    {
+                                        if (FirewallForm.State == "1")
+                                        {
+                                            stt++;
+                                            result.Add(new Customer()
+                                            {
+                                                STT = stt - 1,
+                                                Statebool = rule.Enabled,
+                                                NameRule = rule.Name,
+                                                Application = app,
+                                                State = state,
+                                                Action = action,
+                                                Protocol = protocol,
+                                                LocalAddress = localAddress,
+                                                RemoteAddress = remoteAddress,
+                                                LocalPort = localport,
+                                                RemotePort = remoteport,
+                                                Profile = profile,
+                                            });
+                                        }
+                                        else
+                                        {
+                                            if (FirewallForm.State == state)
+                                            {
+                                                stt++;
+                                                result.Add(new Customer()
+                                                {
+                                                    STT = stt - 1,
+                                                    Statebool = rule.Enabled,
+                                                    NameRule = rule.Name,
+                                                    Application = app,
+                                                    State = state,
+                                                    Action = action,
+                                                    Protocol = protocol,
+                                                    LocalAddress = localAddress,
+                                                    RemoteAddress = remoteAddress,
+                                                    LocalPort = localport,
+                                                    RemotePort = remoteport,
+                                                    Profile = profile,
+                                                });
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (FirewallForm.Action == action)
+                                {
+                                    if (FirewallForm.Profile == "1")
+                                    {
+                                        if (FirewallForm.State == "1")
+                                        {
+                                            stt++;
+                                            result.Add(new Customer()
+                                            {
+                                                STT = stt - 1,
+                                                Statebool = rule.Enabled,
+                                                NameRule = rule.Name,
+                                                Application = app,
+                                                State = state,
+                                                Action = action,
+                                                Protocol = protocol,
+                                                LocalAddress = localAddress,
+                                                RemoteAddress = remoteAddress,
+                                                LocalPort = localport,
+                                                RemotePort = remoteport,
+                                                Profile = profile,
+                                            });
+                                        }
+                                        else
+                                        {
+                                            if (FirewallForm.State == state)
+                                            {
+                                                stt++;
+                                                result.Add(new Customer()
+                                                {
+                                                    STT = stt - 1,
+                                                    Statebool = rule.Enabled,
+                                                    NameRule = rule.Name,
+                                                    Application = app,
+                                                    State = state,
+                                                    Action = action,
+                                                    Protocol = protocol,
+                                                    LocalAddress = localAddress,
+                                                    RemoteAddress = remoteAddress,
+                                                    LocalPort = localport,
+                                                    RemotePort = remoteport,
+                                                    Profile = profile,
+                                                });
+                                            }
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (FirewallForm.Profile == profile || profile == "Domain,Private,Public")
+                                        {
+                                            if (FirewallForm.State == "1")
+                                            {
+                                                stt++;
+                                                result.Add(new Customer()
+                                                {
+                                                    STT = stt - 1,
+                                                    Statebool = rule.Enabled,
+                                                    NameRule = rule.Name,
+                                                    Application = app,
+                                                    State = state,
+                                                    Action = action,
+                                                    Protocol = protocol,
+                                                    LocalAddress = localAddress,
+                                                    RemoteAddress = remoteAddress,
+                                                    LocalPort = localport,
+                                                    RemotePort = remoteport,
+                                                    Profile = profile,
+                                                });
+                                            }
+                                            else
+                                            {
+                                                if (FirewallForm.State == state)
+                                                {
+                                                    stt++;
+                                                    result.Add(new Customer()
+                                                    {
+                                                        STT = stt - 1,
+                                                        Statebool = rule.Enabled,
+                                                        NameRule = rule.Name,
+                                                        Application = app,
+                                                        State = state,
+                                                        Action = action,
+                                                        Protocol = protocol,
+                                                        LocalAddress = localAddress,
+                                                        RemoteAddress = remoteAddress,
+                                                        LocalPort = localport,
+                                                        RemotePort = remoteport,
+                                                        Profile = profile,
+                                                    });
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -775,7 +1125,14 @@ namespace WinformsExample
             dataGridView1.ClearSelection();
             for (int i = 0; i < Detail.Count; i++)
             {
-                dataGridView1.Rows[Detail[i].STT].Selected = true;
+                try
+                {
+                    dataGridView1.Rows[Detail[i].STT].Selected = true;
+                }
+                catch
+                {
+                        
+                }
             }
         }
         private void menuProperties_Click(object sender, EventArgs e)

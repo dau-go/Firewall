@@ -12,6 +12,24 @@ namespace WinformsExample
 {
     public partial class FirewallForm : Form
     {
+        public static string _Profile;
+        public static string Profile
+        {
+            get { return _Profile; }
+            set { _Profile = value; }
+        }
+        public static string _State;
+        public static string State
+        {
+            get { return _State; }
+            set { _State = value; }
+        }
+        public static string _Action;
+        public static string Action
+        {
+            get { return _Action; }
+            set { _Action = value; }
+        }
         int Header = 0;
         int kt = 0;
         List<int> Next = new List<int>(), Back = new List<int>();
@@ -33,6 +51,9 @@ namespace WinformsExample
             toolTip1.SetToolTip(btnAdd, "Add New Rule");
             toolTip1.SetToolTip(btnDel, "Delete Rule");
             treeView1.SelectedNode = treeView1.Nodes[0];
+            Profile = "1";
+            State = "1";
+            Action = "1";
         }
         public void Showview()
         {
@@ -59,7 +80,7 @@ namespace WinformsExample
             btnReload.BackgroundImage = Properties.Resources.icons8_refresh_32__1_;
             btnDel.Enabled = false;
             btnDel.BackgroundImage = Properties.Resources.icons8_trash_24__1_;
-
+            actionToolStripMenuItem.Enabled = false;
         }
         public void ShowDefault()
         {
@@ -77,6 +98,7 @@ namespace WinformsExample
             btnReload.BackgroundImage = Properties.Resources.icons8_refresh_32__1_;
             btnDel.Enabled = false;
             btnDel.BackgroundImage = Properties.Resources.icons8_trash_24__1_;
+            actionToolStripMenuItem.Enabled = false;
         }
         public void ShowInboundUser()
         {
@@ -92,6 +114,7 @@ namespace WinformsExample
             tab.Controls.Add(f1);
             f1.Visible = true;
             Showview();
+            actionToolStripMenuItem.Enabled = true;
         }
         public void ShowOutboundUser()
         {
@@ -107,6 +130,7 @@ namespace WinformsExample
             tab.Controls.Add(f2);
             f2.Visible = true;
             Showview();
+            actionToolStripMenuItem.Enabled = true;
         }
         public void ShowInboundDefault()
         {
@@ -122,6 +146,7 @@ namespace WinformsExample
             tab.Controls.Add(f3);
             f3.Visible = true;
             Showview();
+            actionToolStripMenuItem.Enabled = true;
         }
         public void ShowOutboundDefault()
         {
@@ -137,6 +162,7 @@ namespace WinformsExample
             tab.Controls.Add(f4);
             f4.Visible = true;
             Showview();
+            actionToolStripMenuItem.Enabled = true;
         }
         public void ShowWebsiteRule()
         {
@@ -151,6 +177,8 @@ namespace WinformsExample
             tab.Controls.Add(f5);
             f5.Visible = true;
             Showview();
+            actionToolStripMenuItem.Enabled = true;
+            Filterprofile.Visible = false;
         }
         public void ShowButon()
         {
@@ -514,7 +542,11 @@ namespace WinformsExample
             ShowButon();
         }
 
-        private void btnReload_Click(object sender, EventArgs e)
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        public void Reload()
         {
             switch (treeView1.SelectedNode.Name)
             {
@@ -544,6 +576,210 @@ namespace WinformsExample
                         break;
                     }
             }
+        }
+
+        private void menuReload_Click(object sender, EventArgs e)
+        {
+            Reload();
+        }
+        public void FilterProfile()
+        {
+            ShowAllProfile.Checked = false;
+            if (Domain.Checked == true)
+            {
+                if (Private.Checked == true)
+                {
+                    if (Public.Checked == true)
+                    {
+                        Profile = "1";
+                    }
+                    else
+                    {
+                        Profile = "Domain,Private";
+                    }
+                }
+                else
+                {
+                    if (Public.Checked == true)
+                    {
+                        Profile = "Domain,Public";
+                    }
+                    else
+                    {
+                        Profile = "Domain";
+                    }
+                }
+            }
+            else if (Private.Checked == true)
+            {
+                if (Public.Checked == true)
+                {
+                    Profile = "Private,Public";
+                }
+                else
+                {
+                    Profile = "Private";
+                }
+            }
+            else
+            {
+                Profile = "Public";
+            }
+        }
+
+        private void ShowAllProfile_Click_1(object sender, EventArgs e)
+        {
+            Profile = "1";
+            ShowAllProfile.Checked = true;
+            Domain.Checked = false;
+            Private.Checked = false;
+            Public.Checked = false;
+            Reload();
+        }
+
+        private void menuadd_Click_1(object sender, EventArgs e)
+        {
+            AddRuleForm.kt = kt;
+            if (kt != 2)
+            {
+                AddRuleForm f = new AddRuleForm();
+                f.ShowDialog();
+            }
+            else
+            {
+                AddRuleForm f = new AddRuleForm();
+                f.ShowDialog();
+            }
+        }
+
+        private void Domian_Click(object sender, EventArgs e)
+        {
+            if (Domain.Checked == true)
+            {
+                if (Private.Checked == true || Public.Checked == true)
+                {
+                    Domain.Checked = false;
+                }
+            }
+            else
+            {
+                Domain.Checked = true;
+            }
+            FilterProfile();
+            Reload();
+        }
+
+        private void Private_Click(object sender, EventArgs e)
+        {
+            if (Private.Checked == true)
+            {
+                if (Domain.Checked == true || Public.Checked == true)
+                {
+                    Private.Checked = false;
+                }
+            }
+            else
+            {
+                Private.Checked = true;
+            }
+            FilterProfile();
+            Reload();
+        }
+
+        private void Public_Click(object sender, EventArgs e)
+        {
+            if (Public.Checked == true)
+            {
+                if (Domain.Checked == true || Private.Checked == true)
+                {
+                    Public.Checked = false;
+                }
+            }
+            else
+            {
+                Public.Checked = true;
+            }
+            FilterProfile();
+            Reload();
+        }
+
+        private void ShowAllState_Click(object sender, EventArgs e)
+        {
+            ShowAllState.Checked = true;
+            Enabled.Checked = false;
+            Disabled.Checked = false;
+            State = "1";
+            Reload();
+        }
+
+        private void Enabled_Click(object sender, EventArgs e)
+        {
+            ShowAllState.Checked = false;
+            if(Enabled.Checked==false)
+            {
+                Enabled.Checked = true;
+                Disabled.Checked = false;
+            }
+            State = "Yes";
+            Reload();
+        }
+
+        private void Disabled_Click(object sender, EventArgs e)
+        {
+            ShowAllState.Checked = false;
+            if (Disabled.Checked == false)
+            {
+                Enabled.Checked = false;
+                Disabled.Checked = true;
+            }
+            State = "No";
+            Reload();
+        }
+
+        private void ShowAllAction_Click(object sender, EventArgs e)
+        {
+            ShowAllAction.Checked = true;
+            Allow.Checked = false;
+            Block.Checked = false;
+            Action = "1";
+            Reload();
+        }
+
+        private void Allow_Click(object sender, EventArgs e)
+        {
+            ShowAllAction.Checked = false;
+            if (Allow.Checked == false)
+            {
+                Allow.Checked = true;
+                Block.Checked = false;
+            }
+            Action = "Allow";
+            Reload();
+        }
+
+        private void Block_Click(object sender, EventArgs e)
+        {
+            ShowAllAction.Checked = false;
+            if (Block.Checked == false)
+            {
+                Allow.Checked = false;
+                Block.Checked = true;
+            }
+            Action = "Block";
+            Reload();
+        }
+
+        private void Clear_Click(object sender, EventArgs e)
+        {
+            Profile = "1";
+            State = "1";
+            Action = "1";
+            Reload();
+        }
+
+        private void btnReload_Click(object sender, EventArgs e)
+        {
+            Reload();
         }
 
         private void btnTree_Click(object sender, EventArgs e)

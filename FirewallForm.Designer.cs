@@ -42,22 +42,47 @@
             System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Website blocking rules");
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.actionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuadd = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.Filterprofile = new System.Windows.Forms.ToolStripMenuItem();
+            this.ShowAllProfile = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.Domain = new System.Windows.Forms.ToolStripMenuItem();
+            this.Private = new System.Windows.Forms.ToolStripMenuItem();
+            this.Public = new System.Windows.Forms.ToolStripMenuItem();
+            this.FilterState = new System.Windows.Forms.ToolStripMenuItem();
+            this.ShowAllState = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.Enabled = new System.Windows.Forms.ToolStripMenuItem();
+            this.Disabled = new System.Windows.Forms.ToolStripMenuItem();
+            this.FilterAction = new System.Windows.Forms.ToolStripMenuItem();
+            this.ShowAllAction = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.Allow = new System.Windows.Forms.ToolStripMenuItem();
+            this.Block = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.menuReload = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Language = new System.Windows.Forms.ToolStripMenuItem();
+            this.Tiengviet = new System.Windows.Forms.ToolStripMenuItem();
+            this.English = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tab = new System.Windows.Forms.TabPage();
-            this.treeView1 = new System.Windows.Forms.TreeView();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnDel = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnReload = new System.Windows.Forms.Button();
             this.btnTree = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tab = new System.Windows.Forms.TabPage();
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.Clear = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -73,27 +98,217 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.menuStrip1.Size = new System.Drawing.Size(860, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // fireToolStripMenuItem
             // 
+            this.fireToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem});
             this.fireToolStripMenuItem.Name = "fireToolStripMenuItem";
             this.fireToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fireToolStripMenuItem.Text = "File";
             // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
             // actionToolStripMenuItem
             // 
+            this.actionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuadd,
+            this.toolStripSeparator1,
+            this.Filterprofile,
+            this.FilterState,
+            this.FilterAction,
+            this.Clear,
+            this.toolStripSeparator2,
+            this.menuReload});
             this.actionToolStripMenuItem.Name = "actionToolStripMenuItem";
             this.actionToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.actionToolStripMenuItem.Text = "Action";
             // 
+            // menuadd
+            // 
+            this.menuadd.Name = "menuadd";
+            this.menuadd.Size = new System.Drawing.Size(154, 22);
+            this.menuadd.Text = "Add Rules";
+            this.menuadd.Click += new System.EventHandler(this.menuadd_Click_1);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(151, 6);
+            // 
+            // Filterprofile
+            // 
+            this.Filterprofile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ShowAllProfile,
+            this.toolStripSeparator3,
+            this.Domain,
+            this.Private,
+            this.Public});
+            this.Filterprofile.Name = "Filterprofile";
+            this.Filterprofile.Size = new System.Drawing.Size(154, 22);
+            this.Filterprofile.Text = "Filter By Profile";
+            // 
+            // ShowAllProfile
+            // 
+            this.ShowAllProfile.Checked = true;
+            this.ShowAllProfile.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ShowAllProfile.Name = "ShowAllProfile";
+            this.ShowAllProfile.Size = new System.Drawing.Size(198, 22);
+            this.ShowAllProfile.Text = "Show All";
+            this.ShowAllProfile.Click += new System.EventHandler(this.ShowAllProfile_Click_1);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(195, 6);
+            // 
+            // Domain
+            // 
+            this.Domain.Name = "Domain";
+            this.Domain.Size = new System.Drawing.Size(198, 22);
+            this.Domain.Text = "Filter By Domain Profile";
+            this.Domain.Click += new System.EventHandler(this.Domian_Click);
+            // 
+            // Private
+            // 
+            this.Private.Name = "Private";
+            this.Private.Size = new System.Drawing.Size(198, 22);
+            this.Private.Text = "Filter By Private Profile";
+            this.Private.Click += new System.EventHandler(this.Private_Click);
+            // 
+            // Public
+            // 
+            this.Public.Name = "Public";
+            this.Public.Size = new System.Drawing.Size(198, 22);
+            this.Public.Text = "Filter By Public Profile";
+            this.Public.Click += new System.EventHandler(this.Public_Click);
+            // 
+            // FilterState
+            // 
+            this.FilterState.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ShowAllState,
+            this.toolStripSeparator4,
+            this.Enabled,
+            this.Disabled});
+            this.FilterState.Name = "FilterState";
+            this.FilterState.Size = new System.Drawing.Size(154, 22);
+            this.FilterState.Text = "Filter By State";
+            // 
+            // ShowAllState
+            // 
+            this.ShowAllState.Checked = true;
+            this.ShowAllState.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ShowAllState.Name = "ShowAllState";
+            this.ShowAllState.Size = new System.Drawing.Size(164, 22);
+            this.ShowAllState.Text = "Show All";
+            this.ShowAllState.Click += new System.EventHandler(this.ShowAllState_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(161, 6);
+            // 
+            // Enabled
+            // 
+            this.Enabled.Name = "Enabled";
+            this.Enabled.Size = new System.Drawing.Size(164, 22);
+            this.Enabled.Text = "Filter By Enabled";
+            this.Enabled.Click += new System.EventHandler(this.Enabled_Click);
+            // 
+            // Disabled
+            // 
+            this.Disabled.Name = "Disabled";
+            this.Disabled.Size = new System.Drawing.Size(164, 22);
+            this.Disabled.Text = "Filter By Disabled";
+            this.Disabled.Click += new System.EventHandler(this.Disabled_Click);
+            // 
+            // FilterAction
+            // 
+            this.FilterAction.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ShowAllAction,
+            this.toolStripSeparator5,
+            this.Allow,
+            this.Block});
+            this.FilterAction.Name = "FilterAction";
+            this.FilterAction.Size = new System.Drawing.Size(154, 22);
+            this.FilterAction.Text = "Filter By Action";
+            // 
+            // ShowAllAction
+            // 
+            this.ShowAllAction.Checked = true;
+            this.ShowAllAction.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ShowAllAction.Name = "ShowAllAction";
+            this.ShowAllAction.Size = new System.Drawing.Size(152, 22);
+            this.ShowAllAction.Text = "Show All";
+            this.ShowAllAction.Click += new System.EventHandler(this.ShowAllAction_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(149, 6);
+            // 
+            // Allow
+            // 
+            this.Allow.Name = "Allow";
+            this.Allow.Size = new System.Drawing.Size(152, 22);
+            this.Allow.Text = "Filter By Allow";
+            this.Allow.Click += new System.EventHandler(this.Allow_Click);
+            // 
+            // Block
+            // 
+            this.Block.Name = "Block";
+            this.Block.Size = new System.Drawing.Size(152, 22);
+            this.Block.Text = "Filter By Block";
+            this.Block.Click += new System.EventHandler(this.Block_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(151, 6);
+            // 
+            // menuReload
+            // 
+            this.menuReload.Name = "menuReload";
+            this.menuReload.Size = new System.Drawing.Size(154, 22);
+            this.menuReload.Text = "Reload";
+            // 
             // viewToolStripMenuItem
             // 
+            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Language});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.viewToolStripMenuItem.Text = "View";
+            // 
+            // Language
+            // 
+            this.Language.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Tiengviet,
+            this.English});
+            this.Language.Name = "Language";
+            this.Language.Size = new System.Drawing.Size(126, 22);
+            this.Language.Text = "Language";
+            // 
+            // Tiengviet
+            // 
+            this.Tiengviet.Name = "Tiengviet";
+            this.Tiengviet.Size = new System.Drawing.Size(127, 22);
+            this.Tiengviet.Text = "Tiếng Việt";
+            // 
+            // English
+            // 
+            this.English.Name = "English";
+            this.English.Size = new System.Drawing.Size(127, 22);
+            this.English.Text = "English";
             // 
             // helpToolStripMenuItem
             // 
@@ -115,69 +330,6 @@
             this.groupBox1.Size = new System.Drawing.Size(860, 41);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.tabControl1);
-            this.groupBox2.Controls.Add(this.treeView1);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(0, 65);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(860, 393);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tab);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(191, 16);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(666, 374);
-            this.tabControl1.TabIndex = 1;
-            // 
-            // tab
-            // 
-            this.tab.Location = new System.Drawing.Point(4, 22);
-            this.tab.Name = "tab";
-            this.tab.Padding = new System.Windows.Forms.Padding(3);
-            this.tab.Size = new System.Drawing.Size(658, 348);
-            this.tab.TabIndex = 0;
-            this.tab.UseVisualStyleBackColor = true;
-            // 
-            // treeView1
-            // 
-            this.treeView1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.treeView1.HideSelection = false;
-            this.treeView1.Location = new System.Drawing.Point(3, 16);
-            this.treeView1.Name = "treeView1";
-            treeNode1.Name = "InboundUser";
-            treeNode1.Text = "Inbound Rules";
-            treeNode2.Name = "OutboundUser";
-            treeNode2.Text = "Outbound Rules";
-            treeNode3.Name = "User";
-            treeNode3.Text = "User Created Firewall Rules";
-            treeNode4.Name = "InboundDefault";
-            treeNode4.Text = "Inbound Rules";
-            treeNode5.Name = "OutboundDefault";
-            treeNode5.Text = "Outbound Rules";
-            treeNode6.Name = "Default";
-            treeNode6.Text = "The Default Rule Of The Firewall";
-            treeNode7.Name = "Web";
-            treeNode7.Text = "Website blocking rules";
-            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode3,
-            treeNode6,
-            treeNode7});
-            this.treeView1.Size = new System.Drawing.Size(188, 374);
-            this.treeView1.TabIndex = 0;
-            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 60000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // btnDel
             // 
@@ -272,6 +424,76 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.tabControl1);
+            this.groupBox2.Controls.Add(this.treeView1);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(0, 65);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(860, 393);
+            this.groupBox2.TabIndex = 2;
+            this.groupBox2.TabStop = false;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tab);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(191, 16);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(666, 374);
+            this.tabControl1.TabIndex = 1;
+            // 
+            // tab
+            // 
+            this.tab.Location = new System.Drawing.Point(4, 22);
+            this.tab.Name = "tab";
+            this.tab.Padding = new System.Windows.Forms.Padding(3);
+            this.tab.Size = new System.Drawing.Size(658, 348);
+            this.tab.TabIndex = 0;
+            this.tab.UseVisualStyleBackColor = true;
+            // 
+            // treeView1
+            // 
+            this.treeView1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.treeView1.HideSelection = false;
+            this.treeView1.Location = new System.Drawing.Point(3, 16);
+            this.treeView1.Name = "treeView1";
+            treeNode1.Name = "InboundUser";
+            treeNode1.Text = "Inbound Rules";
+            treeNode2.Name = "OutboundUser";
+            treeNode2.Text = "Outbound Rules";
+            treeNode3.Name = "User";
+            treeNode3.Text = "User Created Firewall Rules";
+            treeNode4.Name = "InboundDefault";
+            treeNode4.Text = "Inbound Rules";
+            treeNode5.Name = "OutboundDefault";
+            treeNode5.Text = "Outbound Rules";
+            treeNode6.Name = "Default";
+            treeNode6.Text = "The Default Rule Of The Firewall";
+            treeNode7.Name = "Web";
+            treeNode7.Text = "Website blocking rules";
+            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode3,
+            treeNode6,
+            treeNode7});
+            this.treeView1.Size = new System.Drawing.Size(188, 374);
+            this.treeView1.TabIndex = 0;
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 60000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // Clear
+            // 
+            this.Clear.Name = "Clear";
+            this.Clear.Size = new System.Drawing.Size(154, 22);
+            this.Clear.Text = "Clear All Filter";
+            this.Clear.Click += new System.EventHandler(this.Clear_Click);
+            // 
             // FirewallForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -314,5 +536,30 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.TabPage tab;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuadd;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem Filterprofile;
+        private System.Windows.Forms.ToolStripMenuItem ShowAllProfile;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem Domain;
+        private System.Windows.Forms.ToolStripMenuItem Private;
+        private System.Windows.Forms.ToolStripMenuItem Public;
+        private System.Windows.Forms.ToolStripMenuItem FilterState;
+        private System.Windows.Forms.ToolStripMenuItem ShowAllState;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem Enabled;
+        private System.Windows.Forms.ToolStripMenuItem Disabled;
+        private System.Windows.Forms.ToolStripMenuItem FilterAction;
+        private System.Windows.Forms.ToolStripMenuItem ShowAllAction;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem Allow;
+        private System.Windows.Forms.ToolStripMenuItem Block;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem menuReload;
+        private System.Windows.Forms.ToolStripMenuItem Language;
+        private System.Windows.Forms.ToolStripMenuItem Tiengviet;
+        private System.Windows.Forms.ToolStripMenuItem English;
+        private System.Windows.Forms.ToolStripMenuItem Clear;
     }
 }

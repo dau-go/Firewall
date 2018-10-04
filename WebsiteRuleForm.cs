@@ -121,22 +121,86 @@ namespace WinformsExample
                             s2 = s2 + "," + s1[i];
                         }
                     }
-                    stt++;
-                    result.Add(new Customer()
+                    if (FirewallForm.Action == "1")
                     {
-                        STT = stt - 1,
-                        Statebool = rule.Enabled,
-                        NameRule = rule.Name,
-                        State = state,
-                        Action = action,
-                        RemoteIP = s2,
-                        TimeFrom = s[0],
-                        TimeTo = s[1]
-                    });
+                        if (FirewallForm.State == "1")
+                        {
+                            stt++;
+                            result.Add(new Customer()
+                            {
+                                STT = stt - 1,
+                                Statebool = rule.Enabled,
+                                NameRule = rule.Name,
+                                State = state,
+                                Action = action,
+                                RemoteIP = s2,
+                                TimeFrom = s[0],
+                                TimeTo = s[1]
+                            });
+                        }
+                        else
+                        {
+                            if (FirewallForm.State == state)
+                            {
+                                stt++;
+                                result.Add(new Customer()
+                                {
+                                    STT = stt - 1,
+                                    Statebool = rule.Enabled,
+                                    NameRule = rule.Name,
+                                    State = state,
+                                    Action = action,
+                                    RemoteIP = s2,
+                                    TimeFrom = s[0],
+                                    TimeTo = s[1]
+                                });
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (FirewallForm.Action == action)
+                        {
+                            if (FirewallForm.State == "1")
+                            {
+                                stt++;
+                                result.Add(new Customer()
+                                {
+                                    STT = stt - 1,
+                                    Statebool = rule.Enabled,
+                                    NameRule = rule.Name,
+                                    State = state,
+                                    Action = action,
+                                    RemoteIP = s2,
+                                    TimeFrom = s[0],
+                                    TimeTo = s[1]
+                                });
+                            }
+                            else
+                            {
+                                if (FirewallForm.State == state)
+                                {
+                                    stt++;
+                                    result.Add(new Customer()
+                                    {
+                                        STT = stt - 1,
+                                        Statebool = rule.Enabled,
+                                        NameRule = rule.Name,
+                                        State = state,
+                                        Action = action,
+                                        RemoteIP = s2,
+                                        TimeFrom = s[0],
+                                        TimeTo = s[1]
+                                    });
+                                }
+                            }
+                        }
+                    }
                 }
             }
             return result;
         }
+
         BindingList<Customer> Detail;
         private BindingList<Customer> GetDataDel()
         {
