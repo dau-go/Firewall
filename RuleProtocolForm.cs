@@ -18,6 +18,32 @@ namespace WinformsExample
             cbLocalport.SelectedIndex = 0;
             cbRemoteport.SelectedIndex = 0;
             Getdata();
+            if (FirewallForm.Lang == 0)
+            {
+                ShowTiengViet();
+            }
+            else
+            {
+                ShowEnglish();
+            }
+        }
+        public void ShowTiengViet()
+        {
+            label1.Text = "Quy tắc này áp dụng cho các cổng và giao thức nào?";
+            label2.Text = "Loại giao thức:";
+            label3.Text = "Cổng từ xa";
+            label4.Text = "Ví dụ: 80,443, ...";
+            label5.Text = "Cổng nội bộ:";
+            label6.Text = "Ví dụ: 80,443, ...";
+        }
+        public void ShowEnglish()
+        {
+            label1.Text = "To which ports and protocols does this rule apply?";
+            label2.Text = "Protocol type:";
+            label3.Text = "Remote port:";
+            label4.Text = "Example: 80,443,...";
+            label5.Text = "Local port:";
+            label6.Text = "Example: 80,443,...";
         }
         public void Getdata()
         {

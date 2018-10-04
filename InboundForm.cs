@@ -44,6 +44,40 @@ namespace WinformsExample
 
             }
             Detail = GetDataDel();
+            if(FirewallForm.Lang==0)
+            {
+                ShowTiengViet();
+            }
+            else
+            {
+                ShowEnglish();
+            }
+        }
+        public void ShowTiengViet()
+        {
+            dataGridView1.Columns["NameRule"].HeaderText = "Tên Quy Tắc";
+            dataGridView1.Columns["Application"].HeaderText = "Ứng Dụng";
+            dataGridView1.Columns["State"].HeaderText = "Trạng Thái";
+            dataGridView1.Columns["Action"].HeaderText = "Hoạt Động";
+            dataGridView1.Columns["Protocol"].HeaderText = "Giao Thức";
+            dataGridView1.Columns["LocalAddress"].HeaderText = "Địa Chỉ Nội Bộ";
+            dataGridView1.Columns["RemoteAddress"].HeaderText = "Địa chỉ từ xa";
+            dataGridView1.Columns["LocalPort"].HeaderText = "Cổng Nội Bộ";
+            dataGridView1.Columns["RemotePort"].HeaderText = "Cổng Từ Xa";
+            dataGridView1.Columns["Profile"].HeaderText = "Hồ Sơ";
+        }
+        public void ShowEnglish()
+        {
+            dataGridView1.Columns["NameRule"].HeaderText = "Name Rules";
+            dataGridView1.Columns["Application"].HeaderText = "Application Package";
+            dataGridView1.Columns["State"].HeaderText = "State";
+            dataGridView1.Columns["Action"].HeaderText = "Action";
+            dataGridView1.Columns["Protocol"].HeaderText = "Protocol";
+            dataGridView1.Columns["LocalAddress"].HeaderText = "Local Address";
+            dataGridView1.Columns["RemoteAddress"].HeaderText = "Remote Address";
+            dataGridView1.Columns["LocalPort"].HeaderText = "Local Port";
+            dataGridView1.Columns["RemotePort"].HeaderText = "Remote Port";
+            dataGridView1.Columns["Profile"].HeaderText = "Profile";
         }
         public void Header(int i)
         {

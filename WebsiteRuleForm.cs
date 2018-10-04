@@ -20,11 +20,7 @@ namespace WinformsExample
             dataSource = GetDataSource();
             dataGridView1.DataSource = dataSource;
             dataGridView1.Columns["Statebool"].HeaderText = "";
-            dataGridView1.Columns["NameRule"].HeaderText = "Name Rules";
             dataGridView1.Columns["Statebool"].Width = 20;
-            dataGridView1.Columns["RemoteIP"].HeaderText = "Remote Address";
-            dataGridView1.Columns["TimeFrom"].HeaderText = "Time From";
-            dataGridView1.Columns["TimeTo"].HeaderText = "Time To";
             try
             {
                 dataGridView1.Rows[0].Selected = true;
@@ -35,6 +31,32 @@ namespace WinformsExample
             }
             Detail = GetDataDel();
             dataGridView1.Columns["STT"].Visible = false;
+            if (FirewallForm.Lang == 0)
+            {
+                ShowTiengViet();
+            }
+            else
+            {
+                ShowEnglish();
+            }
+        }
+        public void ShowTiengViet()
+        {
+            dataGridView1.Columns["NameRule"].HeaderText = "Tên Quy Tắc";
+            dataGridView1.Columns["State"].HeaderText = "Trạng Thái";
+            dataGridView1.Columns["Action"].HeaderText = "Hoạt Động";
+            dataGridView1.Columns["TimeFrom"].HeaderText = "Thời Gian Từ";
+            dataGridView1.Columns["TimeTo"].HeaderText = "Đến Thời Gian";
+            dataGridView1.Columns["RemoteIP"].HeaderText = "Địa chỉ từ xa";
+        }
+        public void ShowEnglish()
+        {
+            dataGridView1.Columns["NameRule"].HeaderText = "NameRule";
+            dataGridView1.Columns["State"].HeaderText = "State";
+            dataGridView1.Columns["Action"].HeaderText = "Action";
+            dataGridView1.Columns["TimeFrom"].HeaderText = "Time Out";
+            dataGridView1.Columns["TimeTo"].HeaderText = "Time To";
+            dataGridView1.Columns["RemoteIP"].HeaderText = "Remote Address";
         }
         public void Header(int i)
         {

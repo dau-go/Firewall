@@ -67,7 +67,7 @@
             this.cbPublic.AutoSize = true;
             this.cbPublic.Checked = true;
             this.cbPublic.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbPublic.Location = new System.Drawing.Point(30, 119);
+            this.cbPublic.Location = new System.Drawing.Point(30, 109);
             this.cbPublic.Name = "cbPublic";
             this.cbPublic.Size = new System.Drawing.Size(55, 17);
             this.cbPublic.TabIndex = 0;
@@ -97,7 +97,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(51, 139);
+            this.label3.Location = new System.Drawing.Point(51, 129);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(316, 13);
             this.label3.TabIndex = 1;

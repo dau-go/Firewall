@@ -15,6 +15,33 @@ namespace WinformsExample
         {
             InitializeComponent();
             GetProfile();
+
+            if (FirewallForm.Lang == 0)
+            {
+                ShowTiengViet();
+            }
+            else
+            {
+                ShowEnglish();
+            }
+        }
+        public void ShowTiengViet()
+        {
+            label1.Text = "Áp dụng khi máy tính được kết nối với tên miền của nó.";
+            label2.Text = "Áp dụng khi máy tính được kết nối với vị trí mạng bảo mật.";
+            label3.Text = "Áp dụng khi máy tính được kết nối với vị trí mạng công khai.";
+            cbDomain.Text = "Tên Miền";
+            cbPrivate.Text = "Bảo Mật";
+            cbPublic.Text = "Công Khai";
+        }
+        public void ShowEnglish()
+        {
+            label1.Text = "Applies when a computer is connected to its corporate domain.";
+            label2.Text = "Applies when a computer is connected to private network location.";
+            label3.Text = "Applies when a computer is connectied to public network location.";
+            cbDomain.Text = "Domain";
+            cbPrivate.Text = "Private";
+            cbPublic.Text = "Public";
         }
         public void GetProfile()
         {

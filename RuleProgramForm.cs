@@ -14,6 +14,26 @@ namespace WinformsExample
         public RuleProgramForm()
         {
             InitializeComponent();
+            if (FirewallForm.Lang == 0)
+            {
+                ShowTiengViet();
+            }
+            else
+            {
+                ShowEnglish();
+            }
+        }
+        public void ShowTiengViet()
+        {
+            label3.Text = "Quy tắc áp dụng cho tất cả các chương trình trên máy tính";
+            rbAllProgram.Text = "Tất cả chương trình";
+            rbThisProgram.Text = "Đường dẫn chương trình:";
+        }
+        public void ShowEnglish()
+        {
+            label3.Text = "Rules apply to all programs on the computer";
+            rbAllProgram.Text = "All program";
+            rbThisProgram.Text = "This program path:";
         }
         public void GetProgram()
         {

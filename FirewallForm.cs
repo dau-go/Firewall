@@ -30,6 +30,12 @@ namespace WinformsExample
             get { return _Action; }
             set { _Action = value; }
         }
+        public static int _Lang;
+        public static int Lang
+        {
+            get { return _Lang; }
+            set { _Lang = value; }
+        }
         int Header = 0;
         int kt = 0;
         List<int> Next = new List<int>(), Back = new List<int>();
@@ -44,16 +50,87 @@ namespace WinformsExample
         {
             InitializeComponent();
             timer1.Start();
+            treeView1.SelectedNode = treeView1.Nodes[0];
+            Profile = "1";
+            State = "1";
+            Action = "1";
+            Lang = 0;
+            Tiengviet.Checked = true;
+            ShowTiengViet();
+        }
+        public void ShowTiengViet()
+        {
+            toolTip1.SetToolTip(btnBack, "Quay Lại");
+            toolTip1.SetToolTip(btnNext, "Tiến Lên");
+            toolTip1.SetToolTip(btnTree, "Hiện / Ẩn Bảng Điều Khiển");
+            toolTip1.SetToolTip(btnReload, "Làm Mới Quy Tắc");
+            toolTip1.SetToolTip(btnAdd, "Thêm Mới Quy Tắc");
+            toolTip1.SetToolTip(btnDel, "Xóa Quy Tắc");
+            fireToolStripMenuItem.Text = "Tệp Tin";
+            actionToolStripMenuItem.Text = "Hoạt Động";
+            viewToolStripMenuItem.Text = "Hiển Thị";
+            helpToolStripMenuItem.Text = "Trợ Giúp";
+            Exit.Text = "Thoát";
+            menuadd.Text = "Thêm Quy Tắc";
+            Filterprofile.Text = "Lọc Theo Hồ Sơ";
+            ShowAllProfile.Text = "Hiển Thị Tất cả";
+            Domain.Text = "Lọc Theo Hồ Sơ Tên Miền";
+            Private.Text = "Lọc Theo Hồ Sơ Bảo Mật";
+            Public.Text = "Lọc Theo Hồ Sơ Công Khai";
+            FilterState.Text = "Lọc Theo Trạng Thái";
+            ShowAllState.Text = "Hiển Thị Tất cả";
+            Enabled.Text = "Lọc Theo Bật";
+            Disabled.Text = "Lọc Theo Tắt";
+            FilterAction.Text = "Lọc Theo Hoạt Động";
+            ShowAllAction.Text = "Hiển Thị Tất cả";
+            Allow.Text = "Lọc Theo Cho Phép";
+            Block.Text = "Lọc Theo Không Cho Phép";
+            menuRefresh.Text = "Làm mới";
+            Language.Text = "Ngôn Ngữ";
+            treeView1.Nodes["User"].Text = "Quy Tắc Được Tạo Bởi Người Dùng";
+            treeView1.Nodes["Default"].Text = "Quy Tắc Mặc Định Của Windows";
+            treeView1.Nodes["User"].Nodes["InboundUser"].Text = "Quy Tắc Vào";
+            treeView1.Nodes["Default"].Nodes["InboundDefault"].Text = "Quy Tắc Vào";
+            treeView1.Nodes["User"].Nodes["OutboundUser"].Text = "Quy Tắc Ra";
+            treeView1.Nodes["Default"].Nodes["OutboundDefault"].Text = "Quy Tắc Ra";
+            treeView1.Nodes["Web"].Text = "Quy Tắc Chặn Trang Web";
+        }
+        public void ShowEnglish()
+        {
             toolTip1.SetToolTip(btnBack, "Navigate Backward");
             toolTip1.SetToolTip(btnNext, "Navigate Forward");
             toolTip1.SetToolTip(btnTree, "Show/Hide Console Tree");
             toolTip1.SetToolTip(btnReload, "Refresh Rule");
             toolTip1.SetToolTip(btnAdd, "Add New Rule");
             toolTip1.SetToolTip(btnDel, "Delete Rule");
-            treeView1.SelectedNode = treeView1.Nodes[0];
-            Profile = "1";
-            State = "1";
-            Action = "1";
+            fireToolStripMenuItem.Text = "File";
+            actionToolStripMenuItem.Text = "Action";
+            viewToolStripMenuItem.Text = "View";
+            helpToolStripMenuItem.Text = "Help";
+            Exit.Text = "Exit";
+            menuadd.Text = "Add Rule";
+            Filterprofile.Text = "Filter By Profile";
+            ShowAllProfile.Text = "Show All";
+            Domain.Text = "Filter By Domain Profile";
+            Private.Text = "Filter By Private Profile";
+            Public.Text = "Filter By Public Profile";
+            FilterState.Text = "Filter By State";
+            ShowAllState.Text = "Show All";
+            Enabled.Text = "Filter By Enabled";
+            Disabled.Text = "Filter By Disabled";
+            FilterAction.Text = "Filter By Action";
+            ShowAllAction.Text = "Show All";
+            Allow.Text = "Filter By Allow";
+            Block.Text = "Filter By Block";
+            menuRefresh.Text = "Refresh";
+            Language.Text = "Language";
+            treeView1.Nodes["User"].Text = "Rules Created By The User";
+            treeView1.Nodes["Default"].Text = "The Default Rule Of The Windows";
+            treeView1.Nodes["User"].Nodes["InboundUser"].Text = "Inbound Rules";
+            treeView1.Nodes["Default"].Nodes["InboundDefault"].Text = "Inbound Rules";
+            treeView1.Nodes["User"].Nodes["OutboundUser"].Text = "Outbound Rules";
+            treeView1.Nodes["Default"].Nodes["OutboundDefault"].Text = "Outbound Rules";
+            treeView1.Nodes["Web"].Text = "Website blocking rules";
         }
         public void Showview()
         {
@@ -104,7 +181,14 @@ namespace WinformsExample
         {
             kt = 0;
             tab.Controls.Clear();
-            tab.Text = "Inbound Rules User";
+            if(Lang==0)
+            {
+                tab.Text = "Quy Tắc Vào Được Tạo Bởi Người Dùng";
+            }
+            else
+            {
+                tab.Text = "Inbound Rules Created By The User";
+            }
             InboundForm.User = 0;
             f1 = new InboundForm();
             f1.Header(Header);
@@ -120,7 +204,14 @@ namespace WinformsExample
         {
             kt = 1;
             tab.Controls.Clear();
-            tab.Text = "Outbound Rules User";
+            if (Lang == 0)
+            {
+                tab.Text = "Quy Tắc Ra Được Tạo Bởi Người Dùng";
+            }
+            else
+            {
+                tab.Text = "Outbound Rules Created By The User";
+            }
             OutboundForm.User = 0;
             f2 = new OutboundForm();
             f2.Header(Header);
@@ -136,7 +227,14 @@ namespace WinformsExample
         {
             kt = 0;
             tab.Controls.Clear();
-            tab.Text = "Inbound Rules Default";
+            if (Lang == 0)
+            {
+                tab.Text = "Quy Tắc Vào Mặc Định Của Windows";
+            }
+            else
+            {
+                tab.Text = "The Default Inbound Rule Of The Windows";
+            }
             InboundForm.User = 1;
             f3 = new InboundForm();
             f3.Header(Header);
@@ -152,7 +250,14 @@ namespace WinformsExample
         {
             kt = 1;
             tab.Controls.Clear();
-            tab.Text = "Outbound Rules Default";
+            if (Lang == 0)
+            {
+                tab.Text = "Quy Tắc Ra Mặc Định Của Windows";
+            }
+            else
+            {
+                tab.Text = "The Default Outbound Rule Of The Windows";
+            }
             OutboundForm.User = 1;
             f4 = new OutboundForm();
             f4.Header(Header);
@@ -168,7 +273,14 @@ namespace WinformsExample
         {
             kt = 2;
             tab.Controls.Clear();
-            tab.Text = "Website blocking rules";
+            if (Lang == 0)
+            {
+                tab.Text = "Quy Tắc Chặn Trang Web";
+            }
+            else
+            {
+                tab.Text = "Website blocking rules";
+            }
             f5 = new WebsiteRuleForm();
             f5.Header(Header);
             f5.TopLevel = false;
@@ -577,11 +689,6 @@ namespace WinformsExample
                     }
             }
         }
-
-        private void menuReload_Click(object sender, EventArgs e)
-        {
-            Reload();
-        }
         public void FilterProfile()
         {
             ShowAllProfile.Checked = false;
@@ -774,6 +881,29 @@ namespace WinformsExample
             Profile = "1";
             State = "1";
             Action = "1";
+            Reload();
+        }
+
+        private void menuRefresh_Click(object sender, EventArgs e)
+        {
+            Reload();
+        }
+
+        private void Tiengviet_Click(object sender, EventArgs e)
+        {
+            Tiengviet.Checked = true;
+            English.Checked = false;
+            Lang = 0;
+            ShowTiengViet();
+            Reload();
+        }
+
+        private void English_Click(object sender, EventArgs e)
+        {
+            Tiengviet.Checked = false;
+            English.Checked = true;
+            Lang = 1;
+            ShowEnglish();
             Reload();
         }
 

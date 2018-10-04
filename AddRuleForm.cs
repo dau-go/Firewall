@@ -109,11 +109,54 @@ namespace WinformsExample
                 ShowAddWebRule();
             }
 
+            if (FirewallForm.Lang == 0)
+            {
+                ShowTiengViet();
+            }
+            else
+            {
+                ShowEnglish();
+            }
+        }
+        public void ShowTiengViet()
+        {
+            label1.Text = "Thêm Mới Quy Tắc";
+            btnBack.Text = "<Quay Lại";
+            btnBack1.Text= "<Quay Lại";
+            btnBack2.Text = "<Quay Lại";
+            btnBack3.Text = "<Quay Lại";
+            btnNext.Text = "Tiếp Tục>";
+            btnNext1.Text = "Tiếp Tục>";
+            btnNext2.Text = "Tiếp Tục>";
+            btnNext3.Text = "Tiếp Tục>";
+            btnfis.Text = "Hoàn Thành";
+            btnCancel.Text = "Hủy Bỏ";
+        }
+        public void ShowEnglish()
+        {
+            label1.Text = "Add New Rule";
+            btnBack.Text = "<Back";
+            btnBack1.Text = "<Back";
+            btnBack2.Text = "<Back";
+            btnBack3.Text = "<Back";
+            btnNext.Text = "Next>";
+            btnNext1.Text = "Next>";
+            btnNext2.Text = "Next>";
+            btnNext3.Text = "Next>";
+            btnfis.Text = "Finish";
+            btnCancel.Text = "Cancel";
         }
         public void ShowAddWebRule()
         {
             groupBox1.Controls.Clear();
-            groupBox1.Text = "Website blocking rules";
+            if (FirewallForm.Lang == 0)
+            {
+                groupBox1.Text = "Quy tắc chặn trang web";
+            }
+            else
+            {
+                groupBox1.Text = "Website blocking rules";
+            }
             f.TopLevel = false;
             f.FormBorderStyle = FormBorderStyle.None;
             f.Dock = DockStyle.Fill;
@@ -125,7 +168,14 @@ namespace WinformsExample
         private void ShowRuleTypeForm()
         {
             groupBox1.Controls.Clear();
-            groupBox1.Text = "Rule Type";
+            if (FirewallForm.Lang == 0)
+            {
+                groupBox1.Text = "Loại Quy Tắc";
+            }
+            else
+            {
+                groupBox1.Text = "Rule Type";
+            }
             f7.send = new RuleTypeForm.SendMessage(GetValueType);
             f7.TopLevel = false;
             f7.FormBorderStyle = FormBorderStyle.None;
@@ -214,8 +264,16 @@ namespace WinformsExample
                 groupBox1.Text = "";
                 groupBox1.Controls.Add(groupBox2);
                 groupBox1.Controls.Add(groupBox3);
-                groupBox2.Text = "Properties";
-                groupBox3.Text = "Program";
+                if (FirewallForm.Lang == 0)
+                {
+                    groupBox2.Text = "Tính Chất";
+                    groupBox3.Text = "Chương Trình";
+                }
+                else
+                {
+                    groupBox2.Text = "Properties";
+                    groupBox3.Text = "Program";
+                }
                 groupBox2.Visible = true;
                 groupBox3.Visible = true;
                 //
@@ -240,8 +298,16 @@ namespace WinformsExample
                 groupBox1.Text = "";
                 groupBox1.Controls.Add(groupBox2);
                 groupBox1.Controls.Add(groupBox3);
-                groupBox2.Text = "Properties";
-                groupBox3.Text = "Program And Port";
+                if (FirewallForm.Lang == 0)
+                {
+                    groupBox2.Text = "Tính Chất";
+                    groupBox3.Text = "Giao Thức Và Cổng";
+                }
+                else
+                {
+                    groupBox2.Text = "Properties";
+                    groupBox3.Text = "Protocol And Port";
+                }
                 groupBox2.Visible = true;
                 groupBox3.Visible = true;
                 //
@@ -266,8 +332,16 @@ namespace WinformsExample
                 groupBox1.Text = "";
                 groupBox1.Controls.Add(groupBox2);
                 groupBox1.Controls.Add(groupBox3);
-                groupBox2.Text = "Properties";
-                groupBox3.Text = "Program";
+                if (FirewallForm.Lang == 0)
+                {
+                    groupBox2.Text = "Tính Chất";
+                    groupBox3.Text = "Chương Trình";
+                }
+                else
+                {
+                    groupBox2.Text = "Properties";
+                    groupBox3.Text = "Program";
+                }
                 groupBox2.Visible = true;
                 groupBox3.Visible = true;
                 //
@@ -417,8 +491,16 @@ namespace WinformsExample
                 groupBox1.Text = "";
                 groupBox1.Controls.Add(groupBox2);
                 groupBox1.Controls.Add(groupBox3);
-                groupBox2.Text = "Properties";
-                groupBox3.Text = "Program";
+                if (FirewallForm.Lang == 0)
+                {
+                    groupBox2.Text = "Tính Chất";
+                    groupBox3.Text = "Chương Trình";
+                }
+                else
+                {
+                    groupBox2.Text = "Properties";
+                    groupBox3.Text = "Program";
+                }
                 groupBox2.Visible = true;
                 groupBox3.Visible = true;
                 //
@@ -449,7 +531,14 @@ namespace WinformsExample
         private void btnback2_Click(object sender, EventArgs e)
         {
             groupBox1.Controls.Clear();
-            groupBox1.Text = "Protocol and Port";
+            if (FirewallForm.Lang == 0)
+            {
+                groupBox1.Text = "Giao Thức Và Cổng";
+            }
+            else
+            {
+                groupBox1.Text = "Protocol and Port";
+            }
             f6.TopLevel = false;
             f6.FormBorderStyle = FormBorderStyle.None;
             f6.Dock = DockStyle.Fill;
@@ -487,7 +576,14 @@ namespace WinformsExample
                     }
                 }
                 groupBox1.Controls.Clear();
-                groupBox1.Text = "Scope";
+                if (FirewallForm.Lang == 0)
+                {
+                    groupBox1.Text = "Phạm Vi";
+                }
+                else
+                {
+                    groupBox1.Text = "Scope";
+                }
                 f1.TopLevel = false;
                 f1.FormBorderStyle = FormBorderStyle.None;
                 f1.Dock = DockStyle.Fill;
@@ -512,7 +608,14 @@ namespace WinformsExample
         private void btnBack3_Click(object sender, EventArgs e)
         {
             groupBox1.Controls.Clear();
-            groupBox1.Text = "Scope";
+            if (FirewallForm.Lang == 0)
+            {
+                groupBox1.Text = "Phạm Vi";
+            }
+            else
+            {
+                groupBox1.Text = "Scope";
+            }
             f1.TopLevel = false;
             f1.FormBorderStyle = FormBorderStyle.None;
             f1.Dock = DockStyle.Fill;
@@ -534,7 +637,14 @@ namespace WinformsExample
             if (_LocalIP != "" && _RemoteIP != "")
             {
                 groupBox1.Controls.Clear();
-                groupBox1.Text = "Profile";
+                if (FirewallForm.Lang == 0)
+                {
+                    groupBox1.Text = "Hồ Sơ";
+                }
+                else
+                {
+                    groupBox1.Text = "Profile";
+                }
                 f3.TopLevel = false;
                 f3.FormBorderStyle = FormBorderStyle.None;
                 f3.Dock = DockStyle.Fill;

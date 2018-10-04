@@ -15,6 +15,30 @@ namespace WinformsExample
         public RulePropertiesForm()
         {
             InitializeComponent();
+            if (FirewallForm.Lang == 0)
+            {
+                ShowTiengViet();
+            }
+            else
+            {
+                ShowEnglish();
+            }
+        }
+        public void ShowTiengViet()
+        {
+            label3.Text = "Tên quy tắc:";
+            label4.Text = "Miêu tả";
+            label5.Text = "Hoạt động:";
+            rbAllow.Text = "Cho phép";
+            rbBlock.Text = "Không cho phép";
+        }
+        public void ShowEnglish()
+        {
+            label3.Text = "Name of the rule:";
+            label4.Text = "Description:";
+            label5.Text = "Action:";
+            rbAllow.Text = "Allow";
+            rbBlock.Text = "Block";
         }
         public void LoadNext()
         {

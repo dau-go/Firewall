@@ -84,10 +84,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(56, 53);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(383, 13);
+            this.label3.Size = new System.Drawing.Size(213, 13);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Rule applies to all connections on the computer that match orther rule properties" +
-    "";
+            this.label3.Text = "Rules apply to all programs on the computer";
             // 
             // Open
             // 
