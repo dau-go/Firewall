@@ -64,6 +64,13 @@ namespace WinformsExample
             dataGridView1.Columns["LocalPort"].HeaderText = "Cổng Nội Bộ";
             dataGridView1.Columns["RemotePort"].HeaderText = "Cổng Từ Xa";
             dataGridView1.Columns["Profile"].HeaderText = "Hồ Sơ";
+            menuDisable.Text = "Tắt";
+            menuEnable.Text = "Bật";
+            menuAllow.Text = "Cho phép";
+            menuBlock.Text = "Chặn";
+            menuAdd.Text = "Thêm mới quy tắc";
+            menuDel.Text = "Xóa quy tắc";
+            menuProperties.Text = "Thuộc Tính";
         }
         public void ShowEnglish()
         {
@@ -77,6 +84,13 @@ namespace WinformsExample
             dataGridView1.Columns["LocalPort"].HeaderText = "Local Port";
             dataGridView1.Columns["RemotePort"].HeaderText = "Remote Port";
             dataGridView1.Columns["Profile"].HeaderText = "Profile";
+            menuDisable.Text = "Disabled";
+            menuEnable.Text = "Enabled";
+            menuAllow.Text = "Allow";
+            menuBlock.Text = "Block";
+            menuAdd.Text = "Add New Rule";
+            menuDel.Text = "Delete Rule";
+            menuProperties.Text = "Properties";
         }
         public void Header(int i)
         {
@@ -84,10 +98,10 @@ namespace WinformsExample
             {
                 if (i == 0)
                 {
-                    dataGridView1.Columns["NameRule"].Width = 220;
-                    dataGridView1.Columns["Application"].Width = 138;
-                    dataGridView1.Columns["State"].Width = 50;
-                    dataGridView1.Columns["Action"].Width = 50;
+                    dataGridView1.Columns["NameRule"].Width = 300;
+                    dataGridView1.Columns["Application"].Width = 200;
+                    dataGridView1.Columns["State"].Width = 85;
+                    dataGridView1.Columns["Action"].Width = 85;
                     dataGridView1.Columns["LocalAddress"].Width = 110;
                     dataGridView1.Columns["RemoteAddress"].Width = 110;
                     dataGridView1.Columns["LocalPort"].Width = 110;
@@ -96,10 +110,10 @@ namespace WinformsExample
                 }
                 else
                 {
-                    dataGridView1.Columns["NameRule"].Width = 265;
-                    dataGridView1.Columns["Application"].Width = 220;
-                    dataGridView1.Columns["State"].Width = 60;
-                    dataGridView1.Columns["Action"].Width = 60;
+                    dataGridView1.Columns["NameRule"].Width = 300;
+                    dataGridView1.Columns["Application"].Width = 200;
+                    dataGridView1.Columns["State"].Width = 85;
+                    dataGridView1.Columns["Action"].Width = 85;
                     dataGridView1.Columns["LocalAddress"].Width = 120;
                     dataGridView1.Columns["RemoteAddress"].Width = 120;
                     dataGridView1.Columns["LocalPort"].Width = 120;
@@ -111,10 +125,10 @@ namespace WinformsExample
             {
                 if (i == 0)
                 {
-                    dataGridView1.Columns["NameRule"].Width = 220;
-                    dataGridView1.Columns["Application"].Width = 155;
-                    dataGridView1.Columns["State"].Width = 50;
-                    dataGridView1.Columns["Action"].Width = 50;
+                    dataGridView1.Columns["NameRule"].Width = 300;
+                    dataGridView1.Columns["Application"].Width = 200;
+                    dataGridView1.Columns["State"].Width = 85;
+                    dataGridView1.Columns["Action"].Width = 85;
                     dataGridView1.Columns["LocalAddress"].Width = 110;
                     dataGridView1.Columns["RemoteAddress"].Width = 110;
                     dataGridView1.Columns["LocalPort"].Width = 110;
@@ -123,10 +137,10 @@ namespace WinformsExample
                 }
                 else
                 {
-                    dataGridView1.Columns["NameRule"].Width = 263;
-                    dataGridView1.Columns["Application"].Width = 230;
-                    dataGridView1.Columns["State"].Width = 60;
-                    dataGridView1.Columns["Action"].Width = 60;
+                    dataGridView1.Columns["NameRule"].Width = 300;
+                    dataGridView1.Columns["Application"].Width = 200;
+                    dataGridView1.Columns["State"].Width = 85;
+                    dataGridView1.Columns["Action"].Width = 85;
                     dataGridView1.Columns["LocalAddress"].Width = 120;
                     dataGridView1.Columns["RemoteAddress"].Width = 120;
                     dataGridView1.Columns["LocalPort"].Width = 120;
@@ -142,7 +156,7 @@ namespace WinformsExample
 
             foreach (INetFwRule rule in firewallRule.Rules)
             {
-                string state = "", action = "", app = "", protocol = "", localAddress = "", remoteAddress = "", localport = "", remoteport = "", profile = "";
+                string state = "", action = "", app = "", protocol = "", localAddress = "", remoteAddress = "", localport = "", remoteport = "", profile = "", profile1 = "";
                 if (_User == 0)
                 {
                     if (rule.Direction.ToString() == "NET_FW_RULE_DIR_OUT")
@@ -151,23 +165,58 @@ namespace WinformsExample
                         {
                             if (rule.Enabled == true)
                             {
-                                state = "Yes";
+                                if (FirewallForm.Lang == 0)
+                                {
+                                    state = "Bật";
+                                }
+                                else
+                                {
+                                    state = "Yes";
+                                }
                             }
                             else
                             {
-                                state = "No";
+                                if (FirewallForm.Lang == 0)
+                                {
+                                    state = "Tắt";
+                                }
+                                else
+                                {
+                                    state = "Yes";
+                                }
                             }
                             if (rule.Action.ToString() == "NET_FW_ACTION_ALLOW")
                             {
-                                action = "Allow";
+                                if (FirewallForm.Lang == 0)
+                                {
+                                    action = "Cho phép";
+                                }
+                                else
+                                {
+                                    action = "Allow";
+                                }
                             }
                             else
                             {
-                                action = "Block";
+                                if (FirewallForm.Lang == 0)
+                                {
+                                    action = "Chặn";
+                                }
+                                else
+                                {
+                                    action = "Block";
+                                }
                             }
                             if (rule.ApplicationName == null)
                             {
-                                app = "Any";
+                                if (FirewallForm.Lang == 0)
+                                {
+                                    app = "Tất cả";
+                                }
+                                else
+                                {
+                                    app = "Any";
+                                }
                             }
                             else
                             {
@@ -177,7 +226,19 @@ namespace WinformsExample
                             {
                                 case 256:
                                     {
-                                        protocol = "Any";
+                                        if (FirewallForm.Lang == 0)
+                                        {
+                                            protocol = "Tất cả";
+                                        }
+                                        else
+                                        {
+                                            protocol = "Any";
+                                        }
+                                        break;
+                                    }
+                                case 0:
+                                    {
+                                        profile = "HOPOPT";
                                         break;
                                     }
                                 case 1:
@@ -253,7 +314,14 @@ namespace WinformsExample
                             }
                             if (rule.LocalAddresses == "*")
                             {
-                                localAddress = "Any";
+                                if (FirewallForm.Lang == 0)
+                                {
+                                    localAddress = "Tất cả";
+                                }
+                                else
+                                {
+                                    localAddress = "Any";
+                                }
                             }
                             else
                             {
@@ -269,7 +337,14 @@ namespace WinformsExample
                             }
                             if (rule.RemoteAddresses == "*")
                             {
-                                remoteAddress = "Any";
+                                if (FirewallForm.Lang == 0)
+                                {
+                                    remoteAddress = "Tất cả";
+                                }
+                                else
+                                {
+                                    remoteAddress = "Any";
+                                }
                             }
                             else
                             {
@@ -285,7 +360,14 @@ namespace WinformsExample
                             }
                             if (rule.LocalPorts == "*" || rule.LocalPorts == null)
                             {
-                                localport = "Any";
+                                if (FirewallForm.Lang == 0)
+                                {
+                                    localport = "Tất cả";
+                                }
+                                else
+                                {
+                                    localport = "Any";
+                                }
                             }
                             else
                             {
@@ -293,54 +375,126 @@ namespace WinformsExample
                             }
                             if (rule.RemotePorts == "*" || rule.RemotePorts == null)
                             {
-                                remoteport = "Any";
+                                if (FirewallForm.Lang == 0)
+                                {
+                                    remoteport = "Tất cả";
+                                }
+                                else
+                                {
+                                    remoteport = "Any";
+                                }
                             }
                             else
                             {
                                 remoteport = rule.RemotePorts;
                             }
-                            switch (rule.Profiles)
+                            if (FirewallForm.Lang == 0)
                             {
-                                case 3:
-                                    {
-                                        profile = "Domain,Private";
-                                        break;
-                                    }
-                                case 7:
-                                    {
-                                        profile = "Domain,Private,Public";
-                                        break;
-                                    }
-                                case 2:
-                                    {
-                                        profile = "Private";
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        profile = "Public";
-                                        break;
-                                    }
-                                case 2147483647:
-                                    {
-                                        profile = "Domain,Private,Public";
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        profile = "Private,Public";
-                                        break;
-                                    }
-                                case 1:
-                                    {
-                                        profile = "Domain";
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        profile = "Domain,Public";
-                                        break;
-                                    }
+                                switch (rule.Profiles)
+                                {
+                                    case 3:
+                                        {
+                                            profile = "Domain,Private";
+                                            profile1 = "Tên miền,Bảo mật";
+                                            break;
+                                        }
+                                    case 7:
+                                        {
+                                            profile = "Domain,Private,Public";
+                                            profile1 = "Tên miền,Bảo mật,Công khai";
+                                            break;
+                                        }
+                                    case 2:
+                                        {
+                                            profile = "Private";
+                                            profile1 = "Bảo mật";
+                                            break;
+                                        }
+                                    case 4:
+                                        {
+                                            profile = "Public";
+                                            profile1 = "Công khai";
+                                            break;
+                                        }
+                                    case 2147483647:
+                                        {
+                                            profile = "Domain,Private,Public";
+                                            profile1 = "Tên miền,Bảo mật,Công khai";
+                                            break;
+                                        }
+                                    case 6:
+                                        {
+                                            profile = "Private,Public";
+                                            profile1 = "Bảo mật,Công khai";
+                                            break;
+                                        }
+                                    case 1:
+                                        {
+                                            profile = "Domain";
+                                            profile1 = "Công khai";
+                                            break;
+                                        }
+                                    case 5:
+                                        {
+                                            profile = "Domain,Public";
+                                            profile1 = "Tên miền,Công khai";
+                                            break;
+                                        }
+                                }
+                            }
+                            else
+                            {
+                                switch (rule.Profiles)
+                                {
+                                    case 3:
+                                        {
+                                            profile = "Domain,Private";
+                                            profile1 = "Domain,Private";
+                                            break;
+                                        }
+                                    case 7:
+                                        {
+                                            profile = "Domain,Private,Public";
+                                            profile1 = "Domain,Private,Public";
+                                            break;
+                                        }
+                                    case 2:
+                                        {
+                                            profile = "Private";
+                                            profile1 = "Private";
+                                            break;
+                                        }
+                                    case 4:
+                                        {
+                                            profile = "Public";
+                                            profile1 = "Public";
+                                            break;
+                                        }
+                                    case 2147483647:
+                                        {
+                                            profile = "Domain,Private,Public";
+                                            profile1 = "Domain,Private,Public";
+                                            break;
+                                        }
+                                    case 6:
+                                        {
+                                            profile = "Private,Public";
+                                            profile1 = "Private,Public";
+                                            break;
+                                        }
+                                    case 1:
+                                        {
+                                            profile = "Domain";
+                                            profile1 = "Domain";
+                                            break;
+                                        }
+                                    case 5:
+                                        {
+                                            profile = "Domain,Public";
+                                            profile1 = "Domain,Public";
+                                            break;
+                                        }
+                                }
                             }
                             if (FirewallForm.Action == "1")
                             {
@@ -362,7 +516,7 @@ namespace WinformsExample
                                             RemoteAddress = remoteAddress,
                                             LocalPort = localport,
                                             RemotePort = remoteport,
-                                            Profile = profile,
+                                            Profile = profile1,
                                         });
                                     }
                                     else
@@ -383,7 +537,7 @@ namespace WinformsExample
                                                 RemoteAddress = remoteAddress,
                                                 LocalPort = localport,
                                                 RemotePort = remoteport,
-                                                Profile = profile,
+                                                Profile = profile1,
                                             });
                                         }
                                     }
@@ -408,7 +562,7 @@ namespace WinformsExample
                                                 RemoteAddress = remoteAddress,
                                                 LocalPort = localport,
                                                 RemotePort = remoteport,
-                                                Profile = profile,
+                                                Profile = profile1,
                                             });
                                         }
                                         else
@@ -429,7 +583,7 @@ namespace WinformsExample
                                                     RemoteAddress = remoteAddress,
                                                     LocalPort = localport,
                                                     RemotePort = remoteport,
-                                                    Profile = profile,
+                                                    Profile = profile1,
                                                 });
                                             }
                                         }
@@ -458,7 +612,7 @@ namespace WinformsExample
                                                 RemoteAddress = remoteAddress,
                                                 LocalPort = localport,
                                                 RemotePort = remoteport,
-                                                Profile = profile,
+                                                Profile = profile1,
                                             });
                                         }
                                         else
@@ -479,7 +633,7 @@ namespace WinformsExample
                                                     RemoteAddress = remoteAddress,
                                                     LocalPort = localport,
                                                     RemotePort = remoteport,
-                                                    Profile = profile,
+                                                    Profile = profile1,
                                                 });
                                             }
                                         }
@@ -504,7 +658,7 @@ namespace WinformsExample
                                                     RemoteAddress = remoteAddress,
                                                     LocalPort = localport,
                                                     RemotePort = remoteport,
-                                                    Profile = profile,
+                                                    Profile = profile1,
                                                 });
                                             }
                                             else
@@ -525,7 +679,7 @@ namespace WinformsExample
                                                         RemoteAddress = remoteAddress,
                                                         LocalPort = localport,
                                                         RemotePort = remoteport,
-                                                        Profile = profile,
+                                                        Profile = profile1,
                                                     });
                                                 }
                                             }
@@ -544,23 +698,58 @@ namespace WinformsExample
                         {
                             if (rule.Enabled == true)
                             {
-                                state = "Yes";
+                                if (FirewallForm.Lang == 0)
+                                {
+                                    state = "Bật";
+                                }
+                                else
+                                {
+                                    state = "Yes";
+                                }
                             }
                             else
                             {
-                                state = "No";
+                                if (FirewallForm.Lang == 0)
+                                {
+                                    state = "Tắt";
+                                }
+                                else
+                                {
+                                    state = "Yes";
+                                }
                             }
                             if (rule.Action.ToString() == "NET_FW_ACTION_ALLOW")
                             {
-                                action = "Allow";
+                                if (FirewallForm.Lang == 0)
+                                {
+                                    action = "Cho phép";
+                                }
+                                else
+                                {
+                                    action = "Allow";
+                                }
                             }
                             else
                             {
-                                action = "Block";
+                                if (FirewallForm.Lang == 0)
+                                {
+                                    action = "Chặn";
+                                }
+                                else
+                                {
+                                    action = "Block";
+                                }
                             }
                             if (rule.ApplicationName == null)
                             {
-                                app = "Any";
+                                if (FirewallForm.Lang == 0)
+                                {
+                                    app = "Tất cả";
+                                }
+                                else
+                                {
+                                    app = "Any";
+                                }
                             }
                             else
                             {
@@ -570,7 +759,19 @@ namespace WinformsExample
                             {
                                 case 256:
                                     {
-                                        protocol = "Any";
+                                        if (FirewallForm.Lang == 0)
+                                        {
+                                            protocol = "Tất cả";
+                                        }
+                                        else
+                                        {
+                                            protocol = "Any";
+                                        }
+                                        break;
+                                    }
+                                case 0:
+                                    {
+                                        profile = "HOPOPT";
                                         break;
                                     }
                                 case 1:
@@ -646,7 +847,14 @@ namespace WinformsExample
                             }
                             if (rule.LocalAddresses == "*")
                             {
-                                localAddress = "Any";
+                                if (FirewallForm.Lang == 0)
+                                {
+                                    localAddress = "Tất cả";
+                                }
+                                else
+                                {
+                                    localAddress = "Any";
+                                }
                             }
                             else
                             {
@@ -662,7 +870,14 @@ namespace WinformsExample
                             }
                             if (rule.RemoteAddresses == "*")
                             {
-                                remoteAddress = "Any";
+                                if (FirewallForm.Lang == 0)
+                                {
+                                    remoteAddress = "Tất cả";
+                                }
+                                else
+                                {
+                                    remoteAddress = "Any";
+                                }
                             }
                             else
                             {
@@ -678,7 +893,14 @@ namespace WinformsExample
                             }
                             if (rule.LocalPorts == "*" || rule.LocalPorts == null)
                             {
-                                localport = "Any";
+                                if (FirewallForm.Lang == 0)
+                                {
+                                    localport = "Tất cả";
+                                }
+                                else
+                                {
+                                    localport = "Any";
+                                }
                             }
                             else
                             {
@@ -686,54 +908,126 @@ namespace WinformsExample
                             }
                             if (rule.RemotePorts == "*" || rule.RemotePorts == null)
                             {
-                                remoteport = "Any";
+                                if (FirewallForm.Lang == 0)
+                                {
+                                    remoteport = "Tất cả";
+                                }
+                                else
+                                {
+                                    remoteport = "Any";
+                                }
                             }
                             else
                             {
                                 remoteport = rule.RemotePorts;
                             }
-                            switch (rule.Profiles)
+                            if (FirewallForm.Lang == 0)
                             {
-                                case 3:
-                                    {
-                                        profile = "Domain,Private";
-                                        break;
-                                    }
-                                case 7:
-                                    {
-                                        profile = "Domain,Private,Public";
-                                        break;
-                                    }
-                                case 2:
-                                    {
-                                        profile = "Private";
-                                        break;
-                                    }
-                                case 4:
-                                    {
-                                        profile = "Public";
-                                        break;
-                                    }
-                                case 2147483647:
-                                    {
-                                        profile = "Domain,Private,Public";
-                                        break;
-                                    }
-                                case 6:
-                                    {
-                                        profile = "Private,Public";
-                                        break;
-                                    }
-                                case 1:
-                                    {
-                                        profile = "Domain";
-                                        break;
-                                    }
-                                case 5:
-                                    {
-                                        profile = "Domain,Public";
-                                        break;
-                                    }
+                                switch (rule.Profiles)
+                                {
+                                    case 3:
+                                        {
+                                            profile = "Domain,Private";
+                                            profile1 = "Tên miền,Bảo mật";
+                                            break;
+                                        }
+                                    case 7:
+                                        {
+                                            profile = "Domain,Private,Public";
+                                            profile1 = "Tên miền,Bảo mật,Công khai";
+                                            break;
+                                        }
+                                    case 2:
+                                        {
+                                            profile = "Private";
+                                            profile1 = "Bảo mật";
+                                            break;
+                                        }
+                                    case 4:
+                                        {
+                                            profile = "Public";
+                                            profile1 = "Công khai";
+                                            break;
+                                        }
+                                    case 2147483647:
+                                        {
+                                            profile = "Domain,Private,Public";
+                                            profile1 = "Tên miền,Bảo mật,Công khai";
+                                            break;
+                                        }
+                                    case 6:
+                                        {
+                                            profile = "Private,Public";
+                                            profile1 = "Bảo mật,Công khai";
+                                            break;
+                                        }
+                                    case 1:
+                                        {
+                                            profile = "Domain";
+                                            profile1 = "Công khai";
+                                            break;
+                                        }
+                                    case 5:
+                                        {
+                                            profile = "Domain,Public";
+                                            profile1 = "Tên miền,Công khai";
+                                            break;
+                                        }
+                                }
+                            }
+                            else
+                            {
+                                switch (rule.Profiles)
+                                {
+                                    case 3:
+                                        {
+                                            profile = "Domain,Private";
+                                            profile1 = "Domain,Private";
+                                            break;
+                                        }
+                                    case 7:
+                                        {
+                                            profile = "Domain,Private,Public";
+                                            profile1 = "Domain,Private,Public";
+                                            break;
+                                        }
+                                    case 2:
+                                        {
+                                            profile = "Private";
+                                            profile1 = "Private";
+                                            break;
+                                        }
+                                    case 4:
+                                        {
+                                            profile = "Public";
+                                            profile1 = "Public";
+                                            break;
+                                        }
+                                    case 2147483647:
+                                        {
+                                            profile = "Domain,Private,Public";
+                                            profile1 = "Domain,Private,Public";
+                                            break;
+                                        }
+                                    case 6:
+                                        {
+                                            profile = "Private,Public";
+                                            profile1 = "Private,Public";
+                                            break;
+                                        }
+                                    case 1:
+                                        {
+                                            profile = "Domain";
+                                            profile1 = "Domain";
+                                            break;
+                                        }
+                                    case 5:
+                                        {
+                                            profile = "Domain,Public";
+                                            profile1 = "Domain,Public";
+                                            break;
+                                        }
+                                }
                             }
                             if (FirewallForm.Action == "1")
                             {
@@ -755,7 +1049,7 @@ namespace WinformsExample
                                             RemoteAddress = remoteAddress,
                                             LocalPort = localport,
                                             RemotePort = remoteport,
-                                            Profile = profile,
+                                            Profile = profile1,
                                         });
                                     }
                                     else
@@ -776,7 +1070,7 @@ namespace WinformsExample
                                                 RemoteAddress = remoteAddress,
                                                 LocalPort = localport,
                                                 RemotePort = remoteport,
-                                                Profile = profile,
+                                                Profile = profile1,
                                             });
                                         }
                                     }
@@ -801,7 +1095,7 @@ namespace WinformsExample
                                                 RemoteAddress = remoteAddress,
                                                 LocalPort = localport,
                                                 RemotePort = remoteport,
-                                                Profile = profile,
+                                                Profile = profile1,
                                             });
                                         }
                                         else
@@ -822,7 +1116,7 @@ namespace WinformsExample
                                                     RemoteAddress = remoteAddress,
                                                     LocalPort = localport,
                                                     RemotePort = remoteport,
-                                                    Profile = profile,
+                                                    Profile = profile1,
                                                 });
                                             }
                                         }
@@ -851,7 +1145,7 @@ namespace WinformsExample
                                                 RemoteAddress = remoteAddress,
                                                 LocalPort = localport,
                                                 RemotePort = remoteport,
-                                                Profile = profile,
+                                                Profile = profile1,
                                             });
                                         }
                                         else
@@ -872,7 +1166,7 @@ namespace WinformsExample
                                                     RemoteAddress = remoteAddress,
                                                     LocalPort = localport,
                                                     RemotePort = remoteport,
-                                                    Profile = profile,
+                                                    Profile = profile1,
                                                 });
                                             }
                                         }
@@ -897,7 +1191,7 @@ namespace WinformsExample
                                                     RemoteAddress = remoteAddress,
                                                     LocalPort = localport,
                                                     RemotePort = remoteport,
-                                                    Profile = profile,
+                                                    Profile = profile1,
                                                 });
                                             }
                                             else
@@ -918,7 +1212,7 @@ namespace WinformsExample
                                                         RemoteAddress = remoteAddress,
                                                         LocalPort = localport,
                                                         RemotePort = remoteport,
-                                                        Profile = profile,
+                                                        Profile = profile1,
                                                     });
                                                 }
                                             }
@@ -939,19 +1233,138 @@ namespace WinformsExample
             for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
             {
                 DataGridViewRow dr = dataGridView1.SelectedRows[i];
+                int t = int.Parse(dr.Cells["STT"].Value.ToString());
+                string state = "", action = "", app = "", protocol = "", localAddress = "", remoteAddress = "", localport = "", remoteport = "", profile = "";
+                if (dr.Cells["Application"].Value.ToString() == "Any" || dr.Cells["Application"].Value.ToString() == "Tất cả")
+                {
+                    app = "Any";
+                }
+                else
+                {
+                    app = dr.Cells["Application"].Value.ToString();
+                }
+                if (dr.Cells["State"].Value.ToString() == "Yes" || dr.Cells["State"].Value.ToString() == "Bật")
+                {
+                    state = "Yes";
+                }
+                else
+                {
+                    state = "No";
+                }
+                if (dr.Cells["Action"].Value.ToString() == "Allow" || dr.Cells["Action"].Value.ToString() == "Cho phép")
+                {
+                    action = "Allow";
+                }
+                else
+                {
+                    action = "Block";
+                }
+                if (dr.Cells["Protocol"].Value.ToString() == "Tất cả" || dr.Cells["Protocol"].Value.ToString() == "Any")
+                {
+                    protocol = "Any";
+                }
+                else
+                {
+                    protocol = dr.Cells["Protocol"].Value.ToString();
+                }
+                if (dr.Cells["LocalAddress"].Value.ToString() == "Tất cả" || dr.Cells["LocalAddress"].Value.ToString() == "Any")
+                {
+                    localAddress = "Any";
+                }
+                else
+                {
+                    localAddress = dr.Cells["LocalAddress"].Value.ToString();
+                }
+                if (dr.Cells["LocalAddress"].Value.ToString() == "Tất cả" || dr.Cells["LocalAddress"].Value.ToString() == "Any")
+                {
+                    localAddress = "Any";
+                }
+                else
+                {
+                    localAddress = dr.Cells["LocalAddress"].Value.ToString();
+                }
+                if (dr.Cells["RemoteAddress"].Value.ToString() == "Tất cả" || dr.Cells["RemoteAddress"].Value.ToString() == "Any")
+                {
+                    remoteAddress = "Any";
+                }
+                else
+                {
+                    remoteAddress = dr.Cells["RemoteAddress"].Value.ToString();
+                }
+                if (dr.Cells["LocalPort"].Value.ToString() == "Tất cả" || dr.Cells["LocalPort"].Value.ToString() == "Any")
+                {
+                    localport = "Any";
+                }
+                else
+                {
+                    localport = dr.Cells["LocalPort"].Value.ToString();
+                }
+                if (dr.Cells["RemotePort"].Value.ToString() == "Tất cả" || dr.Cells["RemotePort"].Value.ToString() == "Any")
+                {
+                    remoteport = "Any";
+                }
+                else
+                {
+                    remoteport = dr.Cells["RemotePort"].Value.ToString();
+                }
+                if (FirewallForm.Lang == 0)
+                {
+                    switch (dr.Cells["Profile"].Value.ToString())
+                    {
+                        case "Tên miền":
+                            {
+                                profile = "Domain";
+                                break;
+                            }
+                        case "Bảo mật":
+                            {
+                                profile = "Private";
+                                break;
+                            }
+                        case "Công khai":
+                            {
+                                profile = "Public";
+                                break;
+                            }
+                        case "Tên miền,Bảo mật":
+                            {
+                                profile = "Domain,Private";
+                                break;
+                            }
+                        case "Tên miền,Bảo mật,Công khai":
+                            {
+                                profile = "Domain,Private,Public";
+                                break;
+                            }
+                        case "Bảo mật,Công khai":
+                            {
+                                profile = "Private,Public";
+                                break;
+                            }
+                        case "Tên miền,Công khai":
+                            {
+                                profile = "Domain,Public";
+                                break;
+                            }
+                    }
+                }
+                else
+                {
+                    profile = dr.Cells["Profile"].Value.ToString();
+                }
                 result.Add(new Customer()
                 {
                     STT = int.Parse(dr.Cells["STT"].Value.ToString()),
                     NameRule = dr.Cells["NameRule"].Value.ToString(),
-                    Application = dr.Cells["Application"].Value.ToString(),
-                    State = dr.Cells["State"].Value.ToString(),
-                    Action = dr.Cells["Action"].Value.ToString(),
-                    Protocol = dr.Cells["Protocol"].Value.ToString(),
-                    LocalAddress = dr.Cells["LocalAddress"].Value.ToString(),
-                    RemoteAddress = dr.Cells["RemoteAddress"].Value.ToString(),
-                    LocalPort = dr.Cells["LocalPort"].Value.ToString(),
-                    RemotePort = dr.Cells["RemotePort"].Value.ToString(),
-                    Profile = dr.Cells["Profile"].Value.ToString(),
+                    Application = app,
+                    State = state,
+                    Action = action,
+                    Protocol = protocol,
+                    LocalAddress = localAddress,
+                    RemoteAddress = remoteAddress,
+                    LocalPort = localport,
+                    RemotePort = remoteport,
+                    Profile = profile,
                 });
             }
             return result;
@@ -1172,7 +1585,7 @@ namespace WinformsExample
                 }
                 catch
                 {
-                        
+
                 }
             }
         }

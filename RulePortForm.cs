@@ -19,7 +19,7 @@ namespace WinformsExample
                 if (FirewallForm.Lang == 0)
                 {
                     rbAllPort.Text = "Tất cả cổng từ xa";
-                    rbSpecPort.Text = "Cổng từ xa cụ thể";
+                    rbSpecPort.Text = "Cổng từ xa cụ thể:";
                     label3.Text = "Quy tắc này áp dụng cho tất cả các cổng cục bộ hoặc các cổng từ xa cụ thể";
                 }
                 else
@@ -34,7 +34,7 @@ namespace WinformsExample
                 if (FirewallForm.Lang == 0)
                 {
                     rbAllPort.Text = "Tất cả cổng nội bộ";
-                    rbSpecPort.Text = "Cổng nội bộ cụ thể";
+                    rbSpecPort.Text = "Cổng nội bộ cụ thể:";
                     label3.Text = "Quy tắc này áp dụng cho tất cả các cổng cục bộ hoặc các cổng nội bộ cụ thể";
                 }
                 else

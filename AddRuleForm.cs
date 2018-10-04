@@ -374,7 +374,14 @@ namespace WinformsExample
                 }
                 if (ktname == 1)
                 {
-                    MessageBox.Show("Rule name already exists", "Firewall");
+                    if (FirewallForm.Lang == 0)
+                    {
+                        MessageBox.Show("Tên quy tắc đã tồn tại", "Tường Lửa");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Rule name already exists", "Firewall");
+                    }
                     return;
                 }
                 switch (k)
@@ -384,7 +391,14 @@ namespace WinformsExample
                             if (_Program != null && _Program != "")
                             {
                                 groupBox1.Controls.Clear();
-                                groupBox1.Text = "Profile";
+                                if (FirewallForm.Lang == 0)
+                                {
+                                    groupBox1.Text = "Hồ Sơ";
+                                }
+                                else
+                                {
+                                    groupBox1.Text = "Profile";
+                                }
                                 f3.TopLevel = false;
                                 f3.FormBorderStyle = FormBorderStyle.None;
                                 f3.Dock = DockStyle.Fill;
@@ -402,7 +416,14 @@ namespace WinformsExample
                             }
                             else
                             {
-                                MessageBox.Show("You must specify a program path", "Firewall");
+                                if (FirewallForm.Lang == 0)
+                                {
+                                    MessageBox.Show("Bạn phải chỉ định đường dẫn chương trình", "Tường Lửa");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("You must specify a program path", "Firewall");
+                                }
                             }
                             break;
                         }
@@ -414,12 +435,26 @@ namespace WinformsExample
                                 {
                                     if (ValidatePort(_LocalPort) == false)
                                     {
-                                        MessageBox.Show("The port value is incorrect", "Firewall");
+                                        if (FirewallForm.Lang == 0)
+                                        {
+                                            MessageBox.Show("Giá trị cổng không chính xác", "Tường Lửa");
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("The port value is incorrect", "Firewall");
+                                        }
                                         break;
                                     }
                                 }
                                 groupBox1.Controls.Clear();
-                                groupBox1.Text = "Profile";
+                                if (FirewallForm.Lang == 0)
+                                {
+                                    groupBox1.Text = "Hồ Sơ";
+                                }
+                                else
+                                {
+                                    groupBox1.Text = "Profile";
+                                }
                                 f3.TopLevel = false;
                                 f3.FormBorderStyle = FormBorderStyle.None;
                                 f3.Dock = DockStyle.Fill;
@@ -437,7 +472,14 @@ namespace WinformsExample
                             }
                             else
                             {
-                                MessageBox.Show("You must specify the port you want to add to the rule", "Firewall");
+                                if (FirewallForm.Lang == 0)
+                                {
+                                    MessageBox.Show("Bạn phải chỉ định cổng bạn muốn thêm vào quy tắc", "Tường Lửa");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("You must specify the port you want to add to the rule", "Firewall");
+                                }
                             }
                             break;
                         }
@@ -446,7 +488,14 @@ namespace WinformsExample
                             if (_Program != null && _Program != "")
                             {
                                 groupBox1.Controls.Clear();
-                                groupBox1.Text = "Protocol and Port";
+                                if (FirewallForm.Lang == 0)
+                                {
+                                    groupBox1.Text = "Giao Thức và Cổng";
+                                }
+                                else
+                                {
+                                    groupBox1.Text = "Protocol and Port";
+                                }
                                 f6.TopLevel = false;
                                 f6.FormBorderStyle = FormBorderStyle.None;
                                 f6.Dock = DockStyle.Fill;
@@ -464,7 +513,14 @@ namespace WinformsExample
                             }
                             else
                             {
-                                MessageBox.Show("You must specify a program path", "Firewall");
+                                if (FirewallForm.Lang == 0)
+                                {
+                                    MessageBox.Show("Bạn phải chỉ định đường dẫn chương trình", "Tường Lửa");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("You must specify a program path", "Firewall");
+                                }
                             }
                             break;
                         }
@@ -472,7 +528,14 @@ namespace WinformsExample
             }
             else
             {
-                MessageBox.Show("You must specify the rule name", "Firewall");
+                if (FirewallForm.Lang == 0)
+                {
+                    MessageBox.Show("Bạn phải chỉ định tên quy tắc", "Tường Lửa");
+                }
+                else
+                {
+                    MessageBox.Show("You must specify the rule name", "Firewall");
+                }
             }
         }
 
@@ -563,7 +626,14 @@ namespace WinformsExample
                 {
                     if (ValidatePort(_LocalPort) == false)
                     {
-                        MessageBox.Show("The port value is incorrect", "Firewall");
+                        if (FirewallForm.Lang == 0)
+                        {
+                            MessageBox.Show("Giá trị cổng không chính xác", "Tường Lửa");
+                        }
+                        else
+                        {
+                            MessageBox.Show("The port value is incorrect", "Firewall");
+                        }
                         return;
                     }
                 }
@@ -571,7 +641,14 @@ namespace WinformsExample
                 {
                     if (ValidatePort(_RemotePort) == false)
                     {
-                        MessageBox.Show("The port value is incorrect", "Firewall");
+                        if (FirewallForm.Lang == 0)
+                        {
+                            MessageBox.Show("Giá trị cổng không chính xác", "Tường Lửa");
+                        }
+                        else
+                        {
+                            MessageBox.Show("The port value is incorrect", "Firewall");
+                        }
                         return;
                     }
                 }
@@ -601,7 +678,14 @@ namespace WinformsExample
             }
             else
             {
-                MessageBox.Show("You must specify the port you want to add to the rule", "Firewall");
+                if (FirewallForm.Lang == 0)
+                {
+                    MessageBox.Show("Bạn phải chỉ định cổng bạn muốn thêm vào quy tắc", "Tường Lửa");
+                }
+                else
+                {
+                    MessageBox.Show("You must specify the port you want to add to the rule", "Firewall");
+                }
             }
         }
 
@@ -664,11 +748,25 @@ namespace WinformsExample
             {
                 if (_LocalIP == "")
                 {
-                    MessageBox.Show("You must specify the local IP you want to add to the rule", "Firewall");
+                    if (FirewallForm.Lang == 0)
+                    {
+                        MessageBox.Show("Bạn phải chỉ định IP cục bộ bạn muốn thêm vào quy tắc", "Tường Lửa");
+                    }
+                    else
+                    {
+                        MessageBox.Show("You must specify the local IP you want to add to the rule", "Firewall");
+                    }
                 }
                 if (_RemoteIP == "")
                 {
-                    MessageBox.Show("You must specify the remote IP you want to add to the rule", "Firewall");
+                    if (FirewallForm.Lang == 0)
+                    {
+                        MessageBox.Show("Bạn phải chỉ định IP từ xa bạn muốn thêm vào quy tắc", "Tường Lửa");
+                    }
+                    else
+                    {
+                        MessageBox.Show("You must specify the remote IP you want to add to the rule", "Firewall");
+                    }
                 }
             }
         }

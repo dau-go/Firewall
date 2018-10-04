@@ -88,64 +88,64 @@
             // menuDisable
             // 
             this.menuDisable.Name = "menuDisable";
-            this.menuDisable.Size = new System.Drawing.Size(149, 22);
-            this.menuDisable.Text = "Disable";
+            this.menuDisable.Size = new System.Drawing.Size(152, 22);
+            this.menuDisable.Text = "Disabled";
             this.menuDisable.Click += new System.EventHandler(this.menuDisable_Click);
             // 
             // menuEnable
             // 
             this.menuEnable.Name = "menuEnable";
-            this.menuEnable.Size = new System.Drawing.Size(149, 22);
-            this.menuEnable.Text = "Enable";
+            this.menuEnable.Size = new System.Drawing.Size(152, 22);
+            this.menuEnable.Text = "Enabled";
             this.menuEnable.Click += new System.EventHandler(this.menuEnable_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(146, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // menuBlock
             // 
             this.menuBlock.Name = "menuBlock";
-            this.menuBlock.Size = new System.Drawing.Size(149, 22);
+            this.menuBlock.Size = new System.Drawing.Size(152, 22);
             this.menuBlock.Text = "Block";
             this.menuBlock.Click += new System.EventHandler(this.menuBlock_Click);
             // 
             // menuAllow
             // 
             this.menuAllow.Name = "menuAllow";
-            this.menuAllow.Size = new System.Drawing.Size(149, 22);
+            this.menuAllow.Size = new System.Drawing.Size(152, 22);
             this.menuAllow.Text = "Allow";
             this.menuAllow.Click += new System.EventHandler(this.menuAllow_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(146, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
             // 
             // menuAdd
             // 
             this.menuAdd.Name = "menuAdd";
-            this.menuAdd.Size = new System.Drawing.Size(149, 22);
+            this.menuAdd.Size = new System.Drawing.Size(152, 22);
             this.menuAdd.Text = "Add New Rule";
             this.menuAdd.Click += new System.EventHandler(this.menuAdd_Click);
             // 
             // menuDel
             // 
             this.menuDel.Name = "menuDel";
-            this.menuDel.Size = new System.Drawing.Size(149, 22);
+            this.menuDel.Size = new System.Drawing.Size(152, 22);
             this.menuDel.Text = "Delete Rule";
             this.menuDel.Click += new System.EventHandler(this.menuDel_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(146, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
             // 
             // menuProperties
             // 
             this.menuProperties.Name = "menuProperties";
-            this.menuProperties.Size = new System.Drawing.Size(149, 22);
+            this.menuProperties.Size = new System.Drawing.Size(152, 22);
             this.menuProperties.Text = "Properties";
             this.menuProperties.Click += new System.EventHandler(this.menuProperties_Click);
             // 

@@ -93,6 +93,114 @@ namespace WinformsExample
             tabControl1.Controls.Remove(tabPage5);
             SetRule();
             k = 0;
+            if (FirewallForm.Lang == 0)
+            {
+                ShowTiengViet();
+            }
+            else
+            {
+                ShowEnglish();
+            }
+        }
+        public void ShowTiengViet()
+        {
+            this.Text = "Thuộc Tính";
+            tabPage1.Text = "Thông Tin Chung";
+            tabPage2.Text = "Chương Trình và Hồ Sơ";
+            tabPage3.Text = "Giao Thức và Cổng";
+            tabPage4.Text = "Phạm Vi";
+            tabPage5.Text = "Thời Gian";
+            groupBox1.Text = "Thông Tin Chung";
+            groupBox2.Text = "Hoạt Động";
+            groupBox3.Text = "Chương Trình";
+            groupBox4.Text = "Hồ Sơ";
+            groupBox5.Text = "Địa Chỉ IP Từ Xa";
+            groupBox6.Text = "Địa Chỉ IP Nội Bộ";
+            groupBox7.Text = "Giao Thức và Cổng";
+            groupBox8.Text = "Thời Gian";
+            label1.Text = "Tên:";
+            label2.Text = "Miêu tả:";
+            label3.Text = "Hồ sơ được chỉ định áp dụng quy tắc này";
+            label4.Text = "Ví Dụ: 80,443,...";
+            label5.Text = "Cổng nội bộ:";
+            label6.Text = "Ví Dụ: 80,443,...";
+            label7.Text = "Cổng từ xa:";
+            label8.Text = "Loại giao thức:";
+            label9.Text = "Phút";
+            label10.Text = "Giờ";
+            label11.Text = "Thời gian đến:";
+            label12.Text = "Phút";
+            label13.Text = "Giờ";
+            label14.Text = "Thời gian từ:";
+            ckState.Text = "Bật";
+            cbDomain.Text = "Tên miền";
+            cbPrivate.Text = "Bảo mật";
+            cbPublic.Text = "Công khai";
+            rbAllow.Text = "Cho phép kết nối";
+            rbBlock.Text = "Chặn kết nối";
+            rbAllProgram.Text = "Tất cả các chương trình đáp ứng các điều kiện quy định";
+            rbThisProgram.Text = "Đường dẫn chương trình:";
+            rbAllLocal.Text = "Tất cả địa chỉ IP";
+            rbAllRemote.Text = "Tất cả địa chỉ IP";
+            rbIPLocal.Text = "Các địa chỉ IP sau:";
+            rbIPRemote.Text = "Các địa chỉ IP sau:";
+            btnBrowes.Text = "Trình duyệt";
+            btnAddLocal.Text = "Thêm...";
+            btnEditLocal.Text = "Sửa...";
+            btnDelLocal.Text = "Xóa";
+            btnAddRemote.Text = "Thêm...";
+            btnEditRemote.Text = "Sửa...";
+            btnDelRemote.Text = "Xóa";
+        }
+        public void ShowEnglish()
+        {
+            this.Text = "Properties";
+            tabPage1.Text = "General Information";
+            tabPage2.Text = "Program and Profile";
+            tabPage3.Text = "Protocol and Ports";
+            tabPage4.Text = "Scope";
+            tabPage5.Text = "Time";
+            groupBox1.Text = "General";
+            groupBox2.Text = "Action";
+            groupBox3.Text = "Program";
+            groupBox4.Text = "Profile";
+            groupBox5.Text = "Remote IP Address";
+            groupBox6.Text = "Local IP Address";
+            groupBox7.Text = "Protocol and Ports";
+            groupBox8.Text = "Time";
+            label1.Text = "Name:";
+            label2.Text = "Description:";
+            label3.Text = "Specified profiles to which this rule applies";
+            label4.Text = "Example: 80,443,...";
+            label5.Text = "Local port:";
+            label6.Text = "Example: 80,443,...";
+            label7.Text = "Remote port:";
+            label8.Text = "Protocol type:";
+            label9.Text = "Minute";
+            label10.Text = "Hour";
+            label11.Text = "Time To:";
+            label12.Text = "Minute";
+            label13.Text = "Hour";
+            label14.Text = "Time From:";
+            ckState.Text = "Enable";
+            cbDomain.Text = "Domain";
+            cbPrivate.Text = "Private";
+            cbPublic.Text = "Public";
+            rbAllow.Text = "Allow the connection";
+            rbBlock.Text = "Block the connection";
+            rbAllProgram.Text = "All program that meet the specified conditions";
+            rbThisProgram.Text = "This program path:";
+            rbAllLocal.Text = "Any IP address";
+            rbAllRemote.Text = "Any IP address";
+            rbIPLocal.Text = "These IP address:";
+            rbIPRemote.Text = "These IP address:";
+            btnBrowes.Text = "Browser...";
+            btnAddLocal.Text = "Add...";
+            btnEditLocal.Text = "Edit...";
+            btnDelLocal.Text = "Remove";
+            btnAddRemote.Text = "Add...";
+            btnEditRemote.Text = "Edit...";
+            btnDelRemote.Text = "Remove";
         }
         public void editform1()
         {
@@ -587,13 +695,27 @@ namespace WinformsExample
                     }
                     if (ktname == 1)
                     {
-                        MessageBox.Show("Rule name already exists", "Firewall");
+                        if(FirewallForm.Lang==0)
+                        {
+                            MessageBox.Show("Tên quy tắc đã tồn tại", "Tường Lửa");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Rule name already exists", "Firewall");
+                        }
                         return;
                     }
                 }
                 else
                 {
-                    MessageBox.Show("You must specify the rule name", "Firewall");
+                    if (FirewallForm.Lang == 0)
+                    {
+                        MessageBox.Show("Bạn phải chỉ định tên quy tắc", "Tường Lửa");
+                    }
+                    else
+                    {
+                        MessageBox.Show("You must specify the rule name", "Firewall");
+                    }
                 }
             }
             if (localport != "")
@@ -602,14 +724,28 @@ namespace WinformsExample
                 {
                     if (ValidatePort(localport) == false)
                     {
-                        MessageBox.Show("The port value is incorrect", "Firewall");
+                        if (FirewallForm.Lang == 0)
+                        {
+                            MessageBox.Show("Giá trị cổng không chính xác", "Tường Lửa");
+                        }
+                        else
+                        {
+                            MessageBox.Show("The port value is incorrect", "Firewall");
+                        }
                         return;
                     }
                 }
             }
             else
             {
-                MessageBox.Show("You must specify the port you want to add to the rule", "Firewall");
+                if (FirewallForm.Lang == 0)
+                {
+                    MessageBox.Show("Bạn phải chỉ định cổng bạn muốn thêm vào quy tắc", "Tường Lửa");
+                }
+                else
+                {
+                    MessageBox.Show("You must specify the port you want to add to the rule", "Firewall");
+                }
                 return;
             }
             if (remoteport != "")
@@ -618,19 +754,40 @@ namespace WinformsExample
                 {
                     if (ValidatePort(remoteport) == false)
                     {
-                        MessageBox.Show("The port value is incorrect", "Firewall");
+                        if (FirewallForm.Lang == 0)
+                        {
+                            MessageBox.Show("Giá trị cổng không chính xác", "Tường Lửa");
+                        }
+                        else
+                        {
+                            MessageBox.Show("The port value is incorrect", "Firewall");
+                        }
                         return;
                     }
                 }
             }
             else
             {
-                MessageBox.Show("You must specify the port you want to add to the rule", "Firewall");
+                if (FirewallForm.Lang == 0)
+                {
+                    MessageBox.Show("Bạn phải chỉ định cổng bạn muốn thêm vào quy tắc", "Tường Lửa");
+                }
+                else
+                {
+                    MessageBox.Show("You must specify the port you want to add to the rule", "Firewall");
+                }
                 return;
             }
             if (program == null || program == "")
             {
-                MessageBox.Show("You must specify a program path", "Firewall");
+                if (FirewallForm.Lang == 0)
+                {
+                    MessageBox.Show("Bạn phải chỉ định đường dẫn chương trình", "Tường Lửa");
+                }
+                else
+                {
+                    MessageBox.Show("You must specify a program path", "Firewall");
+                }
                 return;
             }
             //edit rule

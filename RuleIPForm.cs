@@ -32,6 +32,45 @@ namespace WinformsExample
         public RuleIPForm()
         {
             InitializeComponent();
+
+            if (FirewallForm.Lang == 0)
+            {
+                ShowTiengViet();
+            }
+            else
+            {
+                ShowEnglish();
+            }
+        }
+        public void ShowTiengViet()
+        {
+            label1.Text = "Quy tắc này áp dụng cho địa chỉ IP nội bộ nào?";
+            label2.Text = "Quy tắc này áp dụng cho địa chỉ IP từ xa nào?";
+            rbAllLocal.Text = "Tất cả địa chỉ IP";
+            rbAllRemote.Text = "Tất cả địa chỉ IP";
+            rbIPLocal.Text = "Các địa chỉ IP sau:";
+            rbIPRemote.Text = "Các địa chỉ IP sau:";
+            btnAddLocal.Text = "Thêm...";
+            btnEditLocal.Text = "Sửa...";
+            btnDelLocal.Text = "Xóa";
+            btnAddRemote.Text = "Thêm...";
+            btnEditRemote.Text = "Sửa...";
+            btnDelRemote.Text = "Xóa";
+        }
+        public void ShowEnglish()
+        {
+            label1.Text = "Which local IP addresses does this rule apply to?";
+            label2.Text = "Which remote IP addresses does this rule apply to?";
+            rbAllLocal.Text = "Any IP address";
+            rbAllRemote.Text = "Any IP address";
+            rbIPLocal.Text = "These IP address:";
+            rbIPRemote.Text = "These IP address:";
+            btnAddLocal.Text = "Add...";
+            btnEditLocal.Text = "Edit...";
+            btnDelLocal.Text = "Remove";
+            btnAddRemote.Text = "Add...";
+            btnEditRemote.Text = "Edit...";
+            btnDelRemote.Text = "Remove";
         }
         private void GetIPLocal()
         {

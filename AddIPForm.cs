@@ -15,10 +15,10 @@ namespace WinformsExample
         int k = 0, k1 = 0;
         //k la kiem tra local hay remote, add hay edit
         //k1 la kiem tra form goi ham
-        public AddIPForm(int i,int j)
+        public AddIPForm(int i, int j)
         {
             InitializeComponent();
-            k = i;k1 = j;
+            k = i; k1 = j;
             if (k == 2)//edit Local IP
             {
                 ShowIP();
@@ -29,6 +29,29 @@ namespace WinformsExample
                 ShowIP();
                 k = 1;//Add Remote IP
             }
+
+            if (FirewallForm.Lang == 0)
+            {
+                ShowTiengViet();
+            }
+            else
+            {
+                ShowEnglish();
+            }
+        }
+        public void ShowTiengViet()
+        {
+            label1.Text = "Xác định địa chỉ IP để phù hợp với:";
+            label2.Text = "Ví Dụ:  192.168.0.12" + "\n" + "             192.168.0.0";
+            label3.Text = "Từ:";
+            label4.Text = "Đến:";
+        }
+        public void ShowEnglish()
+        {
+            label1.Text = "Specify the IP address to match:";
+            label2.Text = "Examples:  192.168.0.12" + "\n" + "                  192.168.0.0";
+            label3.Text = "From:";
+            label4.Text = "To:";
         }
         public void ShowIP()
         {
@@ -158,7 +181,14 @@ namespace WinformsExample
                 }
                 else
                 {
-                    MessageBox.Show("You must specify a valid address.", "Firewall");
+                    if (FirewallForm.Lang == 0)
+                    {
+                        MessageBox.Show("Bạn phải chỉ định địa chỉ hợp lệ.", "Tường Lửa");
+                    }
+                    else
+                    {
+                        MessageBox.Show("You must specify a valid address.", "Firewall");
+                    }
                 }
             }
             else
@@ -192,7 +222,14 @@ namespace WinformsExample
                 }
                 else
                 {
-                    MessageBox.Show("You must specify a valid address.", "Firewall");
+                    if (FirewallForm.Lang == 0)
+                    {
+                        MessageBox.Show("Bạn phải chỉ định địa chỉ hợp lệ.", "Tường Lửa");
+                    }
+                    else
+                    {
+                        MessageBox.Show("You must specify a valid address.", "Firewall");
+                    }
                 }
             }
         }

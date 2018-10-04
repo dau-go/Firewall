@@ -46,8 +46,15 @@ namespace WinformsExample
             dataGridView1.Columns["State"].HeaderText = "Trạng Thái";
             dataGridView1.Columns["Action"].HeaderText = "Hoạt Động";
             dataGridView1.Columns["TimeFrom"].HeaderText = "Thời Gian Từ";
-            dataGridView1.Columns["TimeTo"].HeaderText = "Đến Thời Gian";
+            dataGridView1.Columns["TimeTo"].HeaderText = "Thời Gian Đến";
             dataGridView1.Columns["RemoteIP"].HeaderText = "Địa chỉ từ xa";
+            menuDisable.Text = "Tắt";
+            menuEnable.Text = "Bật";
+            menuAllow.Text = "Cho phép";
+            menuBlock.Text = "Chặn";
+            menuAdd.Text = "Thêm mới quy tắc";
+            menuDel.Text = "Xóa quy tắc";
+            menuProperties.Text = "Thuộc Tính";
         }
         public void ShowEnglish()
         {
@@ -57,6 +64,13 @@ namespace WinformsExample
             dataGridView1.Columns["TimeFrom"].HeaderText = "Time Out";
             dataGridView1.Columns["TimeTo"].HeaderText = "Time To";
             dataGridView1.Columns["RemoteIP"].HeaderText = "Remote Address";
+            menuDisable.Text = "Disabled";
+            menuEnable.Text = "Enabled";
+            menuAllow.Text = "Allow";
+            menuBlock.Text = "Block";
+            menuAdd.Text = "Add New Rule";
+            menuDel.Text = "Delete Rule";
+            menuProperties.Text = "Properties";
         }
         public void Header(int i)
         {
@@ -115,19 +129,47 @@ namespace WinformsExample
                 {
                     if (rule.Enabled == true)
                     {
-                        state = "Yes";
+                        if (FirewallForm.Lang == 0)
+                        {
+                            state = "Bật";
+                        }
+                        else
+                        {
+                            state = "Yes";
+                        }
                     }
                     else
                     {
-                        state = "No";
+                        if (FirewallForm.Lang == 0)
+                        {
+                            state = "Tắt";
+                        }
+                        else
+                        {
+                            state = "Yes";
+                        }
                     }
                     if (rule.Action.ToString() == "NET_FW_ACTION_ALLOW")
                     {
-                        action = "Allow";
+                        if (FirewallForm.Lang == 0)
+                        {
+                            action = "Cho phép";
+                        }
+                        else
+                        {
+                            action = "Allow";
+                        }
                     }
                     else
                     {
-                        action = "Block";
+                        if (FirewallForm.Lang == 0)
+                        {
+                            action = "Chặn";
+                        }
+                        else
+                        {
+                            action = "Block";
+                        }
                     }
                     string[] s = rule.Description.Split('-');
                     string[] s1 = rule.RemoteAddresses.Split('/', ',');
@@ -230,12 +272,29 @@ namespace WinformsExample
             for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
             {
                 DataGridViewRow dr = dataGridView1.SelectedRows[i];
+                string state = "", action = "";
+                if (dr.Cells["State"].Value.ToString() == "Yes" || dr.Cells["State"].Value.ToString() == "Bật")
+                {
+                    state = "Yes";
+                }
+                else
+                {
+                    state = "No";
+                }
+                if (dr.Cells["Action"].Value.ToString() == "Allow" || dr.Cells["Action"].Value.ToString() == "Cho phép")
+                {
+                    action = "Allow";
+                }
+                else
+                {
+                    action = "Block";
+                }
                 result.Add(new Customer()
                 {
                     STT = int.Parse(dr.Cells["STT"].Value.ToString()),
                     NameRule = dr.Cells["NameRule"].Value.ToString(),
-                    State = dr.Cells["State"].Value.ToString(),
-                    Action = dr.Cells["Action"].Value.ToString(),
+                    State = state,
+                    Action = action,
                     RemoteIP = dr.Cells["RemoteIP"].Value.ToString(),
                     TimeFrom = dr.Cells["TimeFrom"].Value.ToString(),
                     TimeTo = dr.Cells["TimeTo"].Value.ToString()

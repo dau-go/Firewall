@@ -121,7 +121,7 @@
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(376, 417);
+            this.tabControl1.Size = new System.Drawing.Size(449, 443);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -132,7 +132,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(368, 391);
+            this.tabPage1.Size = new System.Drawing.Size(441, 417);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "General";
             // 
@@ -140,9 +140,9 @@
             // 
             this.groupBox2.Controls.Add(this.rbBlock);
             this.groupBox2.Controls.Add(this.rbAllow);
-            this.groupBox2.Location = new System.Drawing.Point(3, 203);
+            this.groupBox2.Location = new System.Drawing.Point(3, 218);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(356, 116);
+            this.groupBox2.Size = new System.Drawing.Size(431, 193);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Action";
@@ -178,7 +178,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(356, 194);
+            this.groupBox1.Size = new System.Drawing.Size(431, 209);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "General";
@@ -200,14 +200,14 @@
             this.txtDescription.Location = new System.Drawing.Point(62, 84);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(219, 73);
+            this.txtDescription.Size = new System.Drawing.Size(267, 73);
             this.txtDescription.TabIndex = 7;
             // 
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(62, 45);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(219, 20);
+            this.txtName.Size = new System.Drawing.Size(267, 20);
             this.txtName.TabIndex = 1;
             // 
             // label2
@@ -236,7 +236,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(368, 391);
+            this.tabPage2.Size = new System.Drawing.Size(441, 417);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Program and Profile";
             // 
@@ -248,14 +248,14 @@
             this.groupBox3.Controls.Add(this.rbAllProgram);
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(356, 157);
+            this.groupBox3.Size = new System.Drawing.Size(431, 185);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Program";
             // 
             // btnBrowes
             // 
-            this.btnBrowes.Location = new System.Drawing.Point(267, 74);
+            this.btnBrowes.Location = new System.Drawing.Point(329, 74);
             this.btnBrowes.Name = "btnBrowes";
             this.btnBrowes.Size = new System.Drawing.Size(75, 23);
             this.btnBrowes.TabIndex = 15;
@@ -267,14 +267,14 @@
             // 
             this.txtProgram.Location = new System.Drawing.Point(59, 76);
             this.txtProgram.Name = "txtProgram";
-            this.txtProgram.Size = new System.Drawing.Size(202, 20);
+            this.txtProgram.Size = new System.Drawing.Size(264, 20);
             this.txtProgram.TabIndex = 14;
             // 
             // rbThisProgram
             // 
             this.rbThisProgram.AutoSize = true;
             this.rbThisProgram.Checked = true;
-            this.rbThisProgram.Location = new System.Drawing.Point(38, 53);
+            this.rbThisProgram.Location = new System.Drawing.Point(59, 53);
             this.rbThisProgram.Name = "rbThisProgram";
             this.rbThisProgram.Size = new System.Drawing.Size(113, 17);
             this.rbThisProgram.TabIndex = 12;
@@ -286,7 +286,7 @@
             // rbAllProgram
             // 
             this.rbAllProgram.AutoSize = true;
-            this.rbAllProgram.Location = new System.Drawing.Point(38, 30);
+            this.rbAllProgram.Location = new System.Drawing.Point(59, 30);
             this.rbAllProgram.Name = "rbAllProgram";
             this.rbAllProgram.Size = new System.Drawing.Size(238, 17);
             this.rbAllProgram.TabIndex = 13;
@@ -301,9 +301,9 @@
             this.groupBox4.Controls.Add(this.cbPublic);
             this.groupBox4.Controls.Add(this.cbPrivate);
             this.groupBox4.Controls.Add(this.cbDomain);
-            this.groupBox4.Location = new System.Drawing.Point(3, 166);
+            this.groupBox4.Location = new System.Drawing.Point(3, 194);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(356, 157);
+            this.groupBox4.Size = new System.Drawing.Size(431, 217);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Profile";
@@ -360,7 +360,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(368, 391);
+            this.tabPage3.Size = new System.Drawing.Size(441, 417);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Protocol and Ports";
             // 
@@ -378,7 +378,7 @@
             this.groupBox7.Controls.Add(this.label8);
             this.groupBox7.Location = new System.Drawing.Point(3, 3);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(357, 290);
+            this.groupBox7.Size = new System.Drawing.Size(431, 408);
             this.groupBox7.TabIndex = 0;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Protocol and ports";
@@ -386,7 +386,7 @@
             // txtRemoteport
             // 
             this.txtRemoteport.Enabled = false;
-            this.txtRemoteport.Location = new System.Drawing.Point(179, 223);
+            this.txtRemoteport.Location = new System.Drawing.Point(201, 222);
             this.txtRemoteport.Name = "txtRemoteport";
             this.txtRemoteport.Size = new System.Drawing.Size(121, 20);
             this.txtRemoteport.TabIndex = 11;
@@ -394,7 +394,7 @@
             // txtLocalport
             // 
             this.txtLocalport.Enabled = false;
-            this.txtLocalport.Location = new System.Drawing.Point(179, 135);
+            this.txtLocalport.Location = new System.Drawing.Point(201, 134);
             this.txtLocalport.Name = "txtLocalport";
             this.txtLocalport.Size = new System.Drawing.Size(121, 20);
             this.txtLocalport.TabIndex = 12;
@@ -407,7 +407,7 @@
             this.cbRemoteport.Items.AddRange(new object[] {
             "All Ports",
             "Specific Ports"});
-            this.cbRemoteport.Location = new System.Drawing.Point(179, 196);
+            this.cbRemoteport.Location = new System.Drawing.Point(201, 195);
             this.cbRemoteport.Name = "cbRemoteport";
             this.cbRemoteport.Size = new System.Drawing.Size(121, 21);
             this.cbRemoteport.TabIndex = 8;
@@ -421,7 +421,7 @@
             this.cbLocalport.Items.AddRange(new object[] {
             "All Ports",
             "Specific Ports"});
-            this.cbLocalport.Location = new System.Drawing.Point(179, 109);
+            this.cbLocalport.Location = new System.Drawing.Point(201, 108);
             this.cbLocalport.Name = "cbLocalport";
             this.cbLocalport.Size = new System.Drawing.Size(121, 21);
             this.cbLocalport.TabIndex = 9;
@@ -448,7 +448,7 @@
             "VRRP",
             "PGM",
             "L2TP"});
-            this.cbProtocol.Location = new System.Drawing.Point(179, 56);
+            this.cbProtocol.Location = new System.Drawing.Point(201, 55);
             this.cbProtocol.Name = "cbProtocol";
             this.cbProtocol.Size = new System.Drawing.Size(121, 21);
             this.cbProtocol.TabIndex = 10;
@@ -457,7 +457,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(176, 246);
+            this.label6.Location = new System.Drawing.Point(198, 245);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(98, 13);
             this.label6.TabIndex = 3;
@@ -466,7 +466,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(176, 158);
+            this.label4.Location = new System.Drawing.Point(198, 157);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(98, 13);
             this.label4.TabIndex = 4;
@@ -475,7 +475,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(57, 112);
+            this.label5.Location = new System.Drawing.Point(79, 111);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(57, 13);
             this.label5.TabIndex = 5;
@@ -484,7 +484,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(57, 199);
+            this.label7.Location = new System.Drawing.Point(79, 198);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(68, 13);
             this.label7.TabIndex = 6;
@@ -493,7 +493,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(57, 59);
+            this.label8.Location = new System.Drawing.Point(79, 58);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(72, 13);
             this.label8.TabIndex = 7;
@@ -507,7 +507,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(368, 391);
+            this.tabPage4.Size = new System.Drawing.Size(441, 417);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Scope";
             // 
@@ -521,7 +521,7 @@
             this.groupBox6.Controls.Add(this.btnDelLocal);
             this.groupBox6.Location = new System.Drawing.Point(3, 3);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(356, 157);
+            this.groupBox6.Size = new System.Drawing.Size(431, 188);
             this.groupBox6.TabIndex = 13;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Local IP";
@@ -554,7 +554,7 @@
             // 
             this.listView1.Location = new System.Drawing.Point(57, 61);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(202, 81);
+            this.listView1.Size = new System.Drawing.Size(248, 81);
             this.listView1.TabIndex = 12;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.List;
@@ -563,7 +563,7 @@
             // btnAddLocal
             // 
             this.btnAddLocal.Enabled = false;
-            this.btnAddLocal.Location = new System.Drawing.Point(265, 61);
+            this.btnAddLocal.Location = new System.Drawing.Point(328, 61);
             this.btnAddLocal.Name = "btnAddLocal";
             this.btnAddLocal.Size = new System.Drawing.Size(75, 23);
             this.btnAddLocal.TabIndex = 9;
@@ -574,7 +574,7 @@
             // btnEditLocal
             // 
             this.btnEditLocal.Enabled = false;
-            this.btnEditLocal.Location = new System.Drawing.Point(265, 90);
+            this.btnEditLocal.Location = new System.Drawing.Point(328, 90);
             this.btnEditLocal.Name = "btnEditLocal";
             this.btnEditLocal.Size = new System.Drawing.Size(75, 23);
             this.btnEditLocal.TabIndex = 10;
@@ -585,7 +585,7 @@
             // btnDelLocal
             // 
             this.btnDelLocal.Enabled = false;
-            this.btnDelLocal.Location = new System.Drawing.Point(265, 119);
+            this.btnDelLocal.Location = new System.Drawing.Point(328, 119);
             this.btnDelLocal.Name = "btnDelLocal";
             this.btnDelLocal.Size = new System.Drawing.Size(75, 23);
             this.btnDelLocal.TabIndex = 11;
@@ -601,9 +601,9 @@
             this.groupBox5.Controls.Add(this.btnAddRemote);
             this.groupBox5.Controls.Add(this.rbIPRemote);
             this.groupBox5.Controls.Add(this.rbAllRemote);
-            this.groupBox5.Location = new System.Drawing.Point(3, 166);
+            this.groupBox5.Location = new System.Drawing.Point(3, 197);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(356, 157);
+            this.groupBox5.Size = new System.Drawing.Size(431, 214);
             this.groupBox5.TabIndex = 13;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Remote IP";
@@ -612,7 +612,7 @@
             // 
             this.listView2.Location = new System.Drawing.Point(59, 61);
             this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(202, 81);
+            this.listView2.Size = new System.Drawing.Size(246, 81);
             this.listView2.TabIndex = 13;
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.List;
@@ -621,7 +621,7 @@
             // btnDelRemote
             // 
             this.btnDelRemote.Enabled = false;
-            this.btnDelRemote.Location = new System.Drawing.Point(267, 120);
+            this.btnDelRemote.Location = new System.Drawing.Point(328, 119);
             this.btnDelRemote.Name = "btnDelRemote";
             this.btnDelRemote.Size = new System.Drawing.Size(75, 23);
             this.btnDelRemote.TabIndex = 10;
@@ -632,7 +632,7 @@
             // btnEditRemote
             // 
             this.btnEditRemote.Enabled = false;
-            this.btnEditRemote.Location = new System.Drawing.Point(267, 91);
+            this.btnEditRemote.Location = new System.Drawing.Point(328, 90);
             this.btnEditRemote.Name = "btnEditRemote";
             this.btnEditRemote.Size = new System.Drawing.Size(75, 23);
             this.btnEditRemote.TabIndex = 11;
@@ -643,7 +643,7 @@
             // btnAddRemote
             // 
             this.btnAddRemote.Enabled = false;
-            this.btnAddRemote.Location = new System.Drawing.Point(267, 62);
+            this.btnAddRemote.Location = new System.Drawing.Point(328, 61);
             this.btnAddRemote.Name = "btnAddRemote";
             this.btnAddRemote.Size = new System.Drawing.Size(75, 23);
             this.btnAddRemote.TabIndex = 12;
@@ -682,7 +682,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(368, 391);
+            this.tabPage5.Size = new System.Drawing.Size(441, 417);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Time";
             // 
@@ -700,7 +700,7 @@
             this.groupBox8.Controls.Add(this.label14);
             this.groupBox8.Location = new System.Drawing.Point(3, 3);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(356, 269);
+            this.groupBox8.Size = new System.Drawing.Size(431, 408);
             this.groupBox8.TabIndex = 0;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Time";
@@ -772,7 +772,7 @@
             "57",
             "58",
             "59"});
-            this.cbMinuteTo.Location = new System.Drawing.Point(127, 222);
+            this.cbMinuteTo.Location = new System.Drawing.Point(149, 226);
             this.cbMinuteTo.Name = "cbMinuteTo";
             this.cbMinuteTo.Size = new System.Drawing.Size(96, 21);
             this.cbMinuteTo.TabIndex = 13;
@@ -808,7 +808,7 @@
             "21",
             "22",
             "23"});
-            this.cbHourTo.Location = new System.Drawing.Point(127, 184);
+            this.cbHourTo.Location = new System.Drawing.Point(149, 188);
             this.cbHourTo.Name = "cbHourTo";
             this.cbHourTo.Size = new System.Drawing.Size(96, 21);
             this.cbHourTo.TabIndex = 14;
@@ -880,7 +880,7 @@
             "57",
             "58",
             "59"});
-            this.cbMinuteFrom.Location = new System.Drawing.Point(127, 94);
+            this.cbMinuteFrom.Location = new System.Drawing.Point(149, 98);
             this.cbMinuteFrom.Name = "cbMinuteFrom";
             this.cbMinuteFrom.Size = new System.Drawing.Size(96, 21);
             this.cbMinuteFrom.TabIndex = 15;
@@ -916,7 +916,7 @@
             "21",
             "22",
             "23"});
-            this.cbHourFrom.Location = new System.Drawing.Point(127, 56);
+            this.cbHourFrom.Location = new System.Drawing.Point(149, 60);
             this.cbHourFrom.Name = "cbHourFrom";
             this.cbHourFrom.Size = new System.Drawing.Size(96, 21);
             this.cbHourFrom.TabIndex = 16;
@@ -924,7 +924,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(243, 225);
+            this.label9.Location = new System.Drawing.Point(265, 229);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(39, 13);
             this.label9.TabIndex = 7;
@@ -933,7 +933,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(243, 187);
+            this.label10.Location = new System.Drawing.Point(265, 191);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(30, 13);
             this.label10.TabIndex = 8;
@@ -942,7 +942,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(88, 151);
+            this.label11.Location = new System.Drawing.Point(110, 155);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(49, 13);
             this.label11.TabIndex = 9;
@@ -951,7 +951,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(243, 97);
+            this.label12.Location = new System.Drawing.Point(265, 101);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(39, 13);
             this.label12.TabIndex = 10;
@@ -960,7 +960,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(243, 59);
+            this.label13.Location = new System.Drawing.Point(265, 63);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(30, 13);
             this.label13.TabIndex = 11;
@@ -969,7 +969,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(88, 28);
+            this.label14.Location = new System.Drawing.Point(110, 32);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(59, 13);
             this.label14.TabIndex = 12;
@@ -977,7 +977,7 @@
             // 
             // btnApply
             // 
-            this.btnApply.Location = new System.Drawing.Point(293, 423);
+            this.btnApply.Location = new System.Drawing.Point(369, 449);
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(75, 23);
             this.btnApply.TabIndex = 0;
@@ -987,7 +987,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(212, 423);
+            this.btnCancel.Location = new System.Drawing.Point(288, 449);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 0;
@@ -997,7 +997,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(131, 423);
+            this.btnOK.Location = new System.Drawing.Point(207, 449);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 0;
@@ -1015,7 +1015,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(376, 454);
+            this.ClientSize = new System.Drawing.Size(450, 484);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnApply);

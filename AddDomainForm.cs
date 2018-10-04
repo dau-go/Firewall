@@ -21,6 +21,34 @@ namespace WinformsExample
             cbHourTo.Text = (DateTime.Now.Hour + 1).ToString();
             cbMinuteFrom.Text = "00";
             cbMinuteTo.Text = "00";
+            if (FirewallForm.Lang == 0)
+            {
+                ShowTiengViet();
+            }
+            else
+            {
+                ShowEnglish();
+            }
+        }
+        public void ShowTiengViet()
+        {
+            label1.Text = "Trang Web";
+            label2.Text = "Thời Gian Từ";
+            label3.Text = "Thời Gian Đến";
+            label4.Text = "Giờ";
+            label5.Text = "Giờ";
+            label6.Text = "Phút";
+            label7.Text = "Phút";
+        }
+        public void ShowEnglish()
+        {
+            label1.Text = "Website:";
+            label2.Text = "Time From:";
+            label3.Text = "Time To:";
+            label4.Text = "Hour";
+            label5.Text = "Hour";
+            label6.Text = "Minute";
+            label7.Text = "Minute";
         }
         public bool Time()
         {
@@ -103,7 +131,14 @@ namespace WinformsExample
             }
             else
             {
-                MessageBox.Show("Invalid time", "Firewall");
+                if (FirewallForm.Lang == 0)
+                {
+                    MessageBox.Show("Thời gian không hợp lệ", "Tường Lửa");
+                }
+                else
+                {
+                    MessageBox.Show("Invalid time", "Firewall");
+                }
                 inboundRule.RemoteAddresses = "Eror";
             }
             if (CheckIP() == true)
@@ -112,7 +147,14 @@ namespace WinformsExample
             }
             else
             {
-                MessageBox.Show("Website name is not valid", "Firewall");
+                if (FirewallForm.Lang == 0)
+                {
+                    MessageBox.Show("Tên trang web không hợp lệ", "Tường Lửa");
+                }
+                else
+                {
+                    MessageBox.Show("Website name is not valid", "Firewall");
+                }
                 inboundRule.RemoteAddresses = "Eror";
             }
             int ktname = 0;
@@ -127,7 +169,14 @@ namespace WinformsExample
             }
             if (ktname == 1)
             {
-                MessageBox.Show("Rule name already exists", "Firewall");
+                if (FirewallForm.Lang == 0)
+                {
+                    MessageBox.Show("Quy tắc đã tồn tại", "Tường Lửa");
+                }
+                else
+                {
+                    MessageBox.Show("Rule already exists", "Firewall");
+                }
                 inboundRule.RemoteAddresses = "Eror";
             }
             inboundRule.Grouping = "Domain";

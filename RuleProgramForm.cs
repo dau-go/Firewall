@@ -28,12 +28,14 @@ namespace WinformsExample
             label3.Text = "Quy tắc áp dụng cho tất cả các chương trình trên máy tính";
             rbAllProgram.Text = "Tất cả chương trình";
             rbThisProgram.Text = "Đường dẫn chương trình:";
+            btnBrowes.Text = "Trình duyệt";
         }
         public void ShowEnglish()
         {
             label3.Text = "Rules apply to all programs on the computer";
             rbAllProgram.Text = "All program";
             rbThisProgram.Text = "This program path:";
+            btnBrowes.Text = "Browser...";
         }
         public void GetProgram()
         {
