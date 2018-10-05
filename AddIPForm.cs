@@ -41,6 +41,7 @@ namespace WinformsExample
         }
         public void ShowTiengViet()
         {
+            Text = "Địa Chỉ IP";
             label1.Text = "Xác định địa chỉ IP để phù hợp với:";
             label2.Text = "Ví Dụ:  192.168.0.12" + "\n" + "             192.168.0.0";
             label3.Text = "Từ:";
@@ -48,6 +49,7 @@ namespace WinformsExample
         }
         public void ShowEnglish()
         {
+            Text = "IP Address";
             label1.Text = "Specify the IP address to match:";
             label2.Text = "Examples:  192.168.0.12" + "\n" + "                  192.168.0.0";
             label3.Text = "From:";

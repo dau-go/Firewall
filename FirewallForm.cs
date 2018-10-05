@@ -158,6 +158,13 @@ namespace WinformsExample
             btnDel.Enabled = false;
             btnDel.BackgroundImage = Properties.Resources.icons8_trash_24__1_;
             actionToolStripMenuItem.Enabled = false;
+            FileUser.Checked = true;
+            FileDefault.Checked = false;
+            FileWeb.Checked = false;
+            FileInboundDefault.Checked = false;
+            FileInboundUser.Checked = false;
+            FileOutboundDefault.Checked = false;
+            FileOutboundUser.Checked = false;
         }
         public void ShowDefault()
         {
@@ -176,6 +183,13 @@ namespace WinformsExample
             btnDel.Enabled = false;
             btnDel.BackgroundImage = Properties.Resources.icons8_trash_24__1_;
             actionToolStripMenuItem.Enabled = false;
+            FileUser.Checked = false;
+            FileDefault.Checked = true;
+            FileWeb.Checked = false;
+            FileInboundDefault.Checked = false;
+            FileInboundUser.Checked = false;
+            FileOutboundDefault.Checked = false;
+            FileOutboundUser.Checked = false;
         }
         public void ShowInboundUser()
         {
@@ -199,6 +213,13 @@ namespace WinformsExample
             f1.Visible = true;
             Showview();
             actionToolStripMenuItem.Enabled = true;
+            FileUser.Checked = true;
+            FileDefault.Checked = false;
+            FileWeb.Checked = false;
+            FileInboundDefault.Checked = false;
+            FileInboundUser.Checked = true;
+            FileOutboundDefault.Checked = false;
+            FileOutboundUser.Checked = false;
         }
         public void ShowOutboundUser()
         {
@@ -222,6 +243,13 @@ namespace WinformsExample
             f2.Visible = true;
             Showview();
             actionToolStripMenuItem.Enabled = true;
+            FileUser.Checked = true;
+            FileDefault.Checked = false;
+            FileWeb.Checked = false;
+            FileInboundDefault.Checked = false;
+            FileInboundUser.Checked = false;
+            FileOutboundDefault.Checked = false;
+            FileOutboundUser.Checked = true;
         }
         public void ShowInboundDefault()
         {
@@ -245,6 +273,13 @@ namespace WinformsExample
             f3.Visible = true;
             Showview();
             actionToolStripMenuItem.Enabled = true;
+            FileUser.Checked = false;
+            FileDefault.Checked = true;
+            FileWeb.Checked = false;
+            FileInboundDefault.Checked = true;
+            FileInboundUser.Checked = false;
+            FileOutboundDefault.Checked = false;
+            FileOutboundUser.Checked = false;
         }
         public void ShowOutboundDefault()
         {
@@ -268,6 +303,13 @@ namespace WinformsExample
             f4.Visible = true;
             Showview();
             actionToolStripMenuItem.Enabled = true;
+            FileUser.Checked = false;
+            FileDefault.Checked = true;
+            FileWeb.Checked = false;
+            FileInboundDefault.Checked = false;
+            FileInboundUser.Checked = false;
+            FileOutboundDefault.Checked = true;
+            FileOutboundUser.Checked = false;
         }
         public void ShowWebsiteRule()
         {
@@ -291,6 +333,13 @@ namespace WinformsExample
             Showview();
             actionToolStripMenuItem.Enabled = true;
             Filterprofile.Visible = false;
+            FileUser.Checked = false;
+            FileDefault.Checked = false;
+            FileWeb.Checked = true;
+            FileInboundDefault.Checked = false;
+            FileInboundUser.Checked = false;
+            FileOutboundDefault.Checked = false;
+            FileOutboundUser.Checked = false;
         }
         public void ShowButon()
         {
@@ -878,6 +927,16 @@ namespace WinformsExample
 
         private void Clear_Click(object sender, EventArgs e)
         {
+            ShowAllProfile.Checked = true;
+            Domain.Checked = false;
+            Private.Checked = false;
+            Public.Checked = false;
+            ShowAllState.Checked = true;
+            Enabled.Checked = false;
+            Disabled.Checked = false;
+            ShowAllAction.Checked = true;
+            Allow.Checked = false;
+            Block.Checked = false;
             Profile = "1";
             State = "1";
             Action = "1";
@@ -905,6 +964,31 @@ namespace WinformsExample
             Lang = 1;
             ShowEnglish();
             Reload();
+        }
+
+        private void FileWeb_Click(object sender, EventArgs e)
+        {
+            treeView1.SelectedNode = treeView1.Nodes[2];
+        }
+
+        private void FileInboundUser_Click(object sender, EventArgs e)
+        {
+            treeView1.SelectedNode = treeView1.Nodes[0].Nodes[0];
+        }
+
+        private void FileOutboundUser_Click(object sender, EventArgs e)
+        {
+            treeView1.SelectedNode = treeView1.Nodes[0].Nodes[1];
+        }
+
+        private void FileInboundDefault_Click(object sender, EventArgs e)
+        {
+            treeView1.SelectedNode = treeView1.Nodes[1].Nodes[0];
+        }
+
+        private void FileOutboundDefault_Click(object sender, EventArgs e)
+        {
+            treeView1.SelectedNode = treeView1.Nodes[0].Nodes[1];
         }
 
         private void btnReload_Click(object sender, EventArgs e)
