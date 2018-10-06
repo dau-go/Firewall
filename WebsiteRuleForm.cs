@@ -332,7 +332,7 @@ namespace WinformsExample
 
         private void dataGridView1_CellContextMenuStripNeeded(object sender, DataGridViewCellContextMenuStripNeededEventArgs e)
         {
-            if (e.ColumnIndex == -1) return;
+            if (e.RowIndex == -1) return;
             if (Detail.Count > 1)
             {
                 for (int i = 0; i < Detail.Count; i++)

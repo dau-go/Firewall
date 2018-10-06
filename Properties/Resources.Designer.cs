@@ -63,6 +63,16 @@ namespace WinformsExample.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_clear_filters_26 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_clear_filters_26", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_file_preview_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8_file_preview_50", resourceCulture);
@@ -73,9 +83,29 @@ namespace WinformsExample.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_firewall_40 {
+        internal static System.Drawing.Bitmap icons8_filter_filled_50 {
             get {
-                object obj = ResourceManager.GetObject("icons8_firewall_40", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8_filter_filled_50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_filter_filled_50__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8_filter_filled_50__1_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_forward_button_64 {
+            get {
+                object obj = ResourceManager.GetObject("icons8_forward_button_64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

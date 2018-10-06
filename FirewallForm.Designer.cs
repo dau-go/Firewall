@@ -29,22 +29,26 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Inbound Rules");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Outbound Rules");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Rules Created By The User", new System.Windows.Forms.TreeNode[] {
-            treeNode8,
-            treeNode9});
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Inbound Rules");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Outbound Rules");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("The Default Rule Of The Windows", new System.Windows.Forms.TreeNode[] {
-            treeNode11,
-            treeNode12});
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Website blocking rules");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FirewallForm));
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Inbound Rules");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Outbound Rules");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Rules Created By The User", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2});
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Inbound Rules");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Outbound Rules");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("The Default Rule Of The Windows", new System.Windows.Forms.TreeNode[] {
+            treeNode4,
+            treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Website blocking rules");
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FileUser = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileInboundUser = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileOutboundUser = new System.Windows.Forms.ToolStripMenuItem();
             this.FileDefault = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileInboundDefault = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileOutboundDefault = new System.Windows.Forms.ToolStripMenuItem();
             this.FileWeb = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.Exit = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,10 +92,7 @@
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.FileInboundUser = new System.Windows.Forms.ToolStripMenuItem();
-            this.FileOutboundUser = new System.Windows.Forms.ToolStripMenuItem();
-            this.FileInboundDefault = new System.Windows.Forms.ToolStripMenuItem();
-            this.FileOutboundDefault = new System.Windows.Forms.ToolStripMenuItem();
+            this.Introduce = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -115,6 +116,7 @@
             // fireToolStripMenuItem
             // 
             this.fireToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Introduce,
             this.FileUser,
             this.FileDefault,
             this.FileWeb,
@@ -133,6 +135,20 @@
             this.FileUser.Size = new System.Drawing.Size(252, 22);
             this.FileUser.Text = "Rule Created By The User";
             // 
+            // FileInboundUser
+            // 
+            this.FileInboundUser.Name = "FileInboundUser";
+            this.FileInboundUser.Size = new System.Drawing.Size(160, 22);
+            this.FileInboundUser.Text = "Inbound Rules";
+            this.FileInboundUser.Click += new System.EventHandler(this.FileInboundUser_Click);
+            // 
+            // FileOutboundUser
+            // 
+            this.FileOutboundUser.Name = "FileOutboundUser";
+            this.FileOutboundUser.Size = new System.Drawing.Size(160, 22);
+            this.FileOutboundUser.Text = "OutBound Rules";
+            this.FileOutboundUser.Click += new System.EventHandler(this.FileOutboundUser_Click);
+            // 
             // FileDefault
             // 
             this.FileDefault.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -141,6 +157,20 @@
             this.FileDefault.Name = "FileDefault";
             this.FileDefault.Size = new System.Drawing.Size(252, 22);
             this.FileDefault.Text = "The Default Rule Of The Windows";
+            // 
+            // FileInboundDefault
+            // 
+            this.FileInboundDefault.Name = "FileInboundDefault";
+            this.FileInboundDefault.Size = new System.Drawing.Size(160, 22);
+            this.FileInboundDefault.Text = "Inbound Rules";
+            this.FileInboundDefault.Click += new System.EventHandler(this.FileInboundDefault_Click);
+            // 
+            // FileOutboundDefault
+            // 
+            this.FileOutboundDefault.Name = "FileOutboundDefault";
+            this.FileOutboundDefault.Size = new System.Drawing.Size(160, 22);
+            this.FileOutboundDefault.Text = "Outbound Rules";
+            this.FileOutboundDefault.Click += new System.EventHandler(this.FileOutboundDefault_Click);
             // 
             // FileWeb
             // 
@@ -178,6 +208,7 @@
             // 
             // menuadd
             // 
+            this.menuadd.Image = global::WinformsExample.Properties.Resources.icons8_plus_24__1_;
             this.menuadd.Name = "menuadd";
             this.menuadd.Size = new System.Drawing.Size(154, 22);
             this.menuadd.Text = "Add Rules";
@@ -196,6 +227,7 @@
             this.Domain,
             this.Private,
             this.Public});
+            this.Filterprofile.Image = global::WinformsExample.Properties.Resources.icons8_filter_filled_50__1_;
             this.Filterprofile.Name = "Filterprofile";
             this.Filterprofile.Size = new System.Drawing.Size(154, 22);
             this.Filterprofile.Text = "Filter By Profile";
@@ -242,6 +274,7 @@
             this.toolStripSeparator4,
             this.Enabled,
             this.Disabled});
+            this.FilterState.Image = ((System.Drawing.Image)(resources.GetObject("FilterState.Image")));
             this.FilterState.Name = "FilterState";
             this.FilterState.Size = new System.Drawing.Size(154, 22);
             this.FilterState.Text = "Filter By State";
@@ -281,6 +314,7 @@
             this.toolStripSeparator5,
             this.Allow,
             this.Block});
+            this.FilterAction.Image = ((System.Drawing.Image)(resources.GetObject("FilterAction.Image")));
             this.FilterAction.Name = "FilterAction";
             this.FilterAction.Size = new System.Drawing.Size(154, 22);
             this.FilterAction.Text = "Filter By Action";
@@ -315,9 +349,11 @@
             // 
             // Clear
             // 
+            this.Clear.Image = global::WinformsExample.Properties.Resources.icons8_clear_filters_26;
             this.Clear.Name = "Clear";
             this.Clear.Size = new System.Drawing.Size(154, 22);
             this.Clear.Text = "Clear All Filter";
+            this.Clear.Visible = false;
             this.Clear.Click += new System.EventHandler(this.Clear_Click);
             // 
             // toolStripSeparator2
@@ -327,6 +363,7 @@
             // 
             // menuRefresh
             // 
+            this.menuRefresh.Image = global::WinformsExample.Properties.Resources.icons8_refresh_32;
             this.menuRefresh.Name = "menuRefresh";
             this.menuRefresh.Size = new System.Drawing.Size(154, 22);
             this.menuRefresh.Text = "Refresh";
@@ -346,7 +383,7 @@
             this.Tiengviet,
             this.English});
             this.Language.Name = "Language";
-            this.Language.Size = new System.Drawing.Size(152, 22);
+            this.Language.Size = new System.Drawing.Size(126, 22);
             this.Language.Text = "Language";
             // 
             // Tiengviet
@@ -513,60 +550,40 @@
             this.treeView1.HideSelection = false;
             this.treeView1.Location = new System.Drawing.Point(3, 16);
             this.treeView1.Name = "treeView1";
-            treeNode8.Name = "InboundUser";
-            treeNode8.Text = "Inbound Rules";
-            treeNode9.Name = "OutboundUser";
-            treeNode9.Text = "Outbound Rules";
-            treeNode10.Name = "User";
-            treeNode10.Text = "Rules Created By The User";
-            treeNode11.Name = "InboundDefault";
-            treeNode11.Text = "Inbound Rules";
-            treeNode12.Name = "OutboundDefault";
-            treeNode12.Text = "Outbound Rules";
-            treeNode13.Name = "Default";
-            treeNode13.Text = "The Default Rule Of The Windows";
-            treeNode14.Name = "Web";
-            treeNode14.Text = "Website blocking rules";
+            treeNode1.Name = "InboundUser";
+            treeNode1.Text = "Inbound Rules";
+            treeNode2.Name = "OutboundUser";
+            treeNode2.Text = "Outbound Rules";
+            treeNode3.Name = "User";
+            treeNode3.Text = "Rules Created By The User";
+            treeNode4.Name = "InboundDefault";
+            treeNode4.Text = "Inbound Rules";
+            treeNode5.Name = "OutboundDefault";
+            treeNode5.Text = "Outbound Rules";
+            treeNode6.Name = "Default";
+            treeNode6.Text = "The Default Rule Of The Windows";
+            treeNode7.Name = "Web";
+            treeNode7.Text = "Website blocking rules";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode10,
-            treeNode13,
-            treeNode14});
+            treeNode3,
+            treeNode6,
+            treeNode7});
             this.treeView1.Size = new System.Drawing.Size(209, 374);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            this.treeView1.Click += new System.EventHandler(this.treeView1_Click);
             // 
             // timer1
             // 
             this.timer1.Interval = 60000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // FileInboundUser
+            // Introduce
             // 
-            this.FileInboundUser.Name = "FileInboundUser";
-            this.FileInboundUser.Size = new System.Drawing.Size(160, 22);
-            this.FileInboundUser.Text = "Inbound Rules";
-            this.FileInboundUser.Click += new System.EventHandler(this.FileInboundUser_Click);
-            // 
-            // FileOutboundUser
-            // 
-            this.FileOutboundUser.Name = "FileOutboundUser";
-            this.FileOutboundUser.Size = new System.Drawing.Size(160, 22);
-            this.FileOutboundUser.Text = "OutBound Rules";
-            this.FileOutboundUser.Click += new System.EventHandler(this.FileOutboundUser_Click);
-            // 
-            // FileInboundDefault
-            // 
-            this.FileInboundDefault.Name = "FileInboundDefault";
-            this.FileInboundDefault.Size = new System.Drawing.Size(160, 22);
-            this.FileInboundDefault.Text = "Inbound Rules";
-            this.FileInboundDefault.Click += new System.EventHandler(this.FileInboundDefault_Click);
-            // 
-            // FileOutboundDefault
-            // 
-            this.FileOutboundDefault.Name = "FileOutboundDefault";
-            this.FileOutboundDefault.Size = new System.Drawing.Size(160, 22);
-            this.FileOutboundDefault.Text = "Outbound Rules";
-            this.FileOutboundDefault.Click += new System.EventHandler(this.FileOutboundDefault_Click);
+            this.Introduce.Name = "Introduce";
+            this.Introduce.Size = new System.Drawing.Size(252, 22);
+            this.Introduce.Text = "Introduce";
+            this.Introduce.Click += new System.EventHandler(this.Introduce_Click);
             // 
             // FirewallForm
             // 
@@ -644,5 +661,6 @@
         private System.Windows.Forms.ToolStripMenuItem FileOutboundUser;
         private System.Windows.Forms.ToolStripMenuItem FileInboundDefault;
         private System.Windows.Forms.ToolStripMenuItem FileOutboundDefault;
+        private System.Windows.Forms.ToolStripMenuItem Introduce;
     }
 }

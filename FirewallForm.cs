@@ -37,7 +37,7 @@ namespace WinformsExample
             set { _Lang = value; }
         }
         int Header = 0;
-        int kt = 0;
+        int kt = 0, def = 0, ktnext = 0;
         List<int> Next = new List<int>(), Back = new List<int>();
         int demnext = 0, demback = 0;
         DefaultForm f;
@@ -50,12 +50,24 @@ namespace WinformsExample
         {
             InitializeComponent();
             timer1.Start();
-            treeView1.SelectedNode = treeView1.Nodes[0];
+            treeView1.ExpandAll();
             Profile = "1";
             State = "1";
             Action = "1";
             Lang = 0;
             Tiengviet.Checked = true;
+            if (demback >= Back.Count)
+            {
+                Back.Add(0);
+                demback++;
+            }
+            else
+            {
+                Back[demback] = 0;
+                demback++;
+            }
+            treeView1.SelectedNode = treeView1.Nodes[0];
+            ShowDefault();
             ShowTiengViet();
         }
         public void ShowTiengViet()
@@ -141,10 +153,18 @@ namespace WinformsExample
             btnDel.Enabled = true;
             btnDel.BackgroundImage = Properties.Resources.icons8_trash_24;
         }
-        public void ShowUser()
+        public void ShowDefault()
         {
+            def = 0;
             tab.Controls.Clear();
-            tab.Text = "";
+            if (Lang == 0)
+            {
+                tab.Text = "Giới Thiệu";
+            }
+            else
+            {
+                tab.Text = "Introduce";
+            }
             f = new DefaultForm();
             f.TopLevel = false;
             f.FormBorderStyle = FormBorderStyle.None;
@@ -166,36 +186,62 @@ namespace WinformsExample
             FileOutboundDefault.Checked = false;
             FileOutboundUser.Checked = false;
         }
-        public void ShowDefault()
-        {
-            tab.Controls.Clear();
-            tab.Text = "";
-            f = new DefaultForm();
-            f.TopLevel = false;
-            f.FormBorderStyle = FormBorderStyle.None;
-            f.Dock = DockStyle.Fill;
-            tab.Controls.Add(f);
-            f.Visible = true;
-            btnAdd.Enabled = false;
-            btnAdd.BackgroundImage = Properties.Resources.icons8_plus_24;
-            btnReload.Enabled = false;
-            btnReload.BackgroundImage = Properties.Resources.icons8_refresh_32__1_;
-            btnDel.Enabled = false;
-            btnDel.BackgroundImage = Properties.Resources.icons8_trash_24__1_;
-            actionToolStripMenuItem.Enabled = false;
-            FileUser.Checked = false;
-            FileDefault.Checked = true;
-            FileWeb.Checked = false;
-            FileInboundDefault.Checked = false;
-            FileInboundUser.Checked = false;
-            FileOutboundDefault.Checked = false;
-            FileOutboundUser.Checked = false;
-        }
+        //public void ShowUser()
+        //{
+        //    tab.Controls.Clear();
+        //    tab.Text = "";
+        //    f = new DefaultForm();
+        //    f.TopLevel = false;
+        //    f.FormBorderStyle = FormBorderStyle.None;
+        //    f.Dock = DockStyle.Fill;
+        //    tab.Controls.Add(f);
+        //    f.Visible = true;
+        //    btnAdd.Enabled = false;
+        //    btnAdd.BackgroundImage = Properties.Resources.icons8_plus_24;
+        //    btnReload.Enabled = false;
+        //    btnReload.BackgroundImage = Properties.Resources.icons8_refresh_32__1_;
+        //    btnDel.Enabled = false;
+        //    btnDel.BackgroundImage = Properties.Resources.icons8_trash_24__1_;
+        //    actionToolStripMenuItem.Enabled = false;
+        //    FileUser.Checked = true;
+        //    FileDefault.Checked = false;
+        //    FileWeb.Checked = false;
+        //    FileInboundDefault.Checked = false;
+        //    FileInboundUser.Checked = false;
+        //    FileOutboundDefault.Checked = false;
+        //    FileOutboundUser.Checked = false;
+        //}
+        //public void ShowDefault()
+        //{
+        //    tab.Controls.Clear();
+        //    tab.Text = "";
+        //    f = new DefaultForm();
+        //    f.TopLevel = false;
+        //    f.FormBorderStyle = FormBorderStyle.None;
+        //    f.Dock = DockStyle.Fill;
+        //    tab.Controls.Add(f);
+        //    f.Visible = true;
+        //    btnAdd.Enabled = false;
+        //    btnAdd.BackgroundImage = Properties.Resources.icons8_plus_24;
+        //    btnReload.Enabled = false;
+        //    btnReload.BackgroundImage = Properties.Resources.icons8_refresh_32__1_;
+        //    btnDel.Enabled = false;
+        //    btnDel.BackgroundImage = Properties.Resources.icons8_trash_24__1_;
+        //    actionToolStripMenuItem.Enabled = false;
+        //    FileUser.Checked = false;
+        //    FileDefault.Checked = true;
+        //    FileWeb.Checked = false;
+        //    FileInboundDefault.Checked = false;
+        //    FileInboundUser.Checked = false;
+        //    FileOutboundDefault.Checked = false;
+        //    FileOutboundUser.Checked = false;
+        //}
         public void ShowInboundUser()
         {
             kt = 0;
+            def = 1;
             tab.Controls.Clear();
-            if(Lang==0)
+            if (Lang == 0)
             {
                 tab.Text = "Quy Tắc Vào Được Tạo Bởi Người Dùng";
             }
@@ -224,6 +270,7 @@ namespace WinformsExample
         public void ShowOutboundUser()
         {
             kt = 1;
+            def = 1;
             tab.Controls.Clear();
             if (Lang == 0)
             {
@@ -254,6 +301,7 @@ namespace WinformsExample
         public void ShowInboundDefault()
         {
             kt = 0;
+            def = 1;
             tab.Controls.Clear();
             if (Lang == 0)
             {
@@ -284,6 +332,7 @@ namespace WinformsExample
         public void ShowOutboundDefault()
         {
             kt = 1;
+            def = 1;
             tab.Controls.Clear();
             if (Lang == 0)
             {
@@ -314,6 +363,7 @@ namespace WinformsExample
         public void ShowWebsiteRule()
         {
             kt = 2;
+            def = 1;
             tab.Controls.Clear();
             if (Lang == 0)
             {
@@ -384,38 +434,38 @@ namespace WinformsExample
                         ShowButon();
                         break;
                     }
-                case "User":
-                    {
-                        if (demback >= Back.Count)
-                        {
-                            Back.Add(0);
-                            demback++;
-                        }
-                        else
-                        {
-                            Back[demback] = 0;
-                            demback++;
-                        }
-                        ShowUser();
-                        ShowButon();
-                        break;
-                    }
-                case "Default":
-                    {
-                        if (demback >= Back.Count)
-                        {
-                            Back.Add(3);
-                            demback++;
-                        }
-                        else
-                        {
-                            Back[demback] = 3;
-                            demback++;
-                        }
-                        ShowDefault();
-                        ShowButon();
-                        break;
-                    }
+                //case "User":
+                //    {
+                //        if (demback >= Back.Count)
+                //        {
+                //            Back.Add(0);
+                //            demback++;
+                //        }
+                //        else
+                //        {
+                //            Back[demback] = 0;
+                //            demback++;
+                //        }
+                //        ShowUser();
+                //        ShowButon();
+                //        break;
+                //    }
+                //case "Default":
+                //    {
+                //        if (demback >= Back.Count)
+                //        {
+                //            Back.Add(3);
+                //            demback++;
+                //        }
+                //        else
+                //        {
+                //            Back[demback] = 3;
+                //            demback++;
+                //        }
+                //        ShowDefault();
+                //        ShowButon();
+                //        break;
+                //    }
                 case "InboundUser":
                     {
                         if (demback >= Back.Count)
@@ -651,10 +701,17 @@ namespace WinformsExample
                 if (Back[demback - 1] == 0)
                 {
                     treeView1.SelectedNode = treeView1.Nodes[0];
-                }
-                if (Back[demback - 1] == 3)
-                {
-                    treeView1.SelectedNode = treeView1.Nodes[1];
+                    if (demback >= Back.Count)
+                    {
+                        Back.Add(0);
+                        demback++;
+                    }
+                    else
+                    {
+                        Back[demback] = 0;
+                        demback++;
+                    }
+                    ShowDefault();
                 }
                 if (Back[demback - 1] == 6)
                 {
@@ -709,33 +766,40 @@ namespace WinformsExample
         }
         public void Reload()
         {
-            switch (treeView1.SelectedNode.Name)
+            if (def == 0)
             {
-                case "Web":
-                    {
-                        ShowWebsiteRule();
-                        break;
-                    }
-                case "InboundUser":
-                    {
-                        ShowInboundUser();
-                        break;
-                    }
-                case "OutboundUser":
-                    {
-                        ShowOutboundUser();
-                        break;
-                    }
-                case "InboundDefault":
-                    {
-                        ShowInboundDefault();
-                        break;
-                    }
-                case "OutboundDefault":
-                    {
-                        ShowOutboundDefault();
-                        break;
-                    }
+                ShowDefault();
+            }
+            else
+            {
+                switch (treeView1.SelectedNode.Name)
+                {
+                    case "Web":
+                        {
+                            ShowWebsiteRule();
+                            break;
+                        }
+                    case "InboundUser":
+                        {
+                            ShowInboundUser();
+                            break;
+                        }
+                    case "OutboundUser":
+                        {
+                            ShowOutboundUser();
+                            break;
+                        }
+                    case "InboundDefault":
+                        {
+                            ShowInboundDefault();
+                            break;
+                        }
+                    case "OutboundDefault":
+                        {
+                            ShowOutboundDefault();
+                            break;
+                        }
+                }
             }
         }
         public void FilterProfile()
@@ -790,6 +854,15 @@ namespace WinformsExample
             Domain.Checked = false;
             Private.Checked = false;
             Public.Checked = false;
+            if (ShowAllState.Checked == true && ShowAllAction.Checked == true)
+            {
+                Clear.Visible = false;
+            }
+            else
+            {
+                Clear.Visible = true;
+            }
+            Filterprofile.Image = Properties.Resources.icons8_filter_filled_50__1_;
             Reload();
         }
 
@@ -822,6 +895,8 @@ namespace WinformsExample
                 Domain.Checked = true;
             }
             FilterProfile();
+            Clear.Visible = true;
+            Filterprofile.Image = Properties.Resources.icons8_filter_filled_50;
             Reload();
         }
 
@@ -839,6 +914,8 @@ namespace WinformsExample
                 Private.Checked = true;
             }
             FilterProfile();
+            Clear.Visible = true;
+            Filterprofile.Image = Properties.Resources.icons8_filter_filled_50;
             Reload();
         }
 
@@ -856,6 +933,8 @@ namespace WinformsExample
                 Public.Checked = true;
             }
             FilterProfile();
+            Clear.Visible = true;
+            Filterprofile.Image = Properties.Resources.icons8_filter_filled_50;
             Reload();
         }
 
@@ -865,18 +944,29 @@ namespace WinformsExample
             Enabled.Checked = false;
             Disabled.Checked = false;
             State = "1";
+            if (ShowAllProfile.Checked == true && ShowAllAction.Checked == true)
+            {
+                Clear.Visible = false;
+            }
+            else
+            {
+                Clear.Visible = true;
+            }
+            FilterState.Image = Properties.Resources.icons8_filter_filled_50__1_;
             Reload();
         }
 
         private void Enabled_Click(object sender, EventArgs e)
         {
             ShowAllState.Checked = false;
-            if(Enabled.Checked==false)
+            if (Enabled.Checked == false)
             {
                 Enabled.Checked = true;
                 Disabled.Checked = false;
             }
             State = "Yes";
+            Clear.Visible = true;
+            FilterState.Image = Properties.Resources.icons8_filter_filled_50;
             Reload();
         }
 
@@ -889,6 +979,8 @@ namespace WinformsExample
                 Disabled.Checked = true;
             }
             State = "No";
+            Clear.Visible = true;
+            FilterState.Image = Properties.Resources.icons8_filter_filled_50;
             Reload();
         }
 
@@ -898,6 +990,15 @@ namespace WinformsExample
             Allow.Checked = false;
             Block.Checked = false;
             Action = "1";
+            if (ShowAllState.Checked == true && ShowAllProfile.Checked == true)
+            {
+                Clear.Visible = false;
+            }
+            else
+            {
+                Clear.Visible = true;
+            }
+            FilterAction.Image = Properties.Resources.icons8_filter_filled_50__1_;
             Reload();
         }
 
@@ -910,6 +1011,8 @@ namespace WinformsExample
                 Block.Checked = false;
             }
             Action = "Allow";
+            Clear.Visible = true;
+            FilterAction.Image = Properties.Resources.icons8_filter_filled_50;
             Reload();
         }
 
@@ -922,6 +1025,8 @@ namespace WinformsExample
                 Block.Checked = true;
             }
             Action = "Block";
+            Clear.Visible = true;
+            FilterAction.Image = Properties.Resources.icons8_filter_filled_50;
             Reload();
         }
 
@@ -940,6 +1045,10 @@ namespace WinformsExample
             Profile = "1";
             State = "1";
             Action = "1";
+            Clear.Visible = false;
+            Filterprofile.Image = Properties.Resources.icons8_filter_filled_50__1_;
+            FilterState.Image = Properties.Resources.icons8_filter_filled_50__1_;
+            FilterAction.Image = Properties.Resources.icons8_filter_filled_50__1_;
             Reload();
         }
 
@@ -986,9 +1095,38 @@ namespace WinformsExample
             treeView1.SelectedNode = treeView1.Nodes[1].Nodes[0];
         }
 
+        private void treeView1_Click(object sender, EventArgs e)
+        {
+            ktnext = 0;
+            demnext = 0;
+        }
+
         private void FileOutboundDefault_Click(object sender, EventArgs e)
         {
             treeView1.SelectedNode = treeView1.Nodes[0].Nodes[1];
+        }
+
+        private void Introduce_Click(object sender, EventArgs e)
+        {
+            treeView1.SelectedNode = treeView1.Nodes[0];
+            if(def==0)
+            {
+                return;
+            }
+            def = 0;
+            if (demback >= Back.Count)
+            {
+                Back.Add(0);
+                demback++;
+            }
+            else
+            {
+                Back[demback] = 0;
+                demback++;
+            }
+            demnext = 0;
+            ShowButon();
+            ShowDefault();
         }
 
         private void btnReload_Click(object sender, EventArgs e)
