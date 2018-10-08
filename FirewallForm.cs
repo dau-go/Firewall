@@ -37,7 +37,7 @@ namespace WinformsExample
             set { _Lang = value; }
         }
         int Header = 0;
-        int kt = 0, def = 0, ktnext = 0;
+        int kt = 0, def = 0;
         List<int> Next = new List<int>(), Back = new List<int>();
         int demnext = 0, demback = 0;
         DefaultForm f;
@@ -171,6 +171,7 @@ namespace WinformsExample
             f.Dock = DockStyle.Fill;
             tab.Controls.Add(f);
             f.Visible = true;
+            f.sen = new DefaultForm.Click(Show);
             btnAdd.Enabled = false;
             btnAdd.BackgroundImage = Properties.Resources.icons8_plus_24;
             btnReload.Enabled = false;
@@ -185,6 +186,89 @@ namespace WinformsExample
             FileInboundUser.Checked = false;
             FileOutboundDefault.Checked = false;
             FileOutboundUser.Checked = false;
+        }
+        public void Show(int i)
+        {
+            switch (i)
+            {
+                case 0:
+                    {
+                        ShowInboundUser();
+                        if (demback >= Back.Count)
+                        {
+                            Back.Add(1);
+                            demback++;
+                        }
+                        else
+                        {
+                            Back[demback] = 1;
+                            demback++;
+                        }
+                        break;
+                    }
+                case 1:
+                    {
+                        ShowOutboundUser();
+                        if (demback >= Back.Count)
+                        {
+                            Back.Add(2);
+                            demback++;
+                        }
+                        else
+                        {
+                            Back[demback] = 2;
+                            demback++;
+                        }
+                        break;
+                    }
+                case 2:
+                    {
+                        ShowInboundDefault();
+                        if (demback >= Back.Count)
+                        {
+                            Back.Add(4);
+                            demback++;
+                        }
+                        else
+                        {
+                            Back[demback] = 4;
+                            demback++;
+                        }
+                        break;
+                    }
+                case 3:
+                    {
+                        ShowOutboundDefault();
+                        if (demback >= Back.Count)
+                        {
+                            Back.Add(5);
+                            demback++;
+                        }
+                        else
+                        {
+                            Back[demback] = 5;
+                            demback++;
+                        }
+                        break;
+                    }
+                case 4:
+                    {
+                        ShowWebsiteRule();
+                        if (demback >= Back.Count)
+                        {
+                            Back.Add(6);
+                            demback++;
+                        }
+                        else
+                        {
+                            Back[demback] = 6;
+                            demback++;
+                        }
+                        break;
+                    }
+            }
+            demnext = 0;
+            ShowButon();
         }
         //public void ShowUser()
         //{
@@ -1097,7 +1181,6 @@ namespace WinformsExample
 
         private void treeView1_Click(object sender, EventArgs e)
         {
-            ktnext = 0;
             demnext = 0;
         }
 
