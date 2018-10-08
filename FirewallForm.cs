@@ -106,6 +106,14 @@ namespace WinformsExample
             treeView1.Nodes["User"].Nodes["OutboundUser"].Text = "Quy Tắc Ra";
             treeView1.Nodes["Default"].Nodes["OutboundDefault"].Text = "Quy Tắc Ra";
             treeView1.Nodes["Web"].Text = "Quy Tắc Chặn Trang Web";
+            FileDefault.Text = "Quy Tắc Mặc Định Của Windows";
+            FileUser.Text = "Quy Tắc Được Tạo Bởi Người Dùng";
+            Introduce.Text = "Giới Thiệu";
+            FileWeb.Text = "Quy Tắc Chặn Trang Web";
+            FileInboundUser.Text = "Quy Tắc Vào";
+            FileOutboundUser.Text = "Quy Tắc Ra";
+            FileInboundDefault.Text = "Quy Tắc Vào";
+            FileOutboundDefault.Text = "Quy Tắc Ra";
         }
         public void ShowEnglish()
         {
@@ -143,6 +151,14 @@ namespace WinformsExample
             treeView1.Nodes["User"].Nodes["OutboundUser"].Text = "Outbound Rules";
             treeView1.Nodes["Default"].Nodes["OutboundDefault"].Text = "Outbound Rules";
             treeView1.Nodes["Web"].Text = "Website blocking rules";
+            FileDefault.Text = "The Default Rule Of The Windows";
+            FileUser.Text = "Rules Created By The User";
+            Introduce.Text = "Introduce";
+            FileWeb.Text = "Website blocking rules";
+            FileInboundUser.Text = "Inbound Rules";
+            FileOutboundUser.Text = "Outbound Rules";
+            FileInboundDefault.Text = "Inbound Rules";
+            FileOutboundDefault.Text = "Outbound Rules";
         }
         public void Showview()
         {
@@ -350,6 +366,7 @@ namespace WinformsExample
             FileInboundUser.Checked = true;
             FileOutboundDefault.Checked = false;
             FileOutboundUser.Checked = false;
+            Filterprofile.Visible = true;
         }
         public void ShowOutboundUser()
         {
@@ -381,6 +398,7 @@ namespace WinformsExample
             FileInboundUser.Checked = false;
             FileOutboundDefault.Checked = false;
             FileOutboundUser.Checked = true;
+            Filterprofile.Visible = true;
         }
         public void ShowInboundDefault()
         {
@@ -412,6 +430,7 @@ namespace WinformsExample
             FileInboundUser.Checked = false;
             FileOutboundDefault.Checked = false;
             FileOutboundUser.Checked = false;
+            Filterprofile.Visible = true;
         }
         public void ShowOutboundDefault()
         {
@@ -443,6 +462,7 @@ namespace WinformsExample
             FileInboundUser.Checked = false;
             FileOutboundDefault.Checked = true;
             FileOutboundUser.Checked = false;
+            Filterprofile.Visible = true;
         }
         public void ShowWebsiteRule()
         {
