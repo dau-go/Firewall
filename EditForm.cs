@@ -753,9 +753,17 @@ namespace WinformsExample
                     }
                 }
             }
-            if (localport != "")
+            if(cbLocalport.Text == "All Ports")
             {
-                if (localport != "Any")
+                localport = "Any";
+            }
+            if (cbRemoteport.Text == "All Ports")
+            {
+                remoteport = "Any";
+            }
+            if (localport != "Any")
+            {
+                if (localport != "")
                 {
                     if (ValidatePort(localport) == false)
                     {
@@ -770,22 +778,22 @@ namespace WinformsExample
                         return;
                     }
                 }
-            }
-            else
-            {
-                if (FirewallForm.Lang == 0)
-                {
-                    MessageBox.Show("Bạn phải chỉ định cổng bạn muốn thêm vào quy tắc", "Tường Lửa");
-                }
                 else
                 {
-                    MessageBox.Show("You must specify the port you want to add to the rule", "Firewall");
+                    if (FirewallForm.Lang == 0)
+                    {
+                        MessageBox.Show("Bạn phải chỉ định cổng bạn muốn thêm vào quy tắc", "Tường Lửa");
+                    }
+                    else
+                    {
+                        MessageBox.Show("You must specify the port you want to add to the rule", "Firewall");
+                    }
+                    return;
                 }
-                return;
             }
-            if (remoteport != "")
+            if (remoteport != "Any")
             {
-                if (remoteport != "Any")
+                if (remoteport != "")
                 {
                     if (ValidatePort(remoteport) == false)
                     {
@@ -800,18 +808,18 @@ namespace WinformsExample
                         return;
                     }
                 }
-            }
-            else
-            {
-                if (FirewallForm.Lang == 0)
-                {
-                    MessageBox.Show("Bạn phải chỉ định cổng bạn muốn thêm vào quy tắc", "Tường Lửa");
-                }
                 else
                 {
-                    MessageBox.Show("You must specify the port you want to add to the rule", "Firewall");
+                    if (FirewallForm.Lang == 0)
+                    {
+                        MessageBox.Show("Bạn phải chỉ định cổng bạn muốn thêm vào quy tắc", "Tường Lửa");
+                    }
+                    else
+                    {
+                        MessageBox.Show("You must specify the port you want to add to the rule", "Firewall");
+                    }
+                    return;
                 }
-                return;
             }
             if (program == null || program == "")
             {

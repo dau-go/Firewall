@@ -137,17 +137,46 @@ namespace WinformsExample
             {
                 return false;
             }
-            for (int i = 0; i < 3; i++)
-            {
-                if (splitValues[i] != splitValues1[i])
-                {
-                    return false;
-                }
-            }
-            if (int.Parse(splitValues[3]) >= int.Parse(splitValues1[3]))
+            if (int.Parse(splitValues[0]) > int.Parse(splitValues1[0]))
             {
                 return false;
             }
+            else if (int.Parse(splitValues[0]) == int.Parse(splitValues1[0]))
+            {
+                if (int.Parse(splitValues[1]) > int.Parse(splitValues1[1]))
+                {
+                    return false;
+                }
+                else if (int.Parse(splitValues[1]) == int.Parse(splitValues1[1]))
+                {
+                    if (int.Parse(splitValues[2]) > int.Parse(splitValues1[2]))
+                    {
+                        return false;
+                    }
+                    else if (int.Parse(splitValues[2]) == int.Parse(splitValues1[2]))
+                    {
+                        if (int.Parse(splitValues[3]) > int.Parse(splitValues1[3]))
+                        {
+                            return false;
+                        }
+                        else if (int.Parse(splitValues[3]) == int.Parse(splitValues1[3]))
+                        {
+                            return false;
+                        }
+                    }
+                }
+            }
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    if (splitValues[i] != splitValues1[i])
+            //    {
+            //        return false;
+            //    }
+            //}
+            //if (int.Parse(splitValues[3]) >= int.Parse(splitValues1[3]))
+            //{
+            //    return false;
+            //}
             byte tempForParsing;
             try
             {
