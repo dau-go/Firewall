@@ -19,7 +19,7 @@ namespace WinformsExample
         {
             InitializeComponent();
             k = i; k1 = j;
-            if (k == 2)//edit Local IP
+            if (k == 2)//edit Local IP  
             {
                 ShowIP();
                 k = 0;//Add Local IP
@@ -29,7 +29,13 @@ namespace WinformsExample
                 ShowIP();
                 k = 1;//Add Remote IP
             }
-
+            if (k == 0 || k == 1)
+            {
+                RuleIPForm.LocalIP = txtSubnet.Text;
+                EditForm.LocalIP = txtSubnet.Text;
+                RuleIPForm.RemoteIP = txtSubnet.Text;
+                EditForm.RemoteIP = txtSubnet.Text;
+            }
             if (FirewallForm.Lang == 0)
             {
                 ShowTiengViet();
@@ -57,31 +63,35 @@ namespace WinformsExample
         }
         public void ShowIP()
         {
-            if (RuleIPForm.IPFocus.Contains("-") == false)
+            if (k1 == 0)
             {
-                if (k1 == 0)
+                if (RuleIPForm.IPFocus.Contains("-") == false)
                 {
                     txtSubnet.Text = RuleIPForm.IPFocus;
                 }
                 else
                 {
-                    txtSubnet.Text = EditForm.IPFocus;
+                    radioButton2.Checked = true;
+                    string[] s;
+                    s = RuleIPForm.IPFocus.Split('-');
+                    txtFrom.Text = s[0];
+                    txtTo.Text = s[1];
                 }
             }
             else
             {
-                radioButton2.Checked = true;
-                string[] s;
-                if (k1 == 0)
+                if (EditForm.IPFocus.Contains("-") == false)
                 {
-                    s = RuleIPForm.IPFocus.Split('-');
+                    txtSubnet.Text = EditForm.IPFocus;
                 }
                 else
                 {
+                    radioButton2.Checked = true;
+                    string[] s;
                     s = EditForm.IPFocus.Split('-');
+                    txtFrom.Text = s[0];
+                    txtTo.Text = s[1];
                 }
-                txtFrom.Text = s[0];
-                txtTo.Text = s[1];
             }
         }
 

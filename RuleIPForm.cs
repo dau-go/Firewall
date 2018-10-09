@@ -108,6 +108,8 @@ namespace WinformsExample
             btnAddLocal.Enabled = false;
             btnEditLocal.Enabled = false;
             btnDelLocal.Enabled = false;
+            btnEditRemote.Enabled = false;
+            btnDelRemote.Enabled = false;
         }
 
         private void rbIPLocal_CheckedChanged(object sender, EventArgs e)
@@ -115,6 +117,10 @@ namespace WinformsExample
             AddRuleForm.LocalIP = "";
             listView1.Enabled = true;
             btnAddLocal.Enabled = true;
+            btnEditLocal.Enabled = false;
+            btnDelLocal.Enabled = false;
+            btnEditRemote.Enabled = false;
+            btnDelRemote.Enabled = false;
         }
 
         private void btnAddLocal_Click(object sender, EventArgs e)
@@ -126,12 +132,18 @@ namespace WinformsExample
                 listView1.Items.Add(_LocalIP);
             }
             GetIPLocal();
+            btnEditLocal.Enabled = false;
+            btnDelLocal.Enabled = false;
+            btnEditRemote.Enabled = false;
+            btnDelRemote.Enabled = false;
         }
         private void listView1_MouseClick(object sender, MouseEventArgs e)
         {
             btnEditLocal.Enabled = true;
             btnDelLocal.Enabled = true;
             _IPFocus = listView1.FocusedItem.Text;
+            btnEditRemote.Enabled = false;
+            btnDelRemote.Enabled = false;
         }
 
         private void btnEditLocal_Click(object sender, EventArgs e)
@@ -145,6 +157,8 @@ namespace WinformsExample
         {
             listView1.Items.Remove(listView1.FocusedItem);
             GetIPLocal();
+            btnEditLocal.Enabled = false;
+            btnDelLocal.Enabled = false;
         }
         //Remote IP
 
@@ -161,6 +175,10 @@ namespace WinformsExample
             AddRuleForm.RemoteIP = "";
             listView2.Enabled = true;
             btnAddRemote.Enabled = true;
+            btnEditRemote.Enabled = false;
+            btnDelRemote.Enabled = false;
+            btnEditLocal.Enabled = false;
+            btnDelLocal.Enabled = false;
         }
 
         private void btnAddRemote_Click(object sender, EventArgs e)
@@ -172,6 +190,10 @@ namespace WinformsExample
                 listView2.Items.Add(_RemoteIP);
             }
             GetIPRemote();
+            btnEditRemote.Enabled = false;
+            btnDelRemote.Enabled = false;
+            btnEditLocal.Enabled = false;
+            btnDelLocal.Enabled = false;
         }
 
         private void btnEditRemote_Click(object sender, EventArgs e)
@@ -186,6 +208,8 @@ namespace WinformsExample
         {
             listView2.Items.Remove(listView2.FocusedItem);
             GetIPRemote();
+            btnEditRemote.Enabled = false;
+            btnDelRemote.Enabled = false;
         }
 
         private void listView2_MouseClick(object sender, MouseEventArgs e)
@@ -193,6 +217,8 @@ namespace WinformsExample
             btnEditRemote.Enabled = true;
             btnDelRemote.Enabled = true;
             _IPFocus = listView2.FocusedItem.Text;
+            btnEditLocal.Enabled = false;
+            btnDelLocal.Enabled = false;
         }
     }
 }

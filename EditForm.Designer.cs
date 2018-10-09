@@ -548,10 +548,12 @@
             this.rbIPLocal.TabIndex = 8;
             this.rbIPLocal.Text = "These IP address:";
             this.rbIPLocal.UseVisualStyleBackColor = true;
-            this.rbIPLocal.CheckedChanged += new System.EventHandler(this.rbIPLocal_CheckedChanged);
+            this.rbIPLocal.CheckedChanged += new System.EventHandler(this.rbIPLocal_Click);
+            this.rbIPLocal.Click += new System.EventHandler(this.rbIPLocal_Click);
             // 
             // listView1
             // 
+            this.listView1.BackColor = System.Drawing.SystemColors.Window;
             this.listView1.Location = new System.Drawing.Point(57, 61);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(248, 81);
@@ -660,7 +662,8 @@
             this.rbIPRemote.TabIndex = 8;
             this.rbIPRemote.Text = "These IP address:";
             this.rbIPRemote.UseVisualStyleBackColor = true;
-            this.rbIPRemote.CheckedChanged += new System.EventHandler(this.rbIPRemote_CheckedChanged);
+            this.rbIPRemote.CheckedChanged += new System.EventHandler(this.rbIPRemote_Click);
+            this.rbIPRemote.Click += new System.EventHandler(this.rbIPRemote_Click);
             // 
             // rbAllRemote
             // 

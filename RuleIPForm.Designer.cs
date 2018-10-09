@@ -103,6 +103,7 @@
             this.rbIPLocal.Text = "These IP address:";
             this.rbIPLocal.UseVisualStyleBackColor = true;
             this.rbIPLocal.CheckedChanged += new System.EventHandler(this.rbIPLocal_CheckedChanged);
+            this.rbIPLocal.Click += new System.EventHandler(this.rbIPLocal_CheckedChanged);
             // 
             // btnAddLocal
             // 
@@ -170,6 +171,7 @@
             this.rbIPRemote.Text = "These IP address:";
             this.rbIPRemote.UseVisualStyleBackColor = true;
             this.rbIPRemote.CheckedChanged += new System.EventHandler(this.rbIPRemote_CheckedChanged);
+            this.rbIPRemote.Click += new System.EventHandler(this.rbIPRemote_CheckedChanged);
             // 
             // btnAddRemote
             // 

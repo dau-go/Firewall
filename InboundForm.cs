@@ -330,6 +330,10 @@ namespace WinformsExample
                                     string[] s = rule.LocalAddresses.Split('/');
                                     localAddress = s[0];
                                 }
+                                else if (rule.LocalAddresses == "LocalSubnet")
+                                {
+                                    localAddress = "127.0.0.1";
+                                }
                                 else
                                 {
                                     localAddress = rule.LocalAddresses;
@@ -352,6 +356,10 @@ namespace WinformsExample
                                 {
                                     string[] s = rule.RemoteAddresses.Split('/');
                                     remoteAddress = s[0];
+                                }
+                                else if (rule.RemoteAddresses == "LocalSubnet")
+                                {
+                                    remoteAddress = "127.0.0.1";
                                 }
                                 else
                                 {
@@ -863,6 +871,10 @@ namespace WinformsExample
                                     string[] s = rule.LocalAddresses.Split('/');
                                     localAddress = s[0];
                                 }
+                                else if (rule.LocalAddresses == "LocalSubnet")
+                                {
+                                    localAddress = "127.0.0.1";
+                                }
                                 else
                                 {
                                     localAddress = rule.LocalAddresses;
@@ -885,6 +897,10 @@ namespace WinformsExample
                                 {
                                     string[] s = rule.RemoteAddresses.Split('/');
                                     remoteAddress = s[0];
+                                }
+                                else if (rule.RemoteAddresses == "LocalSubnet")
+                                {
+                                    remoteAddress = "127.0.0.1";
                                 }
                                 else
                                 {
