@@ -191,6 +191,12 @@
     <Compile Include="WebsiteRuleForm.Designer.cs">
       <DependentUpon>WebsiteRuleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="WebsiteTrackingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WebsiteTrackingForm.Designer.cs">
+      <DependentUpon>WebsiteTrackingForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddDomainForm.resx">
       <DependentUpon>AddDomainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -250,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WebsiteRuleForm.resx">
       <DependentUpon>WebsiteRuleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WebsiteTrackingForm.resx">
+      <DependentUpon>WebsiteTrackingForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="app.manifest" />

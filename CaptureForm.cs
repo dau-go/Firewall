@@ -151,7 +151,6 @@ namespace WinformsExample
 
             // force an initial statistics update
             captureStatistics = device.Statistics;
-            UpdateCaptureStatistics();
 
             // start the background capture
             device.StartCapture();
@@ -173,7 +172,6 @@ namespace WinformsExample
         private int packetCount;
         private BindingSource bs;
         private ICaptureStatistics captureStatistics;
-        private bool statisticsUiNeedsUpdate = false;
 
         void device_OnPacketArrival(object sender, CaptureEventArgs e)
         {
@@ -184,7 +182,6 @@ namespace WinformsExample
             {
                 Console.WriteLine("device_OnPacketArrival: " + e.Device.Statistics);
                 captureStatistics = e.Device.Statistics;
-                statisticsUiNeedsUpdate = true;
                 LastStatisticsOutput = Now;
             }
 
@@ -280,21 +277,8 @@ namespace WinformsExample
                         bs.DataSource = packetStrings.Reverse();
                     }
                     ));
-                    if (statisticsUiNeedsUpdate)
-                    {
-                        UpdateCaptureStatistics();
-                        statisticsUiNeedsUpdate = false;
-                    }
                 }
             }
-        }
-
-        private void UpdateCaptureStatistics()
-        {
-            captureStatisticsToolStripStatusLabel.Text = string.Format("Received packets: {0}, Dropped packets: {1}, Interface dropped packets: {2}",
-                                                       captureStatistics.ReceivedPackets,
-                                                       captureStatistics.DroppedPackets,
-                                                       captureStatistics.InterfaceDroppedPackets);
         }
 
         private void CaptureForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -302,22 +286,12 @@ namespace WinformsExample
             Shutdown();
         }
 
-        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void dataGridView_SelectionChanged(object sender, EventArgs e)
         {
             if (dataGridView.SelectedCells.Count == 0) return;
             var packetWrapper = (PacketWrapper)dataGridView.Rows[dataGridView.SelectedCells[0].RowIndex].DataBoundItem;
             var packet = Packet.ParsePacket(packetWrapper.p.LinkLayerType, packetWrapper.p.Data);
-            packetInfoTextbox.Text = packet.ToString(StringOutputType.VerboseColored);
-            string s = "212.129.8.87";
-            if (packetInfoTextbox.Text.Contains(s) == true)
-            {
-                MessageBox.Show("sdfsf");
-            }
+            packetInfoTextbox.Text = packet.ToString(StringOutputType.VerboseColored); 
         }
     }
 }

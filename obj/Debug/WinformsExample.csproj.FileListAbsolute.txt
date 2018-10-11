@@ -117,3 +117,4 @@ C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.AddDomainForm
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.WebsiteRuleForm.resources
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.csprojResolveAssemblyReference.cache
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.EditForm.resources
+C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.WebsiteTrackingForm.resources
