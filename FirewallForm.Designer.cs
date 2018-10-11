@@ -40,9 +40,14 @@
             System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("The Default Rule Of The Windows", new System.Windows.Forms.TreeNode[] {
             treeNode4,
             treeNode5});
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Website blocking rules");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Website Blocking Rules");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Website Tracking");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Website Management", new System.Windows.Forms.TreeNode[] {
+            treeNode7,
+            treeNode8});
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fireToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Introduce = new System.Windows.Forms.ToolStripMenuItem();
             this.FileUser = new System.Windows.Forms.ToolStripMenuItem();
             this.FileInboundUser = new System.Windows.Forms.ToolStripMenuItem();
             this.FileOutboundUser = new System.Windows.Forms.ToolStripMenuItem();
@@ -92,7 +97,6 @@
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.Introduce = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -125,6 +129,13 @@
             this.fireToolStripMenuItem.Name = "fireToolStripMenuItem";
             this.fireToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fireToolStripMenuItem.Text = "File";
+            // 
+            // Introduce
+            // 
+            this.Introduce.Name = "Introduce";
+            this.Introduce.Size = new System.Drawing.Size(252, 22);
+            this.Introduce.Text = "Introduce";
+            this.Introduce.Click += new System.EventHandler(this.Introduce_Click);
             // 
             // FileUser
             // 
@@ -562,12 +573,16 @@
             treeNode5.Text = "Outbound Rules";
             treeNode6.Name = "Default";
             treeNode6.Text = "The Default Rule Of The Windows";
-            treeNode7.Name = "Web";
-            treeNode7.Text = "Website blocking rules";
+            treeNode7.Name = "BlockingWeb";
+            treeNode7.Text = "Website Blocking Rules";
+            treeNode8.Name = "WebsiteTracking";
+            treeNode8.Text = "Website Tracking";
+            treeNode9.Name = "Web";
+            treeNode9.Text = "Website Management";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode3,
             treeNode6,
-            treeNode7});
+            treeNode9});
             this.treeView1.Size = new System.Drawing.Size(209, 374);
             this.treeView1.TabIndex = 0;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
@@ -577,13 +592,6 @@
             // 
             this.timer1.Interval = 60000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // Introduce
-            // 
-            this.Introduce.Name = "Introduce";
-            this.Introduce.Size = new System.Drawing.Size(252, 22);
-            this.Introduce.Text = "Introduce";
-            this.Introduce.Click += new System.EventHandler(this.Introduce_Click);
             // 
             // FirewallForm
             // 
@@ -598,6 +606,7 @@
             this.Name = "FirewallForm";
             this.Text = "Firewall";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FirewallForm_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);

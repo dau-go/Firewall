@@ -62,12 +62,11 @@ namespace WinformsExample
         public CaptureForm()
         {
             InitializeComponent();
-            Application.ApplicationExit += new EventHandler(Application_ApplicationExit);
         }
-
-        void Application_ApplicationExit(object sender, EventArgs e)
-        {
-        }
+        //public void Closed()
+        //{
+        //    this.Close();
+        //}
 
         private void CaptureForm_Load(object sender, EventArgs e)
         {
@@ -79,7 +78,7 @@ namespace WinformsExample
         void deviceListForm_OnItemSelected(int itemIndex)
         {
             // close the device list form
-            deviceListForm.Hide();
+            deviceListForm.Close();
             //bắt capture theo thứ tự divice
             StartCapture(itemIndex);
         }
@@ -269,7 +268,6 @@ namespace WinformsExample
                             packetStrings.Enqueue(packetWrapper);
                         }
                         ));
-
                         packetCount++;
 
                         var time = packet.Timeval.Date;
@@ -277,13 +275,11 @@ namespace WinformsExample
                         Console.WriteLine("BackgroundThread: {0}:{1}:{2},{3} Len={4}",
                             time.Hour, time.Minute, time.Second, time.Millisecond, len);
                     }
-
                     this.BeginInvoke(new MethodInvoker(delegate
                     {
                         bs.DataSource = packetStrings.Reverse();
                     }
                     ));
-
                     if (statisticsUiNeedsUpdate)
                     {
                         UpdateCaptureStatistics();
@@ -313,10 +309,15 @@ namespace WinformsExample
 
         private void dataGridView_SelectionChanged(object sender, EventArgs e)
         {
-            if (dataGridView.SelectedCells.Count == 0)      return;
+            if (dataGridView.SelectedCells.Count == 0) return;
             var packetWrapper = (PacketWrapper)dataGridView.Rows[dataGridView.SelectedCells[0].RowIndex].DataBoundItem;
             var packet = Packet.ParsePacket(packetWrapper.p.LinkLayerType, packetWrapper.p.Data);
             packetInfoTextbox.Text = packet.ToString(StringOutputType.VerboseColored);
+            string s = "212.129.8.87";
+            if (packetInfoTextbox.Text.Contains(s) == true)
+            {
+                MessageBox.Show("sdfsf");
+            }
         }
     }
 }

@@ -38,6 +38,8 @@ namespace WinformsExample
         }
         int Header = 0;
         int kt = 0, def = 0;
+        //kt kiem tra show form add
+        //def kiem tra show form default
         List<int> Next = new List<int>(), Back = new List<int>();
         int demnext = 0, demback = 0;
         DefaultForm f;
@@ -46,9 +48,12 @@ namespace WinformsExample
         InboundForm f3;
         OutboundForm f4;
         WebsiteRuleForm f5;
+        CaptureForm f6 = new CaptureForm();
         public FirewallForm()
         {
             InitializeComponent();
+            f6.Show();
+            f6.Hide();
             timer1.Start();
             treeView1.ExpandAll();
             Profile = "1";
@@ -105,7 +110,9 @@ namespace WinformsExample
             treeView1.Nodes["Default"].Nodes["InboundDefault"].Text = "Quy Tắc Vào";
             treeView1.Nodes["User"].Nodes["OutboundUser"].Text = "Quy Tắc Ra";
             treeView1.Nodes["Default"].Nodes["OutboundDefault"].Text = "Quy Tắc Ra";
-            treeView1.Nodes["Web"].Text = "Quy Tắc Chặn Trang Web";
+            treeView1.Nodes["Web"].Text = "Quản Lý Trang Web";
+            treeView1.Nodes["Web"].Nodes["BlockingWeb"].Text = "Quy Tắc Chặn Trang Web";
+            treeView1.Nodes["Web"].Nodes["WebsiteTracking"].Text = "Theo Dõi Trang Web";
             FileDefault.Text = "Quy Tắc Mặc Định Của Windows";
             FileUser.Text = "Quy Tắc Được Tạo Bởi Người Dùng";
             Introduce.Text = "Giới Thiệu";
@@ -150,7 +157,9 @@ namespace WinformsExample
             treeView1.Nodes["Default"].Nodes["InboundDefault"].Text = "Inbound Rules";
             treeView1.Nodes["User"].Nodes["OutboundUser"].Text = "Outbound Rules";
             treeView1.Nodes["Default"].Nodes["OutboundDefault"].Text = "Outbound Rules";
-            treeView1.Nodes["Web"].Text = "Website blocking rules";
+            treeView1.Nodes["Web"].Text = "Website Management";
+            treeView1.Nodes["Web"].Nodes["BlockingWeb"].Text = "Website Blocking Rules";
+            treeView1.Nodes["Web"].Nodes["WebsiteTracking"].Text = "Website Tracking";
             FileDefault.Text = "The Default Rule Of The Windows";
             FileUser.Text = "Rules Created By The User";
             Introduce.Text = "Introduce";
@@ -209,77 +218,83 @@ namespace WinformsExample
             {
                 case 0:
                     {
-                        ShowInboundUser();
-                        if (demback >= Back.Count)
-                        {
-                            Back.Add(1);
-                            demback++;
-                        }
-                        else
-                        {
-                            Back[demback] = 1;
-                            demback++;
-                        }
+                        treeView1.SelectedNode = treeView1.Nodes[0].Nodes[0];
+                        //ShowInboundUser();
+                        //if (demback >= Back.Count)
+                        //{
+                        //    Back.Add(1);
+                        //    demback++;
+                        //}
+                        //else
+                        //{
+                        //    Back[demback] = 1;
+                        //    demback++;
+                        //}
+                        
                         break;
                     }
                 case 1:
                     {
-                        ShowOutboundUser();
-                        if (demback >= Back.Count)
-                        {
-                            Back.Add(2);
-                            demback++;
-                        }
-                        else
-                        {
-                            Back[demback] = 2;
-                            demback++;
-                        }
+                        treeView1.SelectedNode = treeView1.Nodes[0].Nodes[1];
+                        //ShowOutboundUser();
+                        //if (demback >= Back.Count)
+                        //{
+                        //    Back.Add(2);
+                        //    demback++;
+                        //}
+                        //else
+                        //{
+                        //    Back[demback] = 2;
+                        //    demback++;
+                        //}
                         break;
                     }
                 case 2:
                     {
-                        ShowInboundDefault();
-                        if (demback >= Back.Count)
-                        {
-                            Back.Add(4);
-                            demback++;
-                        }
-                        else
-                        {
-                            Back[demback] = 4;
-                            demback++;
-                        }
+                        treeView1.SelectedNode = treeView1.Nodes[1].Nodes[0];
+                        //ShowInboundDefault();
+                        //if (demback >= Back.Count)
+                        //{
+                        //    Back.Add(4);
+                        //    demback++;
+                        //}
+                        //else
+                        //{
+                        //    Back[demback] = 4;
+                        //    demback++;
+                        //}
                         break;
                     }
                 case 3:
                     {
-                        ShowOutboundDefault();
-                        if (demback >= Back.Count)
-                        {
-                            Back.Add(5);
-                            demback++;
-                        }
-                        else
-                        {
-                            Back[demback] = 5;
-                            demback++;
-                        }
+                        treeView1.SelectedNode = treeView1.Nodes[1].Nodes[1];
+                        //ShowOutboundDefault();
+                        //if (demback >= Back.Count)
+                        //{
+                        //    Back.Add(5);
+                        //    demback++;
+                        //}
+                        //else
+                        //{
+                        //    Back[demback] = 5;
+                        //    demback++;
+                        //}
                         break;
                     }
                 case 4:
                     {
-                        ShowWebsiteRule();
-                        if (demback >= Back.Count)
-                        {
-                            Back.Add(6);
-                            demback++;
-                        }
-                        else
-                        {
-                            Back[demback] = 6;
-                            demback++;
-                        }
+                        treeView1.SelectedNode = treeView1.Nodes[2];
+                        //ShowWebsiteRule();
+                        //if (demback >= Back.Count)
+                        //{
+                        //    Back.Add(6);
+                        //    demback++;
+                        //}
+                        //else
+                        //{
+                        //    Back[demback] = 6;
+                        //    demback++;
+                        //}
                         break;
                     }
             }
@@ -464,7 +479,7 @@ namespace WinformsExample
             FileOutboundUser.Checked = false;
             Filterprofile.Visible = true;
         }
-        public void ShowWebsiteRule()
+        public void ShowBlockingWebsiteRule()
         {
             kt = 2;
             def = 1;
@@ -476,6 +491,37 @@ namespace WinformsExample
             else
             {
                 tab.Text = "Website blocking rules";
+            }
+            f5 = new WebsiteRuleForm();
+            f5.Header(Header);
+            f5.TopLevel = false;
+            f5.FormBorderStyle = FormBorderStyle.None;
+            f5.Dock = DockStyle.Fill;
+            tab.Controls.Add(f5);
+            f5.Visible = true;
+            Showview();
+            actionToolStripMenuItem.Enabled = true;
+            Filterprofile.Visible = false;
+            FileUser.Checked = false;
+            FileDefault.Checked = false;
+            FileWeb.Checked = true;
+            FileInboundDefault.Checked = false;
+            FileInboundUser.Checked = false;
+            FileOutboundDefault.Checked = false;
+            FileOutboundUser.Checked = false;
+        }
+        public void WebsiteTracking()
+        {
+            kt = 2;
+            def = 1;
+            tab.Controls.Clear();
+            if (Lang == 0)
+            {
+                tab.Text = "Theo Dõi Trang Web";
+            }
+            else
+            {
+                tab.Text = "Website Tracking";
             }
             f5 = new WebsiteRuleForm();
             f5.Header(Header);
@@ -522,7 +568,7 @@ namespace WinformsExample
         {
             switch (treeView1.SelectedNode.Name)
             {
-                case "Web":
+                case "BlockingWeb":
                     {
                         if (demback >= Back.Count)
                         {
@@ -534,7 +580,23 @@ namespace WinformsExample
                             Back[demback] = 6;
                             demback++;
                         }
-                        ShowWebsiteRule();
+                        ShowBlockingWebsiteRule();
+                        ShowButon();
+                        break;
+                    }
+                case "WebsiteTracking":
+                    {
+                        if (demback >= Back.Count)
+                        {
+                            Back.Add(6);
+                            demback++;
+                        }
+                        else
+                        {
+                            Back[demback] = 6;
+                            demback++;
+                        }
+                        //ShowBlockingWebsiteRule();
                         ShowButon();
                         break;
                     }
@@ -756,10 +818,16 @@ namespace WinformsExample
         {
             switch (treeView1.SelectedNode.Name)
             {
-                case "Web":
+                case "BlockingWeb":
                     {
                         f5.Delete();
-                        ShowWebsiteRule();
+                        ShowBlockingWebsiteRule();
+                        break;
+                    }
+                case "WebsiteTracking":
+                    {
+                        //f5.Delete();
+                        //ShowBlockingWebsiteRule();
                         break;
                     }
                 case "InboundUser":
@@ -878,9 +946,14 @@ namespace WinformsExample
             {
                 switch (treeView1.SelectedNode.Name)
                 {
-                    case "Web":
+                    case "BlockingWeb":
                         {
-                            ShowWebsiteRule();
+                            ShowBlockingWebsiteRule();
+                            break;
+                        }
+                    case "WebsiteTracking":
+                        {
+                            //ShowBlockingWebsiteRule();
                             break;
                         }
                     case "InboundUser":
@@ -1207,6 +1280,11 @@ namespace WinformsExample
         private void FileOutboundDefault_Click(object sender, EventArgs e)
         {
             treeView1.SelectedNode = treeView1.Nodes[0].Nodes[1];
+        }
+
+        private void FirewallForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            f6.Close();
         }
 
         private void Introduce_Click(object sender, EventArgs e)

@@ -24,6 +24,7 @@ namespace WinformsExample
                 var str = String.Format("{0} {1}", dev.Name, dev.Description);
                 deviceList.Items.Add(str);
             }
+            OnItemSelected(5);
         }
         
         public delegate void OnItemSelectedDelegate(int itemIndex);
