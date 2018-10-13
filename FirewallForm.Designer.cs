@@ -69,7 +69,7 @@
             this.FilterState = new System.Windows.Forms.ToolStripMenuItem();
             this.ShowAllState = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.Enabled = new System.Windows.Forms.ToolStripMenuItem();
+            this.Enable = new System.Windows.Forms.ToolStripMenuItem();
             this.Disabled = new System.Windows.Forms.ToolStripMenuItem();
             this.FilterAction = new System.Windows.Forms.ToolStripMenuItem();
             this.ShowAllAction = new System.Windows.Forms.ToolStripMenuItem();
@@ -283,7 +283,7 @@
             this.FilterState.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ShowAllState,
             this.toolStripSeparator4,
-            this.Enabled,
+            this.Enable,
             this.Disabled});
             this.FilterState.Image = ((System.Drawing.Image)(resources.GetObject("FilterState.Image")));
             this.FilterState.Name = "FilterState";
@@ -306,10 +306,10 @@
             // 
             // Enabled
             // 
-            this.Enabled.Name = "Enabled";
-            this.Enabled.Size = new System.Drawing.Size(164, 22);
-            this.Enabled.Text = "Filter By Enabled";
-            this.Enabled.Click += new System.EventHandler(this.Enabled_Click);
+            this.Enable.Name = "Enabled";
+            this.Enable.Size = new System.Drawing.Size(164, 22);
+            this.Enable.Text = "Filter By Enabled";
+            this.Enable.Click += new System.EventHandler(this.Enabled_Click);
             // 
             // Disabled
             // 
@@ -649,7 +649,7 @@
         private System.Windows.Forms.ToolStripMenuItem FilterState;
         private System.Windows.Forms.ToolStripMenuItem ShowAllState;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripMenuItem Enabled;
+        private System.Windows.Forms.ToolStripMenuItem Enable;
         private System.Windows.Forms.ToolStripMenuItem Disabled;
         private System.Windows.Forms.ToolStripMenuItem FilterAction;
         private System.Windows.Forms.ToolStripMenuItem ShowAllAction;

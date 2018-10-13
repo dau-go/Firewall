@@ -49,6 +49,7 @@ namespace WinformsExample
         OutboundForm f4;
         WebsiteRuleForm f5;
         CaptureForm f6 = new CaptureForm();
+        WebsiteTrackingForm f7;
         public FirewallForm()
         {
             InitializeComponent();
@@ -96,7 +97,7 @@ namespace WinformsExample
             Public.Text = "Lọc Theo Hồ Sơ Công Khai";
             FilterState.Text = "Lọc Theo Trạng Thái";
             ShowAllState.Text = "Hiển Thị Tất cả";
-            Enabled.Text = "Lọc Theo Bật";
+            Enable.Text = "Lọc Theo Bật";
             Disabled.Text = "Lọc Theo Tắt";
             FilterAction.Text = "Lọc Theo Hoạt Động";
             ShowAllAction.Text = "Hiển Thị Tất cả";
@@ -143,8 +144,8 @@ namespace WinformsExample
             Public.Text = "Filter By Public Profile";
             FilterState.Text = "Filter By State";
             ShowAllState.Text = "Show All";
-            Enabled.Text = "Filter By Enabled";
-            Disabled.Text = "Filter By Disabled";
+            Enable.Text = "Filter By Turn On";
+            Disabled.Text = "Filter By Turn Off";
             FilterAction.Text = "Filter By Action";
             ShowAllAction.Text = "Show All";
             Allow.Text = "Filter By Allow";
@@ -196,7 +197,7 @@ namespace WinformsExample
             f.Dock = DockStyle.Fill;
             tab.Controls.Add(f);
             f.Visible = true;
-            f.sen = new DefaultForm.Click(Show);
+            f.sen = new DefaultForm.Clic(Show);
             btnAdd.Enabled = false;
             btnAdd.BackgroundImage = Properties.Resources.icons8_plus_24;
             btnReload.Enabled = false;
@@ -230,7 +231,7 @@ namespace WinformsExample
                         //    Back[demback] = 1;
                         //    demback++;
                         //}
-                        
+
                         break;
                     }
                 case 1:
@@ -283,7 +284,7 @@ namespace WinformsExample
                     }
                 case 4:
                     {
-                        treeView1.SelectedNode = treeView1.Nodes[2];
+                        treeView1.SelectedNode = treeView1.Nodes[2].Nodes[0];
                         //ShowWebsiteRule();
                         //if (demback >= Back.Count)
                         //{
@@ -510,9 +511,9 @@ namespace WinformsExample
             FileOutboundDefault.Checked = false;
             FileOutboundUser.Checked = false;
         }
-        public void WebsiteTracking()
+        public void ShowWebsiteTracking()
         {
-            kt = 2;
+            kt = 3;
             def = 1;
             tab.Controls.Clear();
             if (Lang == 0)
@@ -523,13 +524,13 @@ namespace WinformsExample
             {
                 tab.Text = "Website Tracking";
             }
-            f5 = new WebsiteRuleForm();
-            f5.Header(Header);
-            f5.TopLevel = false;
-            f5.FormBorderStyle = FormBorderStyle.None;
-            f5.Dock = DockStyle.Fill;
-            tab.Controls.Add(f5);
-            f5.Visible = true;
+            f7 = new WebsiteTrackingForm();
+            //f7.Header(Header);
+            f7.TopLevel = false;
+            f7.FormBorderStyle = FormBorderStyle.None;
+            f7.Dock = DockStyle.Fill;
+            tab.Controls.Add(f7);
+            f7.Visible = true;
             Showview();
             actionToolStripMenuItem.Enabled = true;
             Filterprofile.Visible = false;
@@ -572,12 +573,12 @@ namespace WinformsExample
                     {
                         if (demback >= Back.Count)
                         {
-                            Back.Add(6);
+                            Back.Add(7);
                             demback++;
                         }
                         else
                         {
-                            Back[demback] = 6;
+                            Back[demback] = 7;
                             demback++;
                         }
                         ShowBlockingWebsiteRule();
@@ -588,15 +589,15 @@ namespace WinformsExample
                     {
                         if (demback >= Back.Count)
                         {
-                            Back.Add(6);
+                            Back.Add(8);
                             demback++;
                         }
                         else
                         {
-                            Back[demback] = 6;
+                            Back[demback] = 8;
                             demback++;
                         }
-                        //ShowBlockingWebsiteRule();
+                        ShowWebsiteTracking();
                         ShowButon();
                         break;
                     }
@@ -706,16 +707,8 @@ namespace WinformsExample
         private void btnAdd_Click(object sender, EventArgs e)
         {
             AddRuleForm.kt = kt;
-            if (kt != 2)
-            {
-                AddRuleForm f = new AddRuleForm();
-                f.ShowDialog();
-            }
-            else
-            {
-                AddRuleForm f = new AddRuleForm();
-                f.ShowDialog();
-            }
+            AddRuleForm f = new AddRuleForm();
+            f.ShowDialog();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -826,8 +819,8 @@ namespace WinformsExample
                     }
                 case "WebsiteTracking":
                     {
-                        //f5.Delete();
-                        //ShowBlockingWebsiteRule();
+                        f7.Delete();
+                        ShowWebsiteTracking();
                         break;
                     }
                 case "InboundUser":
@@ -868,7 +861,7 @@ namespace WinformsExample
             {
                 Next[demnext] = Back[demback];
             }
-            if (Back[demback - 1] == 0 || Back[demback - 1] == 3 || Back[demback - 1] == 6)
+            if (Back[demback - 1] == 0)
             {
                 if (Back[demback - 1] == 0)
                 {
@@ -885,18 +878,18 @@ namespace WinformsExample
                     }
                     ShowDefault();
                 }
-                if (Back[demback - 1] == 6)
-                {
-                    treeView1.SelectedNode = treeView1.Nodes[2];
-                }
             }
             else if (Back[demback - 1] == 1 || Back[demback - 1] == 2)
             {
                 treeView1.SelectedNode = treeView1.Nodes[0].Nodes[Back[demback - 1] - 1];
             }
-            else
+            else if(Back[demback - 1] == 4 || Back[demback - 1] == 5)
             {
                 treeView1.SelectedNode = treeView1.Nodes[1].Nodes[Back[demback - 1] - 4];
+            }
+            else
+            {
+                treeView1.SelectedNode = treeView1.Nodes[2].Nodes[Back[demback - 1] - 7];
             }
             demnext++;
             demback--;
@@ -906,28 +899,47 @@ namespace WinformsExample
         private void btnNext_Click(object sender, EventArgs e)
         {
             demnext--;
-            if (Next[demnext] == 0 || Next[demnext] == 3 || Next[demnext] == 6)
+            //if (Next[demnext] == 0 || Next[demnext] == 3 || Next[demnext] == 6)
+            //{
+            //    if (Next[demnext] == 0)
+            //    {
+            //        treeView1.SelectedNode = treeView1.Nodes[0];
+            //    }
+            //    if (Next[demnext] == 3)
+            //    {
+            //        treeView1.SelectedNode = treeView1.Nodes[1];
+            //    }
+            //    if (Next[demnext] == 6)
+            //    {
+            //        treeView1.SelectedNode = treeView1.Nodes[2];
+            //    }
+            //}
+            if(Next[demnext] == 0)
             {
-                if (Next[demnext] == 0)
+                if (demback >= Back.Count)
                 {
-                    treeView1.SelectedNode = treeView1.Nodes[0];
+                    Back.Add(0);
+                    demback++;
                 }
-                if (Next[demnext] == 3)
+                else
                 {
-                    treeView1.SelectedNode = treeView1.Nodes[1];
+                    Back[demback] = 0;
+                    demback++;
                 }
-                if (Next[demnext] == 6)
-                {
-                    treeView1.SelectedNode = treeView1.Nodes[2];
-                }
+                treeView1.SelectedNode = treeView1.Nodes[0];
+                ShowDefault();
             }
             else if (Next[demnext] == 1 || Next[demnext] == 2)
             {
                 treeView1.SelectedNode = treeView1.Nodes[0].Nodes[Next[demnext] - 1];
             }
-            else
+            else if (Next[demnext] == 3 || Next[demnext] == 4)
             {
                 treeView1.SelectedNode = treeView1.Nodes[1].Nodes[Next[demnext] - 4];
+            }
+            else
+            {
+                treeView1.SelectedNode = treeView1.Nodes[2].Nodes[Next[demnext] - 7];
             }
             ShowButon();
         }
@@ -953,7 +965,7 @@ namespace WinformsExample
                         }
                     case "WebsiteTracking":
                         {
-                            //ShowBlockingWebsiteRule();
+                            ShowWebsiteTracking();
                             break;
                         }
                     case "InboundUser":
@@ -1118,7 +1130,7 @@ namespace WinformsExample
         private void ShowAllState_Click(object sender, EventArgs e)
         {
             ShowAllState.Checked = true;
-            Enabled.Checked = false;
+            Enable.Checked = false;
             Disabled.Checked = false;
             State = "1";
             if (ShowAllProfile.Checked == true && ShowAllAction.Checked == true)
@@ -1136,12 +1148,12 @@ namespace WinformsExample
         private void Enabled_Click(object sender, EventArgs e)
         {
             ShowAllState.Checked = false;
-            if (Enabled.Checked == false)
+            if (Enable.Checked == false)
             {
-                Enabled.Checked = true;
+                Enable.Checked = true;
                 Disabled.Checked = false;
             }
-            State = "Yes";
+            State = "Turn On";
             Clear.Visible = true;
             FilterState.Image = Properties.Resources.icons8_filter_filled_50;
             Reload();
@@ -1152,10 +1164,10 @@ namespace WinformsExample
             ShowAllState.Checked = false;
             if (Disabled.Checked == false)
             {
-                Enabled.Checked = false;
+                Enable.Checked = false;
                 Disabled.Checked = true;
             }
-            State = "No";
+            State = "Turn Off";
             Clear.Visible = true;
             FilterState.Image = Properties.Resources.icons8_filter_filled_50;
             Reload();
@@ -1214,7 +1226,7 @@ namespace WinformsExample
             Private.Checked = false;
             Public.Checked = false;
             ShowAllState.Checked = true;
-            Enabled.Checked = false;
+            Enable.Checked = false;
             Disabled.Checked = false;
             ShowAllAction.Checked = true;
             Allow.Checked = false;
@@ -1290,7 +1302,7 @@ namespace WinformsExample
         private void Introduce_Click(object sender, EventArgs e)
         {
             treeView1.SelectedNode = treeView1.Nodes[0];
-            if(def==0)
+            if (def == 0)
             {
                 return;
             }

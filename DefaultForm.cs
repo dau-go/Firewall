@@ -11,8 +11,8 @@ namespace WinformsExample
 {
     public partial class DefaultForm : Form
     {
-        public delegate void Click(int i);
-        public Click sen;
+        public delegate void Clic(int i);
+        public Clic sen;
         public DefaultForm()
         {
             InitializeComponent();

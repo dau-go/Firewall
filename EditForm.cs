@@ -619,8 +619,10 @@ namespace WinformsExample
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            btnApply_Click(sender, e);
-            this.Close();
+            if (Apply() == true)
+            {
+                this.Close();
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -629,6 +631,10 @@ namespace WinformsExample
         }
 
         private void btnApply_Click(object sender, EventArgs e)
+        {
+            Apply();
+        }
+        public bool Apply()
         {
             var firewallRule = (INetFwPolicy2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FwPolicy2"));
             var rule = firewallRule.Rules.Item(NameRule);
@@ -719,26 +725,20 @@ namespace WinformsExample
             {
                 if (txtName.Text != null && txtName.Text != "")
                 {
-                    int ktname = 0;
                     foreach (INetFwRule r in firewallRule.Rules)
                     {
                         if (txtName.Text == r.Name)
                         {
-                            ktname = 1;
-                            break;
+                            if (FirewallForm.Lang == 0)
+                            {
+                                MessageBox.Show("Tên quy tắc đã tồn tại", "Tường Lửa");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Rule name already exists", "Firewall");
+                            }
+                            return false;
                         }
-                    }
-                    if (ktname == 1)
-                    {
-                        if(FirewallForm.Lang==0)
-                        {
-                            MessageBox.Show("Tên quy tắc đã tồn tại", "Tường Lửa");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Rule name already exists", "Firewall");
-                        }
-                        return;
                     }
                 }
                 else
@@ -751,9 +751,10 @@ namespace WinformsExample
                     {
                         MessageBox.Show("You must specify the rule name", "Firewall");
                     }
+                    return false;
                 }
             }
-            if(cbLocalport.Text == "All Ports")
+            if (cbLocalport.Text == "All Ports")
             {
                 localport = "Any";
             }
@@ -775,7 +776,7 @@ namespace WinformsExample
                         {
                             MessageBox.Show("The port value is incorrect", "Firewall");
                         }
-                        return;
+                        return false;
                     }
                 }
                 else
@@ -788,7 +789,7 @@ namespace WinformsExample
                     {
                         MessageBox.Show("You must specify the port you want to add to the rule", "Firewall");
                     }
-                    return;
+                    return false;
                 }
             }
             if (remoteport != "Any")
@@ -805,7 +806,7 @@ namespace WinformsExample
                         {
                             MessageBox.Show("The port value is incorrect", "Firewall");
                         }
-                        return;
+                        return false;
                     }
                 }
                 else
@@ -818,7 +819,7 @@ namespace WinformsExample
                     {
                         MessageBox.Show("You must specify the port you want to add to the rule", "Firewall");
                     }
-                    return;
+                    return false;
                 }
             }
             if (program == null || program == "")
@@ -831,7 +832,7 @@ namespace WinformsExample
                 {
                     MessageBox.Show("You must specify a program path", "Firewall");
                 }
-                return;
+                return false;
             }
             //edit rule
             if (Description != txtDescription.Text)
@@ -1045,6 +1046,7 @@ namespace WinformsExample
                 }
             }
             send();
+            return true;
         }
         public bool Time()
         {

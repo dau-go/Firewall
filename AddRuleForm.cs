@@ -78,6 +78,18 @@ namespace WinformsExample
             get { return _Profile; }
             set { _Profile = value; }
         }
+        //private static string _NameWeb;
+        //public static string NameWeb
+        //{
+        //    get { return _NameWeb; }
+        //    set { _NameWeb = value; }
+        //}
+        //private static string _IPTracking;
+        //public static string IPTracking
+        //{
+        //    get { return _IPTracking; }
+        //    set { _IPTracking = value; }
+        //}
         AddDomainForm f = new AddDomainForm();
         RuleIPForm f1 = new RuleIPForm();
         RulePortForm f2 = new RulePortForm();
@@ -86,6 +98,7 @@ namespace WinformsExample
         RulePropertiesForm f5 = new RulePropertiesForm();
         RuleProtocolForm f6 = new RuleProtocolForm();
         RuleTypeForm f7 = new RuleTypeForm();
+        AddWebsiteTrackingForm f8 = new AddWebsiteTrackingForm();
         int k = 1;
         public AddRuleForm()
         {
@@ -100,15 +113,18 @@ namespace WinformsExample
             LocalPort = "Any";
             RemotePort = "Any";
             Profile = 7;
-            if (_kt != 2)
+            if (_kt == 1 || _kt == 0)
             {
                 ShowRuleTypeForm();
             }
-            else
+            else if(_kt==2)
             {
                 ShowAddWebRule();
             }
-
+            else
+            {
+                ShowAddWebTracking();
+            }
             if (FirewallForm.Lang == 0)
             {
                 ShowTiengViet();
@@ -122,7 +138,7 @@ namespace WinformsExample
         {
             label1.Text = "Thêm Mới Quy Tắc";
             btnBack.Text = "<Quay Lại";
-            btnBack1.Text= "<Quay Lại";
+            btnBack1.Text = "<Quay Lại";
             btnBack2.Text = "<Quay Lại";
             btnBack3.Text = "<Quay Lại";
             btnNext.Text = "Tiếp Tục>";
@@ -162,6 +178,25 @@ namespace WinformsExample
             f.Dock = DockStyle.Fill;
             groupBox1.Controls.Add(f);
             f.Visible = true;
+            btnNext.Visible = false;
+            btnfis.Visible = true;
+        }
+        public void ShowAddWebTracking()
+        {
+            groupBox1.Controls.Clear();
+            if (FirewallForm.Lang == 0)
+            {
+                groupBox1.Text = "Quy tắc theo dõi trang web";
+            }
+            else
+            {
+                groupBox1.Text = "Website tracking rule";
+            }
+            f8.TopLevel = false;
+            f8.FormBorderStyle = FormBorderStyle.None;
+            f8.Dock = DockStyle.Fill;
+            groupBox1.Controls.Add(f8);
+            f8.Visible = true;
             btnNext.Visible = false;
             btnfis.Visible = true;
         }
@@ -773,7 +808,7 @@ namespace WinformsExample
 
         private void btnfis_Click(object sender, EventArgs e)
         {
-            if (_kt != 2)
+            if (_kt == 0||_kt==1)
             {
                 // Let's create a new rule
                 INetFwRule2 inboundRule = (INetFwRule2)Activator.CreateInstance(Type.GetTypeFromProgID("HNetCfg.FWRule"));
@@ -855,7 +890,7 @@ namespace WinformsExample
                 firewallPolicy.Rules.Add(inboundRule);
                 this.Close();
             }
-            else
+            else if(kt==2)
             {
                 int m = 0;
                 try
@@ -868,6 +903,13 @@ namespace WinformsExample
 
                 }
                 if (m == 1) this.Close();
+            }
+            else
+            {
+                if (f8.AddRule() == true)
+                {
+                    this.Close();
+                }
             }
         }
     }

@@ -67,7 +67,6 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.rbAllLocal = new System.Windows.Forms.RadioButton();
             this.rbIPLocal = new System.Windows.Forms.RadioButton();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.btnAddLocal = new System.Windows.Forms.Button();
             this.btnEditLocal = new System.Windows.Forms.Button();
             this.btnDelLocal = new System.Windows.Forms.Button();
@@ -94,6 +93,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
             this.Open = new System.Windows.Forms.OpenFileDialog();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -552,17 +552,6 @@
             this.rbIPLocal.CheckedChanged += new System.EventHandler(this.rbIPLocal_Click);
             this.rbIPLocal.Click += new System.EventHandler(this.rbIPLocal_Click);
             // 
-            // listView1
-            // 
-            this.listView1.BackColor = System.Drawing.SystemColors.Window;
-            this.listView1.Location = new System.Drawing.Point(57, 61);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(248, 81);
-            this.listView1.TabIndex = 12;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.List;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
-            // 
             // btnAddLocal
             // 
             this.btnAddLocal.Enabled = false;
@@ -1013,6 +1002,17 @@
             // 
             this.Open.FileName = "openFileDialog1";
             // 
+            // listView1
+            // 
+            this.listView1.BackColor = System.Drawing.SystemColors.Window;
+            this.listView1.Location = new System.Drawing.Point(57, 61);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(248, 81);
+            this.listView1.TabIndex = 12;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.List;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
             // EditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1088,7 +1088,6 @@
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.RadioButton rbAllLocal;
         private System.Windows.Forms.RadioButton rbIPLocal;
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button btnAddLocal;
         private System.Windows.Forms.Button btnEditLocal;
         private System.Windows.Forms.Button btnDelLocal;
@@ -1122,5 +1121,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.OpenFileDialog Open;
+        private System.Windows.Forms.ListView listView1;
     }
 }

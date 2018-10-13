@@ -64,8 +64,8 @@ namespace WinformsExample
             dataGridView1.Columns["TimeFrom"].HeaderText = "Time Out";
             dataGridView1.Columns["TimeTo"].HeaderText = "Time To";
             dataGridView1.Columns["RemoteIP"].HeaderText = "Remote Address";
-            menuDisable.Text = "Disabled";
-            menuEnable.Text = "Enabled";
+            menuDisable.Text = "Turn Off";
+            menuEnable.Text = "Turn On";
             menuAllow.Text = "Allow";
             menuBlock.Text = "Block";
             menuAdd.Text = "Add New Rule";
@@ -135,7 +135,7 @@ namespace WinformsExample
                         }
                         else
                         {
-                            state = "Yes";
+                            state = "Turn On";
                         }
                     }
                     else
@@ -146,7 +146,7 @@ namespace WinformsExample
                         }
                         else
                         {
-                            state = "Yes";
+                            state = "Turn Off";
                         }
                     }
                     if (rule.Action.ToString() == "NET_FW_ACTION_ALLOW")
@@ -273,7 +273,7 @@ namespace WinformsExample
             {
                 DataGridViewRow dr = dataGridView1.SelectedRows[i];
                 string state = "", action = "";
-                if (dr.Cells["State"].Value.ToString() == "Yes" || dr.Cells["State"].Value.ToString() == "Bật")
+                if (dr.Cells["State"].Value.ToString() == "Turn On" || dr.Cells["State"].Value.ToString() == "Bật")
                 {
                     state = "Yes";
                 }
