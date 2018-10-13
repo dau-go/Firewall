@@ -151,6 +151,9 @@ namespace WinformsExample
             btnAddRemote.Text = "Thêm...";
             btnEditRemote.Text = "Sửa...";
             btnDelRemote.Text = "Xóa";
+            btnApply.Text = "Áp dụng";
+            btnOK.Text = "Đồng Ý";
+            btnCancel.Text = "Hủy";
         }
         public void ShowEnglish()
         {
@@ -201,6 +204,9 @@ namespace WinformsExample
             btnAddRemote.Text = "Add...";
             btnEditRemote.Text = "Edit...";
             btnDelRemote.Text = "Remove";
+            btnApply.Text = "Apply";
+            btnOK.Text = "Ok";
+            btnCancel.Text = "Cancel";
         }
         public void editform1()
         {

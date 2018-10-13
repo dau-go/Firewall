@@ -125,10 +125,10 @@ namespace WinformsExample
                     return false;
                 }
             }
-            IP.State = "Yes";
+            IP.State = "On";
             IP.Action = "Theo dõi";
             IP.Statebool = true;
-            IPDestinationDAO.ThemIPDestination(IP);
+            IPDestinationDAO.AddIPDestination(IP);
             return true;
         }
     }

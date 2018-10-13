@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using NetFwTypeLib;
+using System.Data.SqlClient;
+using DAO;
 
 namespace WinformsExample
 {
@@ -285,6 +287,22 @@ namespace WinformsExample
                 case 4:
                     {
                         treeView1.SelectedNode = treeView1.Nodes[2].Nodes[0];
+                        //ShowWebsiteRule();
+                        //if (demback >= Back.Count)
+                        //{
+                        //    Back.Add(6);
+                        //    demback++;
+                        //}
+                        //else
+                        //{
+                        //    Back[demback] = 6;
+                        //    demback++;
+                        //}
+                        break;
+                    }
+                case 5:
+                    {
+                        treeView1.SelectedNode = treeView1.Nodes[2].Nodes[1];
                         //ShowWebsiteRule();
                         //if (demback >= Back.Count)
                         //{
@@ -713,6 +731,7 @@ namespace WinformsExample
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            
             BindingList<CustomerTimer> dataSource = GetDataSource();
             string TimeTodata, TimeFromdata, NameRule, Action, Description;
             int gio = DateTime.Now.Hour;

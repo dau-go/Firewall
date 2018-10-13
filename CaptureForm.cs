@@ -9,11 +9,15 @@ using System.Windows.Forms;
 using System.Collections;
 using SharpPcap;
 using PacketDotNet;
+using System.Data.SqlClient;
+using DTO;
+using DAO;
 
 namespace WinformsExample
 {
     public partial class CaptureForm : Form
     {
+        IPSourceDTO IP = new IPSourceDTO();
         /// <summary>
         /// When true the background thread will terminate
         /// </summary>
@@ -70,6 +74,7 @@ namespace WinformsExample
 
         private void CaptureForm_Load(object sender, EventArgs e)
         {
+            Loaddata();
             deviceListForm = new DeviceListForm();
             deviceListForm.OnItemSelected += new DeviceListForm.OnItemSelectedDelegate(deviceListForm_OnItemSelected);
             deviceListForm.OnCancel += new DeviceListForm.OnCancelDelegate(deviceListForm_OnCancel);
@@ -285,13 +290,68 @@ namespace WinformsExample
         {
             Shutdown();
         }
-
+        //int i = 0;
+        List<string> IPDes = new List<string>();
+        List<int> IDDes = new List<int>();
+        public void Loaddata()
+        {
+            DataTable dr = new DataTable();
+            dr = IPDestinationDAO.LoadDataIPDestination();
+            foreach (DataRow row in dr.Rows)
+            {
+                if (row["Action"].ToString() == "Theo dõi")
+                {
+                    if (row["IPDestination"].ToString().Contains(','))
+                    {
+                        string[] s = row["IPDestination"].ToString().Split(',');
+                        IPDes.Add("destination = " + s[0]);
+                        IDDes.Add(int.Parse(row["IDDestination"].ToString()));
+                        IPDes.Add("destination = " + s[1]);
+                        IDDes.Add(int.Parse(row["IDDestination"].ToString()));
+                    }
+                    else
+                    {
+                        IPDes.Add("destination = " + row["IPDestination"].ToString());
+                        IDDes.Add(int.Parse(row["IDDestination"].ToString()));
+                    }
+                }
+            }
+        }
+        string kt, kt1, kttime;
         private void dataGridView_SelectionChanged(object sender, EventArgs e)
         {
             if (dataGridView.SelectedCells.Count == 0) return;
             var packetWrapper = (PacketWrapper)dataGridView.Rows[dataGridView.SelectedCells[0].RowIndex].DataBoundItem;
             var packet = Packet.ParsePacket(packetWrapper.p.LinkLayerType, packetWrapper.p.Data);
-            packetInfoTextbox.Text = packet.ToString(StringOutputType.VerboseColored); 
+            packetInfoTextbox.Text = packet.ToString(StringOutputType.VerboseColored);
+            for (int i = 0; i < IPDes.Count; i++)
+            {
+                if (packetInfoTextbox.Text.Contains(IPDes[i]) == true)
+                {
+                    IP.ID = IDDes[i];
+                    IP.Month = DateTime.Now.Month;
+                    IP.IPDestination = IPDes[i].Split('=')[1].Split(' ')[1];
+                    int k = packetInfoTextbox.Text.IndexOf("IP:                  source =");
+                    int k1 = packetInfoTextbox.Text.IndexOf("IP:             destination =");
+                    IP.IPSource = packetInfoTextbox.Text.Substring(k, k1 - k).Split('=')[1].Split(' ')[1].Split('\n')[0];
+                    IP.Time = DateTime.Now.Hour.ToString();
+                    IP.Time = IP.Time + "h" + DateTime.Now.Minute.ToString();
+                    if (kt == IP.IPDestination && kt1 == IP.IPSource && kttime == IP.Time)
+                    {
+                        break;
+                    }
+                    kt = IP.IPDestination;
+                    kt1 = IP.IPSource;
+                    kttime = IP.Time;
+                    IPSourceDAO.AddIPSource(IP);
+                }
+            }
+            //if(packetInfoTextbox.Text.Contains("destination = 212.129.8.87") ==true)
+            //{
+            //    i++;
+            //    string s = i.ToString();
+            //    MessageBox.Show(s);
+            //}
         }
     }
 }

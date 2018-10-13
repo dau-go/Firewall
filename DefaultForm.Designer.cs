@@ -46,6 +46,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
+            this.linkLabel6 = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,8 +56,10 @@
             this.groupBox1.BackColor = System.Drawing.Color.White;
             this.groupBox1.Controls.Add(this.linkLabel4);
             this.groupBox1.Controls.Add(this.linkLabel2);
+            this.groupBox1.Controls.Add(this.linkLabel6);
             this.groupBox1.Controls.Add(this.linkLabel5);
             this.groupBox1.Controls.Add(this.linkLabel3);
+            this.groupBox1.Controls.Add(this.button6);
             this.groupBox1.Controls.Add(this.linkLabel1);
             this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.button4);
@@ -106,10 +110,10 @@
             this.linkLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.linkLabel5.Location = new System.Drawing.Point(120, 422);
             this.linkLabel5.Name = "linkLabel5";
-            this.linkLabel5.Size = new System.Drawing.Size(108, 13);
+            this.linkLabel5.Size = new System.Drawing.Size(114, 13);
             this.linkLabel5.TabIndex = 3;
             this.linkLabel5.TabStop = true;
-            this.linkLabel5.Text = "Website bloking rules";
+            this.linkLabel5.Text = "Website Bloking Rules";
             this.linkLabel5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel5_LinkClicked);
             // 
             // linkLabel3
@@ -208,8 +212,8 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(536, 33);
             this.label7.TabIndex = 1;
-            this.label7.Text = "Create firewall rules to allow or block links to specified sites at specified tim" +
-    "es. Helps you manage your web access in a time frame";
+            this.label7.Text = "Create a firewall rule to allow you to manage site access. Websites can be blocke" +
+    "d for a certain time period or track your visits.";
             // 
             // label5
             // 
@@ -259,6 +263,32 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "View and create user-created firewall rules";
             // 
+            // button6
+            // 
+            this.button6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button6.BackgroundImage")));
+            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Location = new System.Drawing.Point(89, 445);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(24, 23);
+            this.button6.TabIndex = 2;
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.linkLabel6_Click);
+            // 
+            // linkLabel6
+            // 
+            this.linkLabel6.AutoSize = true;
+            this.linkLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.linkLabel6.Location = new System.Drawing.Point(120, 450);
+            this.linkLabel6.Name = "linkLabel6";
+            this.linkLabel6.Size = new System.Drawing.Size(91, 13);
+            this.linkLabel6.TabIndex = 3;
+            this.linkLabel6.TabStop = true;
+            this.linkLabel6.Text = "Website Tracking";
+            this.linkLabel6.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel6_LinkClicked);
+            this.linkLabel6.Click += new System.EventHandler(this.linkLabel6_Click);
+            // 
             // DefaultForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -292,5 +322,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.LinkLabel linkLabel6;
+        private System.Windows.Forms.Button button6;
     }
 }

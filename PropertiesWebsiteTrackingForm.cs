@@ -21,6 +21,52 @@ namespace WinformsExample
         public PropertiesWebsiteTrackingForm()
         {
             InitializeComponent();
+            if (FirewallForm.Lang == 0)
+            {
+                ShowTiengViet();
+            }
+            else
+            {
+                ShowEnglish();
+            }
+        }
+        public void ShowTiengViet()
+        {
+            this.Text = "Thuộc Tính";
+            tabPage1.Text = "Thông Tin Chung";
+            tabPage2.Text = "Lịch Sử";
+            groupBox1.Text = "Thông Tin Chung";
+            groupBox2.Text = "Hành Động";
+            groupBox3.Text = "Lịch Sử";
+            label1.Text = "Tên:";
+            label3.Text = "IP Theo Dõi";
+            ckState.Text = "Bật";
+            rbAllow.Text = "Theo dõi";
+            rbBlock.Text = "Không theo dõi";
+            label5.Text = "Tháng hiện tại:";
+            btnApply.Text = "Áp dụng";
+            btnOK.Text = "Đồng Ý";
+            btnCancel.Text = "Hủy";
+            btnAllHistory.Text = "Tất cả lịch sử";
+        }
+        public void ShowEnglish()
+        {
+            this.Text = "Properties";
+            tabPage1.Text = "General Information";
+            tabPage2.Text = "History";
+            groupBox1.Text = "General Information";
+            groupBox2.Text = "Action";
+            groupBox3.Text = "History";
+            label1.Text = "Name:";
+            label3.Text = "IP Tracking";
+            ckState.Text = "On";
+            rbAllow.Text = "Tracking";
+            rbBlock.Text = "Don't tracking";
+            label5.Text = "This month:";
+            btnApply.Text = "Apply";
+            btnOK.Text = "Ok";
+            btnCancel.Text = "Cancel";
+            btnAllHistory.Text = "All History";
         }
         public void ShowData(IPDestinationDTO show)
         {
@@ -56,33 +102,22 @@ namespace WinformsExample
             }
             int month = DateTime.Now.Month;
             dataGridView1.DataSource = IPSourceDAO.LoadDataIPSource(show, month);
-            if (month == 1)
+            dataGridView1.Columns["IPSource"].Width = 200;
+            dataGridView1.Columns["Time"].Width = 145;
+            dataGridView1.Columns["IDSource"].Visible = false;
+            dataGridView1.Columns["IDDestination"].Visible = false;
+            dataGridView1.Columns["Month"].Visible = false;
+            dataGridView1.Columns["IPDestination"].Visible = false;
+            if (FirewallForm.Lang == 0)
             {
-                dataGridView2.DataSource = IPSourceDAO.LoadDataIPSource(show, 12);
-                dataGridView3.DataSource = IPSourceDAO.LoadDataIPSource(show, 1);
-            }
-            else if (month == 2)
-            {
-                dataGridView2.DataSource = IPSourceDAO.LoadDataIPSource(show, 1);
-                dataGridView3.DataSource = IPSourceDAO.LoadDataIPSource(show, 12);
+                dataGridView1.Columns["IPSource"].HeaderText = "IP Nguồn";
+                dataGridView1.Columns["Time"].HeaderText = "Thời Gian";
             }
             else
             {
-                dataGridView2.DataSource = IPSourceDAO.LoadDataIPSource(show, month - 1);
-                dataGridView3.DataSource = IPSourceDAO.LoadDataIPSource(show, month - 2);
+                dataGridView1.Columns["IPSource"].HeaderText = "IP Source";
+                dataGridView1.Columns["Time"].HeaderText = "Time";
             }
-            dataGridView1.Columns["IPSource"].Width = 144;
-            dataGridView2.Columns["IPSource"].Width = 144;
-            dataGridView3.Columns["IPSource"].Width = 144;
-            dataGridView1.Columns["ID"].Visible = false;
-            dataGridView2.Columns["ID"].Visible = false;
-            dataGridView3.Columns["ID"].Visible = false;
-            dataGridView1.Columns["Month"].Visible = false;
-            dataGridView2.Columns["Month"].Visible = false;
-            dataGridView3.Columns["Month"].Visible = false;
-            dataGridView1.Columns["IPDestination"].Visible = false;
-            dataGridView2.Columns["IPDestination"].Visible = false;
-            dataGridView3.Columns["IPDestination"].Visible = false;
         }
 
         private void ckState_CheckedChanged(object sender, EventArgs e)
@@ -157,7 +192,7 @@ namespace WinformsExample
             {
                 IP.State = "Off";
             }
-            if(rbAllow.Checked==true)
+            if (rbAllow.Checked == true)
             {
                 IP.Action = "Theo dõi";
             }
@@ -168,6 +203,11 @@ namespace WinformsExample
             IPDestinationDAO.EditIPDestination(IP);
             sen();
             btnApply.Enabled = false;
+        }
+
+        private void btnAllHistory_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
