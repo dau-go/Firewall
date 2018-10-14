@@ -41,6 +41,7 @@ namespace WinformsExample
         }
         public void ShowTiengViet()
         {
+            this.Text = "Quản Lý Máy Tính";
             textBox1.Init("Tên máy");
             textBox2.Init("Địa chỉ IP");
             dataGridView1.Columns["Name"].HeaderText = "Tên Máy";
@@ -50,6 +51,7 @@ namespace WinformsExample
         }
         public void ShowEnglish()
         {
+            this.Text = "Computer Manager";
             textBox1.Init("Name Computer");
             textBox2.Init("IP Address");
             dataGridView1.Columns["Name"].HeaderText = "Name Computer";

@@ -115,7 +115,7 @@ namespace WinformsExample
             treeView1.Nodes["Default"].Nodes["InboundDefault"].Text = "Quy Tắc Vào";
             treeView1.Nodes["User"].Nodes["OutboundUser"].Text = "Quy Tắc Ra";
             treeView1.Nodes["Default"].Nodes["OutboundDefault"].Text = "Quy Tắc Ra";
-            treeView1.Nodes["Web"].Text = "Quản Lý Trang Web";
+            treeView1.Nodes["Web"].Text = "Giám Sát Mạng";
             treeView1.Nodes["Web"].Nodes["BlockingWeb"].Text = "Quy Tắc Chặn Trang Web";
             treeView1.Nodes["Web"].Nodes["WebsiteTracking"].Text = "Theo Dõi Trang Web";
             FileDefault.Text = "Quy Tắc Mặc Định Của Windows";
@@ -164,7 +164,7 @@ namespace WinformsExample
             treeView1.Nodes["Default"].Nodes["InboundDefault"].Text = "Inbound Rules";
             treeView1.Nodes["User"].Nodes["OutboundUser"].Text = "Outbound Rules";
             treeView1.Nodes["Default"].Nodes["OutboundDefault"].Text = "Outbound Rules";
-            treeView1.Nodes["Web"].Text = "Website Management";
+            treeView1.Nodes["Web"].Text = "Network Monitoring";
             treeView1.Nodes["Web"].Nodes["BlockingWeb"].Text = "Website Blocking Rules";
             treeView1.Nodes["Web"].Nodes["WebsiteTracking"].Text = "Website Tracking";
             FileDefault.Text = "The Default Rule Of The Windows";
