@@ -57,9 +57,7 @@
             this.FileWeb = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.Exit = new System.Windows.Forms.ToolStripMenuItem();
-            this.actionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuadd = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Filterprofile = new System.Windows.Forms.ToolStripMenuItem();
             this.ShowAllProfile = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -77,8 +75,6 @@
             this.Allow = new System.Windows.Forms.ToolStripMenuItem();
             this.Block = new System.Windows.Forms.ToolStripMenuItem();
             this.Clear = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.menuRefresh = new System.Windows.Forms.ToolStripMenuItem();
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Language = new System.Windows.Forms.ToolStripMenuItem();
             this.Tiengviet = new System.Windows.Forms.ToolStripMenuItem();
@@ -97,6 +93,11 @@
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.actionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuRefresh = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.menuComputer = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -108,6 +109,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fireToolStripMenuItem,
             this.actionToolStripMenuItem,
+            this.toolToolStripMenuItem,
             this.viewToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -202,33 +204,16 @@
             this.Exit.Text = "Exit";
             this.Exit.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // actionToolStripMenuItem
+            // toolToolStripMenuItem
             // 
-            this.actionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuadd,
-            this.toolStripSeparator1,
+            this.toolToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Filterprofile,
             this.FilterState,
             this.FilterAction,
-            this.Clear,
-            this.toolStripSeparator2,
-            this.menuRefresh});
-            this.actionToolStripMenuItem.Name = "actionToolStripMenuItem";
-            this.actionToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.actionToolStripMenuItem.Text = "Action";
-            // 
-            // menuadd
-            // 
-            this.menuadd.Image = global::WinformsExample.Properties.Resources.icons8_plus_24__1_;
-            this.menuadd.Name = "menuadd";
-            this.menuadd.Size = new System.Drawing.Size(154, 22);
-            this.menuadd.Text = "Add Rules";
-            this.menuadd.Click += new System.EventHandler(this.menuadd_Click_1);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(151, 6);
+            this.Clear});
+            this.toolToolStripMenuItem.Name = "toolToolStripMenuItem";
+            this.toolToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.toolToolStripMenuItem.Text = "Tools";
             // 
             // Filterprofile
             // 
@@ -304,9 +289,9 @@
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(161, 6);
             // 
-            // Enabled
+            // Enable
             // 
-            this.Enable.Name = "Enabled";
+            this.Enable.Name = "Enable";
             this.Enable.Size = new System.Drawing.Size(164, 22);
             this.Enable.Text = "Filter By Enabled";
             this.Enable.Click += new System.EventHandler(this.Enabled_Click);
@@ -367,19 +352,6 @@
             this.Clear.Visible = false;
             this.Clear.Click += new System.EventHandler(this.Clear_Click);
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(151, 6);
-            // 
-            // menuRefresh
-            // 
-            this.menuRefresh.Image = global::WinformsExample.Properties.Resources.icons8_refresh_32;
-            this.menuRefresh.Name = "menuRefresh";
-            this.menuRefresh.Size = new System.Drawing.Size(154, 22);
-            this.menuRefresh.Text = "Refresh";
-            this.menuRefresh.Click += new System.EventHandler(this.menuRefresh_Click);
-            // 
             // viewToolStripMenuItem
             // 
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -394,7 +366,7 @@
             this.Tiengviet,
             this.English});
             this.Language.Name = "Language";
-            this.Language.Size = new System.Drawing.Size(126, 22);
+            this.Language.Size = new System.Drawing.Size(152, 22);
             this.Language.Text = "Language";
             // 
             // Tiengviet
@@ -593,6 +565,43 @@
             this.timer1.Interval = 60000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // actionToolStripMenuItem
+            // 
+            this.actionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuAdd,
+            this.menuRefresh,
+            this.toolStripSeparator1,
+            this.menuComputer});
+            this.actionToolStripMenuItem.Name = "actionToolStripMenuItem";
+            this.actionToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.actionToolStripMenuItem.Text = "Action";
+            // 
+            // menuAdd
+            // 
+            this.menuAdd.Name = "menuAdd";
+            this.menuAdd.Size = new System.Drawing.Size(202, 22);
+            this.menuAdd.Text = "Add Rules";
+            this.menuAdd.Click += new System.EventHandler(this.menuAdd_Click);
+            // 
+            // menuRefresh
+            // 
+            this.menuRefresh.Name = "menuRefresh";
+            this.menuRefresh.Size = new System.Drawing.Size(202, 22);
+            this.menuRefresh.Text = "Refresh";
+            this.menuRefresh.Click += new System.EventHandler(this.menuRefresh_Click_1);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(199, 6);
+            // 
+            // menuComputer
+            // 
+            this.menuComputer.Name = "menuComputer";
+            this.menuComputer.Size = new System.Drawing.Size(202, 22);
+            this.menuComputer.Text = "Computer Management";
+            this.menuComputer.Click += new System.EventHandler(this.menuComputer_Click);
+            // 
             // FirewallForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -621,7 +630,7 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fireToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem actionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -638,8 +647,6 @@
         private System.Windows.Forms.TabPage tab;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolStripMenuItem Exit;
-        private System.Windows.Forms.ToolStripMenuItem menuadd;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem Filterprofile;
         private System.Windows.Forms.ToolStripMenuItem ShowAllProfile;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
@@ -656,8 +663,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem Allow;
         private System.Windows.Forms.ToolStripMenuItem Block;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem menuRefresh;
         private System.Windows.Forms.ToolStripMenuItem Language;
         private System.Windows.Forms.ToolStripMenuItem Tiengviet;
         private System.Windows.Forms.ToolStripMenuItem English;
@@ -671,5 +676,10 @@
         private System.Windows.Forms.ToolStripMenuItem FileInboundDefault;
         private System.Windows.Forms.ToolStripMenuItem FileOutboundDefault;
         private System.Windows.Forms.ToolStripMenuItem Introduce;
+        private System.Windows.Forms.ToolStripMenuItem actionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuAdd;
+        private System.Windows.Forms.ToolStripMenuItem menuRefresh;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem menuComputer;
     }
 }

@@ -40,9 +40,9 @@ namespace WinformsExample
             dataGridView1.Columns["IDDestination"].Visible = false;
             dataGridView1.Columns["Statebool"].HeaderText = "";
             dataGridView1.Columns["Statebool"].Width = 20;
-            dataGridView1.Columns["Name"].Width = 250;
-            dataGridView1.Columns["Action"].Width = 85;
-            dataGridView1.Columns["IPDestination"].Width = 150;
+            dataGridView1.Columns["Name"].Width = 370;
+            dataGridView1.Columns["Action"].Width = 150;
+            dataGridView1.Columns["IPDestination"].Width = 494;
         }
         public void ShowTiengViet()
         {
@@ -52,11 +52,30 @@ namespace WinformsExample
             dataGridView1.Columns["IPDestination"].HeaderText = "IP Đích";
             menuDisable.Text = "Tắt";
             menuEnable.Text = "Bật";
-            menuAllow.Text = "Theo dõi";
-            menuBlock.Text = "Ngừng theo dõi";
-            menuAdd.Text = "Thêm mới quy tắc";
-            menuDel.Text = "Xóa quy tắc";
+            menuAllow.Text = "Theo Dõi";
+            menuBlock.Text = "Ngừng Theo Dõi";
+            menuAdd.Text = "Thêm Mới Quy Tắc";
+            menuDel.Text = "Xóa Quy Tắc";
             menuProperties.Text = "Thuộc Tính";
+            for (int i = 0; i < dataGridView1.RowCount; i++)
+            {
+                if (dataGridView1.Rows[i].Cells["State"].Value.ToString() == "On")
+                {
+                    dataGridView1.Rows[i].Cells["State"].Value = "Bật";
+                }
+                if (dataGridView1.Rows[i].Cells["State"].Value.ToString() == "Off")
+                {
+                    dataGridView1.Rows[i].Cells["State"].Value = "Tắt";
+                }
+                if (dataGridView1.Rows[i].Cells["Action"].Value.ToString() == "Tracking")
+                {
+                    dataGridView1.Rows[i].Cells["Action"].Value = "Theo Dõi";
+                }
+                if (dataGridView1.Rows[i].Cells["Action"].Value.ToString() == "Don't Tracking")
+                {
+                    dataGridView1.Rows[i].Cells["Action"].Value = "Không Theo Dõi";
+                }
+            }
         }
         public void ShowEnglish()
         {
@@ -67,10 +86,29 @@ namespace WinformsExample
             menuDisable.Text = "Turn Off";
             menuEnable.Text = "Turn On";
             menuAllow.Text = "Tracking";
-            menuBlock.Text = "Stop tracking";
+            menuBlock.Text = "Stop Tracking";
             menuAdd.Text = "Add New Rule";
             menuDel.Text = "Delete Rule";
             menuProperties.Text = "Properties";
+            for (int i = 0; i < dataGridView1.RowCount; i++)
+            {
+                if (dataGridView1.Rows[i].Cells["State"].Value.ToString() == "Bật")
+                {
+                    dataGridView1.Rows[i].Cells["State"].Value = "On";
+                }
+                if (dataGridView1.Rows[i].Cells["State"].Value.ToString() == "Tắt")
+                {
+                    dataGridView1.Rows[i].Cells["State"].Value = "Off";
+                }
+                if (dataGridView1.Rows[i].Cells["Action"].Value.ToString() == "Theo Dõi")
+                {
+                    dataGridView1.Rows[i].Cells["Action"].Value = "Tracking";
+                }
+                if (dataGridView1.Rows[i].Cells["Action"].Value.ToString() == "Không Theo Dõi")
+                {
+                    dataGridView1.Rows[i].Cells["Action"].Value = "Don't Tracking";
+                }
+            }
         }
 
         public void Getdata()
@@ -115,6 +153,14 @@ namespace WinformsExample
         {
             int d = 0;
             dataGridView1.DataSource = IPDestinationDAO.LoadDataIPDestination();
+            if (FirewallForm.Lang == 0)
+            {
+                ShowTiengViet();
+            }
+            else
+            {
+                ShowEnglish();
+            }
             dataGridView1.ClearSelection();
             for (int i = 0; i < dataGridView1.RowCount; i++)
             {
@@ -187,7 +233,7 @@ namespace WinformsExample
                         toolStripSeparator3.Visible = false;
                         for (int j = 0; j < Detail.Count; j++)
                         {
-                            if (Detail[j].State == "On")
+                            if (Detail[j].State == "On" || Detail[j].State == "Bật")
                             {
                                 menuDisable.Visible = true;
                             }
@@ -195,7 +241,7 @@ namespace WinformsExample
                             {
                                 menuEnable.Visible = true;
                             }
-                            if (Detail[j].Action == "Theo dõi")
+                            if (Detail[j].Action == "Theo Dõi" || Detail[j].Action == "Tracking")
                             {
                                 menuBlock.Visible = true;
                             }
@@ -216,7 +262,7 @@ namespace WinformsExample
             e.ContextMenuStrip = contextMenuStrip1;
             Detail = GetDataDel();
             menuProperties.Visible = true;
-            if (Detail[0].State == "On")
+            if (Detail[0].State == "On" || Detail[0].State == "Bật")
             {
                 menuDisable.Visible = true;
                 menuEnable.Visible = false;
@@ -226,7 +272,7 @@ namespace WinformsExample
                 menuDisable.Visible = false;
                 menuEnable.Visible = true;
             }
-            if (Detail[0].Action == "Theo dõi")
+            if (Detail[0].Action == "Theo Dõi" || Detail[0].Action == "Tracking")
             {
                 menuAllow.Visible = false;
                 menuBlock.Visible = true;
@@ -248,7 +294,6 @@ namespace WinformsExample
             {
                 IP.ID = Detail[i].IDDestination;
                 IP.Statebool = Detail[i].Statebool;
-                IP.State = Detail[i].State;
                 IP.Action = Detail[i].Action;
                 IP.Statebool = false;
                 IP.State = "Off";
@@ -263,7 +308,6 @@ namespace WinformsExample
             {
                 IP.ID = Detail[i].IDDestination;
                 IP.Statebool = Detail[i].Statebool;
-                IP.State = Detail[i].State;
                 IP.Action = Detail[i].Action;
                 IP.Statebool = true;
                 IP.State = "On";
@@ -278,9 +322,15 @@ namespace WinformsExample
             {
                 IP.ID = Detail[i].IDDestination;
                 IP.Statebool = Detail[i].Statebool;
-                IP.State = Detail[i].State;
-                IP.Action = Detail[i].Action;
-                IP.Action = "Không theo dõi";
+                if(Detail[i].State=="Bật")
+                {
+                    IP.State = "On";
+                }
+                if (Detail[i].State == "Tắt")
+                {
+                    IP.State = "Off";
+                }
+                IP.Action = "Không Theo Dõi";
                 IPDestinationDAO.EditIPDestination(IP);
                 Reload();
             }
@@ -292,9 +342,15 @@ namespace WinformsExample
             {
                 IP.ID = Detail[i].IDDestination;
                 IP.Statebool = Detail[i].Statebool;
-                IP.State = Detail[i].State;
-                IP.Action = Detail[i].Action;
-                IP.Action = "Theo dõi";
+                if (Detail[i].State == "Bật")
+                {
+                    IP.State = "On";
+                }
+                if (Detail[i].State == "Tắt")
+                {
+                    IP.State = "Off";
+                }
+                IP.Action = "Theo Dõi";
                 IPDestinationDAO.EditIPDestination(IP);
                 Reload();
             }
@@ -315,6 +371,14 @@ namespace WinformsExample
                 Delete();
             }
             dataGridView1.DataSource = IPDestinationDAO.LoadDataIPDestination();
+            if (FirewallForm.Lang == 0)
+            {
+                ShowTiengViet();
+            }
+            else
+            {
+                ShowEnglish();
+            }
         }
 
         private void menuProperties_Click(object sender, EventArgs e)

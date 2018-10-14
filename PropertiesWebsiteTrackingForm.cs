@@ -100,17 +100,12 @@ namespace WinformsExample
             {
                 rbBlock.Checked = true;
             }
-            dataGridView1.DataSource = IPSourceDAO.LoadDataIPSource(show, DateTime.Now.Month, DateTime.Now.Year);
-            dataGridView1.Columns["IPSource"].Width = 145;
-            dataGridView1.Columns["Time"].Width = 100;
-            dataGridView1.Columns["IDSource"].Visible = false;
-            dataGridView1.Columns["IDDestination"].Visible = false;
-            dataGridView1.Columns["Month"].Visible = false;
-            dataGridView1.Columns["IPDestination"].Visible = false;
-            dataGridView1.Columns["Year"].Visible = false;
+            Detail = Getdata();
+            dataGridView1.DataSource = Detail;
             if (FirewallForm.Lang == 0)
             {
                 label5.Text = "Tháng hiện tại: " + DateTime.Now.Month;
+                dataGridView1.Columns["Name"].HeaderText = "Tên Máy";
                 dataGridView1.Columns["Day"].HeaderText = "Ngày";
                 dataGridView1.Columns["IPSource"].HeaderText = "IP Nguồn";
                 dataGridView1.Columns["Time"].HeaderText = "Thời Gian";
@@ -118,10 +113,46 @@ namespace WinformsExample
             else
             {
                 label5.Text = "This month: " + DateTime.Now.Month;
+                dataGridView1.Columns["Name"].HeaderText = "Name Computer";
                 dataGridView1.Columns["Day"].HeaderText = "Day";
                 dataGridView1.Columns["IPSource"].HeaderText = "IP Source";
                 dataGridView1.Columns["Time"].HeaderText = "Time";
             }
+        }
+        BindingList<Customer> Detail;
+        public BindingList<Customer> Getdata()
+        {
+            BindingList<Customer> result = new BindingList<Customer>();
+            DataTable dt =IPSourceDAO.LoadDataIPSource(IP, DateTime.Now.Month, DateTime.Now.Year);
+            DataTable dt1 = ComputerDAO.LoadData();
+            DataRow[] re = dt.Select("");
+            DataRow[] re1 = dt1.Select("");
+            foreach (DataRow row in re)
+            {
+                foreach (DataRow row1 in re1)
+                {
+                    string s = "";
+                    if (row["IPSource"].ToString() == row1["IP"].ToString())
+                    {
+                        s = row1["Name"].ToString();
+                    }
+                    result.Add(new Customer()
+                    {
+                        Name = s,
+                        Day = row["Day"].ToString(),
+                        IPSource = row["IPSource"].ToString(),
+                        Time = row["Time"].ToString(),
+                    });
+                }
+            }
+            return result;
+        }
+        public class Customer
+        {
+            public string Name { get; set; }
+            public string Day { get; set; }
+            public string IPSource { get; set; }
+            public string Time { get; set; }
         }
 
         private void ckState_CheckedChanged(object sender, EventArgs e)

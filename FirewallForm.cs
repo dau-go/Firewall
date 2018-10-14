@@ -88,10 +88,11 @@ namespace WinformsExample
             toolTip1.SetToolTip(btnDel, "Xóa Quy Tắc");
             fireToolStripMenuItem.Text = "Tệp Tin";
             actionToolStripMenuItem.Text = "Hoạt Động";
+            toolToolStripMenuItem.Text = "Công Cụ";
             viewToolStripMenuItem.Text = "Hiển Thị";
             helpToolStripMenuItem.Text = "Trợ Giúp";
             Exit.Text = "Thoát";
-            menuadd.Text = "Thêm Quy Tắc";
+            menuAdd.Text = "Thêm Quy Tắc";
             Filterprofile.Text = "Lọc Theo Hồ Sơ";
             ShowAllProfile.Text = "Hiển Thị Tất cả";
             Domain.Text = "Lọc Theo Hồ Sơ Tên Miền";
@@ -106,6 +107,7 @@ namespace WinformsExample
             Allow.Text = "Lọc Theo Cho Phép";
             Block.Text = "Lọc Theo Không Cho Phép";
             menuRefresh.Text = "Làm mới";
+            menuComputer.Text = "Quản Lý Máy Tính";
             Language.Text = "Ngôn Ngữ";
             treeView1.Nodes["User"].Text = "Quy Tắc Được Tạo Bởi Người Dùng";
             treeView1.Nodes["Default"].Text = "Quy Tắc Mặc Định Của Windows";
@@ -135,10 +137,11 @@ namespace WinformsExample
             toolTip1.SetToolTip(btnDel, "Delete Rule");
             fireToolStripMenuItem.Text = "File";
             actionToolStripMenuItem.Text = "Action";
+            toolToolStripMenuItem.Text = "Tools";
             viewToolStripMenuItem.Text = "View";
             helpToolStripMenuItem.Text = "Help";
             Exit.Text = "Exit";
-            menuadd.Text = "Add Rule";
+            menuAdd.Text = "Add Rule";
             Filterprofile.Text = "Filter By Profile";
             ShowAllProfile.Text = "Show All";
             Domain.Text = "Filter By Domain Profile";
@@ -153,6 +156,7 @@ namespace WinformsExample
             Allow.Text = "Filter By Allow";
             Block.Text = "Filter By Block";
             menuRefresh.Text = "Refresh";
+            menuComputer.Text = "Computer Management";
             Language.Text = "Language";
             treeView1.Nodes["User"].Text = "Rules Created By The User";
             treeView1.Nodes["Default"].Text = "The Default Rule Of The Windows";
@@ -206,7 +210,7 @@ namespace WinformsExample
             btnReload.BackgroundImage = Properties.Resources.icons8_refresh_32__1_;
             btnDel.Enabled = false;
             btnDel.BackgroundImage = Properties.Resources.icons8_trash_24__1_;
-            actionToolStripMenuItem.Enabled = false;
+            toolToolStripMenuItem.Enabled = false;
             FileUser.Checked = true;
             FileDefault.Checked = false;
             FileWeb.Checked = false;
@@ -214,6 +218,8 @@ namespace WinformsExample
             FileInboundUser.Checked = false;
             FileOutboundDefault.Checked = false;
             FileOutboundUser.Checked = false;
+            menuAdd.Enabled = false;
+            menuRefresh.Enabled = false;
         }
         public void Show(int i)
         {
@@ -392,7 +398,7 @@ namespace WinformsExample
             tab.Controls.Add(f1);
             f1.Visible = true;
             Showview();
-            actionToolStripMenuItem.Enabled = true;
+            toolToolStripMenuItem.Enabled = true;
             FileUser.Checked = true;
             FileDefault.Checked = false;
             FileWeb.Checked = false;
@@ -401,6 +407,8 @@ namespace WinformsExample
             FileOutboundDefault.Checked = false;
             FileOutboundUser.Checked = false;
             Filterprofile.Visible = true;
+            menuAdd.Enabled = true;
+            menuRefresh.Enabled = true;
         }
         public void ShowOutboundUser()
         {
@@ -424,7 +432,7 @@ namespace WinformsExample
             tab.Controls.Add(f2);
             f2.Visible = true;
             Showview();
-            actionToolStripMenuItem.Enabled = true;
+            toolToolStripMenuItem.Enabled = true;
             FileUser.Checked = true;
             FileDefault.Checked = false;
             FileWeb.Checked = false;
@@ -433,6 +441,8 @@ namespace WinformsExample
             FileOutboundDefault.Checked = false;
             FileOutboundUser.Checked = true;
             Filterprofile.Visible = true;
+            menuAdd.Enabled = true;
+            menuRefresh.Enabled = true;
         }
         public void ShowInboundDefault()
         {
@@ -456,7 +466,7 @@ namespace WinformsExample
             tab.Controls.Add(f3);
             f3.Visible = true;
             Showview();
-            actionToolStripMenuItem.Enabled = true;
+            toolToolStripMenuItem.Enabled = true;
             FileUser.Checked = false;
             FileDefault.Checked = true;
             FileWeb.Checked = false;
@@ -465,6 +475,8 @@ namespace WinformsExample
             FileOutboundDefault.Checked = false;
             FileOutboundUser.Checked = false;
             Filterprofile.Visible = true;
+            menuAdd.Enabled = true;
+            menuRefresh.Enabled = true;
         }
         public void ShowOutboundDefault()
         {
@@ -488,7 +500,7 @@ namespace WinformsExample
             tab.Controls.Add(f4);
             f4.Visible = true;
             Showview();
-            actionToolStripMenuItem.Enabled = true;
+            toolToolStripMenuItem.Enabled = true;
             FileUser.Checked = false;
             FileDefault.Checked = true;
             FileWeb.Checked = false;
@@ -497,6 +509,8 @@ namespace WinformsExample
             FileOutboundDefault.Checked = true;
             FileOutboundUser.Checked = false;
             Filterprofile.Visible = true;
+            menuAdd.Enabled = true;
+            menuRefresh.Enabled = true;
         }
         public void ShowBlockingWebsiteRule()
         {
@@ -519,7 +533,7 @@ namespace WinformsExample
             tab.Controls.Add(f5);
             f5.Visible = true;
             Showview();
-            actionToolStripMenuItem.Enabled = true;
+            toolToolStripMenuItem.Enabled = true;
             Filterprofile.Visible = false;
             FileUser.Checked = false;
             FileDefault.Checked = false;
@@ -528,6 +542,8 @@ namespace WinformsExample
             FileInboundUser.Checked = false;
             FileOutboundDefault.Checked = false;
             FileOutboundUser.Checked = false;
+            menuAdd.Enabled = true;
+            menuRefresh.Enabled = true;
         }
         public void ShowWebsiteTracking()
         {
@@ -550,7 +566,7 @@ namespace WinformsExample
             tab.Controls.Add(f7);
             f7.Visible = true;
             Showview();
-            actionToolStripMenuItem.Enabled = true;
+            toolToolStripMenuItem.Enabled = true;
             Filterprofile.Visible = false;
             FileUser.Checked = false;
             FileDefault.Checked = false;
@@ -559,6 +575,8 @@ namespace WinformsExample
             FileInboundUser.Checked = false;
             FileOutboundDefault.Checked = false;
             FileOutboundUser.Checked = false;
+            menuAdd.Enabled = true;
+            menuRefresh.Enabled = true;
         }
         public void ShowButon()
         {
@@ -1073,8 +1091,8 @@ namespace WinformsExample
             Filterprofile.Image = Properties.Resources.icons8_filter_filled_50__1_;
             Reload();
         }
-
-        private void menuadd_Click_1(object sender, EventArgs e)
+        
+        private void menuAdd_Click(object sender, EventArgs e)
         {
             AddRuleForm.kt = kt;
             if (kt != 2)
@@ -1259,8 +1277,7 @@ namespace WinformsExample
             FilterAction.Image = Properties.Resources.icons8_filter_filled_50__1_;
             Reload();
         }
-
-        private void menuRefresh_Click(object sender, EventArgs e)
+        private void menuRefresh_Click_1(object sender, EventArgs e)
         {
             Reload();
         }
@@ -1316,6 +1333,12 @@ namespace WinformsExample
         private void FirewallForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             f6.Close();
+        }
+
+        private void menuComputer_Click(object sender, EventArgs e)
+        {
+            ComputerForm f8 = new ComputerForm();
+            f8.ShowDialog();
         }
 
         private void Introduce_Click(object sender, EventArgs e)

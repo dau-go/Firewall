@@ -124,3 +124,4 @@ C:\Users\daugo\Documents\GitHub\Firewall\bin\Debug\DTO.pdb
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.AddWebsiteTrackingForm.resources
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.PropertiesWebsiteTrackingForm.resources
 C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.HistoryForm.resources
+C:\Users\daugo\Documents\GitHub\Firewall\obj\Debug\WinformsExample.ComputerForm.resources

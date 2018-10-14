@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComputerDTO.cs" />
     <Compile Include="IPSourceDTO.cs" />
     <Compile Include="IPDestinationDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
