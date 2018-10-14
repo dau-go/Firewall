@@ -329,13 +329,22 @@ namespace WinformsExample
                 if (packetInfoTextbox.Text.Contains(IPDes[i]) == true)
                 {
                     IP.ID = IDDes[i];
+                    IP.Day = DateTime.Now.Day.ToString();
                     IP.Month = DateTime.Now.Month;
+                    IP.Year = DateTime.Now.Year;
                     IP.IPDestination = IPDes[i].Split('=')[1].Split(' ')[1];
                     int k = packetInfoTextbox.Text.IndexOf("IP:                  source =");
                     int k1 = packetInfoTextbox.Text.IndexOf("IP:             destination =");
                     IP.IPSource = packetInfoTextbox.Text.Substring(k, k1 - k).Split('=')[1].Split(' ')[1].Split('\n')[0];
                     IP.Time = DateTime.Now.Hour.ToString();
-                    IP.Time = IP.Time + "h" + DateTime.Now.Minute.ToString();
+                    if (DateTime.Now.Minute < 10)
+                    {
+                        IP.Time = IP.Time + "h0" + DateTime.Now.Minute.ToString();
+                    }
+                    else
+                    {
+                        IP.Time = IP.Time + "h" + DateTime.Now.Minute.ToString();
+                    }
                     if (kt == IP.IPDestination && kt1 == IP.IPSource && kttime == IP.Time)
                     {
                         break;

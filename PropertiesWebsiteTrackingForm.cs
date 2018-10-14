@@ -100,21 +100,25 @@ namespace WinformsExample
             {
                 rbBlock.Checked = true;
             }
-            int month = DateTime.Now.Month;
-            dataGridView1.DataSource = IPSourceDAO.LoadDataIPSource(show, month);
-            dataGridView1.Columns["IPSource"].Width = 200;
-            dataGridView1.Columns["Time"].Width = 145;
+            dataGridView1.DataSource = IPSourceDAO.LoadDataIPSource(show, DateTime.Now.Month, DateTime.Now.Year);
+            dataGridView1.Columns["IPSource"].Width = 145;
+            dataGridView1.Columns["Time"].Width = 100;
             dataGridView1.Columns["IDSource"].Visible = false;
             dataGridView1.Columns["IDDestination"].Visible = false;
             dataGridView1.Columns["Month"].Visible = false;
             dataGridView1.Columns["IPDestination"].Visible = false;
+            dataGridView1.Columns["Year"].Visible = false;
             if (FirewallForm.Lang == 0)
             {
+                label5.Text = "Tháng hiện tại: " + DateTime.Now.Month;
+                dataGridView1.Columns["Day"].HeaderText = "Ngày";
                 dataGridView1.Columns["IPSource"].HeaderText = "IP Nguồn";
                 dataGridView1.Columns["Time"].HeaderText = "Thời Gian";
             }
             else
             {
+                label5.Text = "This month: " + DateTime.Now.Month;
+                dataGridView1.Columns["Day"].HeaderText = "Day";
                 dataGridView1.Columns["IPSource"].HeaderText = "IP Source";
                 dataGridView1.Columns["Time"].HeaderText = "Time";
             }
@@ -207,7 +211,9 @@ namespace WinformsExample
 
         private void btnAllHistory_Click(object sender, EventArgs e)
         {
-
+            HistoryForm f = new HistoryForm();
+            f.Loaddata(IP.ID);
+            f.ShowDialog();
         }
     }
 }

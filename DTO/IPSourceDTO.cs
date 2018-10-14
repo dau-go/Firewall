@@ -15,12 +15,26 @@ namespace DTO
             get { return _ID; }
             set { _ID = value; }
         }
+        private string _Day;
+
+        public string Day
+        {
+            get { return _Day; }
+            set { _Day = value; }
+        }
         private int _Month;
 
         public int Month
         {
             get { return _Month; }
             set { _Month = value; }
+        }
+        private int _Year;
+
+        public int Year
+        {
+            get { return _Year; }
+            set { _Year = value; }
         }
         private string _IPSource;
 
